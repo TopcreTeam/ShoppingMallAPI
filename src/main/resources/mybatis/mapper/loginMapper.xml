@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="shop.app.kim.login.service.LoginMapper">
-	<resultMap type="shop.app.kim.login.model.User" id="userResultMap">
+<mapper namespace="shop.kim.login.service.LoginMapper">
+	<resultMap type="User" id="userResultMap">
 		<result property="uid" column="U_ID" />
 		<result property="upw" column="U_PW" />
 		<result property="uname" column="U_NAME" />
@@ -19,7 +19,7 @@
 	<select id="logincheck">
 		SELECT * FROM TM_USER WHERE U_ID=#{uid}
 	</select>
-	<select id="getUser" resultType="shop.app.kim.login.model.User">
+	<select id="getUser" resultType="User">
 		select * from tm_user
 	</select>
 </mapper>

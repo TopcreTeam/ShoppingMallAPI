@@ -1,9 +1,9 @@
-package shop.app.kim.login.service;
+package shop.kim.login.service;
 
 import org.apache.ibatis.annotations.Mapper;
 
-import shop.app.kim.login.model.User;
-import shop.app.kim.login.model.Values;
+import shop.kim.login.model.User;
+import shop.kim.login.model.Values;
 
 @Mapper
 public interface LoginMapper {

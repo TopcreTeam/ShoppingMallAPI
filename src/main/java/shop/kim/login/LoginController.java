@@ -1,4 +1,4 @@
-package shop.app.kim.login;
+package shop.kim.login;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -7,9 +7,9 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import shop.app.kim.login.model.User;
-import shop.app.kim.login.model.Values;
-import shop.app.kim.login.service.LoginService;
+import shop.kim.login.model.User;
+import shop.kim.login.model.Values;
+import shop.kim.login.service.LoginService;
 
 
 //@RequestMapping("/toma/login")

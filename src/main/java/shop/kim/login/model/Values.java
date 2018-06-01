@@ -1,4 +1,4 @@
-package shop.app.kim.login.model;
+package shop.kim.login.model;
 
 public class Values {
 	private String uid;
