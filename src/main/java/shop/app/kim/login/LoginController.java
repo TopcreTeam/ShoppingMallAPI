@@ -25,7 +25,7 @@ public class LoginController {
 		
 		return result;
 	}
-	@GetMapping("/user/user/user")
+	@GetMapping("/user/list")
 	public User getUser() {
 		System.out.println(loginService.getUser());
 		return null;
