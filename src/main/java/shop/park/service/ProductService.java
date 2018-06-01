@@ -9,7 +9,7 @@ import shop.park.model.Products;
 
 @Service
 public interface ProductService {
-	List<Products> findAllProducts() throws ProductNotFoundException;
-	List<Products> findByKind(String kind) throws ProductNotFoundException;
-	Products findByProductCode(String productCode) throws ProductNotFoundException;
+	List<Products> selectAllProducts() throws ProductNotFoundException;
+	List<Products> selectByKind(String kind) throws ProductNotFoundException;
+	Products selectByProduct(String productCode) throws ProductNotFoundException;
 }

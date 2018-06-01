@@ -29,26 +29,25 @@ public class MainController {
 	public List<Products> listAllProducts() throws ProductNotFoundException {
 		log.info("Select All Products");
 		
-		List<Products> products = productService.findAllProducts();
-//		
+		List<Products> products = productService.selectAllProducts();
+		
 		return products;
-//		return null;
 	}
 	
 	@RequestMapping(value = "/product/{p_kind}", method = RequestMethod.GET)
-	public List<Products> getByProductsKind(@PathVariable("p_kind") String productKind) throws ProductNotFoundException {
-		log.info("Select Product by p_kind");
+	public List<Products> getByProductsKind(@PathVariable("p_kind") String p_kind) throws ProductNotFoundException {
+		log.info("Select Products by p_kind");
 		
-		List<Products> products = productService.findByKind(productKind);
+		List<Products> products = productService.selectByKind(p_kind);
 		
 		return products;
 	}
 	
 	@RequestMapping(value = "/detail/product/{p_code}", method = RequestMethod.GET)
-	public Products getByProductsCode(@PathVariable("p_code") String productCode) throws ProductNotFoundException {
+	public Products getByProductsCode(@PathVariable("p_code") String p_code) throws ProductNotFoundException {
 		log.info("Select Product by p_code");
 		
-		Products product = productService.findByProductCode(productCode);
+		Products product = productService.selectByProduct(p_code);
 		
 		return product;
 	}
