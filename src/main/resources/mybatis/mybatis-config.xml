@@ -8,10 +8,15 @@
  		 <typeAlias alias="Products" type="shop.park.model.Products"/>
   		 <typeAlias alias="Faq" type="shop.park.model.Faq"/>
   		 <typeAlias alias="Notice" type="shop.park.model.Notice"/>
+  		 <typeAlias alias="Cart" type="shop.kim.order.model.Cart"/>
+  		 <typeAlias alias="Order" type="shop.kim.order.model.Order"/>
+  		 <typeAlias alias="OrderDetail" type="shop.kim.order.model.Order_Detail"/>
     </typeAliases>
     <mappers>
         <mapper resource="mybatis/mapper/loginMapper.xml"/>
         <mapper resource="mybatis/mapper/NoticeMapper.xml"/>
         <mapper resource="mybatis/mapper/productMapper.xml"/>
+        <mapper resource="mybatis/mapper/cartMapper.xml"/>
+        <mapper resource="mybatis/mapper/orderMapper.xml"/>
     </mappers>
 </configuration>
