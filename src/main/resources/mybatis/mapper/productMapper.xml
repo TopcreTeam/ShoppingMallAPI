@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="shop.park.repository.ProductMapper">
-	
-	<resultMap type="shop.app.park.model.Products" id="productResultMap">
+
+	<resultMap type="Products" id="productResultMap">
 		<result property="p_code" column="P_CODE" />
 		<result property="p_name" column="P_NAME" />
 		<result property="p_count" column="P_COUNT" />
 		<result property="p_kind" column="P_KIND" />
 		<result property="p_price" column="P_PRICE" />
-		<result property="p_sellprice" column="P_SELLPRICE" />
+		<result property="p_sellPrice" column="P_SELLPRICE" />
 		<result property="p_profit" column="P_PROFIT" />
 		<result property="p_content" column="P_CONTENT" />
 		<result property="p_img" column="P_IMG" />
@@ -16,13 +16,13 @@
 	</resultMap>
 	
 	<insert id="insert" parameterType="Products">
-		INSERT INTO tm_product(p_code, p_name, p_count, p_kind, p_price, p_sellprice, p_profit, p_content, p_img, p_date)
-		VALUES(TM_PRODUCT_SEQ.NEXTVAL, #{p_name}, #{p_count}, #{p_kind}, #{p_price}, #{p_sellprice}, #{p_profit}, #{p_content}, #{p_img}, SYSDATE)
+		INSERT INTO tm_product(p_code, p_name, p_count, p_kind, p_price, p_sellPrice, p_profit, p_content, p_img, p_date)
+		VALUES(TM_PRODUCT_SEQ.NEXTVAL, #{p_name}, #{p_count}, #{p_kind}, #{p_price}, #{p_sellPrice}, #{p_profit}, #{p_content}, #{p_img}, SYSDATE)
 	</insert>
 	
 	<update id="update" parameterType="Products">
 		UPDATE tm_product SET p_name=#{p_name}, p_count=#{p_count}, p_kind=#{p_kind}, p_price=#{p_price}, 
-		p_sellprice=#{p_sellprice}, p_profit=#{p_profit}, p_content=#{p_content}, p_img=#{p_img}
+		p_sellprice=#{p_sellPrice}, p_profit=#{p_profit}, p_content=#{p_content}, p_img=#{p_img}
 	</update>
 	
 	<delete id="delete" parameterType="String">
