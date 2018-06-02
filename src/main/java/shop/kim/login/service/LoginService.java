@@ -1,10 +1,10 @@
-package shop.app.kim.login.service;
+package shop.kim.login.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import shop.app.kim.login.model.User;
-import shop.app.kim.login.model.Values;
+import shop.kim.login.model.User;
+import shop.kim.login.model.Values;
 
 @Service
 public class LoginService {

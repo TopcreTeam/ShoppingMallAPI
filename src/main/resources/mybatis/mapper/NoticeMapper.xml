@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="shop.park.repository.ProductMapper">
+	
+	<resultMap type="Notice" id="noticeResultMap">
+		<result property="n_no" column="N_NO" />
+		<result property="n_category" column="N_CATEGORY" />
+		<result property="n_title" column="N_TITLE" />
+		<result property="n_content" column="N_CONTENT" />
+		<result property="a_id" column="A_ID" />
+		<result property="n_date" column="N_DATE" />
+		<result property="n_hits" column="N_HITS" />
+	</resultMap>
+	
+	
+		
+	<select id="selectAllNotice" parameterType="String" resultMap="noticeResultMap">
+		SELECT * FROM tm_notice ORDER BY n_no
+	</select>
+	
+	<select id="selectByNoticeNo" parameterType="String" resultMap="noticeResultMap">
+		SELECT * FROM tm_notice WHERE n_no=#{n_no}
+	</select>
+	
+	<select id="selectByNoticeCategory" parameterType="String" resultMap="noticeResultMap">
+		SELECT * FROM tm_notice WHERE n_category=#{n_category}
+	</select>	
+	
+	<select id="selectAllFaq" parameterType="String" resultMap="noticeResultMap">
+		SELECT * FROM tm_faq ORDER BY f_no
+	</select>
+		
+	<select id="selectByFaqNo" parameterType="String" resultMap="noticeResultMap">
+		SELECT * FROM tm_faq WHERE f_no=#{f_no}
+	</select>
+		
+	<select id="selectByFaqCategory" parameterType="String" resultMap="noticeResultMap">
+		SELECT * FROM tm_faq WHERE f_category=#{f_category}
+	</select>
+	
+
+	
+</mapper>

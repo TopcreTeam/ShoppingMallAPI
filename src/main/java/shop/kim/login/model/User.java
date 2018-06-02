@@ -1,4 +1,4 @@
-package shop.app.kim.login.model;
+package shop.kim.login.model;
 
 import java.sql.Date;
 

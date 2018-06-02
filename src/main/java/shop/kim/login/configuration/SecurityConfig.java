@@ -1,4 +1,4 @@
-package shop.app.kim.login.configuration;
+package shop.kim.login.configuration;
 
 import org.springframework.context.annotation.Configuration;
 //import org.springframework.security.config.annotation.web.builders.HttpSecurity;
