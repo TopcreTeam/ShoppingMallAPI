@@ -1,4 +1,4 @@
-package shop.app.kim.order.model;
+package shop.kim.order.model;
 
 import java.sql.Date;
 

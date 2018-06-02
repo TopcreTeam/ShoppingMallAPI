@@ -1,4 +1,4 @@
-package shop.app.kim.order.service;
+package shop.kim.order.service;
 
 import org.apache.ibatis.annotations.Mapper;
 

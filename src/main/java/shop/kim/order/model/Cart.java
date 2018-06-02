@@ -1,4 +1,4 @@
-package shop.app.kim.order.model;
+package shop.kim.order.model;
 
 public class Cart {
 	private int cno;

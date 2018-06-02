@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="shop.app.kim.order.service.OrderMapper">
-	<resultMap type="shop.app.kim.order.model.Cart" id="CartResultMap">
+<mapper namespace="shop.kim.order.service.OrderMapper">
+	<resultMap type="shop.kim.order.model.Cart" id="CartResultMap">
 		<result property="cno" column="C_NO" />
 		<result property="uid" column="U_ID" />
 		<result property="pcode" column="P_CODE" />
 		<result property="camount" column="C_AMOUNT" />
 	</resultMap>
-	<select id="cartList" resultType="shop.app.kim.order.model.Cart">
+	<select id="cartList" resultType="shop.kim.order.model.Cart">
 		SELECT * FROM TM_CART
 	</select>
 	<delete id="cartDelete">

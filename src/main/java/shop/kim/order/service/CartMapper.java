@@ -1,10 +1,10 @@
-package shop.app.kim.order.service;
+package shop.kim.order.service;
 
 import java.util.ArrayList;
 
 import org.apache.ibatis.annotations.Mapper;
 
-import shop.app.kim.order.model.Cart;
+import shop.kim.order.model.Cart;
 
 @Mapper
 public interface CartMapper {

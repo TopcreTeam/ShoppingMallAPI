@@ -1,4 +1,4 @@
-package shop.app.kim.order;
+package shop.kim.order;
 
 import java.util.ArrayList;
 
@@ -11,8 +11,8 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import shop.app.kim.order.model.Cart;
-import shop.app.kim.order.service.CartService;
+import shop.kim.order.model.Cart;
+import shop.kim.order.service.CartService;
 
 
 @RestController

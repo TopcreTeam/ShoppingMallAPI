@@ -1,4 +1,4 @@
-package shop.app.kim.order.model;
+package shop.kim.order.model;
 
 public class Order_Detail {
 	private int odno;

@@ -1,4 +1,4 @@
-package shop.app.kim.order;
+package shop.kim.order;
 
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.RequestMapping;
