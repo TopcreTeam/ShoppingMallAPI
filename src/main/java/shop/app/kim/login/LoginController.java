@@ -27,7 +27,9 @@ public class LoginController {
 	}
 	@GetMapping("/user/list")
 	public User getUser() {
-		System.out.println(loginService.getUser());
-		return null;
+		User user = loginService.getUser();
+		return user;
 	}
+	
+	
 }
