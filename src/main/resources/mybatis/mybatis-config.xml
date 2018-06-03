@@ -1,0 +1,15 @@
+<!DOCTYPE configuration PUBLIC "-//mybatis.org//DTD Config 3.0//EN" "http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+	<typeAliases>
+		<typeAlias alias="Products" type="shop.park.model.Products"/>
+		<typeAlias alias="Notice" type="shop.park.model.Notice"/>
+		<typeAlias alias="Faq" type="shop.park.model.Faq"/>
+		<typeAlias alias="Qna" type="shop.park.model.Qna"/>
+	</typeAliases>
+	<mappers>
+		<mapper resource="mybatis/mapper/productMapper.xml"/>
+		<mapper resource="mybatis/mapper/noticeMapper.xml"/>
+		<mapper resource="mybatis/mapper/faqMapper.xml"/>
+		<mapper resource="mybatis/mapper/qnaMapper.xml"/>
+	</mappers>
+</configuration>

@@ -18,27 +18,30 @@ public class ProductServiceImpl implements ProductService {
 	@Override
 	public List<Products> selectAllProducts() throws ProductNotFoundException {
 		
-		List<Products> products = productMapper.selectAllProducts();
-		if(products.isEmpty() || products == null) {
+		List<Products> productsList = productMapper.selectAllProducts();
+		
+		if(productsList.isEmpty() || productsList == null) {
 			throw new ProductNotFoundException();
 		} else {
-			return products;
+			return productsList;
 		}
 	}
 
 	@Override
 	public List<Products> selectByKind(String p_kind) throws ProductNotFoundException {
-		List<Products> products = productMapper.selectByKind(p_kind);
-		if(products.isEmpty() || products == null) {
+		List<Products> productsKindList = productMapper.selectByKind(p_kind);
+		
+		if(productsKindList.isEmpty() || productsKindList == null) {
 			throw new ProductNotFoundException();
 		} else {
-			return products;
+			return productsKindList;
 		}
 	}
 
 	@Override
 	public Products selectByProduct(String p_code) throws ProductNotFoundException {
 		Products product = productMapper.selectByProduct(p_code);
+		
 		if(product != null) {
 			return product;
 		} else {
