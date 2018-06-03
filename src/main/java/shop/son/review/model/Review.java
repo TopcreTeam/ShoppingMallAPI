@@ -4,33 +4,33 @@ import java.util.Date;
 
 public class Review {
 
-//	rev_no number,
-//    rev_title varchar2(100),
-//    rev_content varchar2(4000),
-//    rev_author varchar2(20),
-//    rev_date DATE default to_char(sysdate, 'yyyy-mm-dd') NOT NULL,
-//    rev_hits number
-	
-	private long rev_no;
+
+	private int rev_no;
 	private String rev_title;
 	private String rev_content;
-	private String rev_author;
-	private Date rev_date;
-	private long rev_hits;
 	
-	public Review(long rev_no, String rev_title, String rev_content, String rev_author, Date rev_date, long rev_hits) {
-		super();
-		this.rev_no = rev_no;
-		this.rev_title = rev_title;
-		this.rev_content = rev_content;
-		this.rev_author = rev_author;
-		this.rev_date = rev_date;
-		this.rev_hits = rev_hits;
+	private Date rev_date;
+	private int rev_hits;
+	private String p_code;
+	private String u_id;
+
+	
+	public String getP_code() {
+		return p_code;
 	}
-	public long getRev_no() {
+	public void setP_code(String p_code) {
+		this.p_code = p_code;
+	}
+	public String getU_id() {
+		return u_id;
+	}
+	public void setU_id(String u_id) {
+		this.u_id = u_id;
+	}
+	public int getRev_no() {
 		return rev_no;
 	}
-	public void setRev_no(long rev_no) {
+	public void setRev_no(int rev_no) {
 		this.rev_no = rev_no;
 	}
 	public String getRev_title() {
@@ -45,22 +45,17 @@ public class Review {
 	public void setRev_content(String rev_content) {
 		this.rev_content = rev_content;
 	}
-	public String getRev_author() {
-		return rev_author;
-	}
-	public void setRev_author(String rev_author) {
-		this.rev_author = rev_author;
-	}
+	
 	public Date getRev_date() {
 		return rev_date;
 	}
 	public void setRev_date(Date rev_date) {
 		this.rev_date = rev_date;
 	}
-	public long getRev_hits() {
+	public int getRev_hits() {
 		return rev_hits;
 	}
-	public void setRev_hits(long rev_hits) {
+	public void setRev_hits(int rev_hits) {
 		this.rev_hits = rev_hits;
 	}
 	

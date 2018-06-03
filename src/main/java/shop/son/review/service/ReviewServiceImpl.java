@@ -27,5 +27,22 @@ public class ReviewServiceImpl implements ReviewService {
 			return reviews;
 		}
 	}
+	
+	public int insertReview(Review review){
+	
+		return reviewMapper.insertReview(review);
+	}
+	
+	public int deleteReview(String u_id){
+		
+		return reviewMapper.deleteReview(u_id);
+	}
+	
+	public int updateReview(String u_id){
+		
+		return reviewMapper.updateReview(u_id);
+	}
+	
+	
 
 }
