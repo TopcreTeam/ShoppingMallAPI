@@ -11,7 +11,6 @@
   		 <typeAlias alias="Cart" type="shop.kim.order.model.Cart"/>
   		 <typeAlias alias="Order" type="shop.kim.order.model.Order"/>
   		 <typeAlias alias="OrderDetail" type="shop.kim.order.model.Order_Detail"/>
-  		 <typeAlias alias="Review" type="shop.son.review.model.Review"/>
     </typeAliases>
     <mappers>
         <mapper resource="mybatis/mapper/loginMapper.xml"/>
@@ -19,6 +18,5 @@
         <mapper resource="mybatis/mapper/productMapper.xml"/>
         <mapper resource="mybatis/mapper/cartMapper.xml"/>
         <mapper resource="mybatis/mapper/orderMapper.xml"/>
-        <mapper resource="mybatis/mapper/reviewMapper.xml"/>
     </mappers>
 </configuration>

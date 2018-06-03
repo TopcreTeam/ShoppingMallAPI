@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="shop.son.repository.ReviewMapper">
+
+<resultMap type="Review" id="reviewResultMap">
+	<result property="rev_no" column="REV_NO"/>
+	<result property="rev_title" column="REV_TITLE"/>
+	<result property="rev_content" column="REV_CONTENT"/>
+	<result property="rev_author" column="REV_AUTHOR"/>
+	<result property="rev_date" column="REV_DATE"/>
+	<result property="rev_hits" column="REV_HITS"/>
+</resultMap>	
+	
+	<select id="selectAllReview" parameterType="String" resultMap="reviewResultMap">
+		SELECT * FROM tm_product_review WHERE p_code=#{p_code} ORDER BY rev_no DESC 
+	</select>
+	
+	
+
+</mapper>
+
+
+
