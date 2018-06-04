@@ -5,7 +5,6 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import shop.park.exception.FaqNotFoundException;
 import shop.park.model.Faq;
 import shop.park.repository.FaqMapper;
 
@@ -16,35 +15,35 @@ public class FaqServiceImpl implements FaqService {
 	FaqMapper faqMapper;
 
 	@Override
-	public List<Faq> selectAllFaq() throws FaqNotFoundException {
+	public List<Faq> selectAllFaq() {
 		List<Faq> faqList = faqMapper.selectAllFaq();
 		
 		if(faqList.isEmpty() || faqList == null) {
-			throw new FaqNotFoundException();
+			return null;
 		} else {
 			return faqList;
 		}
 	}
 
 	@Override
-	public List<Faq> selectByFaqCategory(String f_category) throws FaqNotFoundException {
+	public List<Faq> selectByFaqCategory(String f_category) {
 		List<Faq> faqCategoryList = faqMapper.selectByFaqCategory(f_category);
 		
 		if(faqCategoryList.isEmpty() || faqCategoryList == null) {
-			throw new FaqNotFoundException();
+			return null;
 		} else {
 			return faqCategoryList;
 		}
 	}
 
 	@Override
-	public Faq selectByFaqNo(long f_no) throws FaqNotFoundException {
+	public Faq selectByFaqNo(long f_no) {
 		Faq faq = faqMapper.selectByFaqNo(f_no);
 		
 		if(faq != null) {
 			return faq;
 		} else {
-			throw new FaqNotFoundException();
+			return null;
 		}
 	}
 
