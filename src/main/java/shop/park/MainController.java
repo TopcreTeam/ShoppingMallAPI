@@ -11,22 +11,23 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
+import shop.kim.login.service.LoginService;
 import shop.park.exception.FaqNotFoundException;
 import shop.park.exception.NoticeNotFoundException;
 import shop.park.exception.ProductNotFoundException;
 import shop.park.model.Faq;
 import shop.park.model.Notice;
 import shop.park.model.Products;
+import shop.park.model.Qna;
+import shop.park.service.FaqServiceImpl;
 import shop.park.service.NoticeServiceImpl;
 import shop.park.service.ProductServiceImpl;
-
+import shop.park.service.QnaServiceImpl;
 
 @RestController
 @RequestMapping(value = "/toma")
 @CrossOrigin(origins="*")
 public class MainController {
-	
-	public static final Logger log = LoggerFactory.getLogger(MainController.class);
 	
 	@Autowired
 	ProductServiceImpl productService;
@@ -34,22 +35,33 @@ public class MainController {
 	@Autowired
 	NoticeServiceImpl noticeService;
 	
+	@Autowired
+	FaqServiceImpl faqService;
+	
+	@Autowired
+	QnaServiceImpl qnaService;
+	
+	@Autowired
+	LoginService loginService;
+
+	public static final Logger log = LoggerFactory.getLogger(MainController.class);
+	
 	@RequestMapping(value = "", method = RequestMethod.GET)
 	public List<Products> listAllProducts() throws ProductNotFoundException {
 		log.info("Select All Products");
 		
-		List<Products> products = productService.selectAllProducts();
+		List<Products> productsList = productService.selectAllProducts();
 		
-		return products;
+		return productsList;
 	}
 	
 	@RequestMapping(value = "/product/{p_kind}", method = RequestMethod.GET)
 	public List<Products> getByProductsKind(@PathVariable("p_kind") String p_kind) throws ProductNotFoundException {
 		log.info("Select Products by p_kind");
 		
-		List<Products> products = productService.selectByKind(p_kind);
+		List<Products> productsKindList = productService.selectByKind(p_kind);
 		
-		return products;
+		return productsKindList;
 	}
 	
 	@RequestMapping(value = "/detail/product/{p_code}", method = RequestMethod.GET)
@@ -65,21 +77,21 @@ public class MainController {
 	public List<Notice> listAllNotices() throws NoticeNotFoundException {
 		log.info("Select All Notices");
 		
-		List<Notice> notices = noticeService.selectAllNotice();
+		List<Notice> noticeList = noticeService.selectAllNotice();
 		
-		return notices;
+		return noticeList;
 	}
 	
 	@RequestMapping(value = "/notice/{n_category}", method = RequestMethod.GET)
 	public List<Notice> getByNoticeCategory(@PathVariable("n_category") String n_category) throws NoticeNotFoundException {
 		log.info("Select Notice by n_category");
 		
-		List<Notice> notice = noticeService.selectByNoticeCategory(n_category);
+		List<Notice> noticeCategoryList = noticeService.selectByNoticeCategory(n_category);
 		
-		return notice;
+		return noticeCategoryList;
 	}
 	
-	@RequestMapping(value = "/notice/{n_no}", method = RequestMethod.GET)
+	@RequestMapping(value = "/detail/notice/{n_no}", method = RequestMethod.GET)
 	public Notice getByNoticeNo(@PathVariable("n_no") long n_no) throws NoticeNotFoundException {
 		log.info("Select Notice by n_no");
 		
@@ -92,26 +104,45 @@ public class MainController {
 	public List<Faq> listAllFaq() throws FaqNotFoundException {
 		log.info("Select All Faq");
 		
-		List<Faq> faq = noticeService.selectAllFaq();
+		List<Faq> faqList = faqService.selectAllFaq();
 		
-		return faq;
+		return faqList;
 	}
 	
 	@RequestMapping(value = "/faq/{f_category}", method = RequestMethod.GET)
 	public List<Faq> getByFaqCategory(@PathVariable("f_category") String f_category) throws FaqNotFoundException {
 		log.info("Select Faq by f_category");
 		
-		List<Faq> faq = noticeService.selectByFaqCategory(f_category);
+		List<Faq> faqCategoryList = faqService.selectByFaqCategory(f_category);
+		
+		return faqCategoryList;
+	}
+	
+	@RequestMapping(value = "/detail/faq/{f_no}", method = RequestMethod.GET)
+	public Faq getByFaqNo(@PathVariable("f_no") long f_no) throws FaqNotFoundException {
+		log.info("Select Faq by f_no");
+		
+		Faq faq = faqService.selectByFaqNo(f_no);
 		
 		return faq;
 	}
 	
-	@RequestMapping(value = "/faq/{f_no}", method = RequestMethod.GET)
-	public Faq getByFaqNo(@PathVariable("f_no") long f_no) throws FaqNotFoundException {
-		log.info("Select Faq by f_no");
+	@RequestMapping(value = "/qna", method = RequestMethod.GET)
+	public List<Qna> listAllQna() {
+		log.info("Select All Qna");
 		
-		Faq faq = noticeService.selectByFaqNo(f_no);
+		List<Qna> qnaList = qnaService.selectAllQna();
 		
-		return faq;
+		return qnaList;
 	}
+	
+	@RequestMapping(value = "/qna/{q_reply}")
+	public List<Qna> getByQnaReply(@PathVariable("q_reply") String q_reply) {
+		log.info("Select Qna by q_reply");
+		
+		List<Qna> qnaReplyList = qnaService.selectByQnaReply(q_reply);
+		
+		return qnaReplyList;
+	}
+	
 }

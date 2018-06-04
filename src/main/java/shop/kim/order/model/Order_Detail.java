@@ -5,7 +5,7 @@ public class Order_Detail {
 	private int ono;
 	private String odimg;
 	private String odpname;
-	private int odpprive;
+	private int odpprice;
 	private int odpamount;
 	public int getOdno() {
 		return odno;
@@ -31,11 +31,11 @@ public class Order_Detail {
 	public void setOdpname(String odpname) {
 		this.odpname = odpname;
 	}
-	public int getOdpprive() {
-		return odpprive;
+	public int getOdpprice() {
+		return odpprice;
 	}
-	public void setOdpprive(int odpprive) {
-		this.odpprive = odpprive;
+	public void setOdpprive(int odpprice) {
+		this.odpprice = odpprice;
 	}
 	public int getOdpamount() {
 		return odpamount;

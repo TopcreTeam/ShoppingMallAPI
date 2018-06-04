@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="shop.park.repository.QnaMapper">
+	
+	<resultMap type="Qna" id="qnaResultMap">
+		<result property="q_no" column="Q_NO"/>
+		<result property="q_title" column="Q_TITLE"/>
+		<result property="q_content" column="Q_CONTENT"/>
+		<result property="u_id" column="U_ID"/>
+		<result property="q_date" column="Q_DATE"/>
+		<result property="q_reply" column="Q_REPLY"/>
+	</resultMap>
+	
+	<select id="selectAllQna" resultMap="qnaResultMap">
+		SELECT * FROM tm_qna ORDER BY q_no
+	</select>
+	
+	<select id="selectByQnaReply" parameterType="String" resultMap="qnaResultMap">
+		SELECT * FROM tm_qna WHERE q_reply=#{q_reply}
+	</select>
+	
+	<insert id="insertQna" parameterType="Qna">
+		INSERT INTO tm_qna(q_no, q_title, q_content, q_date, q_reply)
+		VALUES(TM_QNA_SEQ.NEXTVAL, #{q_title}, #{q_content}, DEFAULT, 'n')
+	</insert>
+	
+	<update id="updateQna" parameterType="Qna">
+		UPDATE tm_qna SET q_title=#{q_title}, q_content=#{q_content}
+	</update>
+	
+	<delete id="deleteQna" parameterType="Qna">
+		DELETE FROM tm_qna WHERE q_no=#{q_no}
+	</delete>
+	
+</mapper>
