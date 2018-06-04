@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="shop.park.repository.FaqMapper">
+	
+	<resultMap type="Faq" id="faqResultMap">
+		<result property="f_no" column="F_NO"/>
+		<result property="f_category" column="F_CATEGORY"/>
+		<result property="f_title" column="F_TITLE"/>
+		<result property="f_content" column="F_CONTENT"/>
+		<result property="a_id" column="A_ID"/>
+		<result property="f_date" column="F_DATE"/>
+		<result property="f_hits" column="F_HITS"/>
+	</resultMap>
+	
+	<select id="selectAllFaq" resultMap="faqResultMap">
+		SELECT * FROM tm_faq ORDER BY f_no
+	</select>
+	
+	<select id="selectByFaqNo" parameterType="long" resultMap="faqResultMap">
+		SELECT * FROM tm_faq WHERE f_no=#{f_no}
+	</select>
+	
+	<select id="selectByFaqCategory" parameterType="String" resultMap="faqResultMap">
+		SELECT * FROM tm_faq WHERE f_category=#{f_category}
+	</select>
+</mapper>

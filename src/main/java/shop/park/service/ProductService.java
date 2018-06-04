@@ -7,7 +7,6 @@ import org.springframework.stereotype.Service;
 import shop.park.exception.ProductNotFoundException;
 import shop.park.model.Products;
 
-
 @Service
 public interface ProductService {
 	List<Products> selectAllProducts() throws ProductNotFoundException;
