@@ -83,7 +83,7 @@ public class MainController {
 		return new ResponseEntity<Products>(HttpStatus.CREATED);
 	}
 	
-	@PutMapping(value = "/product/{p_code}")
+	@PutMapping(value = "/detail/product/{p_code}")
 	public ResponseEntity<?> updateProduct(@PathVariable("p_code") String p_code, @RequestBody Products product) {
 		log.info("Updating Product with p_code : " + product);
 		
@@ -92,7 +92,7 @@ public class MainController {
 		return new ResponseEntity<Products>(HttpStatus.OK);
 	}
 	
-	@DeleteMapping(value = "/product/{p_code}")
+	@DeleteMapping(value = "/detail/product/{p_code}")
 	public ResponseEntity<?> deleteProduct(@PathVariable("p_code") String p_code) {
 		log.info("Deleting Product with p_code : " + p_code);
 		
@@ -185,7 +185,7 @@ public class MainController {
 		return qnaReplyList;
 	}
 	
-	@PostMapping(value = "/qna")
+	@PostMapping(value = "/qna/write")
 	public ResponseEntity<?> insertQna(@RequestBody Qna qna, UriComponentsBuilder ucBuilder) {
 		log.info("Insert Product : " + qna);
 		
@@ -194,7 +194,7 @@ public class MainController {
 		return new ResponseEntity<Qna>(HttpStatus.CREATED);
 	}
 	
-	@PutMapping(value = "/qna/{q_no}")
+	@PutMapping(value = "/detail/qna/{q_no}")
 	public ResponseEntity<?> updateQna(@PathVariable("q_no") long q_no, @RequestBody Qna qna) {
 		log.info("Updating Product with p_code : " + qna);
 		
@@ -203,7 +203,7 @@ public class MainController {
 		return new ResponseEntity<Qna>(HttpStatus.OK);
 	}
 	
-	@DeleteMapping(value = "/qna/{q_no}")
+	@DeleteMapping(value = "/detail/qna/{q_no}")
 	public ResponseEntity<?> deleteQna(@PathVariable("q_no") long q_no) {
 		log.info("Deleting Product with p_code : " + q_no);
 		
