@@ -40,11 +40,7 @@ public class QnaServiceImpl implements QnaService {
 	public Qna selectByQnaNo(long q_no) {
 		Qna qna = qnaMapper.selectByQnaNo(q_no);
 		
-		if(qna == null) {
-			return null;
-		} else {
-			return qna;
-		}
+		return qna;
 	}
 
 	@Override
