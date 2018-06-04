@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="shop.son.productqna.repository.ProductQnaMapper">
+
+<resultMap type="ProductQna" id="productQnaResultMap">
+	<result property="pq_no" column="PQ_NO"/>
+	<result property="pq_category" column="PQ_CATEGORY"/>
+	<result property="pq_title" column="PQ_TITLE"/>
+	<result property="pq_content" column="PQ_CONTENT"/>
+	<result property="pq_hits" column="PQ_HITS"/>
+	<result property="p_code" column="P_CODE"/>
+	<result property="u_id" column="U_ID"/>
+	<result property="pq_date" column="PQ_DATE"/> 
+
+</resultMap>
+
+<select id="selectAllProductQna" parameterType="String" resultMap="productQnaResultMap">
+SELECT * FROM tm_product_qna WHERE p_code=#{p_code} ORDER BY pq_no DESC
+</select>
+
+<insert id="insertProductQna" parameterType="ProductQna">
+INSERT INTO tm_product_qna(pq_no, pq_category, pq_title, pq_content, pq_hits, p_code, u_id) 
+VALUES(tm_product_qna_SEQ.NEXTVAL ,#{pq_category},#{pq_title},#{pq_content},#{pq_hits},#{p_code},#{u_id})
+</insert>
+
+<update id="updateProductQna" parameterType="String">
+UPDATE tm_product_qna SET pq_title=#{pq_title} , pq_content=#{pq_content} WHERE u_id=#{u_id}
+</update>
+
+<delete id="deleteProductQna" parameterType="String">
+		DELETE FROM tm_product_qna where u_id=#{u_id}
+</delete>
+
+
+
+</mapper>
+

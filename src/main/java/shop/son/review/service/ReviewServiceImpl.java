@@ -9,6 +9,7 @@ import org.springframework.stereotype.Service;
 import shop.son.review.exception.ReviewNotFoundException;
 import shop.son.review.model.Review;
 import shop.son.review.repository.ReviewMapper;
+import shop.son.review.service.ReviewService;;
 
 @Service
 public class ReviewServiceImpl implements ReviewService {
@@ -18,15 +19,7 @@ public class ReviewServiceImpl implements ReviewService {
 
 	
 
-	@Override
-	public List<Review> selectAllReview(String p_code) throws ReviewNotFoundException {
-		List<Review> reviews = reviewMapper.selectAllReview(p_code);
-		if (reviews.isEmpty() || reviews == null) {
-			throw new ReviewNotFoundException();
-		} else {
-			return reviews;
-		}
-	}
+	
 	
 	public int insertReview(Review review){
 	
@@ -41,6 +34,16 @@ public class ReviewServiceImpl implements ReviewService {
 	public int updateReview(String u_id){
 		
 		return reviewMapper.updateReview(u_id);
+	}
+
+	@Override
+	public List<Review> selectAllReview(String p_code) throws ReviewNotFoundException {
+		List<Review> reviews = reviewMapper.selectAllReview(p_code);
+		if (reviews.isEmpty() || reviews == null) {
+			throw new ReviewNotFoundException();
+		} else {
+			return reviews;
+		}
 	}
 	
 	
