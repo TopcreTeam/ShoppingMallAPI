@@ -18,4 +18,18 @@
 	<select id="selectByQnaReply" parameterType="String" resultMap="qnaResultMap">
 		SELECT * FROM tm_qna WHERE q_reply=#{q_reply}
 	</select>
+	
+	<insert id="insertQna" parameterType="Qna">
+		INSERT INTO tm_qna(q_no, q_title, q_content, q_date, q_reply)
+		VALUES(TM_QNA_SEQ.NEXTVAL, #{q_title}, #{q_content}, DEFAULT, 'n')
+	</insert>
+	
+	<update id="updateQna" parameterType="Qna">
+		UPDATE tm_qna SET q_title=#{q_title}, q_content=#{q_content}
+	</update>
+	
+	<delete id="deleteQna" parameterType="Qna">
+		DELETE FROM tm_qna WHERE q_no=#{q_no}
+	</delete>
+	
 </mapper>

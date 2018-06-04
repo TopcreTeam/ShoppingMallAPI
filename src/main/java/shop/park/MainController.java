@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
+import shop.kim.login.service.LoginService;
 import shop.park.exception.FaqNotFoundException;
 import shop.park.exception.NoticeNotFoundException;
 import shop.park.exception.ProductNotFoundException;
@@ -26,8 +27,6 @@ import shop.park.service.QnaServiceImpl;
 @RequestMapping(value = "/toma")
 public class MainController {
 	
-	public static final Logger log = LoggerFactory.getLogger(MainController.class);
-	
 	@Autowired
 	ProductServiceImpl productService;
 	
@@ -39,6 +38,11 @@ public class MainController {
 	
 	@Autowired
 	QnaServiceImpl qnaService;
+	
+	@Autowired
+	LoginService loginService;
+
+	public static final Logger log = LoggerFactory.getLogger(MainController.class);
 	
 	@RequestMapping(value = "", method = RequestMethod.GET)
 	public List<Products> listAllProducts() throws ProductNotFoundException {
@@ -125,8 +129,6 @@ public class MainController {
 	public List<Qna> listAllQna() {
 		log.info("Select All Qna");
 		
-		// 여기에 세션에 로그인이 되어있으면 리스트를 보여주고 아니면 로그인 화면으로 돌아가는 로직 추가예정
-		
 		List<Qna> qnaList = qnaService.selectAllQna();
 		
 		return qnaList;
@@ -140,4 +142,5 @@ public class MainController {
 		
 		return qnaReplyList;
 	}
+	
 }

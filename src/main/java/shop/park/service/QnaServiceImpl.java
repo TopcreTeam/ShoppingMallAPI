@@ -36,4 +36,33 @@ public class QnaServiceImpl implements QnaService {
 		}
 	}
 
+	@Override
+	public Qna selectByQnaNo(long q_no) {
+		Qna qna = qnaMapper.selectByQnaNo(q_no);
+		
+		if(qna == null) {
+			return null;
+		} else {
+			return qna;
+		}
+	}
+
+	@Override
+	public int insertQna(Qna qna) {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+	@Override
+	public int updateQna(Qna qna) {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+	@Override
+	public int deleteQna(Qna qna) {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
 }
