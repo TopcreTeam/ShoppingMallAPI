@@ -17,7 +17,7 @@
 	</select>
 	
 	<select id="selectByFaqNo" parameterType="long" resultMap="faqResultMap">
-		SELECT * FROM tm_faq HWERE f_no=#{f_no}
+		SELECT * FROM tm_faq WHERE f_no=#{f_no}
 	</select>
 	
 	<select id="selectByFaqCategory" parameterType="String" resultMap="faqResultMap">

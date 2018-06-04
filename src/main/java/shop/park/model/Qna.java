@@ -10,6 +10,8 @@ public class Qna {
 	private Date q_date;
 	private String q_reply;
 	
+	public Qna() {}
+	
 	public Qna(long q_no, String q_title, String q_content, String u_id, Date q_date, String q_reply) {
 		super();
 		this.q_no = q_no;

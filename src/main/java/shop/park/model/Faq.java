@@ -11,6 +11,8 @@ public class Faq {
 	private Date f_date;
 	private long f_hits;
 	
+	public Faq() {}
+	
 	public Faq(long f_no, String f_category, String f_title, String f_content, String a_id, Date f_date, long f_hits) {
 		super();
 		this.f_no = f_no;

@@ -17,7 +17,7 @@
 	</select>
 	
 	<select id="selectByNoticeNo" parameterType="long" resultMap="noticeResultMap">
-		SELECT * FROM tm_notice HWERE n_no=#{n_no}
+		SELECT * FROM tm_notice WHERE n_no=#{n_no}
 	</select>
 	
 	<select id="selectByNoticeCategory" parameterType="String" resultMap="noticeResultMap">

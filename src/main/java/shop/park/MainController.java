@@ -85,7 +85,7 @@ public class MainController {
 		return noticeCategoryList;
 	}
 	
-	@RequestMapping(value = "/notice/{n_no}", method = RequestMethod.GET)
+	@RequestMapping(value = "/detail/notice/{n_no}", method = RequestMethod.GET)
 	public Notice getByNoticeNo(@PathVariable("n_no") long n_no) throws NoticeNotFoundException {
 		log.info("Select Notice by n_no");
 		
@@ -112,7 +112,7 @@ public class MainController {
 		return faqCategoryList;
 	}
 	
-	@RequestMapping(value = "/faq/{f_no}", method = RequestMethod.GET)
+	@RequestMapping(value = "/detail/faq/{f_no}", method = RequestMethod.GET)
 	public Faq getByFaqNo(@PathVariable("f_no") long f_no) throws FaqNotFoundException {
 		log.info("Select Faq by f_no");
 		

@@ -16,6 +16,6 @@
 	</select>
 	
 	<select id="selectByQnaReply" parameterType="String" resultMap="qnaResultMap">
-		SELECT * FROM tm_qna HWERE q_reply=#{q_reply}
+		SELECT * FROM tm_qna WHERE q_reply=#{q_reply}
 	</select>
 </mapper>

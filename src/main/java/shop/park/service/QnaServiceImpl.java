@@ -3,10 +3,12 @@ package shop.park.service;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import shop.park.model.Qna;
 import shop.park.repository.QnaMapper;
 
+@Service
 public class QnaServiceImpl implements QnaService {
 	
 	@Autowired
