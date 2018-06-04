@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="shop.son.review.repository.ReviewMapper">
+
+<resultMap type="Review" id="reviewResultMap">
+	<result property="rev_no" column="REV_NO"/>
+	<result property="rev_title" column="REV_TITLE"/>
+	<result property="rev_content" column="REV_CONTENT"/>
+	<result property="rev_date" column="REV_DATE"/>
+	<result property="rev_hits" column="REV_HITS"/>
+	<result property="p_code" column="P_CODE"/>
+	<result property="u_id" column="U_ID"/>
+</resultMap>	
+	
+	<select id="selectAllReview" parameterType="String" resultMap="reviewResultMap">
+		SELECT * FROM tm_product_review WHERE p_code=#{p_code} ORDER BY rev_no DESC 
+	</select>
+	
+	
+	<insert id="insertReview" parameterType="Review">
+		INSERT INTO tm_product_review(rev_no, rev_title, rev_content, rev_hits, p_code, u_id)
+		VALUES(tm_product_review_SEQ.NEXTVAL, #{rev_title}, #{rev_content},#{rev_hits}, #{p_code}, #{u_id})
+	</insert>
+	
+	<update id="updateReview"  parameterType="String">
+		UPDATE tm_product_review SET rev_title=#{rev_title} , rev_content=#{rev_content} WHERE u_id=#{u_id}
+	</update>
+	
+	<delete id="deleteReview" parameterType="String">
+		DELETE FROM tm_product_review where u_id=#{u_id}
+	</delete>
+	
+	
+	
+	
+	
+	
+	
+
+</mapper>
+
+
+

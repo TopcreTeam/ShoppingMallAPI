@@ -121,7 +121,6 @@ public class MainController {
 		return faq;
 	}
 	
-	// 로그인한 상태였을 때 1:1 질문 목록이 보이도록 GET? POST?
 	@RequestMapping(value = "/qna", method = RequestMethod.GET)
 	public List<Qna> listAllQna() {
 		log.info("Select All Qna");

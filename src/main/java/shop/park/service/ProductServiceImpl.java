@@ -29,6 +29,7 @@ public class ProductServiceImpl implements ProductService {
 
 	@Override
 	public List<Products> selectByKind(String p_kind) throws ProductNotFoundException {
+
 		List<Products> productsKindList = productMapper.selectByKind(p_kind);
 		
 		if(productsKindList.isEmpty() || productsKindList == null) {

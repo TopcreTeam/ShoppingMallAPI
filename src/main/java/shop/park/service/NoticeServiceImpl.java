@@ -46,5 +46,4 @@ public class NoticeServiceImpl implements NoticeService {
 			throw new NoticeNotFoundException();
 		}
 	}
-
 }

@@ -55,7 +55,7 @@ public class Faq {
 	public void setF_content(String f_content) {
 		this.f_content = f_content;
 	}
-
+		
 	public String getA_id() {
 		return a_id;
 	}
@@ -79,4 +79,5 @@ public class Faq {
 	public void setF_hits(long f_hits) {
 		this.f_hits = f_hits;
 	}
+	
 }
