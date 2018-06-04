@@ -5,7 +5,6 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import shop.park.exception.ProductNotFoundException;
 import shop.park.model.Products;
 import shop.park.repository.ProductMapper;
 
@@ -16,38 +15,45 @@ public class ProductServiceImpl implements ProductService {
 	ProductMapper productMapper;
 	
 	@Override
-	public List<Products> selectAllProducts() throws ProductNotFoundException {
+	public List<Products> selectAllProducts(){
 		
 		List<Products> productsList = productMapper.selectAllProducts();
 		
-		if(productsList.isEmpty() || productsList == null) {
-			throw new ProductNotFoundException();
-		} else {
-			return productsList;
-		}
+		return productsList;
 	}
 
 	@Override
-	public List<Products> selectByKind(String p_kind) throws ProductNotFoundException {
+	public List<Products> selectByProductKind(String p_kind) {
 
-		List<Products> productsKindList = productMapper.selectByKind(p_kind);
+		List<Products> productsKindList = productMapper.selectByProductKind(p_kind);
 		
-		if(productsKindList.isEmpty() || productsKindList == null) {
-			throw new ProductNotFoundException();
-		} else {
-			return productsKindList;
-		}
+		return productsKindList;
 	}
 
 	@Override
-	public Products selectByProduct(String p_code) throws ProductNotFoundException {
-		Products product = productMapper.selectByProduct(p_code);
+	public Products selectByProductCode(String p_code) {
+		Products product = productMapper.selectByProductCode(p_code);
 		
-		if(product != null) {
-			return product;
-		} else {
-			throw new ProductNotFoundException();
+		if(product == null) {
+			return null;
 		}
+		
+		return product;
+	}
+
+	@Override
+	public void insertProduct(Products product) {
+		productMapper.insertProduct(product);
+	}
+
+	@Override
+	public void updateProduct(Products product) {
+		productMapper.updateProduct(product);
+	}
+
+	@Override
+	public void deleteProduct(String p_code) {
+		productMapper.deleteProduct(p_code);
 	}
 
 }

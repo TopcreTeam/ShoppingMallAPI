@@ -8,7 +8,7 @@ public interface QnaService {
 	public List<Qna> selectAllQna();
 	public List<Qna> selectByQnaReply(String q_reply);
 	public Qna selectByQnaNo(long q_no);
-	public int insertQna(Qna qna);
-	public int updateQna(Qna qna);
-	public int deleteQna(Qna qna);
+	public void insertQna(Qna qna);
+	public void updateQna(Qna qna);
+	public void deleteQna(long q_no);
 }

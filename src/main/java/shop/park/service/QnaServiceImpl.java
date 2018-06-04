@@ -44,18 +44,18 @@ public class QnaServiceImpl implements QnaService {
 	}
 
 	@Override
-	public int insertQna(Qna qna) {
-		return 0;
+	public void insertQna(Qna qna) {
+		qnaMapper.insertQna(qna);
 	}
 
 	@Override
-	public int updateQna(Qna qna) {
-		return 0;
+	public void updateQna(Qna qna) {
+		qnaMapper.updateQna(qna);
 	}
 
 	@Override
-	public int deleteQna(Qna qna) {
-		return 0;
+	public void deleteQna(long q_no) {
+		qnaMapper.deleteQna(q_no);
 	}
 
 }

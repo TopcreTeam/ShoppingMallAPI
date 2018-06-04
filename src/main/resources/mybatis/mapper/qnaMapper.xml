@@ -28,7 +28,7 @@
 		UPDATE tm_qna SET q_title=#{q_title}, q_content=#{q_content}
 	</update>
 	
-	<delete id="deleteQna" parameterType="Qna">
+	<delete id="deleteQna" parameterType="long">
 		DELETE FROM tm_qna WHERE q_no=#{q_no}
 	</delete>
 	

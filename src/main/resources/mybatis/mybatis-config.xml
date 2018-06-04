@@ -24,5 +24,6 @@
         <mapper resource="mybatis/mapper/orderMapper.xml"/>
         <mapper resource="mybatis/mapper/reviewMapper.xml"/>
         <mapper resource="mybatis/mapper/productQnaMapper.xml"/>
+        <mapper resource="mybatis/mapper/joinMapper.xml"/>
     </mappers>
 </configuration>

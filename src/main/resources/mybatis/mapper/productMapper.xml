@@ -15,25 +15,25 @@
 		<result property="p_date" column="P_DATE" />
 	</resultMap>
 	
-	<insert id="insert" parameterType="Products">
+	<insert id="insertProduct" parameterType="Products">
 		INSERT INTO tm_product(p_code, p_name, p_count, p_kind, p_price, p_sellPrice, p_profit, p_content, p_img, p_date)
 		VALUES(TM_PRODUCT_SEQ.NEXTVAL, #{p_name}, #{p_count}, #{p_kind}, #{p_price}, #{p_sellPrice}, #{p_profit}, #{p_content}, #{p_img}, DEFAULT)
 	</insert>
 	
-	<update id="update" parameterType="Products">
+	<update id="updateProduct" parameterType="Products">
 		UPDATE tm_product SET p_name=#{p_name}, p_count=#{p_count}, p_kind=#{p_kind}, p_price=#{p_price}, 
 		p_sellprice=#{p_sellPrice}, p_profit=#{p_profit}, p_content=#{p_content}, p_img=#{p_img}
 	</update>
 	
-	<delete id="delete" parameterType="String">
+	<delete id="deleteProduct" parameterType="String">
 		DELETE FROM tm_product WHERE p_code=#{p_code}
 	</delete>
 	
-	<select id="selectByProduct" parameterType="String" resultMap="productResultMap">
+	<select id="selectByProductCode" parameterType="String" resultMap="productResultMap">
 		SELECT * FROM tm_product WHERE p_code=#{p_code}
 	</select>
 	
-	<select id="selectByKind" parameterType="String" resultMap="productResultMap">
+	<select id="selectByProductKind" parameterType="String" resultMap="productResultMap">
 		SELECT * FROM tm_product WHERE p_kind=#{p_kind}
 	</select>
 	

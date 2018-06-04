@@ -16,14 +16,14 @@ public interface ProductMapper {
 	@Select("SELECT COUNT(*) FROM tm_product")
 	public int count();
 	
-	public Products selectByProduct(String p_code);
+	public Products selectByProductCode(String p_code);
 	
-	public List<Products> selectByKind(String p_kind);
+	public List<Products> selectByProductKind(String p_kind);
 	
-	public int insert(Products product);
+	public int insertProduct(Products product);
 	
-	public int update(Products product);
+	public int updateProduct(Products product);
 	
-	public int delete(Products product);
+	public int deleteProduct(String p_code);
 	
 }

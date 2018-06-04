@@ -5,14 +5,25 @@ import java.util.ArrayList;
 import org.apache.ibatis.annotations.Mapper;
 
 import shop.kim.order.model.Order;
+import shop.kim.order.model.Order_Detail;
 
 @Mapper
 public interface OrderMapper {
-	
-	public ArrayList<Order> orderList();
+//	주문
+	public ArrayList<Order> orderList(String uid);
 	
 	public int orderInsert(Order order);
 	
 	public int orderDelete(int ono);
+	
+//	주문상세
+	public ArrayList<Order_Detail> orderDetailList(int ono);
+	
+	public int orderDetailInsert(Order_Detail orderDetail,int maxO_no);
+	
+	public int maxO_no();
+	
+	public int orderDetailDelete(int odno);
+	
 	
 }

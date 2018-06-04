@@ -8,7 +8,7 @@
 		<result property="camount" column="C_AMOUNT" />
 	</resultMap>
 	<select id="cartList" resultType="Cart" resultMap="CartResultMap">
-		SELECT * FROM TM_CART
+		SELECT * FROM TM_CART WHERE U_ID=#{uid}
 	</select>
 	<delete id="cartDelete">
 		DELETE FROM TM_CART WHERE C_NO=#{cno}
