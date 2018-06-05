@@ -16,7 +16,7 @@
 		<result property="usmsyn" column="U_SMSYN" />
 		<result property="uemailyn" column="U_EMAILYN" />
 	</resultMap>
-	<select id="logincheck">
+	<select id="logincheck" resultType="User" resultMap="userResultMap">
 		SELECT * FROM TM_USER WHERE U_ID=#{uid}
 	</select>
 	<select id="getUser" resultType="User">
