@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="shop.kim.order.service.OrderMapper">
+	<!-- 주문 ResultMap -->
+	<resultMap type="Order" id="OrderResultMap">
+		<result property="ono" column="O_NO" />
+		<result property="uid" column="U_ID" />
+		<result property="ototal" column="O_TOTAL" />
+		<result property="odate" column="O_DATE" />
+		<result property="ostatus" column="O_STATUS" />
+	</resultMap>
+	<!-- 주문상세 ResultMap -->
+	<resultMap type="OrderDetail" id="DetailResultMap">
+		<result property="odno" column="OD_NO" />
+		<result property="ono" column="O_NO" />
+		<result property="odimg" column="OD_IMG" />
+		<result property="odpname" column="OD_PNAME" />
+		<result property="odpprice" column="OD_PPRICE" />
+		<result property="odpamount" column="OD_PAMOUNT" />
+	</resultMap>
+	<!-- 주문 QUERY -->
+	<select id="orderList" resultType="Order" resultMap="OrderResultMap">
+		SELECT * FROM TM_ORDER WHERE U_ID=#{uid}
+	</select>
+	<insert id="orderInsert">
+		INSERT INTO TM_ORDER VALUES(O_NO=ORDER_SEQ.NEXTVAL,U_ID=#{order.uid},O_TOTAL=#{order.ototal},O_DATE=#{order.odate},O_STATUS='N')
+	</insert>
+	<delete id="orderDelete">
+		DELETE FROM TM_ORDER WHERE O_NO=#{ono}
+	</delete>
+	
+	<!-- 주문상세 QUERY -->
+	<select id="orderDetailList" resultType="OrderDetail" resultMap="DetailResultMap">
+		SELECT * FROM TM_ORDER_DETAIL WHERE O_NO=#{ono}
+	</select>
+	<select id="maxO_no">
+		SELECT MAX(O_NO) FROM TM_ORDER
+	</select>
+	<insert id="orderDetailInsert">
+		INSERT INTO TM_ORDER_DETAIL VALUES (TM_ORDER_DETAIL_SEQ.NEXTVAL,#{maxO_no},#{orderDetail.odimg},#{orderDetail.odpname},#{orderDetail.odpprice},#{orderDetail.odpamount})
+	</insert>
+	
+	<delete id="orderDetailDelete">
+		DELETE FROM TM_ORDER_DETAIL WHERE OD_NO=#{odno}
+	</delete>
+	
+
+</mapper>

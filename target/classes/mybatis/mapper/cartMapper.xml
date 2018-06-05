@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="shop.kim.order.service.CartMapper">
+	<resultMap type="Cart" id="CartResultMap">
+		<result property="cno" column="C_NO" />
+		<result property="uid" column="U_ID" />
+		<result property="pcode" column="P_CODE" />
+		<result property="camount" column="C_AMOUNT" />
+	</resultMap>
+	<select id="cartList" resultType="Cart" resultMap="CartResultMap">
+		SELECT * FROM TM_CART WHERE U_ID=#{uid}
+	</select>
+	<delete id="cartDelete">
+		DELETE FROM TM_CART WHERE C_NO=#{cno}
+	</delete>
+	<update id="cartUpdate">
+		UPDATE TM_CART SET(C_AMOUNT=#{camount})
+	</update>
+	<insert id="cartInsert">
+		INSERT INTO TM_CART VALUES(CART_SEQ.NEXTVAL,#{cart.uid},#{cart.pcode},#{cart.camount})
+	</insert>
+</mapper>

@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?> 
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="shop.lee.join.service.JoinMapper">
+	<resultMap type="User" id="userResultMap">
+		<result property="uid" column="U_ID" />
+		<result property="upw" column="U_PW" />
+		<result property="uname" column="U_NAME" />
+		<result property="uphone" column="U_PHONE" />
+		<result property="uaddr1" column="U_ADDR1" />
+		<result property="uaddr2" column="U_ADDR2" />
+		<result property="uaddr3" column="U_ADDR3" />
+		<result property="uaddrcheck" column="U_ADDRCHECK" />
+		<result property="ubirth" column="U_BIRTH" />
+		<result property="ugender" column="U_GENDER" />
+		<result property="ujoindate" column="U_JOINDATE" />
+		<result property="usmsyn" column="U_SMSYN" />
+		<result property="uemailyn" column="U_EMAILYN" />
+	</resultMap>
+
+	<insert id="NewUser" parameterType="User">
+		INSERT INTO TM_USER(U_ID,U_PW,U_NAME,U_PHONE,U_ADDR1,U_BIRTH,U_GENDER,U_SMSYN,U_EMAILYN) 
+		VALUES (#{uid},#{upw},#{uname},#{uphone},#{uaddr1},#{ubirth} ,#{ugender}, #{usmsyn},#{uemailyn})
+	</insert>
+
+	
+
+</mapper>

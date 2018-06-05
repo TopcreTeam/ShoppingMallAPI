@@ -1,6 +1,6 @@
 package shop.kim.login.model;
 
-public class Values {
+public class Login {
 	private String uid;
 	private String upw;
 	public String getUid() {
