@@ -2,6 +2,9 @@ package shop.kim.login.model;
 
 import java.sql.Date;
 
+import lombok.Getter;
+import lombok.Setter;
+
 public class User {
 	private String uid;
 	private String upw;
@@ -82,16 +85,17 @@ public class User {
 	public void setUjoindate(Date ujoindate) {
 		this.ujoindate = ujoindate;
 	}
-	public char getSnsyn() {
+	public char getUsmsyn() {
 		return usmsyn;
 	}
-	public void setSnsyn(char usmsyn) {
+	public void setUsmsyn(char usmsyn) {
 		this.usmsyn = usmsyn;
 	}
-	public char getEmailyn() {
+	public char getUemailyn() {
 		return uemailyn;
 	}
-	public void setEmailyn(char uemailyn) {
+	public void setUemailyn(char uemailyn) {
 		this.uemailyn = uemailyn;
 	}
+	
 }

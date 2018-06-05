@@ -18,9 +18,8 @@
 	</resultMap>
 
 	<insert id="NewUser" parameterType="User">
-		insert into tm_user values
-		(#{uid}, #{upw} , #{uname} , #{uphone}, #{uaddr1} , #{uaddr2} , #{uaddr3} ,
-		default, #{ubirth} , #{ugender} ,#{ujoindate},#{usmsyn},default);
+		INSERT INTO TM_USER(U_ID,U_PW,U_NAME,U_PHONE,U_ADDR1,U_BIRTH,U_GENDER,U_SMSYN,U_EMAILYN) 
+		VALUES (#{uid},#{upw},#{uname},#{uphone},#{uaddr1},#{ubirth} ,#{ugender}, #{usmsyn},#{uemailyn})
 	</insert>
 
 	
