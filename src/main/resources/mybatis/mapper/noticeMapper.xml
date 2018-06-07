@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="shop.park.repository.ProductMapper">
+<mapper namespace="shop.park.repository.NoticeMapper">
 	
 	<resultMap type="Notice" id="noticeResultMap">
 		<result property="n_no" column="N_NO" />
@@ -12,11 +12,11 @@
 		<result property="n_hits" column="N_HITS" />
 	</resultMap>
 		
-	<select id="selectAllNotice" parameterType="String" resultMap="noticeResultMap">
-		SELECT * FROM tm_notice ORDER BY n_no
+	<select id="selectAllNotice" resultMap="noticeResultMap">
+		SELECT * FROM tm_notice ORDER BY n_no DESC
 	</select>
 	
-	<select id="selectByNoticeNo" parameterType="String" resultMap="noticeResultMap">
+	<select id="selectByNoticeNo" parameterType="long" resultMap="noticeResultMap">
 		SELECT * FROM tm_notice WHERE n_no=#{n_no}
 	</select>
 	
