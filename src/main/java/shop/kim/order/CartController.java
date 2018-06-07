@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -30,18 +31,18 @@ public class CartController {
 		return cartArr;
 	}
 	@DeleteMapping("/{cno}")
-	int cartDelete(@PathVariable("cno") int cno) {
+	int cartDelete(@PathVariable int cno) {
 		int result = cartService.cartDelete(cno);
 		return result;
 	}
 	
-	@PutMapping("/{cart}")
-	int cartUpdate(@PathVariable("cart") Cart cart) {
+	@PutMapping("/")
+	int cartUpdate(@RequestBody Cart cart) {
 		int result = cartService.cartUpdate(cart);
 		return result;
 	}
-	@PostMapping("/{cart}")
-	int cartInsert(@PathVariable("cart") Cart cart) {
+	@PostMapping("/")
+	int cartInsert(@RequestBody Cart cart) {
 		int result = cartService.cartInsert(cart);
 		return result;
 	}

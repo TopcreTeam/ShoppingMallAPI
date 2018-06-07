@@ -21,17 +21,17 @@ public class CartService {
 	};
 	
 	public int cartDelete(int cno) {
-		return cno;
+		return cartMapper.cartDelete(cno);
 		
 	};
 	
 	public int cartUpdate(Cart cart) {
-		return 0;
+		return cartMapper.cartUpdate(cart);
 		
 	};
 	
 	public int cartInsert(Cart cart) {
-		return 0;
+		return cartMapper.cartInsert(cart);
 		
 	};
 	

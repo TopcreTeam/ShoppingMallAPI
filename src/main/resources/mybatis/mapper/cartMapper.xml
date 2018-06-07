@@ -15,7 +15,7 @@
 	
 	
 	<select id="cartList" resultType="Cart" resultMap="CartResultMap">
-		SELECT P_CONTENT,P_KIND ,C_AMOUNT,P_IMG,P_SELLPRICE,P_NAME FROM TM_CART,TM_PRODUCT 
+		SELECT C_NO,P_CONTENT,P_KIND ,C_AMOUNT,P_IMG,P_SELLPRICE,P_NAME FROM TM_CART,TM_PRODUCT 
 		WHERE TM_CART.P_CODE=TM_PRODUCT.P_CODE AND U_ID=#{uid}
 	</select>
 	<delete id="cartDelete">
