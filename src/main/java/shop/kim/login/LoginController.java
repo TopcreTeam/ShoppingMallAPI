@@ -24,7 +24,7 @@ public class LoginController {
 	@PostMapping("/")
 	public User login(@RequestBody Login login) { //Login : 앵귤러에서 던진 id/pw
 
-		System.out.println("확인");
+		System.out.println(login.getUid());
 		User user = loginService.logincheck(login);
 		if(user==null) {//아이디가 존재하지 않는다
 			System.out.println("널이들어왔다");
