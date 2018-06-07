@@ -11,8 +11,6 @@
 		<result property="n_date" column="N_DATE" />
 		<result property="n_hits" column="N_HITS" />
 	</resultMap>
-	
-	
 		
 	<select id="selectAllNotice" parameterType="String" resultMap="noticeResultMap">
 		SELECT * FROM tm_notice ORDER BY n_no
@@ -24,20 +22,6 @@
 	
 	<select id="selectByNoticeCategory" parameterType="String" resultMap="noticeResultMap">
 		SELECT * FROM tm_notice WHERE n_category=#{n_category}
-	</select>	
-	
-	<select id="selectAllFaq" parameterType="String" resultMap="noticeResultMap">
-		SELECT * FROM tm_faq ORDER BY f_no
 	</select>
-		
-	<select id="selectByFaqNo" parameterType="String" resultMap="noticeResultMap">
-		SELECT * FROM tm_faq WHERE f_no=#{f_no}
-	</select>
-		
-	<select id="selectByFaqCategory" parameterType="String" resultMap="noticeResultMap">
-		SELECT * FROM tm_faq WHERE f_category=#{f_category}
-	</select>
-	
-
 	
 </mapper>

@@ -6,11 +6,12 @@
   		 <typeAlias alias="Notice" type="shop.park.model.Notice"/>
 		 <typeAlias alias="Qna" type="shop.park.model.Qna"/>
          <typeAlias alias="User" type="shop.kim.login.model.User"/>
- 		 <typeAlias alias="Values" type="shop.kim.login.model.Values"/>
+ 		 <typeAlias alias="Login" type="shop.kim.login.model.Login"/>
   		 <typeAlias alias="Cart" type="shop.kim.order.model.Cart"/>
   		 <typeAlias alias="Order" type="shop.kim.order.model.Order"/>
   		 <typeAlias alias="OrderDetail" type="shop.kim.order.model.Order_Detail"/>
   		 <typeAlias alias="Review" type="shop.son.review.model.Review"/>
+  		 <typeAlias alias="ProductQna" type="shop.son.productqna.model.ProductQna"/>
     </typeAliases>
     
     <mappers>
@@ -22,5 +23,7 @@
         <mapper resource="mybatis/mapper/cartMapper.xml"/>
         <mapper resource="mybatis/mapper/orderMapper.xml"/>
         <mapper resource="mybatis/mapper/reviewMapper.xml"/>
+        <mapper resource="mybatis/mapper/productQnaMapper.xml"/>
+        <mapper resource="mybatis/mapper/joinMapper.xml"/>
     </mappers>
 </configuration>
