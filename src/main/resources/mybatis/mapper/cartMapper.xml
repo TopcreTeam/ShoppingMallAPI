@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="shop.kim.order.service.CartMapper">
+	<!-- Cart Map -->
 	<resultMap type="Cart" id="CartResultMap">
 		<result property="cno" column="C_NO" />
 		<result property="uid" column="U_ID" />
@@ -13,9 +14,11 @@
 		<result property="p_content" column="P_CONTENT"/>
 	</resultMap>
 	
+	<!-- orderWriter Map -->
+	
 	
 	<select id="cartList" resultType="Cart" resultMap="CartResultMap">
-		SELECT P_CONTENT,P_KIND ,C_AMOUNT,P_IMG,P_SELLPRICE,P_NAME FROM TM_CART,TM_PRODUCT 
+		SELECT C_NO,P_CONTENT,P_KIND ,C_AMOUNT,P_IMG,P_SELLPRICE,P_NAME FROM TM_CART,TM_PRODUCT 
 		WHERE TM_CART.P_CODE=TM_PRODUCT.P_CODE AND U_ID=#{uid}
 	</select>
 	<delete id="cartDelete">
@@ -27,4 +30,10 @@
 	<insert id="cartInsert">
 		INSERT INTO TM_CART VALUES(TM_CART_SEQ.NEXTVAL,#{cart.uid},#{cart.pcode},#{cart.camount})
 	</insert>
+	<!-- 장바구니 to 주문서작성 -->
+	<select id="orderWriteList" resultType="OrderWriter" resultMap="CartResultMap">
+		SELECT C_NO,P_CONTENT,P_KIND ,C_AMOUNT,P_IMG,P_SELLPRICE,P_NAME FROM TM_CART,TM_PRODUCT 
+		WHERE TM_CART.P_CODE=TM_PRODUCT.P_CODE AND C_NO IN(${cno})
+	</select>
+	
 </mapper>
