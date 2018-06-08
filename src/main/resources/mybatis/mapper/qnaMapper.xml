@@ -12,7 +12,11 @@
 	</resultMap>
 	
 	<select id="selectAllQna" resultMap="qnaResultMap">
-		SELECT * FROM tm_qna ORDER BY q_no
+		SELECT * FROM tm_qna ORDER BY q_no DESC
+	</select>
+	
+	<select id="selectByQnaNo" parameterType="long" resultMap="qnaResultMap">
+		SELECT * FROM tm_qna WHERE q_no=#{q_no}
 	</select>
 	
 	<select id="selectByQnaReply" parameterType="String" resultMap="qnaResultMap">
@@ -20,8 +24,7 @@
 	</select>
 	
 	<insert id="insertQna" parameterType="Qna">
-		INSERT INTO tm_qna(q_no, q_title, q_content, q_date, q_reply)
-		VALUES(TM_QNA_SEQ.NEXTVAL, #{q_title}, #{q_content}, DEFAULT, 'n')
+		INSERT INTO tm_qna VALUES(TM_QNA_SEQ.NEXTVAL, #{q_title}, #{q_content}, 'test', 'n', DEFAULT)
 	</insert>
 	
 	<update id="updateQna" parameterType="Qna">
