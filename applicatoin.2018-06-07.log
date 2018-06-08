@@ -96,3 +96,24 @@
 |1    |하이트맥주 입니다 |맥주     |1        |D0001 |1200        |하이트맥주  |
 |-----|----------|-------|---------|------|------------|-------|
  
+2018:06:07 18:28:52.666 INFO  --- [http-nio-8080-exec-2] jdbc.resultsettable : 
+|-----|----------|-------|---------|------|------------|-------|
+|c_no |p_content |p_kind |c_amount |p_img |p_sellprice |p_name |
+|-----|----------|-------|---------|------|------------|-------|
+|1    |하이트맥주 입니다 |맥주     |1        |D0001 |1200        |하이트맥주  |
+|-----|----------|-------|---------|------|------------|-------|
+ 
+2018:06:07 18:29:04.660 INFO  --- [http-nio-8080-exec-5] jdbc.resultsettable : 
+|-----|----------|-------|---------|------|------------|-------|
+|c_no |p_content |p_kind |c_amount |p_img |p_sellprice |p_name |
+|-----|----------|-------|---------|------|------------|-------|
+|1    |하이트맥주 입니다 |맥주     |1        |D0001 |1200        |하이트맥주  |
+|-----|----------|-------|---------|------|------------|-------|
+ 
+2018:06:07 18:29:19.898 INFO  --- [RMI TCP Connection(2)-127.0.0.1] o.s.b.a.SpringApplicationAdminMXBeanRegistrar$SpringApplicationAdmin : Application shutdown requested. 
+2018:06:07 18:29:19.906 INFO  --- [RMI TCP Connection(2)-127.0.0.1] o.s.b.w.s.c.AnnotationConfigServletWebServerApplicationContext : Closing org.springframework.boot.web.servlet.context.AnnotationConfigServletWebServerApplicationContext@7fa98a66: startup date [Thu Jun 07 18:26:44 KST 2018]; root of context hierarchy 
+2018:06:07 18:29:19.916 INFO  --- [RMI TCP Connection(2)-127.0.0.1] o.s.j.e.a.AnnotationMBeanExporter : Unregistering JMX-exposed beans on shutdown 
+2018:06:07 18:29:19.917 INFO  --- [RMI TCP Connection(2)-127.0.0.1] o.s.j.e.a.AnnotationMBeanExporter : Unregistering JMX-exposed beans 
+2018:06:07 18:29:19.919 INFO  --- [RMI TCP Connection(2)-127.0.0.1] o.s.o.j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default' 
+2018:06:07 18:29:19.920 INFO  --- [RMI TCP Connection(2)-127.0.0.1] com.zaxxer.hikari.HikariDataSource : HikariPool-1 - Shutdown initiated... 
+2018:06:07 18:29:20.079 INFO  --- [RMI TCP Connection(2)-127.0.0.1] com.zaxxer.hikari.HikariDataSource : HikariPool-1 - Shutdown completed. 

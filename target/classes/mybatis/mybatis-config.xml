@@ -12,6 +12,7 @@
   		 <typeAlias alias="OrderDetail" type="shop.kim.order.model.Order_Detail"/>
   		 <typeAlias alias="Review" type="shop.son.review.model.Review"/>
   		 <typeAlias alias="ProductQna" type="shop.son.productqna.model.ProductQna"/>
+  		 <typeAlias alias="OrderWriter" type="shop.kim.order.model.OrderWriter"/>
     </typeAliases>
     
     <mappers>
