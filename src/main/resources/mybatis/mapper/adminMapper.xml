@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="shop.son.productqna.repository.AdminMapper">
+
+<resultMap type="Admin" id="adminResultMap">
+	<result property="a_id" column="A_ID"/>
+	<result property="a_pw" column="A_PW"/>
+	<result property="a_name" column="A_NAME"/>
+	<result property="a_position" column="A_POSITION"/>
+	<result property="a_job" column="A_JOB"/>
+	<result property="a_email" column="A_EMAIL"/>
+	<result property="a_phone" column="A_PHONE"/>
+</resultMap>
+
+
+<select id="adminLoginCheck" resultType="Admin" resultMap="adminResultMap">
+	SELECT * FROM TM_ADMIN WHERE A_ID=#{a_id}
+</select>
+
+
+</mapper>
+

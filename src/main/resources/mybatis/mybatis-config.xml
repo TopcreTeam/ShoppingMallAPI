@@ -12,6 +12,7 @@
   		 <typeAlias alias="OrderDetail" type="shop.kim.order.model.Order_Detail"/>
   		 <typeAlias alias="Review" type="shop.son.review.model.Review"/>
   		 <typeAlias alias="ProductQna" type="shop.son.productqna.model.ProductQna"/>
+  		 <typeAlias alias="Admin" type="shop.choi.admin.model.Admin"/>
     </typeAliases>
     
     <mappers>
@@ -25,5 +26,6 @@
         <mapper resource="mybatis/mapper/reviewMapper.xml"/>
         <mapper resource="mybatis/mapper/productQnaMapper.xml"/>
         <mapper resource="mybatis/mapper/joinMapper.xml"/>
+        <mapper resource="mybatis/mapper/adminMapper.xml"/>
     </mappers>
 </configuration>
