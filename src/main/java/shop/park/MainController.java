@@ -83,7 +83,7 @@ public class MainController {
 		return new ResponseEntity<Products>(HttpStatus.CREATED);
 	}
 	
-	@PutMapping(value = "/detail/product/{p_code}")
+	@PutMapping(value = "/product/{p_code}")
 	public ResponseEntity<?> updateProduct(@PathVariable("p_code") String p_code, @RequestBody Products product) {
 		log.info("Updating Product with p_code : " + product);
 		
@@ -92,7 +92,7 @@ public class MainController {
 		return new ResponseEntity<Products>(HttpStatus.OK);
 	}
 	
-	@DeleteMapping(value = "/detail/product/{p_code}")
+	@DeleteMapping(value = "/product/{p_code}")
 	public ResponseEntity<?> deleteProduct(@PathVariable("p_code") String p_code) {
 		log.info("Deleting Product with p_code : " + p_code);
 		
@@ -187,25 +187,25 @@ public class MainController {
 	
 	@PostMapping(value = "/qna/write")
 	public ResponseEntity<?> insertQna(@RequestBody Qna qna, UriComponentsBuilder ucBuilder) {
-		log.info("Insert Product : " + qna);
+		log.info("Insert Qna : " + qna);
 		
 		qnaService.insertQna(qna);
 		
 		return new ResponseEntity<Qna>(HttpStatus.CREATED);
 	}
 	
-	@PutMapping(value = "/detail/qna/{q_no}")
+	@PutMapping(value = "/qna/{q_no}")
 	public ResponseEntity<?> updateQna(@PathVariable("q_no") long q_no, @RequestBody Qna qna) {
-		log.info("Updating Product with p_code : " + qna);
+		log.info("Updating Qna with p_code : " + qna);
 		
 		qnaService.updateQna(qna);
 		
 		return new ResponseEntity<Qna>(HttpStatus.OK);
 	}
 	
-	@DeleteMapping(value = "/detail/qna/{q_no}")
+	@DeleteMapping(value = "/qna/{q_no}")
 	public ResponseEntity<?> deleteQna(@PathVariable("q_no") long q_no) {
-		log.info("Deleting Product with p_code : " + q_no);
+		log.info("Deleting Qna with p_code : " + q_no);
 		
 		qnaService.deleteQna(q_no);
 		
