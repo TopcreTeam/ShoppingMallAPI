@@ -37,8 +37,8 @@ public class OrderService {
 		return orderDetailArr;
 	}
 	
-	public int orderDetailInsert(Order_Detail orderDetail,int maxO_no) {
-		return orderMapper.orderDetailInsert(orderDetail,maxO_no);
+	public int orderDetailInsert(Order_Detail orderDetail) {
+		return orderMapper.orderDetailInsert(orderDetail);
 	}
 	
 	public int maxO_no() {

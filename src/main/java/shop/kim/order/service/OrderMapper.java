@@ -3,6 +3,7 @@ package shop.kim.order.service;
 import java.util.ArrayList;
 
 import org.apache.ibatis.annotations.Mapper;
+import org.apache.ibatis.annotations.Select;
 
 import shop.kim.order.model.Order;
 import shop.kim.order.model.Order_Detail;
@@ -19,8 +20,9 @@ public interface OrderMapper {
 //	주문상세
 	public ArrayList<Order_Detail> orderDetailList(int ono);
 	
-	public int orderDetailInsert(Order_Detail orderDetail,int maxO_no);
+	public int orderDetailInsert(Order_Detail orderDetail);
 	
+	@Select("SELECT MAX(O_NO) FROM TM_ORDER")
 	public int maxO_no();
 	
 	public int orderDetailDelete(int odno);
