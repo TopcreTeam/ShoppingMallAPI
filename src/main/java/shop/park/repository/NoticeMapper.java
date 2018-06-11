@@ -15,4 +15,6 @@ public interface NoticeMapper {
 	
 	public List<Notice> selectByNoticeCategory(String n_category);
 	
+	public List<Notice> searchByNoticeTitle(String n_title);
+	
 }

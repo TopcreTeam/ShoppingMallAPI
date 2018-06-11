@@ -24,4 +24,8 @@
 		SELECT * FROM tm_notice WHERE n_category=#{n_category}
 	</select>
 	
+	<select id="searchByNoticeTitle" parameterType="String" resultMap="noticeResultMap">
+		SELECT * FROM tm_notice WHERE n_title LIKE '%'||#{n_title}||'%'
+	</select>
+	
 </mapper>

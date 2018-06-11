@@ -45,4 +45,15 @@ public class NoticeServiceImpl implements NoticeService {
 			return null;
 		}
 	}
+
+	@Override
+	public List<Notice> searchByNoticeTitle(String n_title) {
+		List<Notice> searchNoticeTitle = noticeMapper.searchByNoticeTitle(n_title);
+		
+		if(searchNoticeTitle.isEmpty() || searchNoticeTitle == null) {
+			return null;
+		} else {
+			return searchNoticeTitle;
+		}
+	}
 }

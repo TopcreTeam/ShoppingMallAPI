@@ -24,11 +24,11 @@
 	<delete id="cartDelete">
 		DELETE FROM TM_CART WHERE C_NO=#{cno}
 	</delete>
-	<update id="cartUpdate">
-		UPDATE TM_CART SET(C_AMOUNT=#{camount})
+	<update id="cartUpdate" parameterType="Cart">
+		UPDATE TM_CART SET C_AMOUNT=#{camount} WHERE C_NO=#{cno}
 	</update>
-	<insert id="cartInsert">
-		INSERT INTO TM_CART VALUES(TM_CART_SEQ.NEXTVAL,#{cart.uid},#{cart.pcode},#{cart.camount})
+	<insert id="cartInsert" parameterType="Cart">
+		INSERT INTO TM_CART VALUES(TM_CART_SEQ.NEXTVAL,#{uid},#{pcode},#{camount})
 	</insert>
 	<!-- 장바구니 to 주문서작성 -->
 	<select id="orderWriteList" resultType="OrderWriter" resultMap="CartResultMap">

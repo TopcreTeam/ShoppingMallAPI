@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -32,18 +33,25 @@ public class OrderController {
 		return orderArr;
 	}
 	
-	@PostMapping("/insert/{order}/{orderDetailArr}")
-	@Transactional
-	int orderInsert(@PathVariable("order") Order order,@PathVariable("orderDetailArr") ArrayList<Order_Detail> orderDetailArr) {
-
-		int oResult = orderService.orderInsert(order);
-		int maxO_no = orderService.maxO_no();
-		for(int i=0;i<orderDetailArr.size();i++) {
-			orderService.orderDetailInsert(orderDetailArr.get(i),maxO_no);
-			}
-		
-		return oResult;
+	
+	@PostMapping("/insert/order")
+	int orderInsertOrder(@RequestBody Order order) {
+		System.out.println(order.getOtotal());
+		return orderService.orderInsert(order);
 	}
+	@PostMapping("/insert/detail")
+	@Transactional
+	void orderInsertDetail(@RequestBody ArrayList<Order_Detail> orderDetailArr) {
+		int ono = orderService.maxO_no();
+		System.out.println(ono);
+		for(int i=0;i<orderDetailArr.size();i++) {
+			orderDetailArr.get(i).setOno(ono);
+			orderService.orderDetailInsert(orderDetailArr.get(i));
+			}
+	}
+	
+	
+	
 	@DeleteMapping("/delete/{ono}")
 	int orderInsert(@PathVariable("ono") int ono) {
 		return orderService.orderDelete(ono);

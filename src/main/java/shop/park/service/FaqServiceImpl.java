@@ -47,4 +47,15 @@ public class FaqServiceImpl implements FaqService {
 		}
 	}
 
+	@Override
+	public List<Faq> searchByFaqTitle(String faq_title) {
+		List<Faq> searchFaqTitle = faqMapper.searchByFaqTitle(faq_title);
+		
+		if(searchFaqTitle.isEmpty() || searchFaqTitle == null) {
+			return null;
+		} else {
+			return searchFaqTitle;
+		}
+	}
+
 }

@@ -13,7 +13,7 @@
 	</resultMap>
 	
 	<select id="selectAllFaq" resultMap="faqResultMap">
-		SELECT * FROM tm_faq ORDER BY f_no
+		SELECT * FROM tm_faq ORDER BY f_no DESC
 	</select>
 	
 	<select id="selectByFaqNo" parameterType="long" resultMap="faqResultMap">
