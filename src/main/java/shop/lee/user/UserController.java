@@ -6,9 +6,12 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 import shop.kim.login.model.User;
@@ -46,5 +49,22 @@ public class UserController {
 			return new ResponseEntity<User>(HttpStatus.OK);
 		}
 	}
+	
+	@PostMapping(value = "/findID/")
+	public User FindUserID(@RequestBody User user) {
+		User FindUser = userService.FindID(user);
+		
+		System.out.println(FindUser.getUid());		
+		return FindUser;
+	}
+	
+	@PostMapping(value = "/findPW/")
+	public User FindUserPW(@RequestBody User user) {
+		User FindUser = userService.FindPW(user);
+		
+		System.out.println(FindUser.getUid());		
+		return FindUser;
+	}
+	
 	
 }
