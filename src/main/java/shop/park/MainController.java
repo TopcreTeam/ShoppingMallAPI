@@ -129,6 +129,16 @@ public class MainController {
 		return notice;
 	}
 	
+	@RequestMapping(value = "/notice/search/{n_title}", method = RequestMethod.GET)
+	public List<Notice> getByNoticeTitleSearch(@PathVariable("n_title") String n_title) {
+		log.info("Select Notice By n_title");
+		
+		List<Notice> searchNoticeTitle = noticeService.searchByNoticeTitle(n_title);
+		
+		return searchNoticeTitle;
+		
+	}
+	
 	// 자주 묻는 질문 관련 controller
 	@RequestMapping(value = "/faq", method = RequestMethod.GET)
 	public List<Faq> listAllFaq() {
@@ -157,12 +167,21 @@ public class MainController {
 		return faq;
 	}
 	
+	@RequestMapping(value = "/faq/search/{f_title}", method = RequestMethod.GET)
+	public List<Faq> getByFaqTitleSearch(@PathVariable("f_title") String f_title) {
+		log.info("Select Faq By f_title");
+		
+		List<Faq> searchFaqTitle = faqService.searchByFaqTitle(f_title);
+		
+		return searchFaqTitle;
+	}
+	
 	// 1:1 질문 관련 controller
-	@RequestMapping(value = "/qna", method = RequestMethod.GET)
-	public List<Qna> listAllQna() {
+	@RequestMapping(value = "/qna/list/{u_id}", method = RequestMethod.GET)
+	public List<Qna> listAllQna(@PathVariable("u_id") String u_id) {
 		log.info("Select All Qna");
 		
-		List<Qna> qnaList = qnaService.selectAllQna();
+		List<Qna> qnaList = qnaService.selectAllQna(u_id);
 		
 		return qnaList;
 	}
@@ -174,6 +193,15 @@ public class MainController {
 		Qna qna = qnaService.selectByQnaNo(q_no);
 		
 		return qna;
+	}
+	
+	@RequestMapping(value = "/qna/search/{q_title}", method = RequestMethod.GET)
+	public List<Qna> getByQnaTitleSearch(@PathVariable("q_title") String q_title) {
+		log.info("Select Qna By f_title");
+		
+		List<Qna> searchQnaTitle = qnaService.searchByQnaTitle(q_title);
+		
+		return searchQnaTitle;
 	}
 	
 	@RequestMapping(value = "/qna/{q_reply}", method = RequestMethod.GET)
@@ -194,9 +222,16 @@ public class MainController {
 		return new ResponseEntity<Qna>(HttpStatus.CREATED);
 	}
 	
-	@PutMapping(value = "/qna/{q_no}")
+	@PutMapping(value = "/qna/update/{q_no}")
 	public ResponseEntity<?> updateQna(@PathVariable("q_no") long q_no, @RequestBody Qna qna) {
-		log.info("Updating Qna with p_code : " + qna);
+		log.info("Updating Qna with p_code : " + q_no);
+		
+		Qna qnaObject = qnaService.selectByQnaNo(q_no);
+		if(qnaObject == null) {
+			return new ResponseEntity<Qna>(HttpStatus.FAILED_DEPENDENCY);
+		}
+		
+		qna.setQ_no(q_no);
 		
 		qnaService.updateQna(qna);
 		

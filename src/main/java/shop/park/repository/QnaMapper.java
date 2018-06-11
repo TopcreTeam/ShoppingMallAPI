@@ -10,7 +10,9 @@ import shop.park.model.Qna;
 @Mapper
 public interface QnaMapper {
 	
-	public List<Qna> selectAllQna();
+	public List<Qna> selectAllQna(String u_id);
+	
+	public List<Qna> searchByQnaTitle(String q_title);
 	
 	public List<Qna> selectByQnaReply(String q_reply);
 	

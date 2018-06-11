@@ -13,10 +13,10 @@ public class QnaServiceImpl implements QnaService {
 	
 	@Autowired
 	QnaMapper qnaMapper;
-
+	
 	@Override
-	public List<Qna> selectAllQna() {
-		List<Qna> qnaList = qnaMapper.selectAllQna();
+	public List<Qna> selectAllQna(String u_id) {
+		List<Qna> qnaList = qnaMapper.selectAllQna(u_id);
 		
 		if(qnaList.isEmpty() || qnaList == null) {
 			return null;
@@ -56,6 +56,17 @@ public class QnaServiceImpl implements QnaService {
 	@Override
 	public void deleteQna(long q_no) {
 		qnaMapper.deleteQna(q_no);
+	}
+
+	@Override
+	public List<Qna> searchByQnaTitle(String q_title) {
+		List<Qna> searchQnaTitle = qnaMapper.searchByQnaTitle(q_title);
+		
+		if(searchQnaTitle.isEmpty() || searchQnaTitle == null) {
+			return null;
+		} else {
+			return searchQnaTitle;
+		}
 	}
 
 }

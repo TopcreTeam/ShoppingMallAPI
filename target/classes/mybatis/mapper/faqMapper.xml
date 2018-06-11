@@ -23,4 +23,8 @@
 	<select id="selectByFaqCategory" parameterType="String" resultMap="faqResultMap">
 		SELECT * FROM tm_faq WHERE f_category=#{f_category}
 	</select>
+	
+	<select id="searchByFaqTitle" parameterType="String" resultMap="faqResultMap">
+		SELECT * FROM tm_faq WHERE f_title LIKE '%'||#{f_title}||'%'
+	</select>
 </mapper>
