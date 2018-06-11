@@ -8,6 +8,13 @@ public class Order {
 	private int ototal;
 	private Date odate;
 	private char ostatus;
+	private String oaddr;
+	public String getOaddr() {
+		return oaddr;
+	}
+	public void setOaddr(String oaddr) {
+		this.oaddr = oaddr;
+	}
 	public int getOno() {
 		return ono;
 	}
