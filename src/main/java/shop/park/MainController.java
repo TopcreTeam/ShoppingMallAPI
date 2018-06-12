@@ -125,6 +125,7 @@ public class MainController {
 		log.info("Select Notice by n_no");
 		
 		Notice notice = noticeService.selectByNoticeNo(n_no);
+		noticeService.incrementNoticeHits(n_no);
 		
 		return notice;
 	}
@@ -163,6 +164,7 @@ public class MainController {
 		log.info("Select Faq by f_no");
 		
 		Faq faq = faqService.selectByFaqNo(f_no);
+		faqService.incrementFaqHits(f_no);
 		
 		return faq;
 	}

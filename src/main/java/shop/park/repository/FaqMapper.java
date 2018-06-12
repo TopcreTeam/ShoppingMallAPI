@@ -17,4 +17,6 @@ public interface FaqMapper {
 	
 	public List<Faq> searchByFaqTitle(String faq_title);
 	
+	public int updateFaqHits(Faq faq);
+	
 }

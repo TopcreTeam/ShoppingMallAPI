@@ -3,13 +3,7 @@ Built-By: 수연
 Build-Jdk: 9
 Implementation-Title: ShoppingMallAPI
 Implementation-Version: 0.0.1-SNAPSHOT
-<<<<<<< HEAD
 Implementation-Vendor-Id: shop
-=======
-Built-By: 이경민
-Implementation-Vendor-Id: shop
-Build-Jdk: 1.8.0_161
->>>>>>> 50350ab1768ae7400184f0fbabd8dd479b77cb9d
 Implementation-URL: https://projects.spring.io/spring-boot/#/spring-bo
  ot-starter-parent/ShoppingMallAPI
 Created-By: Maven Integration for Eclipse

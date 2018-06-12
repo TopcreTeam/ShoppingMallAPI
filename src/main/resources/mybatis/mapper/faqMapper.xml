@@ -27,4 +27,8 @@
 	<select id="searchByFaqTitle" parameterType="String" resultMap="faqResultMap">
 		SELECT * FROM tm_faq WHERE f_title LIKE '%'||#{f_title}||'%'
 	</select>
+	
+	<update id="updateFaqHits" parameterType="long">
+		UPDATE tm_faq SET f_hits=#{f_hits}
+	</update>
 </mapper>

@@ -28,4 +28,8 @@
 		SELECT * FROM tm_notice WHERE n_title LIKE '%'||#{n_title}||'%'
 	</select>
 	
+	<update id="updateNoticeHits" parameterType="long">
+		UPDATE tm_notice SET n_hits=#{n_hits}
+	</update>
+	
 </mapper>
