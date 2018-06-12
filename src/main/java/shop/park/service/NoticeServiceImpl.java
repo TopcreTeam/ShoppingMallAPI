@@ -56,4 +56,20 @@ public class NoticeServiceImpl implements NoticeService {
 			return searchNoticeTitle;
 		}
 	}
+
+	@Override
+	public void incrementNoticeHits(long n_no) {
+		Notice notice = noticeMapper.selectByNoticeNo(n_no);
+		increment(notice);
+		updateNotice(notice);
+	}
+	
+	private void increment(Notice notice) {
+		notice.setN_hits(notice.getN_hits() + 1);
+	}
+
+	@Override
+	public void updateNotice(Notice notice) {
+		noticeMapper.updateNoticeHits(notice);
+	}
 }

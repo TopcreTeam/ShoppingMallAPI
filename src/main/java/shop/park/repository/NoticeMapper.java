@@ -5,6 +5,7 @@ import java.util.List;
 import org.apache.ibatis.annotations.Mapper;
 
 import shop.park.model.Notice;
+import shop.park.model.Qna;
 
 @Mapper
 public interface NoticeMapper {
@@ -16,5 +17,7 @@ public interface NoticeMapper {
 	public List<Notice> selectByNoticeCategory(String n_category);
 	
 	public List<Notice> searchByNoticeTitle(String n_title);
+	
+	public int updateNoticeHits(Notice notice);
 	
 }

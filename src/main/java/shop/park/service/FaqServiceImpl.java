@@ -58,4 +58,20 @@ public class FaqServiceImpl implements FaqService {
 		}
 	}
 
+	@Override
+	public void incrementFaqHits(long f_no) {
+		Faq faq = faqMapper.selectByFaqNo(f_no);
+		increment(faq);
+		updateFaq(faq);
+	}
+
+	private void increment(Faq faq) {
+		faq.setF_hits(faq.getF_hits() + 1);;
+	}
+
+	@Override
+	public void updateFaq(Faq faq) {
+		faqMapper.updateFaqHits(faq);
+	}
+	
 }

@@ -8,5 +8,7 @@ public interface NoticeService {
 	List<Notice> selectAllNotice();
 	List<Notice> selectByNoticeCategory(String n_category);
 	Notice selectByNoticeNo(long n_no);
-	public List<Notice> searchByNoticeTitle(String n_title);
+	List<Notice> searchByNoticeTitle(String n_title);
+	void updateNotice(Notice notice);
+	void incrementNoticeHits(long n_no);
 }
