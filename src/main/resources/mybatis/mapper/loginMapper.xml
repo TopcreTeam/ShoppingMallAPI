@@ -17,7 +17,7 @@
 		<result property="uemailyn" column="U_EMAILYN" />
 	</resultMap>
 	<select id="logincheck" resultType="User" resultMap="userResultMap">
-		SELECT * FROM TM_USER WHERE U_ID=#{uid}
+		SELECT * FROM TM_USER WHERE U_ID=#{uid} 
 	</select>
 	<select id="getUser" resultType="User">
 		select * from tm_user

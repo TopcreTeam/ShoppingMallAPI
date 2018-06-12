@@ -17,12 +17,24 @@
 		<result property="uemailyn" column="U_EMAILYN" />
 	</resultMap>	
 	
+	
 	<!-- UPDATE tm_user SET U_PW='1234', U_PHONE='1234', U_ADDR1='부산', U_ADDR2='창원', U_ADDR3='마산', U_ADDRCHECK=2,
 		U_BIRTH=222222,U_GENDER='M',U_SMSYN='Y',U_EMAILYN='N' where u_id='qwer'; -->
 	<update id="updateUser" parameterType="User">
 		UPDATE tm_user SET U_PW=#{upw}, U_PHONE=#{uphone}, U_ADDR1=#{uaddr1}, U_ADDR2=#{uaddr2}, U_ADDR3=#{uaddr3}, U_ADDRCHECK=#{uaddrcheck},
 		U_BIRTH=#{ubirth},U_GENDER=#{ugender},U_SMSYN=#{usmsyn},U_EMAILYN=#{uemailyn} where U_ID=#{uid}
 	</update>
+	
+	
+	<select id="FindID" parameterType="User" resultMap="userResultMap" resultType="User">
+		SELECT * FROM TM_USER WHERE U_NAME=#{uname} and U_PHONE=#{uphone} and U_BIRTH='${ubirth}'
+	</select>
+	
+	<select id="FindPW" parameterType="User" resultMap="userResultMap" resultType="User">
+		SELECT * FROM TM_USER WHERE U_ID=#{uid} and U_NAME=#{uname} and U_PHONE=#{uphone} and U_BIRTH='${ubirth}'
+	</select>
+	
+	
 
 	
 
