@@ -13,6 +13,12 @@ public class OrderService {
 	
 	@Autowired
 	OrderMapper orderMapper;
+	//관리자 페이지용
+	public ArrayList<Order> getAllorderList(){
+		ArrayList<Order> orderArr=orderMapper.getAllorderList();
+		return orderArr;
+	};
+	
 //	주문
 	public ArrayList<Order> orderList(String uid){
 		ArrayList<Order> orderArr=orderMapper.orderList(uid);
@@ -27,6 +33,12 @@ public class OrderService {
 	public int orderDelete(int ono) {
 		return orderMapper.orderDelete(ono);
 	};
+	
+	//관리자 페이지용
+	public int orderUpdate(Order order) {
+		return orderMapper.orderUpdate(order);
+	}
+	
 	
 //	주문상세
 	

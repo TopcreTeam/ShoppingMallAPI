@@ -27,5 +27,9 @@ public interface OrderMapper {
 	
 	public int orderDetailDelete(int odno);
 	
+	//관리자 페이지용
+	public int orderUpdate(Order order);
+	
+	public ArrayList<Order> getAllorderList();
 	
 }
