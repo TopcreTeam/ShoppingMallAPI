@@ -120,14 +120,28 @@ public class MainController {
 		return noticeCategoryList;
 	}
 	
-	@RequestMapping(value = "/detail/notice/{n_no}", method = RequestMethod.GET)
-	public Notice getByNoticeNo(@PathVariable("n_no") long n_no) {
-		log.info("Select Notice by n_no");
+//	@RequestMapping(value = "/detail/notice/{n_no}", method = RequestMethod.GET)
+//	public Notice getByNoticeNo(@PathVariable("n_no") long n_no) {
+//		log.info("Select Notice by n_no");
+//		
+//		Notice notice = noticeService.selectByNoticeNo(n_no);
+//		noticeService.incrementNoticeHits(n_no);
+//		
+//		return notice;
+//	}
+	
+	@PutMapping(value = "/detail/notice/{n_no}")
+	public ResponseEntity<?> incrementNoticeHits(@PathVariable("n_no") long n_no, @RequestBody Notice notice) {
+		log.info("Increment Notice by n_no" + n_no);
+//		Notice noticeObject = noticeService.selectByNoticeNo(n_no);
+//		if(noticeObject == null) {
+//			return new ResponseEntity<Notice>(HttpStatus.FAILED_DEPENDENCY);
+//		}
 		
-		Notice notice = noticeService.selectByNoticeNo(n_no);
+		notice.setN_no(n_no);
 		noticeService.incrementNoticeHits(n_no);
 		
-		return notice;
+		return new ResponseEntity<Notice>(HttpStatus.OK);
 	}
 	
 	@RequestMapping(value = "/notice/search/{n_title}", method = RequestMethod.GET)
@@ -159,14 +173,24 @@ public class MainController {
 		return faqCategoryList;
 	}
 	
-	@RequestMapping(value = "/detail/faq/{f_no}", method = RequestMethod.GET)
-	public Faq getByFaqNo(@PathVariable("f_no") long f_no) {
-		log.info("Select Faq by f_no");
+//	@RequestMapping(value = "/detail/faq/{f_no}", method = RequestMethod.GET)
+//	public Faq getByFaqNo(@PathVariable("f_no") long f_no) {
+//		log.info("Select Faq by f_no");
+//		
+//		Faq faq = faqService.selectByFaqNo(f_no);
+//		faqService.incrementFaqHits(f_no);
+//		
+//		return faq;
+//	}
+	
+	@PutMapping(value = "/detail/faq/{f_no}")
+	public ResponseEntity<?> incrementFaqHits(@PathVariable("f_no") long f_no, @RequestBody Faq faq) {
+		log.info("Increment Faq by f_no" + f_no);
 		
-		Faq faq = faqService.selectByFaqNo(f_no);
+		faq.setF_no(f_no);
 		faqService.incrementFaqHits(f_no);
 		
-		return faq;
+		return new ResponseEntity<Faq>(HttpStatus.OK);
 	}
 	
 	@RequestMapping(value = "/faq/search/{f_title}", method = RequestMethod.GET)
