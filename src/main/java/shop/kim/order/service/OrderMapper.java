@@ -17,6 +17,8 @@ public interface OrderMapper {
 	
 	public int orderDelete(int ono);
 	
+	public int cancleOrder(int ono);
+	
 //	주문상세
 	public ArrayList<Order_Detail> orderDetailList(int ono);
 	
