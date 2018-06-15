@@ -6856,3 +6856,149 @@ java.lang.NullPointerException: null
 2018:06:15 14:49:22.073 INFO  --- [RMI TCP Connection(161)-127.0.0.1] com.zaxxer.hikari.HikariDataSource : HikariPool-1 - Shutdown initiated... 
 2018:06:15 14:49:22.266 INFO  --- [RMI TCP Connection(161)-127.0.0.1] com.zaxxer.hikari.HikariDataSource : HikariPool-1 - Shutdown completed. 
 >>>>>>> 922003553f5270f4db42eebe3316f00121e83b2d
+2018:06:15 17:04:29.899 INFO  --- [main] shop.ShoppingMallApiApplication : Starting ShoppingMallApiApplication on DESKTOP-TF96U0A with PID 12936 (E:\Portfolio\ShoppingMallAPI\target\classes started by Kim in E:\Portfolio\ShoppingMallAPI) 
+2018:06:15 17:04:29.899 INFO  --- [main] shop.ShoppingMallApiApplication : No active profile set, falling back to default profiles: default 
+2018:06:15 17:04:29.946 INFO  --- [main] o.s.b.w.s.c.AnnotationConfigServletWebServerApplicationContext : Refreshing org.springframework.boot.web.servlet.context.AnnotationConfigServletWebServerApplicationContext@71809907: startup date [Fri Jun 15 17:04:29 KST 2018]; root of context hierarchy 
+2018:06:15 17:04:31.029 INFO  --- [main] o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$bd8fc63d] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying) 
+2018:06:15 17:04:31.316 INFO  --- [main] o.s.b.w.e.tomcat.TomcatWebServer : Tomcat initialized with port(s): 8080 (http) 
+2018:06:15 17:04:31.331 INFO  --- [main] o.a.catalina.core.StandardService : Starting service [Tomcat] 
+2018:06:15 17:04:31.331 INFO  --- [main] o.a.catalina.core.StandardEngine : Starting Servlet Engine: Apache Tomcat/8.5.31 
+2018:06:15 17:04:31.331 INFO  --- [localhost-startStop-1] o.a.c.core.AprLifecycleListener : The APR based Apache Tomcat Native library which allows optimal performance in production environments was not found on the java.library.path: [C:\Program Files\Java\jdk1.8.0_151\bin;C:\WINDOWS\Sun\Java\bin;C:\WINDOWS\system32;C:\WINDOWS;C:/Program Files/Java/jdk1.8.0_151/bin/../jre/bin/server;C:/Program Files/Java/jdk1.8.0_151/bin/../jre/bin;C:/Program Files/Java/jdk1.8.0_151/bin/../jre/lib/amd64;C:\app\김동현\product\11.2.0\dbhome_1\bin;C:;ProgramData\Oracle\Java\javapath;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;C:\Program Files\Java\jdk1.8.0_151\bin;C:\Program Files (x86)\Brackets\command;C:\Program Files\MySQL\MySQL Utilities 1.6\;C:\Program Files\Git\cmd;C:\Program Files\dotnet\;C:\Program Files\Microsoft SQL Server\130\Tools\Binn\;C:\Program Files\nodejs\;C:\WINDOWS\System32\OpenSSH\;C:\Ruby24-x64\bin;C:\Users\김동현\AppData\Local\Microsoft\WindowsApps;C:\Users\김동현\AppData\Local\atom\bin;C:\Users\김동현\AppData\Roaming\npm;%USERPROFILE%\AppData\Local\Microsoft\WindowsApps;;C:\java2\sts\sts-bundle\sts-3.9.3.RELEASE;;.] 
+2018:06:15 17:04:31.456 INFO  --- [localhost-startStop-1] o.a.c.c.C.[Tomcat].[localhost].[/] : Initializing Spring embedded WebApplicationContext 
+2018:06:15 17:04:31.456 INFO  --- [localhost-startStop-1] o.s.web.context.ContextLoader : Root WebApplicationContext: initialization completed in 1510 ms 
+2018:06:15 17:04:31.595 INFO  --- [localhost-startStop-1] o.s.b.w.s.ServletRegistrationBean : Servlet dispatcherServlet mapped to [/] 
+2018:06:15 17:04:31.595 INFO  --- [localhost-startStop-1] o.s.b.w.s.FilterRegistrationBean : Mapping filter: 'characterEncodingFilter' to: [/*] 
+2018:06:15 17:04:31.611 INFO  --- [localhost-startStop-1] o.s.b.w.s.FilterRegistrationBean : Mapping filter: 'hiddenHttpMethodFilter' to: [/*] 
+2018:06:15 17:04:31.611 INFO  --- [localhost-startStop-1] o.s.b.w.s.FilterRegistrationBean : Mapping filter: 'httpPutFormContentFilter' to: [/*] 
+2018:06:15 17:04:31.611 INFO  --- [localhost-startStop-1] o.s.b.w.s.FilterRegistrationBean : Mapping filter: 'requestContextFilter' to: [/*] 
+2018:06:15 17:04:31.788 INFO  --- [main] com.zaxxer.hikari.HikariDataSource : HikariPool-1 - Starting... 
+2018:06:15 17:04:32.053 INFO  --- [main] com.zaxxer.hikari.pool.PoolBase : HikariPool-1 - Driver does not support get/set network timeout for connections. (oracle.jdbc.driver.T4CConnection.getNetworkTimeout()I) 
+2018:06:15 17:04:32.058 INFO  --- [main] com.zaxxer.hikari.HikariDataSource : HikariPool-1 - Start completed. 
+2018:06:15 17:04:32.102 INFO  --- [main] o.s.o.j.LocalContainerEntityManagerFactoryBean : Building JPA container EntityManagerFactory for persistence unit 'default' 
+2018:06:15 17:04:32.117 INFO  --- [main] o.h.jpa.internal.util.LogHelper : HHH000204: Processing PersistenceUnitInfo [
+	name: default
+	...] 
+2018:06:15 17:04:32.180 INFO  --- [main] org.hibernate.Version : HHH000412: Hibernate Core {5.2.10.Final} 
+2018:06:15 17:04:32.195 INFO  --- [main] org.hibernate.cfg.Environment : HHH000206: hibernate.properties not found 
+2018:06:15 17:04:32.320 INFO  --- [main] o.h.annotations.common.Version : HCANN000001: Hibernate Commons Annotations {5.0.1.Final} 
+2018:06:15 17:04:32.433 INFO  --- [main] org.hibernate.dialect.Dialect : HHH000400: Using dialect: org.hibernate.dialect.Oracle12cDialect 
+2018:06:15 17:04:32.562 INFO  --- [main] o.hibernate.type.BasicTypeRegistry : HHH000270: Type registration [byte[]] overrides previous : org.hibernate.type.BinaryType@27a97e08 
+2018:06:15 17:04:32.562 INFO  --- [main] o.hibernate.type.BasicTypeRegistry : HHH000270: Type registration [[B] overrides previous : org.hibernate.type.BinaryType@27a97e08 
+2018:06:15 17:04:32.562 INFO  --- [main] o.hibernate.type.BasicTypeRegistry : HHH000270: Type registration [Byte[]] overrides previous : org.hibernate.type.WrapperBinaryType@3d7b1f1c 
+2018:06:15 17:04:32.563 INFO  --- [main] o.hibernate.type.BasicTypeRegistry : HHH000270: Type registration [[Ljava.lang.Byte;] overrides previous : org.hibernate.type.WrapperBinaryType@3d7b1f1c 
+2018:06:15 17:04:32.723 INFO  --- [main] o.s.o.j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default' 
+2018:06:15 17:04:33.208 INFO  --- [main] o.s.w.s.h.SimpleUrlHandlerMapping : Mapped URL path [/**/favicon.ico] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler] 
+2018:06:15 17:04:33.481 INFO  --- [main] o.s.w.s.m.m.a.RequestMappingHandlerAdapter : Looking for @ControllerAdvice: org.springframework.boot.web.servlet.context.AnnotationConfigServletWebServerApplicationContext@71809907: startup date [Fri Jun 15 17:04:29 KST 2018]; root of context hierarchy 
+2018:06:15 17:04:33.538 WARN  --- [main] o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration$JpaWebMvcConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning 
+2018:06:15 17:04:33.610 INFO  --- [main] o.s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/toma/admin/],methods=[POST]}" onto public shop.choi.admin.model.Admin shop.choi.admin.controller.AdminController.adminlogin(shop.choi.admin.model.Admin) 
+2018:06:15 17:04:33.610 INFO  --- [main] o.s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/toma/login/user/list],methods=[GET]}" onto public shop.kim.login.model.User shop.kim.login.LoginController.getUser() 
+2018:06:15 17:04:33.626 INFO  --- [main] o.s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/toma/login/],methods=[POST]}" onto public shop.kim.login.model.User shop.kim.login.LoginController.login(shop.kim.login.model.Login) 
+2018:06:15 17:04:33.631 INFO  --- [main] o.s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/toma/cart/{uid}],methods=[GET]}" onto java.util.ArrayList<shop.kim.order.model.Cart> shop.kim.order.CartController.carList(java.lang.String) 
+2018:06:15 17:04:33.642 INFO  --- [main] o.s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/toma/cart/],methods=[PUT]}" onto int shop.kim.order.CartController.cartUpdate(shop.kim.order.model.Cart) 
+2018:06:15 17:04:33.643 INFO  --- [main] o.s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/toma/cart/],methods=[POST]}" onto int shop.kim.order.CartController.cartInsert(shop.kim.order.model.Cart) 
+2018:06:15 17:04:33.644 INFO  --- [main] o.s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/toma/cart/goOrderWrite],methods=[PUT]}" onto java.util.ArrayList<shop.kim.order.model.Cart> shop.kim.order.CartController.orderWriteList(int[]) 
+2018:06:15 17:04:33.644 INFO  --- [main] o.s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/toma/cart/{cno}],methods=[DELETE]}" onto int shop.kim.order.CartController.cartDelete(int) 
+2018:06:15 17:04:33.657 INFO  --- [main] o.s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/toma/order/insert/detail],methods=[POST]}" onto void shop.kim.order.OrderController.orderInsertDetail(java.util.ArrayList<shop.kim.order.model.Order_Detail>) 
+2018:06:15 17:04:33.658 INFO  --- [main] o.s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/toma/order/orderdetail/delete/{odno}],methods=[DELETE]}" onto int shop.kim.order.OrderController.orderDetailInsert(int) 
+2018:06:15 17:04:33.659 INFO  --- [main] o.s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/toma/order/{uid}],methods=[GET]}" onto java.util.ArrayList<shop.kim.order.model.Order> shop.kim.order.OrderController.orderList(java.lang.String) 
+2018:06:15 17:04:33.660 INFO  --- [main] o.s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/toma/order/],methods=[PUT]}" onto public int shop.kim.order.OrderController.updateOrder(shop.kim.order.model.Order) 
+2018:06:15 17:04:33.661 INFO  --- [main] o.s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/toma/order/],methods=[GET]}" onto java.util.ArrayList<shop.kim.order.model.Order> shop.kim.order.OrderController.getAllorderList() 
+2018:06:15 17:04:33.661 INFO  --- [main] o.s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/toma/order/cancle],methods=[PUT]}" onto public int shop.kim.order.OrderController.cancleOrder(int) 
+2018:06:15 17:04:33.662 INFO  --- [main] o.s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/toma/order/insert/order],methods=[POST]}" onto int shop.kim.order.OrderController.orderInsertOrder(shop.kim.order.model.Order) 
+2018:06:15 17:04:33.663 INFO  --- [main] o.s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/toma/order/delete/{ono}],methods=[DELETE]}" onto int shop.kim.order.OrderController.orderInsert(int) 
+2018:06:15 17:04:33.673 INFO  --- [main] o.s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/toma/order/orderdetail/{ono}],methods=[GET]}" onto java.util.ArrayList<shop.kim.order.model.Order_Detail> shop.kim.order.OrderController.orderDetailList(int) 
+2018:06:15 17:04:33.674 INFO  --- [main] o.s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/toma/join/],methods=[POST]}" onto public int shop.lee.join.JoinController.NewUser(shop.kim.login.model.User) 
+2018:06:15 17:04:33.676 INFO  --- [main] o.s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/toma/user/findID/],methods=[POST]}" onto public shop.kim.login.model.User shop.lee.user.UserController.FindUserID(shop.kim.login.model.User) 
+2018:06:15 17:04:33.677 INFO  --- [main] o.s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/toma/user/findPW/],methods=[POST]}" onto public shop.kim.login.model.User shop.lee.user.UserController.FindUserPW(shop.kim.login.model.User) 
+2018:06:15 17:04:33.677 INFO  --- [main] o.s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/toma/user/Update],methods=[PUT]}" onto public org.springframework.http.ResponseEntity<shop.kim.login.model.User> shop.lee.user.UserController.updateUser(shop.kim.login.model.User) 
+2018:06:15 17:04:33.683 INFO  --- [main] o.s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/toma/product/{p_kind}],methods=[GET]}" onto public java.util.List<shop.park.model.Products> shop.park.MainController.getByProductsKind(java.lang.String) 
+2018:06:15 17:04:33.684 INFO  --- [main] o.s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/toma/detail/product/{p_code}],methods=[GET]}" onto public shop.park.model.Products shop.park.MainController.getByProductsCode(java.lang.String) 
+2018:06:15 17:04:33.684 INFO  --- [main] o.s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/toma],methods=[GET]}" onto public java.util.List<shop.park.model.Products> shop.park.MainController.listAllProducts() 
+2018:06:15 17:04:33.685 INFO  --- [main] o.s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/toma/faq],methods=[GET]}" onto public java.util.List<shop.park.model.Faq> shop.park.MainController.listAllFaq() 
+2018:06:15 17:04:33.685 INFO  --- [main] o.s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/toma/product/{p_code}],methods=[DELETE]}" onto public org.springframework.http.ResponseEntity<?> shop.park.MainController.deleteProduct(java.lang.String) 
+2018:06:15 17:04:33.686 INFO  --- [main] o.s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/toma/faq/{f_category}],methods=[GET]}" onto public java.util.List<shop.park.model.Faq> shop.park.MainController.getByFaqCategory(java.lang.String) 
+2018:06:15 17:04:33.686 INFO  --- [main] o.s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/toma/detail/faq/{f_no}],methods=[PUT]}" onto public org.springframework.http.ResponseEntity<?> shop.park.MainController.incrementFaqHits(long,shop.park.model.Faq) 
+2018:06:15 17:04:33.687 INFO  --- [main] o.s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/toma/notice],methods=[GET]}" onto public java.util.List<shop.park.model.Notice> shop.park.MainController.listAllNotices() 
+2018:06:15 17:04:33.687 INFO  --- [main] o.s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/toma/qna/list/{u_id}],methods=[GET]}" onto public java.util.List<shop.park.model.Qna> shop.park.MainController.listAllQna(java.lang.String) 
+2018:06:15 17:04:33.688 INFO  --- [main] o.s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/toma/product],methods=[POST]}" onto public org.springframework.http.ResponseEntity<?> shop.park.MainController.insertProduct(shop.park.model.Products,org.springframework.web.util.UriComponentsBuilder) 
+2018:06:15 17:04:33.689 INFO  --- [main] o.s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/toma/product/{p_code}],methods=[PUT]}" onto public org.springframework.http.ResponseEntity<?> shop.park.MainController.updateProduct(java.lang.String,shop.park.model.Products) 
+2018:06:15 17:04:33.699 INFO  --- [main] o.s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/toma/qna/search/{q_title}],methods=[GET]}" onto public java.util.List<shop.park.model.Qna> shop.park.MainController.getByQnaTitleSearch(java.lang.String) 
+2018:06:15 17:04:33.700 INFO  --- [main] o.s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/toma/faq/search/{f_title}],methods=[GET]}" onto public java.util.List<shop.park.model.Faq> shop.park.MainController.getByFaqTitleSearch(java.lang.String) 
+2018:06:15 17:04:33.700 INFO  --- [main] o.s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/toma/detail/notice/{n_no}],methods=[PUT]}" onto public org.springframework.http.ResponseEntity<?> shop.park.MainController.incrementNoticeHits(long,shop.park.model.Notice) 
+2018:06:15 17:04:33.701 INFO  --- [main] o.s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/toma/notice/{n_category}],methods=[GET]}" onto public java.util.List<shop.park.model.Notice> shop.park.MainController.getByNoticeCategory(java.lang.String) 
+2018:06:15 17:04:33.701 INFO  --- [main] o.s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/toma/notice/search/{n_title}],methods=[GET]}" onto public java.util.List<shop.park.model.Notice> shop.park.MainController.getByNoticeTitleSearch(java.lang.String) 
+2018:06:15 17:04:33.702 INFO  --- [main] o.s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/toma/qna/{q_no}],methods=[DELETE]}" onto public org.springframework.http.ResponseEntity<?> shop.park.MainController.deleteQna(long) 
+2018:06:15 17:04:33.702 INFO  --- [main] o.s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/toma/detail/qna/{q_no}],methods=[GET]}" onto public shop.park.model.Qna shop.park.MainController.getByQnaNo(long) 
+2018:06:15 17:04:33.703 INFO  --- [main] o.s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/toma/qna/update/{q_no}],methods=[PUT]}" onto public org.springframework.http.ResponseEntity<?> shop.park.MainController.updateQna(long,shop.park.model.Qna) 
+2018:06:15 17:04:33.703 INFO  --- [main] o.s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/toma/qna/{q_reply}],methods=[GET]}" onto public java.util.List<shop.park.model.Qna> shop.park.MainController.getByQnaReply(java.lang.String) 
+2018:06:15 17:04:33.704 INFO  --- [main] o.s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/toma/qna/write],methods=[POST]}" onto public org.springframework.http.ResponseEntity<?> shop.park.MainController.insertQna(shop.park.model.Qna,org.springframework.web.util.UriComponentsBuilder) 
+2018:06:15 17:04:33.706 INFO  --- [main] o.s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/toma/productqna/{p_code}],methods=[GET]}" onto public java.util.List<shop.son.productqna.model.ProductQna> shop.son.productqna.controller.ProductQnaController.listAllProductQna(java.lang.String) 
+2018:06:15 17:04:33.706 INFO  --- [main] o.s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/toma/productqna/{u_id}],methods=[DELETE]}" onto public int shop.son.productqna.controller.ProductQnaController.deleteProductQna(java.lang.String) 
+2018:06:15 17:04:33.706 INFO  --- [main] o.s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/toma/productqna/],methods=[POST]}" onto public int shop.son.productqna.controller.ProductQnaController.insertProductQna(shop.son.productqna.model.ProductQna) 
+2018:06:15 17:04:33.707 INFO  --- [main] o.s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/toma/productqna/{u_id}],methods=[POST]}" onto public int shop.son.productqna.controller.ProductQnaController.updateProductQna(java.lang.String) 
+2018:06:15 17:04:33.708 INFO  --- [main] o.s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/toma/review/],methods=[POST]}" onto public int shop.son.review.controller.ReviewController.insertReview(shop.son.review.model.Review) 
+2018:06:15 17:04:33.709 INFO  --- [main] o.s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/toma/review/{u_id}],methods=[DELETE]}" onto public int shop.son.review.controller.ReviewController.deleteReview(java.lang.String) 
+2018:06:15 17:04:33.710 INFO  --- [main] o.s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/toma/review/{p_code}],methods=[GET]}" onto public java.util.List<shop.son.review.model.Review> shop.son.review.controller.ReviewController.listAllReviews(java.lang.String) throws shop.son.review.exception.ReviewNotFoundException 
+2018:06:15 17:04:33.711 INFO  --- [main] o.s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/toma/review/{u_id}],methods=[POST]}" onto public int shop.son.review.controller.ReviewController.updateReview(java.lang.String) 
+2018:06:15 17:04:33.715 INFO  --- [main] o.s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/error]}" onto public org.springframework.http.ResponseEntity<java.util.Map<java.lang.String, java.lang.Object>> org.springframework.boot.autoconfigure.web.servlet.error.BasicErrorController.error(javax.servlet.http.HttpServletRequest) 
+2018:06:15 17:04:33.715 INFO  --- [main] o.s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/error],produces=[text/html]}" onto public org.springframework.web.servlet.ModelAndView org.springframework.boot.autoconfigure.web.servlet.error.BasicErrorController.errorHtml(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse) 
+2018:06:15 17:04:33.755 INFO  --- [main] o.s.w.s.h.SimpleUrlHandlerMapping : Mapped URL path [/webjars/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler] 
+2018:06:15 17:04:33.756 INFO  --- [main] o.s.w.s.h.SimpleUrlHandlerMapping : Mapped URL path [/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler] 
+2018:06:15 17:04:34.164 INFO  --- [main] o.s.j.e.a.AnnotationMBeanExporter : Registering beans for JMX exposure on startup 
+2018:06:15 17:04:34.164 INFO  --- [main] o.s.j.e.a.AnnotationMBeanExporter : Bean with name 'dataSource' has been autodetected for JMX exposure 
+2018:06:15 17:04:34.180 INFO  --- [main] o.s.j.e.a.AnnotationMBeanExporter : Located MBean 'dataSource': registering with JMX server as MBean [com.zaxxer.hikari:name=dataSource,type=HikariDataSource] 
+2018:06:15 17:04:34.217 INFO  --- [main] o.s.b.w.e.tomcat.TomcatWebServer : Tomcat started on port(s): 8080 (http) with context path '' 
+2018:06:15 17:04:34.231 INFO  --- [main] shop.ShoppingMallApiApplication : Started ShoppingMallApiApplication in 4.726 seconds (JVM running for 5.515) 
+2018:06:15 17:04:47.507 INFO  --- [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/] : Initializing Spring FrameworkServlet 'dispatcherServlet' 
+2018:06:15 17:04:47.516 INFO  --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet : FrameworkServlet 'dispatcherServlet': initialization started 
+2018:06:15 17:04:47.534 INFO  --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet : FrameworkServlet 'dispatcherServlet': initialization completed in 17 ms 
+2018:06:15 17:04:47.780 INFO  --- [http-nio-8080-exec-2] jdbc.resultsettable : 
+|-----|-----|-------|--------|--------|--------|--------|------------|--------|---------|--------|----------|-----------|
+|u_id |u_pw |u_name |u_phone |u_addr1 |u_addr2 |u_addr3 |u_addrcheck |u_birth |u_gender |u_smsyn |u_emailyn |u_joindate |
+|-----|-----|-------|--------|--------|--------|--------|------------|--------|---------|--------|----------|-----------|
+|csc  |1234 |홍길동    |1234567 |수정된다    |수정된다2   |수정된다3   |3           |900909  |M        |N       |N         |2018-06-04 |
+|-----|-----|-------|--------|--------|--------|--------|------------|--------|---------|--------|----------|-----------|
+ 
+2018:06:15 17:04:49.624 INFO  --- [http-nio-8080-exec-3] jdbc.resultsettable : 
+|-----|-----|--------|---------|-----------|-------|
+|o_no |u_id |o_total |o_status |o_date     |o_addr |
+|-----|-----|--------|---------|-----------|-------|
+|20   |csc  |260000  |N        |2018-06-11 |수정된다   |
+|16   |csc  |31500   |N        |2018-06-11 |수정된다   |
+|29   |csc  |1200    |N        |2018-06-11 |aaaaaa |
+|28   |csc  |2400    |N        |2018-06-11 |수정된다   |
+|27   |csc  |133200  |N        |2018-06-11 |수정된다   |
+|26   |csc  |133200  |N        |2018-06-11 |수정된다   |
+|19   |csc  |586500  |N        |2018-06-11 |수정된다   |
+|17   |csc  |8500    |N        |2018-06-11 |수정된다   |
+|21   |csc  |8000    |Y        |2018-06-11 |수정된다   |
+|22   |csc  |8400    |C        |2018-06-11 |수정된다   |
+|23   |csc  |0       |N        |2018-06-11 |수정된다   |
+|24   |csc  |133200  |N        |2018-06-11 |수정된다   |
+|18   |csc  |6000    |C        |2018-06-11 |수정된다   |
+|25   |csc  |133200  |N        |2018-06-11 |수정된다   |
+|38   |csc  |3000    |C        |2018-06-14 |수정된다3  |
+|37   |csc  |3000    |C        |2018-06-14 |수정된다3  |
+|36   |csc  |0       |C        |2018-06-14 |수정된다3  |
+|35   |csc  |0       |C        |2018-06-14 |수정된다3  |
+|33   |csc  |0       |C        |2018-06-14 |수정된다3  |
+|43   |csc  |72000   |N        |2018-06-14 |수정된다3  |
+|32   |csc  |0       |Y        |2018-06-14 |수정된다3  |
+|34   |csc  |0       |Y        |2018-06-14 |수정된다3  |
+|42   |csc  |21000   |N        |2018-06-14 |수정된다3  |
+|40   |csc  |17500   |N        |2018-06-14 |수정된다3  |
+|39   |csc  |23400   |N        |2018-06-14 |수정된다3  |
+|41   |csc  |78000   |N        |2018-06-14 |수정된다3  |
+|50   |csc  |4500    |N        |2018-06-15 |수정된다3  |
+|47   |csc  |14300   |N        |2018-06-15 |수정된다3  |
+|54   |csc  |2000    |N        |2018-06-15 |수정된다3  |
+|53   |csc  |14000   |N        |2018-06-15 |수정된다3  |
+|-----|-----|--------|---------|-----------|-------|
+ 
+2018:06:15 17:05:11.451 INFO  --- [RMI TCP Connection(2)-127.0.0.1] o.s.b.a.SpringApplicationAdminMXBeanRegistrar$SpringApplicationAdmin : Application shutdown requested. 
+2018:06:15 17:05:11.461 INFO  --- [RMI TCP Connection(2)-127.0.0.1] o.s.b.w.s.c.AnnotationConfigServletWebServerApplicationContext : Closing org.springframework.boot.web.servlet.context.AnnotationConfigServletWebServerApplicationContext@71809907: startup date [Fri Jun 15 17:04:29 KST 2018]; root of context hierarchy 
+2018:06:15 17:05:11.472 INFO  --- [RMI TCP Connection(2)-127.0.0.1] o.s.j.e.a.AnnotationMBeanExporter : Unregistering JMX-exposed beans on shutdown 
+2018:06:15 17:05:11.472 INFO  --- [RMI TCP Connection(2)-127.0.0.1] o.s.j.e.a.AnnotationMBeanExporter : Unregistering JMX-exposed beans 
+2018:06:15 17:05:11.472 INFO  --- [RMI TCP Connection(2)-127.0.0.1] o.s.o.j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default' 
+2018:06:15 17:05:11.475 INFO  --- [RMI TCP Connection(2)-127.0.0.1] com.zaxxer.hikari.HikariDataSource : HikariPool-1 - Shutdown initiated... 
+2018:06:15 17:05:11.636 INFO  --- [RMI TCP Connection(2)-127.0.0.1] com.zaxxer.hikari.HikariDataSource : HikariPool-1 - Shutdown completed. 

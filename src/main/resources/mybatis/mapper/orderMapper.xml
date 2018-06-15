@@ -22,11 +22,11 @@
 	
 		<!-- 관리자페이지용 -->
 	<select id="getAllorderList" resultType="Order" resultMap="OrderResultMap">
-		SELECT * FROM TM_ORDER ORDER BY O_DATE
+		SELECT * FROM TM_ORDER ORDER BY O_DATE DESC
 	</select>
 	<!-- 주문 QUERY -->
 	<select id="orderList" resultType="Order" resultMap="OrderResultMap">
-		SELECT * FROM TM_ORDER WHERE U_ID=#{uid}
+		SELECT * FROM TM_ORDER WHERE U_ID=#{uid} ORDER BY O_DATE DESC
 	</select>
 	<insert id="orderInsert" parameterType="Order">
 		INSERT INTO TM_ORDER(O_NO,U_ID,O_TOTAL,O_ADDR) VALUES(TM_ORDER_SEQ.NEXTVAL,#{uid},#{ototal},#{oaddr})
