@@ -10,5 +10,5 @@ public interface NoticeService {
 	Notice selectByNoticeNo(long n_no);
 	List<Notice> searchByNoticeTitle(String n_title);
 	void updateNotice(Notice notice);
-	void incrementNoticeHits(long n_no);
+	Notice incrementNoticeHits(long n_no);
 }

@@ -111,6 +111,7 @@ public class MainController {
 		return noticeList;
 	}
 	
+	// 공지사항 카테고리별 조회
 	@RequestMapping(value = "/notice/{n_category}", method = RequestMethod.GET)
 	public List<Notice> getByNoticeCategory(@PathVariable("n_category") String n_category) {
 		log.info("Select Notice by n_category");
@@ -120,16 +121,18 @@ public class MainController {
 		return noticeCategoryList;
 	}
 	
-	@RequestMapping(value = "/detail/notice/{n_no}", method = RequestMethod.GET)
-	public Notice getByNoticeNo(@PathVariable("n_no") long n_no) {
-		log.info("Select Notice by n_no");
+	// 공지사항 조회수 증가
+	@PutMapping(value = "/detail/notice/{n_no}")
+	public ResponseEntity<?> incrementNoticeHits(@PathVariable("n_no") long n_no, @RequestBody Notice notice) {
+		log.info("Increment Notice by n_no" + n_no);
 		
-		Notice notice = noticeService.selectByNoticeNo(n_no);
-		noticeService.incrementNoticeHits(n_no);
+		notice.setN_no(n_no);
+		Notice noticeObject = noticeService.incrementNoticeHits(n_no);
 		
-		return notice;
+		return new ResponseEntity<Notice>(noticeObject, HttpStatus.OK);
 	}
 	
+	// 공지사항 제목 검색
 	@RequestMapping(value = "/notice/search/{n_title}", method = RequestMethod.GET)
 	public List<Notice> getByNoticeTitleSearch(@PathVariable("n_title") String n_title) {
 		log.info("Select Notice By n_title");
@@ -150,6 +153,7 @@ public class MainController {
 		return faqList;
 	}
 	
+	// 자주 묻는 질문 카테고리별 조회
 	@RequestMapping(value = "/faq/{f_category}", method = RequestMethod.GET)
 	public List<Faq> getByFaqCategory(@PathVariable("f_category") String f_category) {
 		log.info("Select Faq by f_category");
@@ -159,16 +163,18 @@ public class MainController {
 		return faqCategoryList;
 	}
 	
-	@RequestMapping(value = "/detail/faq/{f_no}", method = RequestMethod.GET)
-	public Faq getByFaqNo(@PathVariable("f_no") long f_no) {
-		log.info("Select Faq by f_no");
+	// 자주 묻는 질문 조회수 증가
+	@PutMapping(value = "/detail/faq/{f_no}")
+	public ResponseEntity<?> incrementFaqHits(@PathVariable("f_no") long f_no, @RequestBody Faq faq) {
+		log.info("Increment Faq by f_no" + f_no);
 		
-		Faq faq = faqService.selectByFaqNo(f_no);
+		faq.setF_no(f_no);
 		faqService.incrementFaqHits(f_no);
 		
-		return faq;
+		return new ResponseEntity<Faq>(HttpStatus.OK);
 	}
 	
+	// 자주 묻는 질문 제목 검색
 	@RequestMapping(value = "/faq/search/{f_title}", method = RequestMethod.GET)
 	public List<Faq> getByFaqTitleSearch(@PathVariable("f_title") String f_title) {
 		log.info("Select Faq By f_title");
@@ -188,6 +194,7 @@ public class MainController {
 		return qnaList;
 	}
 	
+	// 1:1 질문 번호 조회 후 객체 하나 리턴
 	@RequestMapping(value = "/detail/qna/{q_no}", method = RequestMethod.GET)
 	public Qna getByQnaNo(@PathVariable("q_no") long q_no) {
 		log.info("Select Qna by q_no");
@@ -197,6 +204,7 @@ public class MainController {
 		return qna;
 	}
 	
+	// 1:1 질문 제목 검색
 	@RequestMapping(value = "/qna/search/{q_title}", method = RequestMethod.GET)
 	public List<Qna> getByQnaTitleSearch(@PathVariable("q_title") String q_title) {
 		log.info("Select Qna By f_title");
@@ -206,6 +214,7 @@ public class MainController {
 		return searchQnaTitle;
 	}
 	
+	// 1:1 질문 답변유무 별 조회
 	@RequestMapping(value = "/qna/{q_reply}", method = RequestMethod.GET)
 	public List<Qna> getByQnaReply(@PathVariable("q_reply") String q_reply) {
 		log.info("Select Qna by q_reply");
@@ -215,6 +224,7 @@ public class MainController {
 		return qnaReplyList;
 	}
 	
+	// 1:1 질문 글쓰기
 	@PostMapping(value = "/qna/write")
 	public ResponseEntity<?> insertQna(@RequestBody Qna qna, UriComponentsBuilder ucBuilder) {
 		log.info("Insert Qna : " + qna);
@@ -224,6 +234,7 @@ public class MainController {
 		return new ResponseEntity<Qna>(HttpStatus.CREATED);
 	}
 	
+	// 1:1 질문 글 수정
 	@PutMapping(value = "/qna/update/{q_no}")
 	public ResponseEntity<?> updateQna(@PathVariable("q_no") long q_no, @RequestBody Qna qna) {
 		log.info("Updating Qna with p_code : " + q_no);
@@ -239,7 +250,8 @@ public class MainController {
 		
 		return new ResponseEntity<Qna>(HttpStatus.OK);
 	}
-	
+
+	// 1:1 질문 글 하나 삭제
 	@DeleteMapping(value = "/qna/{q_no}")
 	public ResponseEntity<?> deleteQna(@PathVariable("q_no") long q_no) {
 		log.info("Deleting Qna with p_code : " + q_no);
