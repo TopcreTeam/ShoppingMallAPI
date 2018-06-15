@@ -19,6 +19,11 @@
 		<result property="odpprice" column="OD_PPRICE" />
 		<result property="odpamount" column="OD_PAMOUNT" />
 	</resultMap>
+	
+		<!-- 관리자페이지용 -->
+	<select id="getAllorderList" resultType="Order" resultMap="OrderResultMap">
+		SELECT * FROM TM_ORDER
+	</select>
 	<!-- 주문 QUERY -->
 	<select id="orderList" resultType="Order" resultMap="OrderResultMap">
 		SELECT * FROM TM_ORDER WHERE U_ID=#{uid}
@@ -45,5 +50,10 @@
 		DELETE FROM TM_ORDER_DETAIL WHERE OD_NO=#{odno}
 	</delete>
 	
+	<!-- 관리자페이지용  처리 미처리-->
+	<update id="orderUpdate" parameterType="Order">
+		UPDATE tm_order SET O_STATUS=#{ostatus} 
+		WHERE O_NO=#{ono}
+	</update>
 
 </mapper>

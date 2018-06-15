@@ -22,7 +22,7 @@
 	
 	<update id="updateProduct" parameterType="Products">
 		UPDATE tm_product SET p_name=#{p_name}, p_count=#{p_count}, p_kind=#{p_kind}, p_price=#{p_price}, 
-		p_sellprice=#{p_sellPrice}, p_profit=#{p_profit}, p_content=#{p_content}, p_img=#{p_img}
+		p_sellPrice=#{p_sellPrice}, p_profit=#{p_profit}, p_content=#{p_content}, p_img=#{p_img} WHERE p_code=#{p_code}
 	</update>
 	
 	<delete id="deleteProduct" parameterType="String">
