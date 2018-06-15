@@ -58,10 +58,12 @@ public class NoticeServiceImpl implements NoticeService {
 	}
 
 	@Override
-	public void incrementNoticeHits(long n_no) {
+	public Notice incrementNoticeHits(long n_no) {
 		Notice notice = noticeMapper.selectByNoticeNo(n_no);
 		increment(notice);
 		updateNotice(notice);
+		
+		return notice;
 	}
 	
 	private void increment(Notice notice) {
