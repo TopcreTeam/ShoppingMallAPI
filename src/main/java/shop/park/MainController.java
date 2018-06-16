@@ -9,6 +9,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
@@ -193,6 +194,14 @@ public class MainController {
 		
 		return qnaList;
 	}
+	
+	//관리자용 1:1질문 모두 가져오기
+		@GetMapping("/admin/qna/list")
+		public List<Qna> adminGetlistAllQna() {
+			List<Qna> qnaList = qnaService.adminSelectAllQna();
+			return qnaList;
+		}
+	
 	
 	// 1:1 질문 번호 조회 후 객체 하나 리턴
 	@RequestMapping(value = "/detail/qna/{q_no}", method = RequestMethod.GET)
