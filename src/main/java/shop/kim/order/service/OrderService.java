@@ -33,6 +33,9 @@ public class OrderService {
 	public int orderDelete(int ono) {
 		return orderMapper.orderDelete(ono);
 	};
+	public int cancleOrder(int ono) {
+		return orderMapper.cancleOrder(ono);
+	}
 	
 	//관리자 페이지용
 	public int orderUpdate(Order order) {

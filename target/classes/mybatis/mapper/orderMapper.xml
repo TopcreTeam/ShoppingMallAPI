@@ -22,11 +22,11 @@
 	
 		<!-- 관리자페이지용 -->
 	<select id="getAllorderList" resultType="Order" resultMap="OrderResultMap">
-		SELECT * FROM TM_ORDER
+		SELECT * FROM TM_ORDER ORDER BY O_DATE DESC
 	</select>
 	<!-- 주문 QUERY -->
 	<select id="orderList" resultType="Order" resultMap="OrderResultMap">
-		SELECT * FROM TM_ORDER WHERE U_ID=#{uid}
+		SELECT * FROM TM_ORDER WHERE U_ID=#{uid} ORDER BY O_DATE DESC
 	</select>
 	<insert id="orderInsert" parameterType="Order">
 		INSERT INTO TM_ORDER(O_NO,U_ID,O_TOTAL,O_ADDR) VALUES(TM_ORDER_SEQ.NEXTVAL,#{uid},#{ototal},#{oaddr})
@@ -46,9 +46,15 @@
 		INSERT INTO TM_ORDER_DETAIL VALUES (TM_ORDER_DETAIL_SEQ.NEXTVAL,#{ono},#{odimg},#{odpname},#{odpprice},#{odpamount})
 	</insert>
 	
-	<delete id="orderDetailDelete">
+<!-- 	<delete id="orderDetailDelete">
 		DELETE FROM TM_ORDER_DETAIL WHERE OD_NO=#{odno}
-	</delete>
+	</delete> -->
+	<!-- 주문리스트 페이지에서 취소요청 했을때 -->
+	
+	<update id="cancleOrder" parameterType="int">
+		UPDATE tm_order SET O_STATUS='C' 
+		WHERE O_NO=#{ono}
+	</update>
 	
 	<!-- 관리자페이지용  처리 미처리-->
 	<update id="orderUpdate" parameterType="Order">
