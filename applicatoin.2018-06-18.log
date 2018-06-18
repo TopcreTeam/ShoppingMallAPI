@@ -1,0 +1,882 @@
+2018:06:18 09:43:07.300 INFO  --- [main] shop.ShoppingMallApiApplication : Starting ShoppingMallApiApplication on LAPTOP-H9GJICE1 with PID 2384 (C:\Users\수연\git\TopcreTeam\ShoppingMallAPI\target\classes started by 수연 in C:\Users\수연\git\TopcreTeam\ShoppingMallAPI) 
+2018:06:18 09:43:07.310 INFO  --- [main] shop.ShoppingMallApiApplication : No active profile set, falling back to default profiles: default 
+2018:06:18 09:43:07.388 INFO  --- [main] o.s.b.w.s.c.AnnotationConfigServletWebServerApplicationContext : Refreshing org.springframework.boot.web.servlet.context.AnnotationConfigServletWebServerApplicationContext@18b0930f: startup date [Mon Jun 18 09:43:07 KST 2018]; root of context hierarchy 
+2018:06:18 09:43:09.310 INFO  --- [main] o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$52db545b] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying) 
+2018:06:18 09:43:09.788 INFO  --- [main] o.s.b.w.e.tomcat.TomcatWebServer : Tomcat initialized with port(s): 8080 (http) 
+2018:06:18 09:43:09.826 INFO  --- [main] o.a.catalina.core.StandardService : Starting service [Tomcat] 
+2018:06:18 09:43:09.827 INFO  --- [main] o.a.catalina.core.StandardEngine : Starting Servlet Engine: Apache Tomcat/8.5.31 
+2018:06:18 09:43:09.835 INFO  --- [localhost-startStop-1] o.a.c.core.AprLifecycleListener : The APR based Apache Tomcat Native library which allows optimal performance in production environments was not found on the java.library.path: [C:\Program Files\Java\jre-9\bin;C:\WINDOWS\Sun\Java\bin;C:\WINDOWS\system32;C:\WINDOWS;C:\Program Files (x86)\Intel\Intel(R) Management Engine Components\iCLS\;C:\Program Files\Intel\Intel(R) Management Engine Components\iCLS\;C:\ProgramData\Oracle\Java\javapath;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;C:\Program Files (x86)\ePapyrus\Papyrus 5;C:\Program Files (x86)\Intel\Intel(R) Management Engine Components\DAL;C:\Program Files\Intel\Intel(R) Management Engine Components\DAL;C:\Program Files (x86)\Intel\Intel(R) Management Engine Components\IPT;C:\Program Files\Intel\Intel(R) Management Engine Components\IPT;C:\Program Files\nodejs\;C:\WINDOWS\System32\OpenSSH\;C:\Program Files\Intel\WiFi\bin\;C:\Program Files\Common Files\Intel\WirelessCommon\;C:\Program Files\Android\Android Studio\jre\bin;C:\Android\platform-tools;C:\Program Files\Git\cmd;C:\Users\수연\AppData\Local\Microsoft\WindowsApps;C:\Users\수연\AppData\Local\Programs\Python\Python36-32;C:\Users\수연\AppData\Local\atom\bin;C:\Users\수연\AppData\Local\Programs\Python\Python36-32\Scripts;C:\Program Files\Java\jdk-9\bin;C:\Users\수연\AppData\Local\Microsoft\WindowsApps;C:\Users\수연\AppData\Roaming\npm;C:\oracle\instanceclient\instantclient_11_2;C:\Program Files\Intel\WiFi\bin\;C:\Program Files\Common Files\Intel\WirelessCommon\;.] 
+2018:06:18 09:43:10.070 INFO  --- [localhost-startStop-1] o.a.c.c.C.[Tomcat].[localhost].[/] : Initializing Spring embedded WebApplicationContext 
+2018:06:18 09:43:10.079 INFO  --- [localhost-startStop-1] o.s.web.context.ContextLoader : Root WebApplicationContext: initialization completed in 2691 ms 
+2018:06:18 09:43:10.277 INFO  --- [localhost-startStop-1] o.s.b.w.s.ServletRegistrationBean : Servlet dispatcherServlet mapped to [/] 
+2018:06:18 09:43:10.291 INFO  --- [localhost-startStop-1] o.s.b.w.s.FilterRegistrationBean : Mapping filter: 'characterEncodingFilter' to: [/*] 
+2018:06:18 09:43:10.292 INFO  --- [localhost-startStop-1] o.s.b.w.s.FilterRegistrationBean : Mapping filter: 'hiddenHttpMethodFilter' to: [/*] 
+2018:06:18 09:43:10.300 INFO  --- [localhost-startStop-1] o.s.b.w.s.FilterRegistrationBean : Mapping filter: 'httpPutFormContentFilter' to: [/*] 
+2018:06:18 09:43:10.301 INFO  --- [localhost-startStop-1] o.s.b.w.s.FilterRegistrationBean : Mapping filter: 'requestContextFilter' to: [/*] 
+2018:06:18 09:43:10.587 INFO  --- [main] com.zaxxer.hikari.HikariDataSource : HikariPool-1 - Starting... 
+2018:06:18 09:43:11.192 INFO  --- [main] com.zaxxer.hikari.pool.PoolBase : HikariPool-1 - Driver does not support get/set network timeout for connections. (Method oracle/jdbc/driver/T4CConnection.getNetworkTimeout()I is abstract) 
+2018:06:18 09:43:11.214 INFO  --- [main] com.zaxxer.hikari.HikariDataSource : HikariPool-1 - Start completed. 
+2018:06:18 09:43:11.372 INFO  --- [main] o.s.o.j.LocalContainerEntityManagerFactoryBean : Building JPA container EntityManagerFactory for persistence unit 'default' 
+2018:06:18 09:43:11.415 INFO  --- [main] o.h.jpa.internal.util.LogHelper : HHH000204: Processing PersistenceUnitInfo [
+	name: default
+	...] 
+2018:06:18 09:43:11.587 INFO  --- [main] org.hibernate.Version : HHH000412: Hibernate Core {5.2.10.Final} 
+2018:06:18 09:43:11.601 INFO  --- [main] org.hibernate.cfg.Environment : HHH000206: hibernate.properties not found 
+2018:06:18 09:43:11.674 INFO  --- [main] o.h.annotations.common.Version : HCANN000001: Hibernate Commons Annotations {5.0.1.Final} 
+2018:06:18 09:43:11.937 INFO  --- [main] org.hibernate.dialect.Dialect : HHH000400: Using dialect: org.hibernate.dialect.Oracle12cDialect 
+2018:06:18 09:43:12.130 INFO  --- [main] o.hibernate.type.BasicTypeRegistry : HHH000270: Type registration [byte[]] overrides previous : org.hibernate.type.BinaryType@4844930a 
+2018:06:18 09:43:12.140 INFO  --- [main] o.hibernate.type.BasicTypeRegistry : HHH000270: Type registration [[B] overrides previous : org.hibernate.type.BinaryType@4844930a 
+2018:06:18 09:43:12.141 INFO  --- [main] o.hibernate.type.BasicTypeRegistry : HHH000270: Type registration [Byte[]] overrides previous : org.hibernate.type.WrapperBinaryType@6221b13b 
+2018:06:18 09:43:12.141 INFO  --- [main] o.hibernate.type.BasicTypeRegistry : HHH000270: Type registration [[Ljava.lang.Byte;] overrides previous : org.hibernate.type.WrapperBinaryType@6221b13b 
+2018:06:18 09:43:12.356 INFO  --- [main] o.s.o.j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default' 
+2018:06:18 09:43:13.120 INFO  --- [main] o.s.w.s.h.SimpleUrlHandlerMapping : Mapped URL path [/**/favicon.ico] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler] 
+2018:06:18 09:43:13.492 INFO  --- [main] o.s.w.s.m.m.a.RequestMappingHandlerAdapter : Looking for @ControllerAdvice: org.springframework.boot.web.servlet.context.AnnotationConfigServletWebServerApplicationContext@18b0930f: startup date [Mon Jun 18 09:43:07 KST 2018]; root of context hierarchy 
+2018:06:18 09:43:13.548 WARN  --- [main] o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration$JpaWebMvcConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning 
+2018:06:18 09:43:13.677 INFO  --- [main] o.s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/toma/admin/],methods=[POST]}" onto public shop.choi.admin.model.Admin shop.choi.admin.controller.AdminController.adminlogin(shop.choi.admin.model.Admin) 
+2018:06:18 09:43:13.706 INFO  --- [main] o.s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/toma/login/user/list],methods=[GET]}" onto public shop.kim.login.model.User shop.kim.login.LoginController.getUser() 
+2018:06:18 09:43:13.708 INFO  --- [main] o.s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/toma/login/],methods=[POST]}" onto public shop.kim.login.model.User shop.kim.login.LoginController.login(shop.kim.login.model.Login) 
+2018:06:18 09:43:13.732 INFO  --- [main] o.s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/toma/cart/{cno}],methods=[DELETE]}" onto int shop.kim.order.CartController.cartDelete(int) 
+2018:06:18 09:43:13.734 INFO  --- [main] o.s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/toma/cart/{uid}],methods=[GET]}" onto java.util.ArrayList<shop.kim.order.model.Cart> shop.kim.order.CartController.carList(java.lang.String) 
+2018:06:18 09:43:13.752 INFO  --- [main] o.s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/toma/cart/],methods=[PUT]}" onto int shop.kim.order.CartController.cartUpdate(shop.kim.order.model.Cart) 
+2018:06:18 09:43:13.754 INFO  --- [main] o.s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/toma/cart/goOrderWrite],methods=[PUT]}" onto java.util.ArrayList<shop.kim.order.model.Cart> shop.kim.order.CartController.orderWriteList(int[]) 
+2018:06:18 09:43:13.756 INFO  --- [main] o.s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/toma/cart/],methods=[POST]}" onto int shop.kim.order.CartController.cartInsert(shop.kim.order.model.Cart) 
+2018:06:18 09:43:13.765 INFO  --- [main] o.s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/toma/order/orderdetail/delete/{odno}],methods=[DELETE]}" onto int shop.kim.order.OrderController.orderDetailInsert(int) 
+2018:06:18 09:43:13.782 INFO  --- [main] o.s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/toma/order/{uid}],methods=[GET]}" onto java.util.ArrayList<shop.kim.order.model.Order> shop.kim.order.OrderController.orderList(java.lang.String) 
+2018:06:18 09:43:13.784 INFO  --- [main] o.s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/toma/order/orderdetail/{ono}],methods=[GET]}" onto java.util.ArrayList<shop.kim.order.model.Order_Detail> shop.kim.order.OrderController.orderDetailList(int) 
+2018:06:18 09:43:13.785 INFO  --- [main] o.s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/toma/order/],methods=[GET]}" onto java.util.ArrayList<shop.kim.order.model.Order> shop.kim.order.OrderController.getAllorderList() 
+2018:06:18 09:43:13.787 INFO  --- [main] o.s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/toma/order/insert/order],methods=[POST]}" onto int shop.kim.order.OrderController.orderInsertOrder(shop.kim.order.model.Order) 
+2018:06:18 09:43:13.789 INFO  --- [main] o.s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/toma/order/insert/detail],methods=[POST]}" onto void shop.kim.order.OrderController.orderInsertDetail(java.util.ArrayList<shop.kim.order.model.Order_Detail>) 
+2018:06:18 09:43:13.792 INFO  --- [main] o.s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/toma/order/],methods=[PUT]}" onto public int shop.kim.order.OrderController.updateOrder(shop.kim.order.model.Order) 
+2018:06:18 09:43:13.794 INFO  --- [main] o.s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/toma/order/delete/{ono}],methods=[DELETE]}" onto int shop.kim.order.OrderController.orderInsert(int) 
+2018:06:18 09:43:13.804 INFO  --- [main] o.s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/toma/join/],methods=[POST]}" onto public int shop.lee.join.JoinController.NewUser(shop.kim.login.model.User) 
+2018:06:18 09:43:13.825 INFO  --- [main] o.s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/toma/user/findPW/],methods=[POST]}" onto public shop.kim.login.model.User shop.lee.user.UserController.FindUserPW(shop.kim.login.model.User) 
+2018:06:18 09:43:13.827 INFO  --- [main] o.s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/toma/user/Update],methods=[PUT]}" onto public org.springframework.http.ResponseEntity<shop.kim.login.model.User> shop.lee.user.UserController.updateUser(shop.kim.login.model.User) 
+2018:06:18 09:43:13.828 INFO  --- [main] o.s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/toma/user/findID/],methods=[POST]}" onto public shop.kim.login.model.User shop.lee.user.UserController.FindUserID(shop.kim.login.model.User) 
+2018:06:18 09:43:13.837 INFO  --- [main] o.s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/toma/notice/{n_category}],methods=[GET]}" onto public java.util.List<shop.park.model.Notice> shop.park.MainController.getByNoticeCategory(java.lang.String) 
+2018:06:18 09:43:13.838 INFO  --- [main] o.s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/toma/notice/search/{n_title}],methods=[GET]}" onto public java.util.List<shop.park.model.Notice> shop.park.MainController.getByNoticeTitleSearch(java.lang.String) 
+2018:06:18 09:43:13.839 INFO  --- [main] o.s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/toma/qna/search/{q_title}],methods=[GET]}" onto public java.util.List<shop.park.model.Qna> shop.park.MainController.getByQnaTitleSearch(java.lang.String) 
+2018:06:18 09:43:13.840 INFO  --- [main] o.s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/toma/faq/search/{f_title}],methods=[GET]}" onto public java.util.List<shop.park.model.Faq> shop.park.MainController.getByFaqTitleSearch(java.lang.String) 
+2018:06:18 09:43:13.842 INFO  --- [main] o.s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/toma/detail/notice/{n_no}],methods=[PUT]}" onto public org.springframework.http.ResponseEntity<?> shop.park.MainController.incrementNoticeHits(long,shop.park.model.Notice) 
+2018:06:18 09:43:13.842 INFO  --- [main] o.s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/toma],methods=[GET]}" onto public java.util.List<shop.park.model.Products> shop.park.MainController.listAllProducts() 
+2018:06:18 09:43:13.843 INFO  --- [main] o.s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/toma/notice],methods=[GET]}" onto public java.util.List<shop.park.model.Notice> shop.park.MainController.listAllNotices() 
+2018:06:18 09:43:13.844 INFO  --- [main] o.s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/toma/faq/{f_category}],methods=[GET]}" onto public java.util.List<shop.park.model.Faq> shop.park.MainController.getByFaqCategory(java.lang.String) 
+2018:06:18 09:43:13.845 INFO  --- [main] o.s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/toma/product],methods=[POST]}" onto public org.springframework.http.ResponseEntity<?> shop.park.MainController.insertProduct(shop.park.model.Products,org.springframework.web.util.UriComponentsBuilder) 
+2018:06:18 09:43:13.845 INFO  --- [main] o.s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/toma/faq],methods=[GET]}" onto public java.util.List<shop.park.model.Faq> shop.park.MainController.listAllFaq() 
+2018:06:18 09:43:13.847 INFO  --- [main] o.s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/toma/detail/faq/{f_no}],methods=[PUT]}" onto public org.springframework.http.ResponseEntity<?> shop.park.MainController.incrementFaqHits(long,shop.park.model.Faq) 
+2018:06:18 09:43:13.848 INFO  --- [main] o.s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/toma/qna/list/{u_id}],methods=[GET]}" onto public java.util.List<shop.park.model.Qna> shop.park.MainController.listAllQna(java.lang.String) 
+2018:06:18 09:43:13.855 INFO  --- [main] o.s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/toma/product/{p_code}],methods=[DELETE]}" onto public org.springframework.http.ResponseEntity<?> shop.park.MainController.deleteProduct(java.lang.String) 
+2018:06:18 09:43:13.866 INFO  --- [main] o.s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/toma/detail/qna/{q_no}],methods=[GET]}" onto public shop.park.model.Qna shop.park.MainController.getByQnaNo(long) 
+2018:06:18 09:43:13.866 INFO  --- [main] o.s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/toma/detail/product/{p_code}],methods=[GET]}" onto public shop.park.model.Products shop.park.MainController.getByProductsCode(java.lang.String) 
+2018:06:18 09:43:13.867 INFO  --- [main] o.s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/toma/product/{p_code}],methods=[PUT]}" onto public org.springframework.http.ResponseEntity<?> shop.park.MainController.updateProduct(java.lang.String,shop.park.model.Products) 
+2018:06:18 09:43:13.868 INFO  --- [main] o.s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/toma/qna/{q_reply}],methods=[GET]}" onto public java.util.List<shop.park.model.Qna> shop.park.MainController.getByQnaReply(java.lang.String) 
+2018:06:18 09:43:13.869 INFO  --- [main] o.s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/toma/product/{p_kind}],methods=[GET]}" onto public java.util.List<shop.park.model.Products> shop.park.MainController.getByProductsKind(java.lang.String) 
+2018:06:18 09:43:13.870 INFO  --- [main] o.s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/toma/qna/update/{q_no}],methods=[PUT]}" onto public org.springframework.http.ResponseEntity<?> shop.park.MainController.updateQna(long,shop.park.model.Qna) 
+2018:06:18 09:43:13.871 INFO  --- [main] o.s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/toma/qna/{q_no}],methods=[DELETE]}" onto public org.springframework.http.ResponseEntity<?> shop.park.MainController.deleteQna(long) 
+2018:06:18 09:43:13.872 INFO  --- [main] o.s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/toma/qna/write],methods=[POST]}" onto public org.springframework.http.ResponseEntity<?> shop.park.MainController.insertQna(shop.park.model.Qna,org.springframework.web.util.UriComponentsBuilder) 
+2018:06:18 09:43:13.874 INFO  --- [main] o.s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/toma/productqna/{u_id}],methods=[POST]}" onto public int shop.son.productqna.controller.ProductQnaController.updateProductQna(java.lang.String) 
+2018:06:18 09:43:13.875 INFO  --- [main] o.s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/toma/productqna/],methods=[POST]}" onto public int shop.son.productqna.controller.ProductQnaController.insertProductQna(shop.son.productqna.model.ProductQna) 
+2018:06:18 09:43:13.876 INFO  --- [main] o.s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/toma/productqna/{u_id}],methods=[DELETE]}" onto public int shop.son.productqna.controller.ProductQnaController.deleteProductQna(java.lang.String) 
+2018:06:18 09:43:13.877 INFO  --- [main] o.s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/toma/productqna/{p_code}],methods=[GET]}" onto public java.util.List<shop.son.productqna.model.ProductQna> shop.son.productqna.controller.ProductQnaController.listAllProductQna(java.lang.String) 
+2018:06:18 09:43:13.880 INFO  --- [main] o.s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/toma/review/],methods=[POST]}" onto public int shop.son.review.controller.ReviewController.insertReview(shop.son.review.model.Review) 
+2018:06:18 09:43:13.881 INFO  --- [main] o.s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/toma/review/{u_id}],methods=[DELETE]}" onto public int shop.son.review.controller.ReviewController.deleteReview(java.lang.String) 
+2018:06:18 09:43:13.882 INFO  --- [main] o.s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/toma/review/{u_id}],methods=[POST]}" onto public int shop.son.review.controller.ReviewController.updateReview(java.lang.String) 
+2018:06:18 09:43:13.883 INFO  --- [main] o.s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/toma/review/{p_code}],methods=[GET]}" onto public java.util.List<shop.son.review.model.Review> shop.son.review.controller.ReviewController.listAllReviews(java.lang.String) throws shop.son.review.exception.ReviewNotFoundException 
+2018:06:18 09:43:13.890 INFO  --- [main] o.s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/error]}" onto public org.springframework.http.ResponseEntity<java.util.Map<java.lang.String, java.lang.Object>> org.springframework.boot.autoconfigure.web.servlet.error.BasicErrorController.error(javax.servlet.http.HttpServletRequest) 
+2018:06:18 09:43:13.891 INFO  --- [main] o.s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/error],produces=[text/html]}" onto public org.springframework.web.servlet.ModelAndView org.springframework.boot.autoconfigure.web.servlet.error.BasicErrorController.errorHtml(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse) 
+2018:06:18 09:43:13.932 INFO  --- [main] o.s.w.s.h.SimpleUrlHandlerMapping : Mapped URL path [/webjars/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler] 
+2018:06:18 09:43:13.932 INFO  --- [main] o.s.w.s.h.SimpleUrlHandlerMapping : Mapped URL path [/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler] 
+2018:06:18 09:43:14.343 INFO  --- [main] o.s.j.e.a.AnnotationMBeanExporter : Registering beans for JMX exposure on startup 
+2018:06:18 09:43:14.347 INFO  --- [main] o.s.j.e.a.AnnotationMBeanExporter : Bean with name 'dataSource' has been autodetected for JMX exposure 
+2018:06:18 09:43:14.357 INFO  --- [main] o.s.j.e.a.AnnotationMBeanExporter : Located MBean 'dataSource': registering with JMX server as MBean [com.zaxxer.hikari:name=dataSource,type=HikariDataSource] 
+2018:06:18 09:43:14.420 INFO  --- [main] o.s.b.w.e.tomcat.TomcatWebServer : Tomcat started on port(s): 8080 (http) with context path '' 
+2018:06:18 09:43:14.429 INFO  --- [main] shop.ShoppingMallApiApplication : Started ShoppingMallApiApplication in 7.89 seconds (JVM running for 9.724) 
+2018:06:18 09:48:53.733 INFO  --- [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/] : Initializing Spring FrameworkServlet 'dispatcherServlet' 
+2018:06:18 09:48:53.753 INFO  --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet : FrameworkServlet 'dispatcherServlet': initialization started 
+2018:06:18 09:48:53.796 INFO  --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet : FrameworkServlet 'dispatcherServlet': initialization completed in 43 ms 
+2018:06:18 09:48:53.977 INFO  --- [http-nio-8080-exec-1] shop.park.MainController : Select All Products 
+2018:06:18 09:48:54.162 INFO  --- [http-nio-8080-exec-1] jdbc.resultsettable : 
+|-------|------------|--------|--------|--------|------------|---------|------------------------------------|-------|----------------------|
+|p_code |p_name      |p_count |p_kind  |p_price |p_sellprice |p_profit |p_content                           |p_img  |p_date                |
+|-------|------------|--------|--------|--------|------------|---------|------------------------------------|-------|----------------------|
+|SN0008 |콩절미         |30      |Snack   |1000    |2000        |1000     |튀기지 않고 구웠다! 고소함과 담백함이 가득한 맛있는 건강스낵  |SN0007 |2018-06-13 00:00:00.0 |
+|SN0007 |벨랑슈 아이스크림   |20      |Snack   |3000    |3500        |500      |고단백 저칼로리 아이스크림                      |SN0007 |2018-06-11 00:00:00.0 |
+|SN0006 |브라운라이스소울    |20      |Bakery  |1000    |1500        |500      |#현미시리얼 #착한탄수화물 #다이어트                |SN0006 |2018-06-11 00:00:00.0 |
+|SN0005 |벨랑슈 아이스크림   |20      |Snack   |3000    |3500        |500      |고단백 저칼로리 아이스크림                      |SN0007 |2018-06-11 00:00:00.0 |
+|SN0004 |미스터 리치쿠키    |20      |Snack   |4800    |7800        |3000     |마음까지 사르르 녹아내리는 미스터 리치 쿠키            |SN0004 |2018-06-11 00:00:00.0 |
+|SN0003 |포코로코 또띠아롤칩  |20      |Snack   |2000    |3000        |1000     |부드럽고 고소한 치즈맛                        |SN0003 |2018-06-11 00:00:00.0 |
+|SN0002 |포코로코 또띠아롤칩  |20      |Snack   |2000    |3000        |1000     |상큼한 토마토맛                            |SN0002 |2018-06-11 00:00:00.0 |
+|SN0001 |포코로코 또띠아롤칩  |20      |Snack   |2000    |3000        |1000     |화끈 매콤한 고추맛                          |SN0001 |2018-06-11 00:00:00.0 |
+|S0002  |쿠키스프레드      |20      |Sauce   |2000    |8500        |6500     |바삭바삭한 쿠키와 부드러운 밀크의 완벽한 달콤함.         |S0002  |2018-06-07 00:00:00.0 |
+|S0001  |인절미스프레드     |20      |Sauce   |2000    |8500        |6500     |콩의 고소함과 찹쌀의 쫀득함을 그대로 살린 달콤함.        |S0001  |2018-06-07 00:00:00.0 |
+|I0007  |감바스 알 아히요   |20      |Instant |10000   |17000       |7000     |은은한 마늘향의 스페인식 새우요리                  |I0007  |2018-06-11 00:00:00.0 |
+|I0006  |너의 반찬 연어장   |20      |Instant |8000    |11000       |3000     |부드러운 식감과 윤기도는 색감!                   |I0006  |2018-06-11 00:00:00.0 |
+|I0005  |하우촌 냉면      |20      |Instant |3000    |7000        |4000     |개별포장 되어있는 시원~한 비냉                   |I0005  |2018-06-11 00:00:00.0 |
+|I0004  |너의반찬 깐새우장   |20      |Instant |8000    |12000       |4000     |짜지 않고 까지 않고 바로먹는 간장새우장              |I0004  |2018-06-11 00:00:00.0 |
+|I0003  |곤약리조또       |20      |Instant |3000    |7000        |4000     |다가오는 여름, 성공을 부르는 든든하고 맛있는 초간편 한끼!   |I0003  |2018-06-11 00:00:00.0 |
+|I0002  |치킨 티카 마살라   |20      |Instant |13000   |23000       |10000    |부드러운 감칠맛이 일품인 영국식 정통커리              |I0002  |2018-06-11 00:00:00.0 |
+|I0001  |치킨 알프레도 파스타 |20      |Instant |9000    |19000       |10000    |고소한 프랑스산 생크림과 최고급 치즈를 솔솔 뿌린 크림 파스타  |I0001  |2018-06-11 00:00:00.0 |
+|D0009  |달콩두유        |20      |Drink   |2500    |5000        |2500     |#포만감가득 #단백질보충 #통째로갈아만든통두유           |D0009  |2018-06-11 00:00:00.0 |
+|D0008  |토모마스사이다 5종  |20      |Drink   |4000    |12000       |8000     |상큼한 과일향 사이다                         |D0008  |2018-06-11 00:00:00.0 |
+|D0007  |숙취없는 꽐라만시   |20      |Drink   |4000    |6000        |2000     |소주/탄산수에 타먹는 깔라만시!                   |D0007  |2018-06-11 00:00:00.0 |
+|D0006  |미쉐프 퐁당빠진레몬  |20      |Drink   |1000    |1300        |300      |촉촉해지고싶다면, 오늘부터 하루한봉!                |D0006  |2018-06-11 00:00:00.0 |
+|B0008  |우유앙버터       |20      |Bakery  |3500    |9500        |6000     |촉촉하고 연한 우유 식빵에 단팥과 버터가 쏙!           |B0008  |2018-06-11 00:00:00.0 |
+|B0007  |초코크레페케이크    |20      |Bakery  |10000   |20000       |10000    |꾸덕한 초코크림에 달콤한 초코칩이 콕콕 박힌 초코의 맛      |B0007  |2018-06-11 00:00:00.0 |
+|B0006  |밀크크레페케이크    |20      |Bakery  |10000   |20000       |10000    |디프로메다크림을 샌드한 오리지널 맛                 |B0006  |2018-06-11 00:00:00.0 |
+|B0005  |딸기치즈케이크     |20      |Bakery  |11000   |32000       |21000    |입안 가득 퍼지는 크림치즈와 상큼한 딸기과육의 조화!       |B0005  |2018-06-11 00:00:00.0 |
+|B0004  |쿠키치즈케이크     |20      |Bakery  |11000   |32000       |21000    |쿠키의 달콤함과 까망베르 치즈의 진한 풍미를 살린 마성의 케이크 |B0004  |2018-06-11 00:00:00.0 |
+|B0003  |푸시팝케이크      |20      |Bakery  |2000    |5000        |3000     |한입씩 쏙쏙! 포크없이 밀어먹는 푸시팝케이크            |B0003  |2018-06-11 00:00:00.0 |
+|B0002  |그랑마블 마블데니쉬  |20      |Bakery  |4000    |8000        |4000     |쫄깃한 81겹의 결이 살아있는 식빵                 |B0002  |2018-06-11 00:00:00.0 |
+|B0001  |티라미수        |20      |Bakery  |1500    |6500        |5000     |줄서먹는 익선동 핫플레이스 티라미수                 |B0001  |2018-06-11 00:00:00.0 |
+|-------|------------|--------|--------|--------|------------|---------|------------------------------------|-------|----------------------|
+ 
+2018:06:18 09:48:58.680 INFO  --- [http-nio-8080-exec-2] shop.park.MainController : Select All Notices 
+2018:06:18 09:48:58.737 INFO  --- [http-nio-8080-exec-2] jdbc.resultsettable : 
+|-----|-----------|-----------|----------|------|-------|----------------------|
+|n_no |n_category |n_title    |n_content |a_id  |n_hits |n_date                |
+|-----|-----------|-----------|----------|------|-------|----------------------|
+|1    |공지         |6월 공지사항입니다 |냉무        |admin |200    |2018-06-04 00:00:00.0 |
+|-----|-----------|-----------|----------|------|-------|----------------------|
+ 
+2018:06:18 09:49:04.074 INFO  --- [http-nio-8080-exec-7] shop.park.MainController : Increment Notice by n_no1 
+2018:06:18 09:49:04.107 INFO  --- [http-nio-8080-exec-7] jdbc.resultsettable : 
+|-----|-----------|-----------|----------|------|-------|----------------------|
+|n_no |n_category |n_title    |n_content |a_id  |n_hits |n_date                |
+|-----|-----------|-----------|----------|------|-------|----------------------|
+|1    |공지         |6월 공지사항입니다 |냉무        |admin |200    |2018-06-04 00:00:00.0 |
+|-----|-----------|-----------|----------|------|-------|----------------------|
+ 
+2018:06:18 09:49:07.656 INFO  --- [http-nio-8080-exec-8] shop.park.MainController : Select All Notices 
+2018:06:18 09:49:07.679 INFO  --- [http-nio-8080-exec-8] jdbc.resultsettable : 
+|-----|-----------|-----------|----------|------|-------|----------------------|
+|n_no |n_category |n_title    |n_content |a_id  |n_hits |n_date                |
+|-----|-----------|-----------|----------|------|-------|----------------------|
+|1    |공지         |6월 공지사항입니다 |냉무        |admin |201    |2018-06-04 00:00:00.0 |
+|-----|-----------|-----------|----------|------|-------|----------------------|
+ 
+2018:06:18 09:49:49.146 INFO  --- [http-nio-8080-exec-10] shop.park.MainController : Select All Faq 
+2018:06:18 09:49:49.208 INFO  --- [http-nio-8080-exec-10] jdbc.resultsettable : 
+|-----|-----------|------------------------|-------------------------|------|-------|----------------------|
+|f_no |f_category |f_title                 |f_content                |a_id  |f_hits |f_date                |
+|-----|-----------|------------------------|-------------------------|------|-------|----------------------|
+|1    |배송         |제가 해외에 사는데 해외배송도 해주시나요? |저희 토마토마는 해외배송은 해드리지 않습니다 |admin |89     |2018-06-04 00:00:00.0 |
+|-----|-----------|------------------------|-------------------------|------|-------|----------------------|
+ 
+2018:06:18 09:49:52.663 INFO  --- [http-nio-8080-exec-1] shop.park.MainController : Increment Faq by f_no1 
+2018:06:18 09:49:52.684 INFO  --- [http-nio-8080-exec-1] jdbc.resultsettable : 
+|-----|-----------|------------------------|-------------------------|------|-------|----------------------|
+|f_no |f_category |f_title                 |f_content                |a_id  |f_hits |f_date                |
+|-----|-----------|------------------------|-------------------------|------|-------|----------------------|
+|1    |배송         |제가 해외에 사는데 해외배송도 해주시나요? |저희 토마토마는 해외배송은 해드리지 않습니다 |admin |89     |2018-06-04 00:00:00.0 |
+|-----|-----------|------------------------|-------------------------|------|-------|----------------------|
+ 
+2018:06:18 09:49:54.806 INFO  --- [http-nio-8080-exec-2] shop.park.MainController : Select All Faq 
+2018:06:18 09:49:54.829 INFO  --- [http-nio-8080-exec-2] jdbc.resultsettable : 
+|-----|-----------|------------------------|-------------------------|------|-------|----------------------|
+|f_no |f_category |f_title                 |f_content                |a_id  |f_hits |f_date                |
+|-----|-----------|------------------------|-------------------------|------|-------|----------------------|
+|1    |배송         |제가 해외에 사는데 해외배송도 해주시나요? |저희 토마토마는 해외배송은 해드리지 않습니다 |admin |90     |2018-06-04 00:00:00.0 |
+|-----|-----------|------------------------|-------------------------|------|-------|----------------------|
+ 
+2018:06:18 09:50:14.968 INFO  --- [http-nio-8080-exec-4] shop.park.MainController : Select All Notices 
+2018:06:18 09:50:14.988 INFO  --- [http-nio-8080-exec-4] jdbc.resultsettable : 
+|-----|-----------|-----------|----------|------|-------|----------------------|
+|n_no |n_category |n_title    |n_content |a_id  |n_hits |n_date                |
+|-----|-----------|-----------|----------|------|-------|----------------------|
+|1    |공지         |6월 공지사항입니다 |냉무        |admin |201    |2018-06-04 00:00:00.0 |
+|-----|-----------|-----------|----------|------|-------|----------------------|
+ 
+2018:06:18 09:50:18.725 INFO  --- [http-nio-8080-exec-3] shop.park.MainController : Select All Notices 
+2018:06:18 09:50:18.749 INFO  --- [http-nio-8080-exec-3] jdbc.resultsettable : 
+|-----|-----------|-----------|----------|------|-------|----------------------|
+|n_no |n_category |n_title    |n_content |a_id  |n_hits |n_date                |
+|-----|-----------|-----------|----------|------|-------|----------------------|
+|1    |공지         |6월 공지사항입니다 |냉무        |admin |201    |2018-06-04 00:00:00.0 |
+|-----|-----------|-----------|----------|------|-------|----------------------|
+ 
+2018:06:18 09:50:47.705 INFO  --- [http-nio-8080-exec-5] shop.park.MainController : Select All Notices 
+2018:06:18 09:50:47.743 INFO  --- [http-nio-8080-exec-5] jdbc.resultsettable : 
+|-----|-----------|-----------|----------|------|-------|----------------------|
+|n_no |n_category |n_title    |n_content |a_id  |n_hits |n_date                |
+|-----|-----------|-----------|----------|------|-------|----------------------|
+|1    |공지         |6월 공지사항입니다 |냉무        |admin |201    |2018-06-04 00:00:00.0 |
+|-----|-----------|-----------|----------|------|-------|----------------------|
+ 
+2018:06:18 09:50:51.903 INFO  --- [http-nio-8080-exec-6] shop.park.MainController : Select All Notices 
+2018:06:18 09:50:51.924 INFO  --- [http-nio-8080-exec-6] jdbc.resultsettable : 
+|-----|-----------|-----------|----------|------|-------|----------------------|
+|n_no |n_category |n_title    |n_content |a_id  |n_hits |n_date                |
+|-----|-----------|-----------|----------|------|-------|----------------------|
+|1    |공지         |6월 공지사항입니다 |냉무        |admin |201    |2018-06-04 00:00:00.0 |
+|-----|-----------|-----------|----------|------|-------|----------------------|
+ 
+2018:06:18 09:50:55.977 INFO  --- [http-nio-8080-exec-7] shop.park.MainController : Increment Notice by n_no1 
+2018:06:18 09:50:56.004 INFO  --- [http-nio-8080-exec-7] jdbc.resultsettable : 
+|-----|-----------|-----------|----------|------|-------|----------------------|
+|n_no |n_category |n_title    |n_content |a_id  |n_hits |n_date                |
+|-----|-----------|-----------|----------|------|-------|----------------------|
+|1    |공지         |6월 공지사항입니다 |냉무        |admin |201    |2018-06-04 00:00:00.0 |
+|-----|-----------|-----------|----------|------|-------|----------------------|
+ 
+2018:06:18 09:50:58.536 INFO  --- [http-nio-8080-exec-8] shop.park.MainController : Select All Notices 
+2018:06:18 09:50:58.558 INFO  --- [http-nio-8080-exec-8] jdbc.resultsettable : 
+|-----|-----------|-----------|----------|------|-------|----------------------|
+|n_no |n_category |n_title    |n_content |a_id  |n_hits |n_date                |
+|-----|-----------|-----------|----------|------|-------|----------------------|
+|1    |공지         |6월 공지사항입니다 |냉무        |admin |202    |2018-06-04 00:00:00.0 |
+|-----|-----------|-----------|----------|------|-------|----------------------|
+ 
+2018:06:18 09:51:37.243 INFO  --- [http-nio-8080-exec-10] shop.park.MainController : Select All Notices 
+2018:06:18 09:51:37.273 INFO  --- [http-nio-8080-exec-10] jdbc.resultsettable : 
+|-----|-----------|-----------|----------|------|-------|----------------------|
+|n_no |n_category |n_title    |n_content |a_id  |n_hits |n_date                |
+|-----|-----------|-----------|----------|------|-------|----------------------|
+|1    |공지         |6월 공지사항입니다 |냉무        |admin |202    |2018-06-04 00:00:00.0 |
+|-----|-----------|-----------|----------|------|-------|----------------------|
+ 
+2018:06:18 09:51:39.670 INFO  --- [http-nio-8080-exec-9] shop.park.MainController : Increment Notice by n_no1 
+2018:06:18 09:51:39.693 INFO  --- [http-nio-8080-exec-9] jdbc.resultsettable : 
+|-----|-----------|-----------|----------|------|-------|----------------------|
+|n_no |n_category |n_title    |n_content |a_id  |n_hits |n_date                |
+|-----|-----------|-----------|----------|------|-------|----------------------|
+|1    |공지         |6월 공지사항입니다 |냉무        |admin |202    |2018-06-04 00:00:00.0 |
+|-----|-----------|-----------|----------|------|-------|----------------------|
+ 
+2018:06:18 09:51:41.994 INFO  --- [http-nio-8080-exec-1] shop.park.MainController : Select All Notices 
+2018:06:18 09:51:42.019 INFO  --- [http-nio-8080-exec-1] jdbc.resultsettable : 
+|-----|-----------|-----------|----------|------|-------|----------------------|
+|n_no |n_category |n_title    |n_content |a_id  |n_hits |n_date                |
+|-----|-----------|-----------|----------|------|-------|----------------------|
+|1    |공지         |6월 공지사항입니다 |냉무        |admin |203    |2018-06-04 00:00:00.0 |
+|-----|-----------|-----------|----------|------|-------|----------------------|
+ 
+2018:06:18 09:52:35.294 INFO  --- [http-nio-8080-exec-2] shop.park.MainController : Select All Notices 
+2018:06:18 09:52:35.330 INFO  --- [http-nio-8080-exec-2] jdbc.resultsettable : 
+|-----|-----------|-----------|----------|------|-------|----------------------|
+|n_no |n_category |n_title    |n_content |a_id  |n_hits |n_date                |
+|-----|-----------|-----------|----------|------|-------|----------------------|
+|1    |공지         |6월 공지사항입니다 |냉무        |admin |203    |2018-06-04 00:00:00.0 |
+|-----|-----------|-----------|----------|------|-------|----------------------|
+ 
+2018:06:18 09:52:54.280 INFO  --- [http-nio-8080-exec-4] shop.park.MainController : Select All Notices 
+2018:06:18 09:52:54.322 INFO  --- [http-nio-8080-exec-4] jdbc.resultsettable : 
+|-----|-----------|-----------|----------|------|-------|----------------------|
+|n_no |n_category |n_title    |n_content |a_id  |n_hits |n_date                |
+|-----|-----------|-----------|----------|------|-------|----------------------|
+|1    |공지         |6월 공지사항입니다 |냉무        |admin |203    |2018-06-04 00:00:00.0 |
+|-----|-----------|-----------|----------|------|-------|----------------------|
+ 
+2018:06:18 09:53:01.987 INFO  --- [http-nio-8080-exec-3] shop.park.MainController : Increment Notice by n_no1 
+2018:06:18 09:53:02.012 INFO  --- [http-nio-8080-exec-3] jdbc.resultsettable : 
+|-----|-----------|-----------|----------|------|-------|----------------------|
+|n_no |n_category |n_title    |n_content |a_id  |n_hits |n_date                |
+|-----|-----------|-----------|----------|------|-------|----------------------|
+|1    |공지         |6월 공지사항입니다 |냉무        |admin |203    |2018-06-04 00:00:00.0 |
+|-----|-----------|-----------|----------|------|-------|----------------------|
+ 
+2018:06:18 09:53:05.349 INFO  --- [http-nio-8080-exec-5] shop.park.MainController : Select All Notices 
+2018:06:18 09:53:05.372 INFO  --- [http-nio-8080-exec-5] jdbc.resultsettable : 
+|-----|-----------|-----------|----------|------|-------|----------------------|
+|n_no |n_category |n_title    |n_content |a_id  |n_hits |n_date                |
+|-----|-----------|-----------|----------|------|-------|----------------------|
+|1    |공지         |6월 공지사항입니다 |냉무        |admin |204    |2018-06-04 00:00:00.0 |
+|-----|-----------|-----------|----------|------|-------|----------------------|
+ 
+2018:06:18 09:53:16.952 INFO  --- [http-nio-8080-exec-6] shop.park.MainController : Select All Notices 
+2018:06:18 09:53:16.972 INFO  --- [http-nio-8080-exec-6] jdbc.resultsettable : 
+|-----|-----------|-----------|----------|------|-------|----------------------|
+|n_no |n_category |n_title    |n_content |a_id  |n_hits |n_date                |
+|-----|-----------|-----------|----------|------|-------|----------------------|
+|1    |공지         |6월 공지사항입니다 |냉무        |admin |204    |2018-06-04 00:00:00.0 |
+|-----|-----------|-----------|----------|------|-------|----------------------|
+ 
+2018:06:18 09:53:20.839 INFO  --- [http-nio-8080-exec-7] shop.park.MainController : Select Notice by n_category 
+2018:06:18 09:53:20.862 INFO  --- [http-nio-8080-exec-7] jdbc.resultsettable : 
+|-----|-----------|-----------|----------|------|-------|----------------------|
+|n_no |n_category |n_title    |n_content |a_id  |n_hits |n_date                |
+|-----|-----------|-----------|----------|------|-------|----------------------|
+|1    |공지         |6월 공지사항입니다 |냉무        |admin |204    |2018-06-04 00:00:00.0 |
+|-----|-----------|-----------|----------|------|-------|----------------------|
+ 
+2018:06:18 09:53:23.054 INFO  --- [http-nio-8080-exec-8] shop.park.MainController : Select Notice by n_category 
+2018:06:18 09:53:23.100 INFO  --- [http-nio-8080-exec-8] jdbc.resultsettable : 
+|-----|-----------|--------|----------|-----|-------|-------|
+|n_no |n_category |n_title |n_content |a_id |n_hits |n_date |
+|-----|-----------|--------|----------|-----|-------|-------|
+|-----|-----------|--------|----------|-----|-------|-------|
+ 
+2018:06:18 09:53:24.918 INFO  --- [http-nio-8080-exec-10] shop.park.MainController : Select Notice by n_category 
+2018:06:18 09:53:24.987 INFO  --- [http-nio-8080-exec-10] jdbc.resultsettable : 
+|-----|-----------|--------|----------|-----|-------|-------|
+|n_no |n_category |n_title |n_content |a_id |n_hits |n_date |
+|-----|-----------|--------|----------|-----|-------|-------|
+|-----|-----------|--------|----------|-----|-------|-------|
+ 
+2018:06:18 09:53:59.365 INFO  --- [http-nio-8080-exec-9] shop.park.MainController : Select All Notices 
+2018:06:18 09:53:59.391 INFO  --- [http-nio-8080-exec-9] jdbc.resultsettable : 
+|-----|-----------|-----------|----------|------|-------|----------------------|
+|n_no |n_category |n_title    |n_content |a_id  |n_hits |n_date                |
+|-----|-----------|-----------|----------|------|-------|----------------------|
+|1    |공지         |6월 공지사항입니다 |냉무        |admin |204    |2018-06-04 00:00:00.0 |
+|-----|-----------|-----------|----------|------|-------|----------------------|
+ 
+2018:06:18 09:54:49.773 INFO  --- [http-nio-8080-exec-1] shop.park.MainController : Select All Notices 
+2018:06:18 09:54:49.807 INFO  --- [http-nio-8080-exec-1] jdbc.resultsettable : 
+|-----|-----------|-----------|----------|------|-------|----------------------|
+|n_no |n_category |n_title    |n_content |a_id  |n_hits |n_date                |
+|-----|-----------|-----------|----------|------|-------|----------------------|
+|1    |공지         |6월 공지사항입니다 |냉무        |admin |204    |2018-06-04 00:00:00.0 |
+|-----|-----------|-----------|----------|------|-------|----------------------|
+ 
+2018:06:18 09:54:53.175 INFO  --- [http-nio-8080-exec-2] shop.park.MainController : Select Notice by n_category 
+2018:06:18 09:54:53.194 INFO  --- [http-nio-8080-exec-2] jdbc.resultsettable : 
+|-----|-----------|--------|----------|-----|-------|-------|
+|n_no |n_category |n_title |n_content |a_id |n_hits |n_date |
+|-----|-----------|--------|----------|-----|-------|-------|
+|-----|-----------|--------|----------|-----|-------|-------|
+ 
+2018:06:18 09:54:54.325 INFO  --- [http-nio-8080-exec-4] shop.park.MainController : Select Notice by n_category 
+2018:06:18 09:54:54.351 INFO  --- [http-nio-8080-exec-4] jdbc.resultsettable : 
+|-----|-----------|-----------|----------|------|-------|----------------------|
+|n_no |n_category |n_title    |n_content |a_id  |n_hits |n_date                |
+|-----|-----------|-----------|----------|------|-------|----------------------|
+|1    |공지         |6월 공지사항입니다 |냉무        |admin |204    |2018-06-04 00:00:00.0 |
+|-----|-----------|-----------|----------|------|-------|----------------------|
+ 
+2018:06:18 09:54:55.435 INFO  --- [http-nio-8080-exec-3] shop.park.MainController : Select All Notices 
+2018:06:18 09:54:55.463 INFO  --- [http-nio-8080-exec-3] jdbc.resultsettable : 
+|-----|-----------|-----------|----------|------|-------|----------------------|
+|n_no |n_category |n_title    |n_content |a_id  |n_hits |n_date                |
+|-----|-----------|-----------|----------|------|-------|----------------------|
+|1    |공지         |6월 공지사항입니다 |냉무        |admin |204    |2018-06-04 00:00:00.0 |
+|-----|-----------|-----------|----------|------|-------|----------------------|
+ 
+2018:06:18 09:57:34.176 INFO  --- [http-nio-8080-exec-6] shop.park.MainController : Select All Notices 
+2018:06:18 09:57:34.198 INFO  --- [http-nio-8080-exec-6] jdbc.resultsettable : 
+|-----|-----------|-----------|----------|------|-------|----------------------|
+|n_no |n_category |n_title    |n_content |a_id  |n_hits |n_date                |
+|-----|-----------|-----------|----------|------|-------|----------------------|
+|1    |공지         |6월 공지사항입니다 |냉무        |admin |204    |2018-06-04 00:00:00.0 |
+|-----|-----------|-----------|----------|------|-------|----------------------|
+ 
+2018:06:18 09:58:17.924 INFO  --- [http-nio-8080-exec-7] shop.park.MainController : Select All Notices 
+2018:06:18 09:58:17.951 INFO  --- [http-nio-8080-exec-7] jdbc.resultsettable : 
+|-----|-----------|-----------|----------|------|-------|----------------------|
+|n_no |n_category |n_title    |n_content |a_id  |n_hits |n_date                |
+|-----|-----------|-----------|----------|------|-------|----------------------|
+|1    |공지         |6월 공지사항입니다 |냉무        |admin |204    |2018-06-04 00:00:00.0 |
+|-----|-----------|-----------|----------|------|-------|----------------------|
+ 
+2018:06:18 09:59:19.118 INFO  --- [http-nio-8080-exec-10] shop.park.MainController : Select All Notices 
+2018:06:18 09:59:19.140 INFO  --- [http-nio-8080-exec-10] jdbc.resultsettable : 
+|-----|-----------|-----------|----------|------|-------|----------------------|
+|n_no |n_category |n_title    |n_content |a_id  |n_hits |n_date                |
+|-----|-----------|-----------|----------|------|-------|----------------------|
+|1    |공지         |6월 공지사항입니다 |냉무        |admin |204    |2018-06-04 00:00:00.0 |
+|-----|-----------|-----------|----------|------|-------|----------------------|
+ 
+2018:06:18 09:59:46.335 INFO  --- [http-nio-8080-exec-9] shop.park.MainController : Select All Notices 
+2018:06:18 09:59:46.360 INFO  --- [http-nio-8080-exec-9] jdbc.resultsettable : 
+|-----|-----------|-----------|----------|------|-------|----------------------|
+|n_no |n_category |n_title    |n_content |a_id  |n_hits |n_date                |
+|-----|-----------|-----------|----------|------|-------|----------------------|
+|1    |공지         |6월 공지사항입니다 |냉무        |admin |204    |2018-06-04 00:00:00.0 |
+|-----|-----------|-----------|----------|------|-------|----------------------|
+ 
+2018:06:18 09:59:53.445 INFO  --- [http-nio-8080-exec-1] shop.park.MainController : Select All Notices 
+2018:06:18 09:59:53.468 INFO  --- [http-nio-8080-exec-1] jdbc.resultsettable : 
+|-----|-----------|-----------|----------|------|-------|----------------------|
+|n_no |n_category |n_title    |n_content |a_id  |n_hits |n_date                |
+|-----|-----------|-----------|----------|------|-------|----------------------|
+|1    |공지         |6월 공지사항입니다 |냉무        |admin |204    |2018-06-04 00:00:00.0 |
+|-----|-----------|-----------|----------|------|-------|----------------------|
+ 
+2018:06:18 09:59:56.497 INFO  --- [http-nio-8080-exec-4] shop.park.MainController : Increment Notice by n_no1 
+2018:06:18 09:59:56.519 INFO  --- [http-nio-8080-exec-4] jdbc.resultsettable : 
+|-----|-----------|-----------|----------|------|-------|----------------------|
+|n_no |n_category |n_title    |n_content |a_id  |n_hits |n_date                |
+|-----|-----------|-----------|----------|------|-------|----------------------|
+|1    |공지         |6월 공지사항입니다 |냉무        |admin |204    |2018-06-04 00:00:00.0 |
+|-----|-----------|-----------|----------|------|-------|----------------------|
+ 
+2018:06:18 10:00:04.356 INFO  --- [http-nio-8080-exec-3] shop.park.MainController : Select All Notices 
+2018:06:18 10:00:04.381 INFO  --- [http-nio-8080-exec-3] jdbc.resultsettable : 
+|-----|-----------|-----------|----------|------|-------|----------------------|
+|n_no |n_category |n_title    |n_content |a_id  |n_hits |n_date                |
+|-----|-----------|-----------|----------|------|-------|----------------------|
+|1    |공지         |6월 공지사항입니다 |냉무        |admin |205    |2018-06-04 00:00:00.0 |
+|-----|-----------|-----------|----------|------|-------|----------------------|
+ 
+2018:06:18 10:00:08.485 INFO  --- [http-nio-8080-exec-5] shop.park.MainController : Select All Faq 
+2018:06:18 10:00:08.505 INFO  --- [http-nio-8080-exec-5] jdbc.resultsettable : 
+|-----|-----------|------------------------|-------------------------|------|-------|----------------------|
+|f_no |f_category |f_title                 |f_content                |a_id  |f_hits |f_date                |
+|-----|-----------|------------------------|-------------------------|------|-------|----------------------|
+|1    |배송         |제가 해외에 사는데 해외배송도 해주시나요? |저희 토마토마는 해외배송은 해드리지 않습니다 |admin |90     |2018-06-04 00:00:00.0 |
+|-----|-----------|------------------------|-------------------------|------|-------|----------------------|
+ 
+2018:06:18 10:00:10.824 INFO  --- [http-nio-8080-exec-7] shop.park.MainController : Increment Faq by f_no1 
+2018:06:18 10:00:10.845 INFO  --- [http-nio-8080-exec-7] jdbc.resultsettable : 
+|-----|-----------|------------------------|-------------------------|------|-------|----------------------|
+|f_no |f_category |f_title                 |f_content                |a_id  |f_hits |f_date                |
+|-----|-----------|------------------------|-------------------------|------|-------|----------------------|
+|1    |배송         |제가 해외에 사는데 해외배송도 해주시나요? |저희 토마토마는 해외배송은 해드리지 않습니다 |admin |90     |2018-06-04 00:00:00.0 |
+|-----|-----------|------------------------|-------------------------|------|-------|----------------------|
+ 
+2018:06:18 10:00:13.977 INFO  --- [http-nio-8080-exec-8] shop.park.MainController : Select All Faq 
+2018:06:18 10:00:13.999 INFO  --- [http-nio-8080-exec-8] jdbc.resultsettable : 
+|-----|-----------|------------------------|-------------------------|------|-------|----------------------|
+|f_no |f_category |f_title                 |f_content                |a_id  |f_hits |f_date                |
+|-----|-----------|------------------------|-------------------------|------|-------|----------------------|
+|1    |배송         |제가 해외에 사는데 해외배송도 해주시나요? |저희 토마토마는 해외배송은 해드리지 않습니다 |admin |91     |2018-06-04 00:00:00.0 |
+|-----|-----------|------------------------|-------------------------|------|-------|----------------------|
+ 
+2018:06:18 10:00:18.603 INFO  --- [http-nio-8080-exec-10] shop.park.MainController : Select All Faq 
+2018:06:18 10:00:18.625 INFO  --- [http-nio-8080-exec-10] jdbc.resultsettable : 
+|-----|-----------|------------------------|-------------------------|------|-------|----------------------|
+|f_no |f_category |f_title                 |f_content                |a_id  |f_hits |f_date                |
+|-----|-----------|------------------------|-------------------------|------|-------|----------------------|
+|1    |배송         |제가 해외에 사는데 해외배송도 해주시나요? |저희 토마토마는 해외배송은 해드리지 않습니다 |admin |91     |2018-06-04 00:00:00.0 |
+|-----|-----------|------------------------|-------------------------|------|-------|----------------------|
+ 
+2018:06:18 10:00:26.228 INFO  --- [http-nio-8080-exec-9] shop.park.MainController : Select All Faq 
+2018:06:18 10:00:26.250 INFO  --- [http-nio-8080-exec-9] jdbc.resultsettable : 
+|-----|-----------|------------------------|-------------------------|------|-------|----------------------|
+|f_no |f_category |f_title                 |f_content                |a_id  |f_hits |f_date                |
+|-----|-----------|------------------------|-------------------------|------|-------|----------------------|
+|1    |배송         |제가 해외에 사는데 해외배송도 해주시나요? |저희 토마토마는 해외배송은 해드리지 않습니다 |admin |91     |2018-06-04 00:00:00.0 |
+|-----|-----------|------------------------|-------------------------|------|-------|----------------------|
+ 
+2018:06:18 10:00:27.871 INFO  --- [http-nio-8080-exec-1] shop.park.MainController : Select Faq by f_category 
+2018:06:18 10:00:27.894 INFO  --- [http-nio-8080-exec-1] jdbc.resultsettable : 
+|-----|-----------|------------------------|-------------------------|------|-------|----------------------|
+|f_no |f_category |f_title                 |f_content                |a_id  |f_hits |f_date                |
+|-----|-----------|------------------------|-------------------------|------|-------|----------------------|
+|1    |배송         |제가 해외에 사는데 해외배송도 해주시나요? |저희 토마토마는 해외배송은 해드리지 않습니다 |admin |91     |2018-06-04 00:00:00.0 |
+|-----|-----------|------------------------|-------------------------|------|-------|----------------------|
+ 
+2018:06:18 10:00:29.110 INFO  --- [http-nio-8080-exec-2] shop.park.MainController : Select Faq by f_category 
+2018:06:18 10:00:29.133 INFO  --- [http-nio-8080-exec-2] jdbc.resultsettable : 
+|-----|-----------|--------|----------|-----|-------|-------|
+|f_no |f_category |f_title |f_content |a_id |f_hits |f_date |
+|-----|-----------|--------|----------|-----|-------|-------|
+|-----|-----------|--------|----------|-----|-------|-------|
+ 
+2018:06:18 10:00:31.069 INFO  --- [http-nio-8080-exec-4] shop.park.MainController : Select Faq by f_category 
+2018:06:18 10:00:31.086 INFO  --- [http-nio-8080-exec-4] jdbc.resultsettable : 
+|-----|-----------|--------|----------|-----|-------|-------|
+|f_no |f_category |f_title |f_content |a_id |f_hits |f_date |
+|-----|-----------|--------|----------|-----|-------|-------|
+|-----|-----------|--------|----------|-----|-------|-------|
+ 
+2018:06:18 10:00:33.262 INFO  --- [http-nio-8080-exec-3] shop.park.MainController : Select All Faq 
+2018:06:18 10:00:33.285 INFO  --- [http-nio-8080-exec-3] jdbc.resultsettable : 
+|-----|-----------|------------------------|-------------------------|------|-------|----------------------|
+|f_no |f_category |f_title                 |f_content                |a_id  |f_hits |f_date                |
+|-----|-----------|------------------------|-------------------------|------|-------|----------------------|
+|1    |배송         |제가 해외에 사는데 해외배송도 해주시나요? |저희 토마토마는 해외배송은 해드리지 않습니다 |admin |91     |2018-06-04 00:00:00.0 |
+|-----|-----------|------------------------|-------------------------|------|-------|----------------------|
+ 
+2018:06:18 10:01:36.472 INFO  --- [http-nio-8080-exec-6] shop.park.MainController : Select All Faq 
+2018:06:18 10:01:36.533 INFO  --- [http-nio-8080-exec-6] jdbc.resultsettable : 
+|-----|-----------|------------------------|-------------------------|------|-------|----------------------|
+|f_no |f_category |f_title                 |f_content                |a_id  |f_hits |f_date                |
+|-----|-----------|------------------------|-------------------------|------|-------|----------------------|
+|1    |배송         |제가 해외에 사는데 해외배송도 해주시나요? |저희 토마토마는 해외배송은 해드리지 않습니다 |admin |91     |2018-06-04 00:00:00.0 |
+|-----|-----------|------------------------|-------------------------|------|-------|----------------------|
+ 
+2018:06:18 10:02:12.305 INFO  --- [http-nio-8080-exec-7] shop.park.MainController : Select All Notices 
+2018:06:18 10:02:12.327 INFO  --- [http-nio-8080-exec-7] jdbc.resultsettable : 
+|-----|-----------|-----------|----------|------|-------|----------------------|
+|n_no |n_category |n_title    |n_content |a_id  |n_hits |n_date                |
+|-----|-----------|-----------|----------|------|-------|----------------------|
+|1    |공지         |6월 공지사항입니다 |냉무        |admin |205    |2018-06-04 00:00:00.0 |
+|-----|-----------|-----------|----------|------|-------|----------------------|
+ 
+2018:06:18 10:02:13.838 INFO  --- [http-nio-8080-exec-8] shop.park.MainController : Increment Notice by n_no1 
+2018:06:18 10:02:13.858 INFO  --- [http-nio-8080-exec-8] jdbc.resultsettable : 
+|-----|-----------|-----------|----------|------|-------|----------------------|
+|n_no |n_category |n_title    |n_content |a_id  |n_hits |n_date                |
+|-----|-----------|-----------|----------|------|-------|----------------------|
+|1    |공지         |6월 공지사항입니다 |냉무        |admin |205    |2018-06-04 00:00:00.0 |
+|-----|-----------|-----------|----------|------|-------|----------------------|
+ 
+2018:06:18 10:02:17.615 INFO  --- [http-nio-8080-exec-10] shop.park.MainController : Select All Notices 
+2018:06:18 10:02:17.639 INFO  --- [http-nio-8080-exec-10] jdbc.resultsettable : 
+|-----|-----------|-----------|----------|------|-------|----------------------|
+|n_no |n_category |n_title    |n_content |a_id  |n_hits |n_date                |
+|-----|-----------|-----------|----------|------|-------|----------------------|
+|1    |공지         |6월 공지사항입니다 |냉무        |admin |206    |2018-06-04 00:00:00.0 |
+|-----|-----------|-----------|----------|------|-------|----------------------|
+ 
+2018:06:18 10:02:20.794 INFO  --- [http-nio-8080-exec-9] shop.park.MainController : Select All Notices 
+2018:06:18 10:02:20.816 INFO  --- [http-nio-8080-exec-9] jdbc.resultsettable : 
+|-----|-----------|-----------|----------|------|-------|----------------------|
+|n_no |n_category |n_title    |n_content |a_id  |n_hits |n_date                |
+|-----|-----------|-----------|----------|------|-------|----------------------|
+|1    |공지         |6월 공지사항입니다 |냉무        |admin |206    |2018-06-04 00:00:00.0 |
+|-----|-----------|-----------|----------|------|-------|----------------------|
+ 
+2018:06:18 10:02:51.893 INFO  --- [http-nio-8080-exec-1] shop.park.MainController : Select All Notices 
+2018:06:18 10:02:51.916 INFO  --- [http-nio-8080-exec-1] jdbc.resultsettable : 
+|-----|-----------|-----------|----------|------|-------|----------------------|
+|n_no |n_category |n_title    |n_content |a_id  |n_hits |n_date                |
+|-----|-----------|-----------|----------|------|-------|----------------------|
+|1    |공지         |6월 공지사항입니다 |냉무        |admin |206    |2018-06-04 00:00:00.0 |
+|-----|-----------|-----------|----------|------|-------|----------------------|
+ 
+2018:06:18 10:03:11.142 INFO  --- [http-nio-8080-exec-2] shop.park.MainController : Select All Notices 
+2018:06:18 10:03:11.166 INFO  --- [http-nio-8080-exec-2] jdbc.resultsettable : 
+|-----|-----------|-----------|----------|------|-------|----------------------|
+|n_no |n_category |n_title    |n_content |a_id  |n_hits |n_date                |
+|-----|-----------|-----------|----------|------|-------|----------------------|
+|1    |공지         |6월 공지사항입니다 |냉무        |admin |206    |2018-06-04 00:00:00.0 |
+|-----|-----------|-----------|----------|------|-------|----------------------|
+ 
+2018:06:18 10:03:16.846 INFO  --- [http-nio-8080-exec-4] shop.park.MainController : Select All Notices 
+2018:06:18 10:03:16.864 INFO  --- [http-nio-8080-exec-4] jdbc.resultsettable : 
+|-----|-----------|-----------|----------|------|-------|----------------------|
+|n_no |n_category |n_title    |n_content |a_id  |n_hits |n_date                |
+|-----|-----------|-----------|----------|------|-------|----------------------|
+|1    |공지         |6월 공지사항입니다 |냉무        |admin |206    |2018-06-04 00:00:00.0 |
+|-----|-----------|-----------|----------|------|-------|----------------------|
+ 
+2018:06:18 10:03:35.294 INFO  --- [http-nio-8080-exec-3] shop.park.MainController : Increment Notice by n_no1 
+2018:06:18 10:03:35.700 INFO  --- [http-nio-8080-exec-3] jdbc.resultsettable : 
+|-----|-----------|-----------|----------|------|-------|----------------------|
+|n_no |n_category |n_title    |n_content |a_id  |n_hits |n_date                |
+|-----|-----------|-----------|----------|------|-------|----------------------|
+|1    |공지         |6월 공지사항입니다 |냉무        |admin |206    |2018-06-04 00:00:00.0 |
+|-----|-----------|-----------|----------|------|-------|----------------------|
+ 
+2018:06:18 10:03:37.386 INFO  --- [http-nio-8080-exec-5] shop.park.MainController : Select All Notices 
+2018:06:18 10:03:37.406 INFO  --- [http-nio-8080-exec-5] jdbc.resultsettable : 
+|-----|-----------|-----------|----------|------|-------|----------------------|
+|n_no |n_category |n_title    |n_content |a_id  |n_hits |n_date                |
+|-----|-----------|-----------|----------|------|-------|----------------------|
+|1    |공지         |6월 공지사항입니다 |냉무        |admin |207    |2018-06-04 00:00:00.0 |
+|-----|-----------|-----------|----------|------|-------|----------------------|
+ 
+2018:06:18 10:03:40.523 INFO  --- [http-nio-8080-exec-6] shop.park.MainController : Select All Faq 
+2018:06:18 10:03:40.546 INFO  --- [http-nio-8080-exec-6] jdbc.resultsettable : 
+|-----|-----------|------------------------|-------------------------|------|-------|----------------------|
+|f_no |f_category |f_title                 |f_content                |a_id  |f_hits |f_date                |
+|-----|-----------|------------------------|-------------------------|------|-------|----------------------|
+|1    |배송         |제가 해외에 사는데 해외배송도 해주시나요? |저희 토마토마는 해외배송은 해드리지 않습니다 |admin |91     |2018-06-04 00:00:00.0 |
+|-----|-----------|------------------------|-------------------------|------|-------|----------------------|
+ 
+2018:06:18 10:03:41.890 INFO  --- [http-nio-8080-exec-7] shop.park.MainController : Increment Faq by f_no1 
+2018:06:18 10:03:41.928 INFO  --- [http-nio-8080-exec-7] jdbc.resultsettable : 
+|-----|-----------|------------------------|-------------------------|------|-------|----------------------|
+|f_no |f_category |f_title                 |f_content                |a_id  |f_hits |f_date                |
+|-----|-----------|------------------------|-------------------------|------|-------|----------------------|
+|1    |배송         |제가 해외에 사는데 해외배송도 해주시나요? |저희 토마토마는 해외배송은 해드리지 않습니다 |admin |91     |2018-06-04 00:00:00.0 |
+|-----|-----------|------------------------|-------------------------|------|-------|----------------------|
+ 
+2018:06:18 10:03:43.862 INFO  --- [http-nio-8080-exec-8] shop.park.MainController : Select All Faq 
+2018:06:18 10:03:43.883 INFO  --- [http-nio-8080-exec-8] jdbc.resultsettable : 
+|-----|-----------|------------------------|-------------------------|------|-------|----------------------|
+|f_no |f_category |f_title                 |f_content                |a_id  |f_hits |f_date                |
+|-----|-----------|------------------------|-------------------------|------|-------|----------------------|
+|1    |배송         |제가 해외에 사는데 해외배송도 해주시나요? |저희 토마토마는 해외배송은 해드리지 않습니다 |admin |92     |2018-06-04 00:00:00.0 |
+|-----|-----------|------------------------|-------------------------|------|-------|----------------------|
+ 
+2018:06:18 10:03:48.532 INFO  --- [http-nio-8080-exec-10] shop.park.MainController : Select Faq By f_title 
+2018:06:18 10:03:48.553 INFO  --- [http-nio-8080-exec-10] jdbc.resultsettable : 
+|-----|-----------|------------------------|-------------------------|------|-------|----------------------|
+|f_no |f_category |f_title                 |f_content                |a_id  |f_hits |f_date                |
+|-----|-----------|------------------------|-------------------------|------|-------|----------------------|
+|1    |배송         |제가 해외에 사는데 해외배송도 해주시나요? |저희 토마토마는 해외배송은 해드리지 않습니다 |admin |92     |2018-06-04 00:00:00.0 |
+|-----|-----------|------------------------|-------------------------|------|-------|----------------------|
+ 
+2018:06:18 10:04:46.914 INFO  --- [http-nio-8080-exec-9] shop.park.MainController : Select All Faq 
+2018:06:18 10:04:46.945 INFO  --- [http-nio-8080-exec-9] jdbc.resultsettable : 
+|-----|-----------|------------------------|-------------------------|------|-------|----------------------|
+|f_no |f_category |f_title                 |f_content                |a_id  |f_hits |f_date                |
+|-----|-----------|------------------------|-------------------------|------|-------|----------------------|
+|1    |배송         |제가 해외에 사는데 해외배송도 해주시나요? |저희 토마토마는 해외배송은 해드리지 않습니다 |admin |92     |2018-06-04 00:00:00.0 |
+|-----|-----------|------------------------|-------------------------|------|-------|----------------------|
+ 
+2018:06:18 10:05:22.149 INFO  --- [http-nio-8080-exec-1] shop.park.MainController : Select All Faq 
+2018:06:18 10:05:22.174 INFO  --- [http-nio-8080-exec-1] jdbc.resultsettable : 
+|-----|-----------|------------------------|-------------------------|------|-------|----------------------|
+|f_no |f_category |f_title                 |f_content                |a_id  |f_hits |f_date                |
+|-----|-----------|------------------------|-------------------------|------|-------|----------------------|
+|1    |배송         |제가 해외에 사는데 해외배송도 해주시나요? |저희 토마토마는 해외배송은 해드리지 않습니다 |admin |92     |2018-06-04 00:00:00.0 |
+|-----|-----------|------------------------|-------------------------|------|-------|----------------------|
+ 
+2018:06:18 10:05:49.904 INFO  --- [http-nio-8080-exec-2] shop.park.MainController : Select All Faq 
+2018:06:18 10:05:49.943 INFO  --- [http-nio-8080-exec-2] jdbc.resultsettable : 
+|-----|-----------|------------------------|-------------------------|------|-------|----------------------|
+|f_no |f_category |f_title                 |f_content                |a_id  |f_hits |f_date                |
+|-----|-----------|------------------------|-------------------------|------|-------|----------------------|
+|1    |배송         |제가 해외에 사는데 해외배송도 해주시나요? |저희 토마토마는 해외배송은 해드리지 않습니다 |admin |92     |2018-06-04 00:00:00.0 |
+|-----|-----------|------------------------|-------------------------|------|-------|----------------------|
+ 
+2018:06:18 10:06:25.152 INFO  --- [http-nio-8080-exec-4] shop.park.MainController : Select All Faq 
+2018:06:18 10:06:25.186 INFO  --- [http-nio-8080-exec-4] jdbc.resultsettable : 
+|-----|-----------|------------------------|-------------------------|------|-------|----------------------|
+|f_no |f_category |f_title                 |f_content                |a_id  |f_hits |f_date                |
+|-----|-----------|------------------------|-------------------------|------|-------|----------------------|
+|1    |배송         |제가 해외에 사는데 해외배송도 해주시나요? |저희 토마토마는 해외배송은 해드리지 않습니다 |admin |92     |2018-06-04 00:00:00.0 |
+|-----|-----------|------------------------|-------------------------|------|-------|----------------------|
+ 
+2018:06:18 10:06:42.501 INFO  --- [http-nio-8080-exec-3] shop.park.MainController : Select All Faq 
+2018:06:18 10:06:42.524 INFO  --- [http-nio-8080-exec-3] jdbc.resultsettable : 
+|-----|-----------|------------------------|-------------------------|------|-------|----------------------|
+|f_no |f_category |f_title                 |f_content                |a_id  |f_hits |f_date                |
+|-----|-----------|------------------------|-------------------------|------|-------|----------------------|
+|1    |배송         |제가 해외에 사는데 해외배송도 해주시나요? |저희 토마토마는 해외배송은 해드리지 않습니다 |admin |92     |2018-06-04 00:00:00.0 |
+|-----|-----------|------------------------|-------------------------|------|-------|----------------------|
+ 
+2018:06:18 10:06:50.906 INFO  --- [http-nio-8080-exec-6] jdbc.resultsettable : 
+|-----|-----|-------|------------|-----------------------------------|---------------------------------------------------------------|--------|------------|--------|---------|--------|----------|-----------|
+|u_id |u_pw |u_name |u_phone     |u_addr1                            |u_addr2                                                        |u_addr3 |u_addrcheck |u_birth |u_gender |u_smsyn |u_emailyn |u_joindate |
+|-----|-----|-------|------------|-----------------------------------|---------------------------------------------------------------|--------|------------|--------|---------|--------|----------|-----------|
+|csc  |1234 |홍길동    |01012345678 |42663 / 대구 달서구 큰장로 9 (두류동) / 대구아파트 |22001 / 인천 연수구 컨벤시아대로 50 (송도동, 푸르지오월드마크) / 인천아파트 111동 1111호 ㅎㅎ |수정된다3   |1           |920822  |M        |N       |N         |2018-06-04 |
+|-----|-----|-------|------------|-----------------------------------|---------------------------------------------------------------|--------|------------|--------|---------|--------|----------|-----------|
+ 
+2018:06:18 10:06:58.398 INFO  --- [http-nio-8080-exec-7] shop.park.MainController : Select All Notices 
+2018:06:18 10:06:58.428 INFO  --- [http-nio-8080-exec-7] jdbc.resultsettable : 
+|-----|-----------|-----------|----------|------|-------|----------------------|
+|n_no |n_category |n_title    |n_content |a_id  |n_hits |n_date                |
+|-----|-----------|-----------|----------|------|-------|----------------------|
+|1    |공지         |6월 공지사항입니다 |냉무        |admin |207    |2018-06-04 00:00:00.0 |
+|-----|-----------|-----------|----------|------|-------|----------------------|
+ 
+2018:06:18 10:07:02.103 INFO  --- [http-nio-8080-exec-8] shop.park.MainController : Increment Notice by n_no1 
+2018:06:18 10:07:02.123 INFO  --- [http-nio-8080-exec-8] jdbc.resultsettable : 
+|-----|-----------|-----------|----------|------|-------|----------------------|
+|n_no |n_category |n_title    |n_content |a_id  |n_hits |n_date                |
+|-----|-----------|-----------|----------|------|-------|----------------------|
+|1    |공지         |6월 공지사항입니다 |냉무        |admin |207    |2018-06-04 00:00:00.0 |
+|-----|-----------|-----------|----------|------|-------|----------------------|
+ 
+2018:06:18 10:07:03.944 INFO  --- [http-nio-8080-exec-10] shop.park.MainController : Select All Notices 
+2018:06:18 10:07:03.969 INFO  --- [http-nio-8080-exec-10] jdbc.resultsettable : 
+|-----|-----------|-----------|----------|------|-------|----------------------|
+|n_no |n_category |n_title    |n_content |a_id  |n_hits |n_date                |
+|-----|-----------|-----------|----------|------|-------|----------------------|
+|1    |공지         |6월 공지사항입니다 |냉무        |admin |208    |2018-06-04 00:00:00.0 |
+|-----|-----------|-----------|----------|------|-------|----------------------|
+ 
+2018:06:18 10:07:11.024 INFO  --- [http-nio-8080-exec-9] shop.park.MainController : Select All Faq 
+2018:06:18 10:07:11.045 INFO  --- [http-nio-8080-exec-9] jdbc.resultsettable : 
+|-----|-----------|------------------------|-------------------------|------|-------|----------------------|
+|f_no |f_category |f_title                 |f_content                |a_id  |f_hits |f_date                |
+|-----|-----------|------------------------|-------------------------|------|-------|----------------------|
+|1    |배송         |제가 해외에 사는데 해외배송도 해주시나요? |저희 토마토마는 해외배송은 해드리지 않습니다 |admin |92     |2018-06-04 00:00:00.0 |
+|-----|-----------|------------------------|-------------------------|------|-------|----------------------|
+ 
+2018:06:18 10:07:19.683 INFO  --- [http-nio-8080-exec-1] shop.park.MainController : Increment Faq by f_no1 
+2018:06:18 10:07:19.709 INFO  --- [http-nio-8080-exec-1] jdbc.resultsettable : 
+|-----|-----------|------------------------|-------------------------|------|-------|----------------------|
+|f_no |f_category |f_title                 |f_content                |a_id  |f_hits |f_date                |
+|-----|-----------|------------------------|-------------------------|------|-------|----------------------|
+|1    |배송         |제가 해외에 사는데 해외배송도 해주시나요? |저희 토마토마는 해외배송은 해드리지 않습니다 |admin |92     |2018-06-04 00:00:00.0 |
+|-----|-----------|------------------------|-------------------------|------|-------|----------------------|
+ 
+2018:06:18 10:07:23.148 INFO  --- [http-nio-8080-exec-2] shop.park.MainController : Select All Faq 
+2018:06:18 10:07:23.168 INFO  --- [http-nio-8080-exec-2] jdbc.resultsettable : 
+|-----|-----------|------------------------|-------------------------|------|-------|----------------------|
+|f_no |f_category |f_title                 |f_content                |a_id  |f_hits |f_date                |
+|-----|-----------|------------------------|-------------------------|------|-------|----------------------|
+|1    |배송         |제가 해외에 사는데 해외배송도 해주시나요? |저희 토마토마는 해외배송은 해드리지 않습니다 |admin |93     |2018-06-04 00:00:00.0 |
+|-----|-----------|------------------------|-------------------------|------|-------|----------------------|
+ 
+2018:06:18 10:07:29.872 INFO  --- [http-nio-8080-exec-4] shop.park.MainController : Select All Faq 
+2018:06:18 10:07:29.892 INFO  --- [http-nio-8080-exec-4] jdbc.resultsettable : 
+|-----|-----------|------------------------|-------------------------|------|-------|----------------------|
+|f_no |f_category |f_title                 |f_content                |a_id  |f_hits |f_date                |
+|-----|-----------|------------------------|-------------------------|------|-------|----------------------|
+|1    |배송         |제가 해외에 사는데 해외배송도 해주시나요? |저희 토마토마는 해외배송은 해드리지 않습니다 |admin |93     |2018-06-04 00:00:00.0 |
+|-----|-----------|------------------------|-------------------------|------|-------|----------------------|
+ 
+2018:06:18 10:08:35.550 INFO  --- [http-nio-8080-exec-5] shop.park.MainController : Select All Qna 
+2018:06:18 10:08:35.573 INFO  --- [http-nio-8080-exec-5] jdbc.resultsettable : 
+|-----|----------|-------------------------------------------------------|-----|--------|----------------------|
+|q_no |q_title   |q_content                                              |u_id |q_reply |q_date                |
+|-----|----------|-------------------------------------------------------|-----|--------|----------------------|
+|33   |qnatest   |qna
+test
+ㅅㄷㅅㄷㅅㄷ
+ㅅㄷㅅㄷㅅㄷㅇㄹㅇ                              |csc  |n       |2018-06-15 00:00:00.0 |
+|31   |1:1질문 테스트 |질문이
+잘
+되는가
+!@#!$#^%$%^$%^%*^&(&^*(*()_
+''''
+""""
+ㅁㄴㅇㅁㄴㅇ |csc  |n       |2018-06-15 00:00:00.0 |
+|30   |cssegegff |dsxvxdfdfdffdf                                         |csc  |n       |2018-06-14 00:00:00.0 |
+|27   |ghg       |jgjg                                                   |csc  |n       |2018-06-14 00:00:00.0 |
+|25   |test33333 |ee33333                                                |csc  |n       |2018-06-14 00:00:00.0 |
+|24   |testtoken |tokenservice                                           |csc  |n       |2018-06-14 00:00:00.0 |
+|15   |test4     |test4                                                  |csc  |n       |2018-06-12 00:00:00.0 |
+|1    |우와와오앙     |update testtest                                        |csc  |n       |2018-06-11 00:00:00.0 |
+|-----|----------|-------------------------------------------------------|-----|--------|----------------------|
+ 
+2018:06:18 10:09:01.612 INFO  --- [http-nio-8080-exec-6] shop.park.MainController : Select All Notices 
+2018:06:18 10:09:01.636 INFO  --- [http-nio-8080-exec-6] jdbc.resultsettable : 
+|-----|-----------|-----------|----------|------|-------|----------------------|
+|n_no |n_category |n_title    |n_content |a_id  |n_hits |n_date                |
+|-----|-----------|-----------|----------|------|-------|----------------------|
+|1    |공지         |6월 공지사항입니다 |냉무        |admin |208    |2018-06-04 00:00:00.0 |
+|-----|-----------|-----------|----------|------|-------|----------------------|
+ 
+2018:06:18 10:09:03.360 INFO  --- [http-nio-8080-exec-7] shop.park.MainController : Select All Qna 
+2018:06:18 10:09:03.384 INFO  --- [http-nio-8080-exec-7] jdbc.resultsettable : 
+|-----|----------|-------------------------------------------------------|-----|--------|----------------------|
+|q_no |q_title   |q_content                                              |u_id |q_reply |q_date                |
+|-----|----------|-------------------------------------------------------|-----|--------|----------------------|
+|33   |qnatest   |qna
+test
+ㅅㄷㅅㄷㅅㄷ
+ㅅㄷㅅㄷㅅㄷㅇㄹㅇ                              |csc  |n       |2018-06-15 00:00:00.0 |
+|31   |1:1질문 테스트 |질문이
+잘
+되는가
+!@#!$#^%$%^$%^%*^&(&^*(*()_
+''''
+""""
+ㅁㄴㅇㅁㄴㅇ |csc  |n       |2018-06-15 00:00:00.0 |
+|30   |cssegegff |dsxvxdfdfdffdf                                         |csc  |n       |2018-06-14 00:00:00.0 |
+|27   |ghg       |jgjg                                                   |csc  |n       |2018-06-14 00:00:00.0 |
+|25   |test33333 |ee33333                                                |csc  |n       |2018-06-14 00:00:00.0 |
+|24   |testtoken |tokenservice                                           |csc  |n       |2018-06-14 00:00:00.0 |
+|15   |test4     |test4                                                  |csc  |n       |2018-06-12 00:00:00.0 |
+|1    |우와와오앙     |update testtest                                        |csc  |n       |2018-06-11 00:00:00.0 |
+|-----|----------|-------------------------------------------------------|-----|--------|----------------------|
+ 
+2018:06:18 10:09:49.505 INFO  --- [http-nio-8080-exec-10] shop.park.MainController : Insert Qna : shop.park.model.Qna@454ae7b9 
+2018:06:18 10:09:55.582 INFO  --- [http-nio-8080-exec-9] shop.park.MainController : Select All Qna 
+2018:06:18 10:09:55.601 INFO  --- [http-nio-8080-exec-9] jdbc.resultsettable : 
+|-----|----------|-------------------------------------------------------|-----|--------|----------------------|
+|q_no |q_title   |q_content                                              |u_id |q_reply |q_date                |
+|-----|----------|-------------------------------------------------------|-----|--------|----------------------|
+|34   |token삭제   |토큰을 삭제에에에에ㅔ                                            |csc  |n       |2018-06-18 00:00:00.0 |
+|33   |qnatest   |qna
+test
+ㅅㄷㅅㄷㅅㄷ
+ㅅㄷㅅㄷㅅㄷㅇㄹㅇ                              |csc  |n       |2018-06-15 00:00:00.0 |
+|31   |1:1질문 테스트 |질문이
+잘
+되는가
+!@#!$#^%$%^$%^%*^&(&^*(*()_
+''''
+""""
+ㅁㄴㅇㅁㄴㅇ |csc  |n       |2018-06-15 00:00:00.0 |
+|30   |cssegegff |dsxvxdfdfdffdf                                         |csc  |n       |2018-06-14 00:00:00.0 |
+|27   |ghg       |jgjg                                                   |csc  |n       |2018-06-14 00:00:00.0 |
+|25   |test33333 |ee33333                                                |csc  |n       |2018-06-14 00:00:00.0 |
+|24   |testtoken |tokenservice                                           |csc  |n       |2018-06-14 00:00:00.0 |
+|15   |test4     |test4                                                  |csc  |n       |2018-06-12 00:00:00.0 |
+|1    |우와와오앙     |update testtest                                        |csc  |n       |2018-06-11 00:00:00.0 |
+|-----|----------|-------------------------------------------------------|-----|--------|----------------------|
+ 
+2018:06:18 10:10:03.122 INFO  --- [http-nio-8080-exec-1] shop.park.MainController : Select Qna By f_title 
+2018:06:18 10:10:03.152 INFO  --- [http-nio-8080-exec-1] jdbc.resultsettable : 
+|-----|----------|--------------------------|-----|--------|----------------------|
+|q_no |q_title   |q_content                 |u_id |q_reply |q_date                |
+|-----|----------|--------------------------|-----|--------|----------------------|
+|24   |testtoken |tokenservice              |csc  |n       |2018-06-14 00:00:00.0 |
+|25   |test33333 |ee33333                   |csc  |n       |2018-06-14 00:00:00.0 |
+|33   |qnatest   |qna
+test
+ㅅㄷㅅㄷㅅㄷ
+ㅅㄷㅅㄷㅅㄷㅇㄹㅇ |csc  |n       |2018-06-15 00:00:00.0 |
+|15   |test4     |test4                     |csc  |n       |2018-06-12 00:00:00.0 |
+|34   |token삭제   |토큰을 삭제에에에에ㅔ               |csc  |n       |2018-06-18 00:00:00.0 |
+|-----|----------|--------------------------|-----|--------|----------------------|
+ 
+2018:06:18 10:10:04.756 INFO  --- [http-nio-8080-exec-2] shop.park.MainController : Select All Qna 
+2018:06:18 10:10:04.777 INFO  --- [http-nio-8080-exec-2] jdbc.resultsettable : 
+|-----|----------|-------------------------------------------------------|-----|--------|----------------------|
+|q_no |q_title   |q_content                                              |u_id |q_reply |q_date                |
+|-----|----------|-------------------------------------------------------|-----|--------|----------------------|
+|34   |token삭제   |토큰을 삭제에에에에ㅔ                                            |csc  |n       |2018-06-18 00:00:00.0 |
+|33   |qnatest   |qna
+test
+ㅅㄷㅅㄷㅅㄷ
+ㅅㄷㅅㄷㅅㄷㅇㄹㅇ                              |csc  |n       |2018-06-15 00:00:00.0 |
+|31   |1:1질문 테스트 |질문이
+잘
+되는가
+!@#!$#^%$%^$%^%*^&(&^*(*()_
+''''
+""""
+ㅁㄴㅇㅁㄴㅇ |csc  |n       |2018-06-15 00:00:00.0 |
+|30   |cssegegff |dsxvxdfdfdffdf                                         |csc  |n       |2018-06-14 00:00:00.0 |
+|27   |ghg       |jgjg                                                   |csc  |n       |2018-06-14 00:00:00.0 |
+|25   |test33333 |ee33333                                                |csc  |n       |2018-06-14 00:00:00.0 |
+|24   |testtoken |tokenservice                                           |csc  |n       |2018-06-14 00:00:00.0 |
+|15   |test4     |test4                                                  |csc  |n       |2018-06-12 00:00:00.0 |
+|1    |우와와오앙     |update testtest                                        |csc  |n       |2018-06-11 00:00:00.0 |
+|-----|----------|-------------------------------------------------------|-----|--------|----------------------|
+ 
+2018:06:18 10:10:14.905 INFO  --- [http-nio-8080-exec-3] shop.park.MainController : Updating Qna with p_code : 34 
+2018:06:18 10:10:14.927 INFO  --- [http-nio-8080-exec-3] jdbc.resultsettable : 
+|-----|--------|------------|-----|--------|----------------------|
+|q_no |q_title |q_content   |u_id |q_reply |q_date                |
+|-----|--------|------------|-----|--------|----------------------|
+|34   |token삭제 |토큰을 삭제에에에에ㅔ |csc  |n       |2018-06-18 00:00:00.0 |
+|-----|--------|------------|-----|--------|----------------------|
+ 
+2018:06:18 10:10:15.942 INFO  --- [http-nio-8080-exec-5] shop.park.MainController : Select All Qna 
+2018:06:18 10:10:15.968 INFO  --- [http-nio-8080-exec-5] jdbc.resultsettable : 
+|-----|------------|-------------------------------------------------------|-----|--------|----------------------|
+|q_no |q_title     |q_content                                              |u_id |q_reply |q_date                |
+|-----|------------|-------------------------------------------------------|-----|--------|----------------------|
+|34   |token삭제fddd |토큰을 삭제에에에에ㅔ
+dhfkdfhidslfssk                            |csc  |n       |2018-06-18 00:00:00.0 |
+|33   |qnatest     |qna
+test
+ㅅㄷㅅㄷㅅㄷ
+ㅅㄷㅅㄷㅅㄷㅇㄹㅇ                              |csc  |n       |2018-06-15 00:00:00.0 |
+|31   |1:1질문 테스트   |질문이
+잘
+되는가
+!@#!$#^%$%^$%^%*^&(&^*(*()_
+''''
+""""
+ㅁㄴㅇㅁㄴㅇ |csc  |n       |2018-06-15 00:00:00.0 |
+|30   |cssegegff   |dsxvxdfdfdffdf                                         |csc  |n       |2018-06-14 00:00:00.0 |
+|27   |ghg         |jgjg                                                   |csc  |n       |2018-06-14 00:00:00.0 |
+|25   |test33333   |ee33333                                                |csc  |n       |2018-06-14 00:00:00.0 |
+|24   |testtoken   |tokenservice                                           |csc  |n       |2018-06-14 00:00:00.0 |
+|15   |test4       |test4                                                  |csc  |n       |2018-06-12 00:00:00.0 |
+|1    |우와와오앙       |update testtest                                        |csc  |n       |2018-06-11 00:00:00.0 |
+|-----|------------|-------------------------------------------------------|-----|--------|----------------------|
+ 
+2018:06:18 10:10:20.375 INFO  --- [http-nio-8080-exec-7] shop.park.MainController : Deleting Qna with p_code : 30 
+2018:06:18 10:10:21.325 INFO  --- [http-nio-8080-exec-8] shop.park.MainController : Select All Qna 
+2018:06:18 10:10:21.348 INFO  --- [http-nio-8080-exec-8] jdbc.resultsettable : 
+|-----|------------|-------------------------------------------------------|-----|--------|----------------------|
+|q_no |q_title     |q_content                                              |u_id |q_reply |q_date                |
+|-----|------------|-------------------------------------------------------|-----|--------|----------------------|
+|34   |token삭제fddd |토큰을 삭제에에에에ㅔ
+dhfkdfhidslfssk                            |csc  |n       |2018-06-18 00:00:00.0 |
+|33   |qnatest     |qna
+test
+ㅅㄷㅅㄷㅅㄷ
+ㅅㄷㅅㄷㅅㄷㅇㄹㅇ                              |csc  |n       |2018-06-15 00:00:00.0 |
+|31   |1:1질문 테스트   |질문이
+잘
+되는가
+!@#!$#^%$%^$%^%*^&(&^*(*()_
+''''
+""""
+ㅁㄴㅇㅁㄴㅇ |csc  |n       |2018-06-15 00:00:00.0 |
+|27   |ghg         |jgjg                                                   |csc  |n       |2018-06-14 00:00:00.0 |
+|25   |test33333   |ee33333                                                |csc  |n       |2018-06-14 00:00:00.0 |
+|24   |testtoken   |tokenservice                                           |csc  |n       |2018-06-14 00:00:00.0 |
+|15   |test4       |test4                                                  |csc  |n       |2018-06-12 00:00:00.0 |
+|1    |우와와오앙       |update testtest                                        |csc  |n       |2018-06-11 00:00:00.0 |
+|-----|------------|-------------------------------------------------------|-----|--------|----------------------|
+ 
+2018:06:18 10:10:32.692 INFO  --- [RMI TCP Connection(35)-127.0.0.1] o.s.b.a.SpringApplicationAdminMXBeanRegistrar$SpringApplicationAdmin : Application shutdown requested. 
+2018:06:18 10:10:32.705 INFO  --- [RMI TCP Connection(35)-127.0.0.1] o.s.b.w.s.c.AnnotationConfigServletWebServerApplicationContext : Closing org.springframework.boot.web.servlet.context.AnnotationConfigServletWebServerApplicationContext@18b0930f: startup date [Mon Jun 18 09:43:07 KST 2018]; root of context hierarchy 
+2018:06:18 10:10:32.730 INFO  --- [RMI TCP Connection(35)-127.0.0.1] o.s.j.e.a.AnnotationMBeanExporter : Unregistering JMX-exposed beans on shutdown 
+2018:06:18 10:10:32.731 INFO  --- [RMI TCP Connection(35)-127.0.0.1] o.s.j.e.a.AnnotationMBeanExporter : Unregistering JMX-exposed beans 
+2018:06:18 10:10:32.744 INFO  --- [RMI TCP Connection(35)-127.0.0.1] o.s.o.j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default' 
+2018:06:18 10:10:32.745 INFO  --- [RMI TCP Connection(35)-127.0.0.1] com.zaxxer.hikari.HikariDataSource : HikariPool-1 - Shutdown initiated... 
+2018:06:18 10:10:32.887 INFO  --- [RMI TCP Connection(35)-127.0.0.1] com.zaxxer.hikari.HikariDataSource : HikariPool-1 - Shutdown completed. 
