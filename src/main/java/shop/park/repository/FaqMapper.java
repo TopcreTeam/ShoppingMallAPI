@@ -5,6 +5,7 @@ import java.util.List;
 import org.apache.ibatis.annotations.Mapper;
 
 import shop.park.model.Faq;
+import shop.park.model.Notice;
 
 @Mapper
 public interface FaqMapper {
@@ -19,4 +20,9 @@ public interface FaqMapper {
 	
 	public int updateFaqHits(Faq faq);
 	
+	public int insertFaq(Faq faq);
+
+	public int deleteFaq(long f_no);
+	
+	public int updateFaq(Faq faq);
 }

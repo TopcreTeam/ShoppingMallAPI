@@ -73,5 +73,20 @@ public class FaqServiceImpl implements FaqService {
 	public void updateFaq(Faq faq) {
 		faqMapper.updateFaqHits(faq);
 	}
+
+	@Override
+	public int createFaq(Faq faq) {
+		return faqMapper.insertFaq(faq);
+	}
+
+	@Override
+	public int editFaq(Faq faq) {
+		return faqMapper.updateFaq(faq);
+	}
+
+	@Override
+	public int deleteFaq(long f_no) {
+		return faqMapper.deleteFaq(f_no);
+	}
 	
 }

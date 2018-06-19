@@ -32,4 +32,21 @@
 		UPDATE tm_notice SET n_hits=#{n_hits}
 	</update>
 	
+	
+	<!-- 관리자페이지용  -->
+	<insert id="insertNotice" parameterType="Notice">
+		INSERT INTO tm_notice(n_no, n_category, n_title, n_content, a_id, n_date, n_hits)
+		VALUES(TM_NOTICE_SEQ.NEXTVAL, #{n_category}, #{n_title}, #{n_content}, #{a_id}, default, 0)
+	</insert> 
+	
+	<update id="updateNotice" parameterType="Notice">
+		UPDATE tm_notice SET n_category=#{n_category}, n_title=#{n_title}, a_id=#{a_id}, n_content=#{n_content}, n_date=#{n_date} 
+		WHERE n_no=#{n_no}
+	</update>
+	
+	<delete id="deleteNotice" parameterType="long">
+		DELETE FROM tm_notice WHERE n_no=#{n_no}
+	</delete>
+	
+	
 </mapper>

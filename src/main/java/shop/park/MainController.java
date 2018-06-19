@@ -133,6 +133,50 @@ public class MainController {
 		return new ResponseEntity<Notice>(noticeObject, HttpStatus.OK);
 	}
 	
+//	관리자 페이지 용 ↓
+	@PostMapping(value = "/faq/create")
+	public int createFaq(@RequestBody Faq faq) {
+		log.info("create faq");
+		return faqService.createFaq(faq);
+	}
+	
+	@PutMapping(value = "/faq/update")
+	public int updateFaq(@RequestBody Faq faq) {
+		log.info("update faq");
+		return faqService.editFaq(faq);
+	}
+	
+	@DeleteMapping(value = "/faq/delete/{f_no}")
+	public int deleteFaq(@PathVariable("f_no") long f_no) {
+		log.info("delete FAQ");
+		return faqService.deleteFaq(f_no);
+	}
+	
+	
+	
+	
+	@PostMapping(value = "/notice/create")
+	public int createNotice(@RequestBody Notice notice) {
+		log.info("create notice");
+		return noticeService.createNotice(notice);
+	}
+	
+	@PutMapping(value = "/notice/update")
+	public int updateNotice(@RequestBody Notice notice) {
+		log.info("update notice");
+		return noticeService.editNotice(notice);
+	}
+	
+	@DeleteMapping(value = "/notice/delete/{n_no}")
+	public int DeleteNotice(@PathVariable("n_no") long n_no) {
+		log.info("delete notice");
+		return noticeService.deleteNotice(n_no);
+	}
+	
+	
+	//관리자 페이지용↑ 
+	
+	
 	// 공지사항 제목 검색
 	@RequestMapping(value = "/notice/search/{n_title}", method = RequestMethod.GET)
 	public List<Notice> getByNoticeTitleSearch(@PathVariable("n_title") String n_title) {

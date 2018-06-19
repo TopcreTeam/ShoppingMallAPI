@@ -31,4 +31,20 @@
 	<update id="updateFaqHits" parameterType="long">
 		UPDATE tm_faq SET f_hits=#{f_hits}
 	</update>
+	
+	
+	<!-- 관리자페이지용  -->
+	<insert id="insertFaq" parameterType="Faq">
+		INSERT INTO tm_faq(f_no, f_category, f_title, f_content, a_id, f_date, f_hits)
+		VALUES(TM_FAQ_SEQ.NEXTVAL, #{f_category}, #{f_title}, #{f_content}, #{a_id}, default, 0)
+	</insert> 
+	
+	<update id="updateFaq" parameterType="Faq">
+		UPDATE tm_faq SET f_category=#{f_category}, f_title=#{f_title}, a_id=#{a_id}, f_content=#{f_content}, f_date=#{f_date} 
+		WHERE f_no=#{f_no}
+	</update>
+	
+	<delete id="deleteFaq" parameterType="long">
+		DELETE FROM tm_faq WHERE f_no=#{f_no}
+	</delete>
 </mapper>
