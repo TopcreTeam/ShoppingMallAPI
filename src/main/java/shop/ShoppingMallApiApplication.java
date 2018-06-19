@@ -1,29 +1,20 @@
 package shop;
 
-import javax.annotation.Resource;
-
-import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.boot.context.properties.EnableConfigurationProperties;
 
-import shop.choi.admin.service.StorageService;
+import shop.choi.fileupload.property.FileStorageProperties;
 
 @SpringBootApplication
-public class ShoppingMallApiApplication implements CommandLineRunner  {
+@EnableConfigurationProperties({
+    FileStorageProperties.class
+})
+public class ShoppingMallApiApplication {
 
 
-	@Resource
-	StorageService storageService;
-	
 	public static void main(String[] args) {
 		SpringApplication.run(ShoppingMallApiApplication.class, args);
 	}
 
-	@Override
-	public void run(String... args) throws Exception {
-		storageService.deleteAll();
-		storageService.init();
-	}
-	
-	
 }
