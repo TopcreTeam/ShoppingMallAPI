@@ -6,12 +6,13 @@
 	<result property="pq_no" column="PQ_NO"/>
 	<result property="pq_category" column="PQ_CATEGORY"/>
 	<result property="pq_title" column="PQ_TITLE"/>
+	<result property="pq_reply" column="PQ_REPLY"/>
+	<result property="pq_replyyn" column="PQ_REPLYYN"/>
 	<result property="pq_content" column="PQ_CONTENT"/>
 	<result property="pq_hits" column="PQ_HITS"/>
 	<result property="p_code" column="P_CODE"/>
 	<result property="u_id" column="U_ID"/>
 	<result property="pq_date" column="PQ_DATE"/> 
-
 </resultMap>
 
 <select id="selectAllProductQna" parameterType="String" resultMap="productQnaResultMap">
@@ -23,14 +24,21 @@ INSERT INTO tm_product_qna(pq_no, pq_category, pq_title, pq_content, pq_hits, p_
 VALUES(tm_product_qna_SEQ.NEXTVAL ,#{pq_category},#{pq_title},#{pq_content},#{pq_hits},#{p_code},#{u_id})
 </insert>
 
-<update id="updateProductQna" parameterType="String">
-UPDATE tm_product_qna SET pq_title=#{pq_title} , pq_content=#{pq_content} WHERE u_id=#{u_id}
+<update id="updateProductQna" parameterType="ProductQna">
+UPDATE tm_product_qna SET pq_title=#{pq_title} , pq_content=#{pq_content} where u_id=#{u_id} and pq_no=#{pq_no}
 </update>
 
-<delete id="deleteProductQna" parameterType="String">
-		DELETE FROM tm_product_qna where u_id=#{u_id}
+<delete id="deleteProductQna" parameterType="ProductQna">
+DELETE FROM tm_product_qna where u_id=#{u_id} and pq_no=#{pq_no}
 </delete>
 
+<select id="getAllProductQna" resultMap="productQnaResultMap">
+SELECT * FROM tm_product_qna
+</select>
+
+<update id="replyProductQna" parameterType="ProductQna">
+UPDATE tm_product_qna SET pq_reply=#{pq_reply} , pq_replyyn=#{pq_replyyn} where u_id=#{u_id} and pq_no=#{pq_no}
+</update>
 
 
 </mapper>

@@ -13,10 +13,12 @@ public interface ProductQnaMapper {
 	
 	public int insertProductQna(ProductQna productQna);
 	
-	public int updateProductQna(String u_id);
+	public int updateProductQna(ProductQna productQna);
 	
-	public int deleteProductQna(String u_id);
+	public int deleteProductQna(ProductQna productQna);
 	
+	public List<ProductQna> getAllProductQna();
 	
+	public int replyProductQna(ProductQna productQna);
 	
 }

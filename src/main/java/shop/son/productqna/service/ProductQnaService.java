@@ -14,9 +14,11 @@ public interface ProductQnaService {
 	
 	int insertProductQna(ProductQna productQna);
 	
-	int updateProductQna(String u_id);
+	int updateProductQna(ProductQna productQna);
 	
-	int deleteProductQna(String u_id);
+	int deleteProductQna(ProductQna productQna);
+	  
+	List<ProductQna> getAllProductQna();
 	
-	
+	int replyProductQna(ProductQna productQna);
 }

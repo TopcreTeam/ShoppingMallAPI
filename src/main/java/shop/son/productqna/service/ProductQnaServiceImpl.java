@@ -30,15 +30,26 @@ public class ProductQnaServiceImpl implements ProductQnaService {
 	}
 
 	@Override
-	public int updateProductQna(String u_id) {
+	public int updateProductQna(ProductQna productQna) {
 		// TODO Auto-generated method stub
-		return productQnaMapper.updateProductQna(u_id);
+		return productQnaMapper.updateProductQna(productQna);
 	}
 
 	@Override
-	public int deleteProductQna(String u_id) {
+	public int deleteProductQna(ProductQna productQna) {
 		// TODO Auto-generated method stub
-		return productQnaMapper.deleteProductQna(u_id);
+		return productQnaMapper.deleteProductQna(productQna);
+	}
+
+	@Override
+	public List<ProductQna> getAllProductQna() {
+		return productQnaMapper.getAllProductQna();
+	}
+	
+//	관리자용
+	@Override
+	public int replyProductQna(ProductQna productQna) {
+		return productQnaMapper.replyProductQna(productQna);
 	}
 
 }

@@ -26,14 +26,12 @@ public class ReviewServiceImpl implements ReviewService {
 		return reviewMapper.insertReview(review);
 	}
 	
-	public int deleteReview(String u_id){
-		
-		return reviewMapper.deleteReview(u_id);
+	public int deleteReview(Review review){
+		return reviewMapper.deleteReview(review);
 	}
 	
-	public int updateReview(String u_id){
-		
-		return reviewMapper.updateReview(u_id);
+	public int updateReview(Review review){
+		return reviewMapper.updateReview(review);
 	}
 
 	@Override
@@ -44,6 +42,11 @@ public class ReviewServiceImpl implements ReviewService {
 		} else {
 			return reviews;
 		}
+	}
+
+	@Override
+	public List<Review> getReviewList() {
+		return reviewMapper.getReviewList();
 	}
 	
 	
