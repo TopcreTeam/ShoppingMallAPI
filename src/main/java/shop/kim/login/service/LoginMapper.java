@@ -1,5 +1,7 @@
 package shop.kim.login.service;
 
+import java.util.ArrayList;
+
 import org.apache.ibatis.annotations.Mapper;
 
 import shop.kim.login.model.User;
@@ -10,5 +12,5 @@ public interface LoginMapper {
 	
 	public User logincheck(String uid);
 	
-	public User getUser();
+	public ArrayList<User> getUser();
 }
