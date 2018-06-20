@@ -14,6 +14,12 @@ public interface NoticeMapper {
 
 	public Notice selectByNoticeNo(long n_no);
 	
+	public int insertNotice(Notice notice);
+
+	public int deleteNotice(long n_no);
+	
+	public int updateNotice(Notice notice);
+	
 	public List<Notice> selectByNoticeCategory(String n_category);
 	
 	public List<Notice> searchByNoticeTitle(String n_title);

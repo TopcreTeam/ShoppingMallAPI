@@ -13,4 +13,5 @@ public interface QnaService {
 	public void insertQna(Qna qna);
 	public void updateQna(Qna qna);
 	public void deleteQna(long q_no);
+	public int updateQnaReply(Qna qna);
 }

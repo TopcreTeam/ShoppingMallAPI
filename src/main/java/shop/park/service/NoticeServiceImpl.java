@@ -61,7 +61,7 @@ public class NoticeServiceImpl implements NoticeService {
 	public Notice incrementNoticeHits(long n_no) {
 		Notice notice = noticeMapper.selectByNoticeNo(n_no);
 		increment(notice);
-		updateNotice(notice);
+		updateNoticeHits(notice);
 		
 		return notice;
 	}
@@ -71,7 +71,22 @@ public class NoticeServiceImpl implements NoticeService {
 	}
 
 	@Override
-	public void updateNotice(Notice notice) {
+	public void updateNoticeHits(Notice notice) {
 		noticeMapper.updateNoticeHits(notice);
+	}
+
+	@Override
+	public int createNotice(Notice notice) {
+		return noticeMapper.insertNotice(notice);
+	}
+
+	@Override
+	public int editNotice(Notice notice) {
+		return noticeMapper.updateNotice(notice);
+	}
+
+	@Override
+	public int deleteNotice(long n_no) {
+		return noticeMapper.deleteNotice(n_no);
 	}
 }
