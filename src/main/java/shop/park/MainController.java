@@ -174,6 +174,14 @@ public class MainController {
 	}
 	
 	
+		//	qna답글달기
+	@PutMapping(value = "/qna/reply")
+	public int updateQnaReply(@RequestBody Qna qna) {
+		log.info("update qna reply");
+		return qnaService.updateQnaReply(qna);
+	}
+	
+	
 	//관리자 페이지용↑ 
 	
 	

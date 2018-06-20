@@ -44,5 +44,12 @@
 	<delete id="deleteQna" parameterType="long">
 		DELETE FROM tm_qna WHERE q_no=#{q_no}
 	</delete>
+
+
+	<!-- 관리자페이지용 -->
+	<update id="updateQnaReply" parameterType="Qna">
+		UPDATE tm_qna SET q_reply=#{q_reply} WHERE q_no=#{q_no}
+	</update>
+
 	
 </mapper>

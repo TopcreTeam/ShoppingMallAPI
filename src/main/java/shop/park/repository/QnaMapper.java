@@ -25,4 +25,6 @@ public interface QnaMapper {
 	public int updateQna(Qna qna);
 	
 	public int deleteQna(long q_no);
+	
+	public int updateQnaReply(Qna qna);
 }

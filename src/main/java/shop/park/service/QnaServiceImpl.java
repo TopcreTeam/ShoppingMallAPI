@@ -74,6 +74,11 @@ public class QnaServiceImpl implements QnaService {
 	public List<Qna> adminSelectAllQna() {
 		return qnaMapper.adminSelectAllQna();
 	}
+
+	@Override
+	public int updateQnaReply(Qna qna) {
+		return qnaMapper.updateQnaReply(qna);
+	}
 	
 
 }
