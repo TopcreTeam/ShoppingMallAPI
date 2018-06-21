@@ -57,11 +57,7 @@ public class LoginController {
 //		//ResponseEntity를 던지는 함수일때
 //		return new ResponseEntity<User>(HttpStatus.OK);
 	}
-	@GetMapping("/user/list")
-	public User getUser() {
-		User user = loginService.getUser();
-		return user;
-	}
+
 	
 	
 }

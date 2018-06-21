@@ -1,5 +1,7 @@
 package shop.kim.login.service;
 
+import java.util.ArrayList;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -15,7 +17,7 @@ public class LoginService {
 		return loginMapper.logincheck(login.getUid());
 	}
 	
-	public User getUser() {
+	public ArrayList<User> getUser() {
 		return loginMapper.getUser();
 	}
 

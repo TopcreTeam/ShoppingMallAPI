@@ -22,15 +22,17 @@
 		VALUES(tm_product_review_SEQ.NEXTVAL, #{rev_title}, #{rev_content},#{rev_hits}, #{p_code}, #{u_id})
 	</insert>
 	
-	<update id="updateReview"  parameterType="String">
-		UPDATE tm_product_review SET rev_title=#{rev_title} , rev_content=#{rev_content} WHERE u_id=#{u_id}
+	<update id="updateReview"  parameterType="Review">
+		UPDATE tm_product_review SET rev_title=#{rev_title}, rev_content=#{rev_content} where u_id=#{u_id} and rev_no=#{rev_no}
 	</update>
 	
-	<delete id="deleteReview" parameterType="String">
-		DELETE FROM tm_product_review where u_id=#{u_id}
+	<delete id="deleteReview" parameterType="Review">
+		DELETE FROM tm_product_review where u_id=#{u_id} and rev_no=#{rev_no}
 	</delete>
-	
-	
+
+	<select id="getReviewList" resultMap="reviewResultMap">
+		SELECT * FROM tm_product_review
+	</select>
 	
 	
 	

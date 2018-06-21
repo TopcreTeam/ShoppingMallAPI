@@ -13,9 +13,9 @@ public interface ReviewMapper {
 	
 	public int insertReview(Review review);
 	
-	public int updateReview(String u_id);
+	public int updateReview(Review review);
 	
-	public int deleteReview(String u_id);
+	public int deleteReview(Review review);
 	
-	
+	public List<Review> getReviewList();
 }

@@ -8,10 +8,25 @@ public class ProductQna {
 	private String pq_category;
 	private String pq_title;
 	private String pq_content;
+	private String pq_reply;
+	private String pq_replyyn;
 	private int pq_hits;
 	private String p_code;
 	private String u_id;
 	private Date pq_date;
+	
+	public String getPq_replyyn() {
+		return pq_replyyn;
+	}
+	public void setPq_replyyn(String pq_replyyn) {
+		this.pq_replyyn = pq_replyyn;
+	}
+	public String getPq_reply() {
+		return pq_reply;
+	}
+	public void setPq_reply(String pq_reply) {
+		this.pq_reply = pq_reply;
+	}
 	public int getPq_no() {
 		return pq_no;
 	}

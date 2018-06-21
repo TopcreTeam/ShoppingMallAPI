@@ -5,8 +5,11 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
@@ -29,14 +32,14 @@ public class ProductQnaController {
 
 	}
 	
-	@DeleteMapping("/{u_id}")
-	public int deleteProductQna(@PathVariable("u_id") String u_id) {
-		return productQnaService.deleteProductQna(u_id);
+	@DeleteMapping("/delete")
+	public int deleteProductQna(@RequestBody ProductQna productQna) {
+		return productQnaService.deleteProductQna(productQna);
 	}
 	
-	@PostMapping("/{u_id}")
-	public int updateProductQna(@PathVariable("u_id") String u_id) {
-		return productQnaService.updateProductQna(u_id); 
+	@PutMapping("/update")
+	public int updateProductQna(@RequestBody ProductQna productQna) {
+		return productQnaService.updateProductQna(productQna); 
 	}
 	
 	
@@ -45,5 +48,19 @@ public class ProductQnaController {
 		return productQnaService.insertProductQna(productQna);
 		
 	}
+	
+	
+//	관리자용 
+	@GetMapping(value = "/")
+	public List<ProductQna> listAllProducts() {
+		return productQnaService.getAllProductQna();
+	}
 
+	
+	
+	@PutMapping("/reply")
+	public int replyProductQna(@RequestBody ProductQna productQna) {
+		return productQnaService.replyProductQna(productQna); 
+	}
+	
 }

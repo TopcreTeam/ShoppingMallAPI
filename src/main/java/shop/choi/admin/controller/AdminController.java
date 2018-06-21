@@ -15,12 +15,6 @@ import org.springframework.web.bind.annotation.RestController;
 
 import shop.choi.admin.model.Admin;
 import shop.choi.admin.service.AdminService;
-import shop.kim.login.model.Login;
-import shop.kim.login.model.User;
-import shop.kim.login.service.LoginService;
-import shop.kim.order.model.Order;
-import shop.park.model.Products;
-import shop.son.productqna.model.ProductQna;
 
 @RequestMapping("/toma/admin")
 @RestController
@@ -32,7 +26,7 @@ public class AdminController {
 	
 	@PostMapping("/login")
 	public Admin adminlogin(@RequestBody Admin requestAdmin) { //Login : 앵귤러에서 던진 id/pw
-
+		
 		System.out.println(requestAdmin.getA_id());
 		Admin admin = adminService.adminLoginCheck(requestAdmin);
 		if(admin==null) {//아이디가 존재하지 않는다
@@ -45,8 +39,6 @@ public class AdminController {
 		}
 		return admin;
 	}
-	
-
 
 	@GetMapping("/")
 	public List getAdminList() {
@@ -68,5 +60,5 @@ public class AdminController {
 		return adminService.deleteAdmin(a_id);
 	}
 	
-
+		
 }

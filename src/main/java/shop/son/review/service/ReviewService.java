@@ -7,12 +7,9 @@ import shop.son.review.exception.ReviewNotFoundException;
 import shop.son.review.model.Review;
 
 public interface ReviewService {
-
-
-
 	List<Review> selectAllReview(String p_code) throws ReviewNotFoundException;
-	int	deleteReview(String u_id);
-	int updateReview(String u_id);
+	int	deleteReview(Review review);
+	int updateReview(Review review);
 	int insertReview(Review review);
-	
+	List<Review> getReviewList();
 }
