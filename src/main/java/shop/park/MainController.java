@@ -133,58 +133,6 @@ public class MainController {
 		return new ResponseEntity<Notice>(noticeObject, HttpStatus.OK);
 	}
 	
-//	관리자 페이지 용 ↓
-	@PostMapping(value = "/faq/create")
-	public int createFaq(@RequestBody Faq faq) {
-		log.info("create faq");
-		return faqService.createFaq(faq);
-	}
-	
-	@PutMapping(value = "/faq/update")
-	public int updateFaq(@RequestBody Faq faq) {
-		log.info("update faq");
-		return faqService.editFaq(faq);
-	}
-	
-	@DeleteMapping(value = "/faq/delete/{f_no}")
-	public int deleteFaq(@PathVariable("f_no") long f_no) {
-		log.info("delete FAQ");
-		return faqService.deleteFaq(f_no);
-	}
-	
-	
-	
-	
-	@PostMapping(value = "/notice/create")
-	public int createNotice(@RequestBody Notice notice) {
-		log.info("create notice");
-		return noticeService.createNotice(notice);
-	}
-	
-	@PutMapping(value = "/notice/update")
-	public int updateNotice(@RequestBody Notice notice) {
-		log.info("update notice");
-		return noticeService.editNotice(notice);
-	}
-	
-	@DeleteMapping(value = "/notice/delete/{n_no}")
-	public int DeleteNotice(@PathVariable("n_no") long n_no) {
-		log.info("delete notice");
-		return noticeService.deleteNotice(n_no);
-	}
-	
-	
-		//	qna답글달기
-	@PutMapping(value = "/qna/reply")
-	public int updateQnaReply(@RequestBody Qna qna) {
-		log.info("update qna reply");
-		return qnaService.updateQnaReply(qna);
-	}
-	
-	
-	//관리자 페이지용↑ 
-	
-	
 	// 공지사항 제목 검색
 	@RequestMapping(value = "/notice/search/{n_title}", method = RequestMethod.GET)
 	public List<Notice> getByNoticeTitleSearch(@PathVariable("n_title") String n_title) {
@@ -321,5 +269,77 @@ public class MainController {
 		
 		return new ResponseEntity<Qna>(HttpStatus.NO_CONTENT);
 	}
+
+	// Websquare용 notice controller
+	@PostMapping(value = "/notice.do")
+	public ResponseEntity<List<Notice>> websquareGetAllNotice() {
+		log.info("Get All Notice");
+		List<Notice> noticeList = noticeService.selectAllNotice();
+		
+		return new ResponseEntity<List<Notice>>(noticeList, HttpStatus.OK);
+	}
 	
+	// Websquare용 faq controller
+	@PostMapping(value = "/faq.do")
+	public ResponseEntity<List<Faq>> websquareGetAllFaq() {
+		log.info("Get All Faq");
+		List<Faq> faqList = faqService.selectAllFaq();
+		return new ResponseEntity<List<Faq>>(faqList, HttpStatus.OK);
+	}
+	
+	// Websquare용 fna controller
+	@PostMapping(value = "/qna.do")
+	public ResponseEntity<List<Qna>> websquareGetAllQna() {
+		log.info("Get All Qna");
+		
+		List<Qna> qnaList = qnaService.adminSelectAllQna();
+		
+		return new ResponseEntity<List<Qna>>(qnaList, HttpStatus.OK);
+	}
+
+	// 관리자 페이지 용 ↓
+	@PostMapping(value = "/faq/create")
+	public int createFaq(@RequestBody Faq faq) {
+		log.info("create faq");
+		return faqService.createFaq(faq);
+	}
+	
+	@PutMapping(value = "/faq/update")
+	public int updateFaq(@RequestBody Faq faq) {
+		log.info("update faq");
+		return faqService.editFaq(faq);
+	}
+	
+	@DeleteMapping(value = "/faq/delete/{f_no}")
+	public int deleteFaq(@PathVariable("f_no") long f_no) {
+		log.info("delete FAQ");
+		return faqService.deleteFaq(f_no);
+	}
+	
+	@PostMapping(value = "/notice/create")
+	public int createNotice(@RequestBody Notice notice) {
+		log.info("create notice");
+		return noticeService.createNotice(notice);
+	}
+	
+	@PutMapping(value = "/notice/update")
+	public int updateNotice(@RequestBody Notice notice) {
+		log.info("update notice");
+		return noticeService.editNotice(notice);
+	}
+	
+	@DeleteMapping(value = "/notice/delete/{n_no}")
+	public int DeleteNotice(@PathVariable("n_no") long n_no) {
+		log.info("delete notice");
+		return noticeService.deleteNotice(n_no);
+	}
+	
+	// qna답글달기
+	@PutMapping(value = "/qna/reply")
+	public int updateQnaReply(@RequestBody Qna qna) {
+		log.info("update qna reply");
+		return qnaService.updateQnaReply(qna);
+	}
+	
+	//관리자 페이지용↑ 
 }
