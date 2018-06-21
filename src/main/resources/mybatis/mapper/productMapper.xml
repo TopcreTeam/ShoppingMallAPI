@@ -17,7 +17,7 @@
 	
 	<insert id="insertProduct" parameterType="Products">
 		INSERT INTO tm_product(p_code, p_name, p_count, p_kind, p_price, p_sellPrice, p_profit, p_content, p_img, p_date)
-		VALUES(TM_PRODUCT_SEQ.NEXTVAL, #{p_name}, #{p_count}, #{p_kind}, #{p_price}, #{p_sellPrice}, #{p_profit}, #{p_content}, #{p_img}, DEFAULT)
+		VALUES(#{p_code}, #{p_name}, #{p_count}, #{p_kind}, #{p_price}, #{p_sellPrice}, #{p_profit}, #{p_content}, #{p_img}, DEFAULT)
 	</insert>
 	
 	<update id="updateProduct" parameterType="Products">
