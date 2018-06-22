@@ -11,12 +11,22 @@
 		<result property="q_reply" column="Q_REPLY"/>
 	</resultMap>
 	
+	
+	<!-- 관리자용  -->
+	<select id="adminSelectAllQna" resultMap="qnaResultMap">
+		SELECT * FROM tm_qna
+	</select>
+	
 	<select id="selectAllQna" resultMap="qnaResultMap">
-		SELECT * FROM tm_qna ORDER BY q_no DESC
+		SELECT * FROM tm_qna WHERE u_id=#{u_id} ORDER BY q_no DESC
 	</select>
 	
 	<select id="selectByQnaNo" parameterType="long" resultMap="qnaResultMap">
 		SELECT * FROM tm_qna WHERE q_no=#{q_no}
+	</select>
+	
+	<select id="searchByQnaTitle" parameterType="String" resultMap="qnaResultMap">
+		SELECT * FROM tm_qna WHERE q_title LIKE '%'||#{q_title}||'%'
 	</select>
 	
 	<select id="selectByQnaReply" parameterType="String" resultMap="qnaResultMap">
@@ -24,15 +34,22 @@
 	</select>
 	
 	<insert id="insertQna" parameterType="Qna">
-		INSERT INTO tm_qna VALUES(TM_QNA_SEQ.NEXTVAL, #{q_title}, #{q_content}, 'test', 'n', DEFAULT)
+		INSERT INTO tm_qna VALUES(TM_QNA_SEQ.NEXTVAL, #{q_title}, #{q_content}, #{u_id}, 'n', DEFAULT)
 	</insert>
 	
 	<update id="updateQna" parameterType="Qna">
-		UPDATE tm_qna SET q_title=#{q_title}, q_content=#{q_content}
+		UPDATE tm_qna SET q_title=#{q_title}, q_content=#{q_content}, q_date=DEFAULT WHERE q_no=#{q_no}
 	</update>
 	
 	<delete id="deleteQna" parameterType="long">
 		DELETE FROM tm_qna WHERE q_no=#{q_no}
 	</delete>
+
+
+	<!-- 관리자페이지용 -->
+	<update id="updateQnaReply" parameterType="Qna">
+		UPDATE tm_qna SET q_reply=#{q_reply} WHERE q_no=#{q_no}
+	</update>
+
 	
 </mapper>

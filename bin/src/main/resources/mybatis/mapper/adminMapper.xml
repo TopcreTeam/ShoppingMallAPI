@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="shop.son.productqna.repository.AdminMapper">
+<mapper namespace="shop.choi.admin.repository.AdminMapper">
 
 <resultMap type="Admin" id="adminResultMap">
 	<result property="a_id" column="A_ID"/>
@@ -16,6 +16,24 @@
 <select id="adminLoginCheck" resultType="Admin" resultMap="adminResultMap">
 	SELECT * FROM TM_ADMIN WHERE A_ID=#{a_id}
 </select>
+
+<select id="selectAllAdmin" resultType="Admin" resultMap="adminResultMap">
+	SELECT * FROM TM_ADMIN
+</select>
+
+<insert id="insertAdmin" parameterType="Admin">
+INSERT INTO TM_ADMIN(a_id, a_pw, a_name, a_position, a_job, a_email, a_phone) 
+VALUES(#{a_id} ,#{a_pw},#{a_name},#{a_position},#{a_job},#{a_email},#{a_phone})
+</insert>
+
+<update id="updateAdmin" parameterType="Admin">
+UPDATE TM_ADMIN SET a_name=#{a_name}, a_position=#{a_position}, a_job=#{a_job}, a_email=#{a_email}, a_phone=#{a_phone} 
+WHERE a_id=#{a_id}
+</update>
+
+<delete id="deleteAdmin" parameterType="String">
+		DELETE FROM TM_ADMIN WHERE a_id=#{a_id}
+</delete>
 
 
 </mapper>
