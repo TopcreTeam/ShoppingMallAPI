@@ -34,7 +34,7 @@
 	</select>
 	
 	<select id="selectByProductKind" parameterType="String" resultMap="productResultMap">
-		SELECT * FROM tm_product WHERE p_kind=#{p_kind}
+		SELECT * FROM tm_product WHERE p_kind=#{p_kind} ORDER BY p_code
 	</select>
 	
 </mapper>
