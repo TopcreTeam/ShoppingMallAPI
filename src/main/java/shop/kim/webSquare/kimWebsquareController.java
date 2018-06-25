@@ -16,6 +16,8 @@ import shop.choi.admin.model.Admin;
 import shop.choi.admin.service.AdminService;
 import shop.kim.login.model.User;
 import shop.kim.login.service.LoginService;
+import shop.kim.order.model.Order;
+import shop.kim.order.service.OrderService;
 
 @RequestMapping("/toma/admin/kdh")
 @RestController
@@ -24,9 +26,11 @@ public class kimWebsquareController {
 	
 	@Autowired
 	private AdminService adminService;
-	
 	@Autowired
 	private LoginService loginService;
+	@Autowired
+	private OrderService orderService;
+	
 	
 	//WEBSQAURE용
 		@PostMapping("/webLogin")
@@ -59,4 +63,13 @@ public class kimWebsquareController {
 			
 			return userList;
 		}
+		@GetMapping("/orderList")
+		public Map getOrder() {
+			Map orderList = new HashMap();
+			ArrayList<Order> orderArr=orderService.getAllorderList();
+			orderList.put("orderList", orderArr);
+			
+			return orderList;
+		}
+		
 }
