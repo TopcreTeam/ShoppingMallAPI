@@ -7,12 +7,15 @@ import org.springframework.stereotype.Service;
 
 import shop.park.model.Products;
 import shop.park.repository.ProductMapper;
+import shop.utill.ProductCodeMaker;
 
 @Service
 public class ProductServiceImpl implements ProductService {
 	
 	@Autowired
 	ProductMapper productMapper;
+	
+	
 	
 	@Override
 	public List<Products> selectAllProducts(){
@@ -33,17 +36,22 @@ public class ProductServiceImpl implements ProductService {
 	@Override
 	public Products selectByProductCode(String p_code) {
 		Products product = productMapper.selectByProductCode(p_code);
-		
-		if(product == null) {
-			return null;
-		}
-		
 		return product;
 	}
 
 	@Override
 	public void insertProduct(Products product) {
-		productMapper.insertProduct(product);
+		if(product.getP_code()==null) {
+				List<Products> productList = productMapper.selectByProductKind(product.getP_kind());
+				ProductCodeMaker codeMaker = new ProductCodeMaker(productList);
+				product.setP_code(codeMaker.getNewProductCode());
+				product.setP_img(codeMaker.getNewProductCode());
+				System.out.println("────────────────────새상품코드 "+product.getP_code());
+				
+				productMapper.insertProduct(product);
+		}else {
+			productMapper.insertProduct(product);
+		}
 	}
 
 	@Override
@@ -56,4 +64,8 @@ public class ProductServiceImpl implements ProductService {
 		productMapper.deleteProduct(p_code);
 	}
 
+	
+	public void codeMaker() {
+		
+	}
 }

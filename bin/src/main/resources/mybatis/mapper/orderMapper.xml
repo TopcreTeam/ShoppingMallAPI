@@ -8,6 +8,7 @@
 		<result property="ototal" column="O_TOTAL" />
 		<result property="odate" column="O_DATE" />
 		<result property="ostatus" column="O_STATUS" />
+		<result property="oaddr" column="O_ADDR" />
 	</resultMap>
 	<!-- 주문상세 ResultMap -->
 	<resultMap type="OrderDetail" id="DetailResultMap">
@@ -18,12 +19,17 @@
 		<result property="odpprice" column="OD_PPRICE" />
 		<result property="odpamount" column="OD_PAMOUNT" />
 	</resultMap>
+	
+		<!-- 관리자페이지용 -->
+	<select id="getAllorderList" resultType="Order" resultMap="OrderResultMap">
+		SELECT * FROM TM_ORDER ORDER BY O_DATE DESC
+	</select>
 	<!-- 주문 QUERY -->
 	<select id="orderList" resultType="Order" resultMap="OrderResultMap">
-		SELECT * FROM TM_ORDER WHERE U_ID=#{uid}
+		SELECT * FROM TM_ORDER WHERE U_ID=#{uid} ORDER BY O_DATE DESC
 	</select>
-	<insert id="orderInsert">
-		INSERT INTO TM_ORDER VALUES(O_NO=ORDER_SEQ.NEXTVAL,U_ID=#{order.uid},O_TOTAL=#{order.ototal},O_DATE=#{order.odate},O_STATUS='N')
+	<insert id="orderInsert" parameterType="Order">
+		INSERT INTO TM_ORDER(O_NO,U_ID,O_TOTAL,O_ADDR) VALUES(TM_ORDER_SEQ.NEXTVAL,#{uid},#{ototal},#{oaddr})
 	</insert>
 	<delete id="orderDelete">
 		DELETE FROM TM_ORDER WHERE O_NO=#{ono}
@@ -33,16 +39,27 @@
 	<select id="orderDetailList" resultType="OrderDetail" resultMap="DetailResultMap">
 		SELECT * FROM TM_ORDER_DETAIL WHERE O_NO=#{ono}
 	</select>
-	<select id="maxO_no">
+	<!-- <select id="maxO_no" >
 		SELECT MAX(O_NO) FROM TM_ORDER
-	</select>
-	<insert id="orderDetailInsert">
-		INSERT INTO TM_ORDER_DETAIL VALUES (TM_ORDER_DETAIL_SEQ.NEXTVAL,#{maxO_no},#{orderDetail.odimg},#{orderDetail.odpname},#{orderDetail.odpprice},#{orderDetail.odpamount})
+	</select> -->
+	<insert id="orderDetailInsert" parameterType="OrderDetail">
+		INSERT INTO TM_ORDER_DETAIL VALUES (TM_ORDER_DETAIL_SEQ.NEXTVAL,#{ono},#{odimg},#{odpname},#{odpprice},#{odpamount})
 	</insert>
 	
-	<delete id="orderDetailDelete">
+<!-- 	<delete id="orderDetailDelete">
 		DELETE FROM TM_ORDER_DETAIL WHERE OD_NO=#{odno}
-	</delete>
+	</delete> -->
+	<!-- 주문리스트 페이지에서 취소요청 했을때 -->
 	
+	<update id="cancleOrder" parameterType="int">
+		UPDATE tm_order SET O_STATUS='C' 
+		WHERE O_NO=#{ono}
+	</update>
+	
+	<!-- 관리자페이지용  처리 미처리-->
+	<update id="orderUpdate" parameterType="Order">
+		UPDATE tm_order SET O_STATUS=#{ostatus} 
+		WHERE O_NO=#{ono}
+	</update>
 
 </mapper>
