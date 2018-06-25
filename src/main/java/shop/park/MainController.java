@@ -1,6 +1,8 @@
 package shop.park;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -272,29 +274,38 @@ public class MainController {
 
 	// Websquare용 notice controller
 	@PostMapping(value = "/notice.do")
-	public ResponseEntity<List<Notice>> websquareGetAllNotice() {
+	public Map websquareGetAllNotice() {
 		log.info("Get All Notice");
-		List<Notice> noticeList = noticeService.selectAllNotice();
 		
-		return new ResponseEntity<List<Notice>>(noticeList, HttpStatus.OK);
+		Map noticeObj = new HashMap<>();
+		noticeObj.put("noticeList", noticeService.selectAllNotice());
+		noticeObj.put("msg", "조회가 완료되었습니다.");
+		
+		return noticeObj;
 	}
 	
 	// Websquare용 faq controller
 	@PostMapping(value = "/faq.do")
-	public ResponseEntity<List<Faq>> websquareGetAllFaq() {
+	public Map websquareGetAllFaq() {
 		log.info("Get All Faq");
-		List<Faq> faqList = faqService.selectAllFaq();
-		return new ResponseEntity<List<Faq>>(faqList, HttpStatus.OK);
+		
+		Map faqObj = new HashMap<>();
+		faqObj.put("faqList", faqService.selectAllFaq());
+		faqObj.put("msg", "조회가 완료되었습니다.");
+		
+		return faqObj;
 	}
 	
 	// Websquare용 fna controller
 	@PostMapping(value = "/qna.do")
-	public ResponseEntity<List<Qna>> websquareGetAllQna() {
+	public Map websquareGetAllQna() {
 		log.info("Get All Qna");
 		
-		List<Qna> qnaList = qnaService.adminSelectAllQna();
+		Map qnaObj = new HashMap<>();
+		qnaObj.put("qnaList", qnaService.adminSelectAllQna());
+		qnaObj.put("msg", "조회가 완료되었습니다.");
 		
-		return new ResponseEntity<List<Qna>>(qnaList, HttpStatus.OK);
+		return qnaObj;
 	}
 
 	// 관리자 페이지 용 ↓
