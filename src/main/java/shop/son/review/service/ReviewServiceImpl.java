@@ -30,8 +30,8 @@ public class ReviewServiceImpl implements ReviewService {
 		return reviewMapper.deleteReview(review);
 	}
 	
-	public int updateReview(Review review){
-		return reviewMapper.updateReview(review);
+	public int editReview(Review review){
+		return reviewMapper.editReview(review);
 	}
 
 	@Override
@@ -49,6 +49,33 @@ public class ReviewServiceImpl implements ReviewService {
 		return reviewMapper.getReviewList();
 	}
 	
+	
+	@Override
+	public Review selectByReviewNo(int rev_no) {
+		Review review = reviewMapper.selectByReviewNo(rev_no);
+		
+		if(review != null) {
+			return review;
+		} else {
+			return null;
+		}
+	}
+	
+	@Override
+	public void incrementReviewHits(int rev_no) {
+		Review review = reviewMapper.selectByReviewNo(rev_no);
+		increment(review);
+		updateReview(review);
+	}
+	
+	private void increment(Review review) {
+		review.setRev_hits(review.getRev_hits() + 1);;
+	}
+	
+	@Override
+	public void updateReview(Review review) {
+		reviewMapper.updateReviewHits(review);
+	}
 	
 
 }
