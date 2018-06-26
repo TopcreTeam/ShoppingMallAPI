@@ -1,11 +1,11 @@
 package shop.park.repository;
 
 import java.util.List;
+import java.util.Map;
 
 import org.apache.ibatis.annotations.Mapper;
 
 import shop.park.model.Notice;
-import shop.park.model.Qna;
 
 @Mapper
 public interface NoticeMapper {
@@ -26,4 +26,25 @@ public interface NoticeMapper {
 	
 	public int updateNoticeHits(Notice notice);
 	
+	public int insertNoticeWq(Map param);
+
+	
+
+	public int insertNoticeWqBatch(Map param);
+
+	
+
+	public int updateNoticeWq(Map param);
+
+	
+
+	public int updateNoticeWqBatch(Map param);
+
+	
+
+	public int deleteNoticeWq(Map param);
+
+	
+
+	public int deleteNoticeWqBatch(Map param);
 }
