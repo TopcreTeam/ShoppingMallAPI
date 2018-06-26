@@ -20,8 +20,8 @@ SELECT * FROM tm_product_qna WHERE p_code=#{p_code} ORDER BY pq_no DESC
 </select>
 
 <insert id="insertProductQna" parameterType="ProductQna">
-INSERT INTO tm_product_qna(pq_no, pq_category, pq_title, pq_content, pq_hits, p_code, u_id) 
-VALUES(tm_product_qna_SEQ.NEXTVAL ,#{pq_category},#{pq_title},#{pq_content},0,#{p_code},#{u_id})
+INSERT INTO tm_product_qna(pq_no, pq_category, pq_title, pq_reply , pq_replyyn , pq_content, pq_hits, p_code, u_id) 
+VALUES(tm_product_qna_SEQ.NEXTVAL ,#{pq_category},#{pq_title}, '' , 'n', #{pq_content}, 0 ,#{p_code},#{u_id})
 </insert>
 
 <update id="editProductQna" parameterType="ProductQna">
@@ -46,7 +46,7 @@ UPDATE tm_product_qna SET pq_reply=#{pq_reply} , pq_replyyn=#{pq_replyyn} where 
 </select>
 
 <update id="updateProductQnaHits" parameterType="int">
-		UPDATE tm_product_qna SET pq_hits=#{pq_hits}
+		UPDATE tm_product_qna SET pq_hits=#{pq_hits} WHERE pq_no=#{pq_no}
 	</update>
 	
 

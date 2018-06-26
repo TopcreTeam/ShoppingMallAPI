@@ -1,15 +1,9 @@
 Manifest-Version: 1.0
-Built-By: 수연
-Build-Jdk: 9
 Implementation-Title: ShoppingMallAPI
 Implementation-Version: 0.0.1-SNAPSHOT
-<<<<<<< HEAD
 Built-By: Administrator
 Implementation-Vendor-Id: shop
 Build-Jdk: 1.8.0_171
-=======
-Implementation-Vendor-Id: shop
->>>>>>> d9a5b14407a3ec1379ca3b37b4edeb1591cbbab5
 Implementation-URL: https://projects.spring.io/spring-boot/#/spring-bo
  ot-starter-parent/ShoppingMallAPI
 Created-By: Maven Integration for Eclipse
