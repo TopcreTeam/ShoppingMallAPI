@@ -29,7 +29,7 @@
 	</select>
 	
 	<update id="updateFaqHits" parameterType="long">
-		UPDATE tm_faq SET f_hits=#{f_hits}
+		UPDATE tm_faq SET f_hits=#{f_hits} WHERE f_no=#{f_no}
 	</update>
 	
 	
