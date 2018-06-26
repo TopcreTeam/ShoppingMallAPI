@@ -1,6 +1,7 @@
 package shop.park.service;
 
 import java.util.List;
+import java.util.Map;
 
 import shop.park.model.Notice;
 
@@ -14,4 +15,5 @@ public interface NoticeService {
 	int createNotice(Notice notice);
 	int editNotice(Notice notice);
 	int deleteNotice(long n_no);
+	Map saveSpNotice(Map param) throws Exception;
 }

@@ -14,7 +14,7 @@
 	
 	<!-- 관리자용  -->
 	<select id="adminSelectAllQna" resultMap="qnaResultMap">
-		SELECT * FROM tm_qna
+		SELECT * FROM tm_qna ORDER BY q_no DESC
 	</select>
 	
 	<select id="selectAllQna" resultMap="qnaResultMap">
@@ -42,7 +42,7 @@
 	</update>
 	
 	<delete id="deleteQna" parameterType="long">
-		DELETE FROM tm_qna WHERE q_no=#{q_no}
+		DELETE tm_qna WHERE q_no=#{q_no}
 	</delete>
 
 

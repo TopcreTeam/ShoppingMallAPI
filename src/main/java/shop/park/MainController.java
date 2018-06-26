@@ -1,6 +1,9 @@
 package shop.park;
 
+import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -272,29 +275,151 @@ public class MainController {
 
 	// Websquare용 notice controller
 	@PostMapping(value = "/notice.do")
-	public ResponseEntity<List<Notice>> websquareGetAllNotice() {
+	public Map websquareGetAllNotice() {
 		log.info("Get All Notice");
-		List<Notice> noticeList = noticeService.selectAllNotice();
 		
-		return new ResponseEntity<List<Notice>>(noticeList, HttpStatus.OK);
+		Map noticeObj = new HashMap<>();
+		noticeObj.put("noticeList", noticeService.selectAllNotice());
+		noticeObj.put("msg", "조회가 완료되었습니다.");
+		
+		return noticeObj;
 	}
+	
+	
+	
+
+		@PostMapping(value = "/notice/saveAndSelectMember.do")
+
+		public Map saveAndSelectMember(@RequestBody Map param)
+
+				throws Exception {
+
+			Map resObj = new HashMap();
+
+			List modList = null;
+
+			Map saveResult = null;
+
+			int modListLen;
+
+			Map modParam = new HashMap<String, List>();
+
+			List insert = new ArrayList<Map>();
+
+			List update = new ArrayList<Map>();
+
+			List delete = new ArrayList<Map>();
+
+			Map rowData;
+
+			String rowStatus;
+
+			try {
+
+				modList = (List) param.get("noticeList");
+
+				modListLen = modList.size();
+
+	
+				for (int i = 0; i < modListLen; i++) {
+
+					rowData = (Map) modList.get(i);
+
+					rowStatus = (String) rowData.get("rowStatus");
+
+					
+
+					if (rowStatus.equals("C")) {
+
+						insert.add(rowData);
+
+					} else if (rowStatus.equals("U")) {
+
+						update.add(rowData);
+
+					} else if (rowStatus.equals("D") || rowStatus.equals("E")) {
+
+						delete.add(rowData);
+
+					}
+
+				}
+
+	 
+
+				modParam.put("insert", insert);
+
+				modParam.put("update", update);
+
+				modParam.put("delete", delete);
+
+	 
+
+				saveResult = noticeService.saveSpNotice(modParam);
+
+	 
+
+				
+
+				try {
+
+					resObj.put("noticeList", noticeService.selectAllNotice());
+
+					resObj.put("msg", "조회가 완료되었습니다.");
+
+				} catch (Exception ex) {
+
+					throw new RuntimeException(
+
+							"저장은 완료되었으나 조회도중 오류가 발생하였습니다. 다시 조회 해주시기 바랍니다.");
+
+				}
+
+	 
+
+				resObj.put("rsObj", saveResult);
+
+	 
+
+				resObj.put("msg", "저장이 완료되었습니다.");
+
+				resObj.put("msgCode", "S");
+
+			} catch (Exception ex) {
+
+				ex.printStackTrace();
+
+			}
+
+			return resObj;
+
+		}
+
+		
+	
 	
 	// Websquare용 faq controller
 	@PostMapping(value = "/faq.do")
-	public ResponseEntity<List<Faq>> websquareGetAllFaq() {
+	public Map websquareGetAllFaq() {
 		log.info("Get All Faq");
-		List<Faq> faqList = faqService.selectAllFaq();
-		return new ResponseEntity<List<Faq>>(faqList, HttpStatus.OK);
+		
+		Map faqObj = new HashMap<>();
+		faqObj.put("faqList", faqService.selectAllFaq());
+		faqObj.put("msg", "조회가 완료되었습니다.");
+		
+		return faqObj;
 	}
 	
 	// Websquare용 fna controller
 	@PostMapping(value = "/qna.do")
-	public ResponseEntity<List<Qna>> websquareGetAllQna() {
+	public Map websquareGetAllQna() {
 		log.info("Get All Qna");
 		
-		List<Qna> qnaList = qnaService.adminSelectAllQna();
+		Map qnaObj = new HashMap<>();
+		qnaObj.put("qnaList", qnaService.adminSelectAllQna());
+		qnaObj.put("msg", "조회가 완료되었습니다.");
 		
-		return new ResponseEntity<List<Qna>>(qnaList, HttpStatus.OK);
+		return qnaObj;
 	}
 
 	// 관리자 페이지 용 ↓
