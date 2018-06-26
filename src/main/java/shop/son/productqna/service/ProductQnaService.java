@@ -5,6 +5,7 @@ import java.util.List;
 import org.springframework.stereotype.Service;
 
 import shop.son.productqna.model.ProductQna;
+import shop.son.review.model.Review;
 
 @Service
 public interface ProductQnaService {
@@ -14,10 +15,16 @@ public interface ProductQnaService {
 	
 	int insertProductQna(ProductQna productQna);
 	
-	int updateProductQna(ProductQna productQna);
+	int editProductQna(ProductQna productQna);
 	
 	int deleteProductQna(ProductQna productQna);
 	  
+	ProductQna selectByProductQnaNo(int pq_no);
+	
+	void incrementProductQnaHits(int pq_no);
+	
+	void updateProductQna(ProductQna productQna);
+	
 	List<ProductQna> getAllProductQna();
 	
 	int replyProductQna(ProductQna productQna);

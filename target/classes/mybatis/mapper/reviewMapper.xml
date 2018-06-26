@@ -22,7 +22,7 @@
 		VALUES(tm_product_review_SEQ.NEXTVAL, #{rev_title}, #{rev_content},#{rev_hits}, #{p_code}, #{u_id})
 	</insert>
 	
-	<update id="updateReview"  parameterType="Review">
+	<update id="editReview"  parameterType="Review">
 		UPDATE tm_product_review SET rev_title=#{rev_title}, rev_content=#{rev_content} where u_id=#{u_id} and rev_no=#{rev_no}
 	</update>
 	
@@ -34,6 +34,13 @@
 		SELECT * FROM tm_product_review
 	</select>
 	
+	<select id="selectByReviewNo" parameterType="int" resultMap="reviewResultMap">
+		SELECT * FROM tm_product_review WHERE rev_no=#{rev_no}
+	</select>
+	
+	<update id="updateReviewHits" parameterType="int">
+		UPDATE tm_product_review SET rev_hits=#{rev_hits}
+	</update>
 	
 	
 	

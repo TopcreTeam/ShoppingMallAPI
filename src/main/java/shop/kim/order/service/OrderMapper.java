@@ -15,8 +15,6 @@ public interface OrderMapper {
 	
 	public int orderInsert(Order order);
 	
-	public int orderDelete(int ono);
-	
 	public int cancleOrder(int ono);
 	
 //	주문상세
@@ -27,11 +25,12 @@ public interface OrderMapper {
 	@Select("SELECT MAX(O_NO) FROM TM_ORDER")
 	public int maxO_no();
 	
-	public int orderDetailDelete(int odno);
+	public int orderDetailDelete(int ono);
 	
 	//관리자 페이지용
 	public int orderUpdate(Order order);
 	
 	public ArrayList<Order> getAllorderList();
 	
+	public int aOrderDelete(int ono);
 }

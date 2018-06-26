@@ -13,9 +13,14 @@ public interface ReviewMapper {
 	
 	public int insertReview(Review review);
 	
-	public int updateReview(Review review);
+	public int editReview(Review review);
 	
 	public int deleteReview(Review review);
 	
 	public List<Review> getReviewList();
+	
+    public Review selectByReviewNo(int rev_no);
+	
+	public int updateReviewHits(Review review);
+	
 }

@@ -14,7 +14,7 @@ public class User {
 	private String uaddr2;
 	private String uaddr3;
 	private int uaddrcheck;
-	private int ubirth;
+	private String ubirth;
 	private char ugender;
 	private Date ujoindate;
 	private char usmsyn;
@@ -67,10 +67,10 @@ public class User {
 	public void setUaddrcheck(int uaddrcheck) {
 		this.uaddrcheck = uaddrcheck;
 	}
-	public int getUbirth() {
+	public String getUbirth() {
 		return ubirth;
 	}
-	public void setUbirth(int ubirth) {
+	public void setUbirth(String ubirth) {
 		this.ubirth = ubirth;
 	}
 	public char getUgender() {
