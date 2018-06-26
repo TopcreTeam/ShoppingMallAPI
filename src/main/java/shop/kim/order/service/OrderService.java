@@ -13,11 +13,7 @@ public class OrderService {
 	
 	@Autowired
 	OrderMapper orderMapper;
-	//관리자 페이지용
-	public ArrayList<Order> getAllorderList(){
-		ArrayList<Order> orderArr=orderMapper.getAllorderList();
-		return orderArr;
-	};
+
 	
 //	주문
 	public ArrayList<Order> orderList(String uid){
@@ -30,18 +26,24 @@ public class OrderService {
 		return orderMapper.orderInsert(order);
 	};
 	
-	public int orderDelete(int ono) {
-		return orderMapper.orderDelete(ono);
-	};
 	public int cancleOrder(int ono) {
 		return orderMapper.cancleOrder(ono);
 	}
 	
 	//관리자 페이지용
+	public ArrayList<Order> getAllorderList(){
+		ArrayList<Order> orderArr=orderMapper.getAllorderList();
+		return orderArr;
+	};
+	
 	public int orderUpdate(Order order) {
 		return orderMapper.orderUpdate(order);
 	}
 	
+	public int aOrderDelete(int ono) {
+		
+		return orderMapper.aOrderDelete(ono);
+	}
 	
 //	주문상세
 	
@@ -60,8 +62,8 @@ public class OrderService {
 		return orderMapper.maxO_no();
 	}
 
-	public int orderDetailDelete(int odno) {
-		return orderMapper.orderDetailDelete(odno);
+	public int orderDetailDelete(int ono) {
+		return orderMapper.orderDetailDelete(ono);
 	};
 
 	

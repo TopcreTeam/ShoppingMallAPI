@@ -73,13 +73,6 @@ public class OrderController {
 			}
 	}
 	
-	
-	
-	@DeleteMapping("/delete/{ono}")
-	int orderInsert(@PathVariable("ono") int ono) {
-		return orderService.orderDelete(ono);
-	}
-	
 	@GetMapping("/orderdetail/{ono}")
 	ArrayList<Order_Detail> orderDetailList(@PathVariable("ono") int ono){
 		ArrayList<Order_Detail> orderDetailArr=new ArrayList<Order_Detail>();
@@ -88,12 +81,7 @@ public class OrderController {
 		return orderDetailArr;
 	}
 	
-	@DeleteMapping("/orderdetail/delete/{odno}")
-	int orderDetailInsert(@PathVariable("odno") int odno) {
-		return orderService.orderDetailDelete(odno);
-	}
 
-	
 	
 	
 }
