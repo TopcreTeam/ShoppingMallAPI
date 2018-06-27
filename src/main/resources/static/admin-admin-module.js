@@ -24790,1723 +24790,6 @@ Ng2SmartTableModule.decorators = [
 
 /***/ }),
 
-/***/ "./node_modules/primeng/components/button/button.js":
-/*!**********************************************************!*\
-  !*** ./node_modules/primeng/components/button/button.js ***!
-  \**********************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
-    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-    return c > 3 && r && Object.defineProperty(target, key, r), r;
-};
-var __metadata = (this && this.__metadata) || function (k, v) {
-    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
-};
-Object.defineProperty(exports, "__esModule", { value: true });
-var core_1 = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
-var domhandler_1 = __webpack_require__(/*! ../dom/domhandler */ "./node_modules/primeng/components/dom/domhandler.js");
-var common_1 = __webpack_require__(/*! @angular/common */ "./node_modules/@angular/common/fesm5/common.js");
-var ButtonDirective = /** @class */ (function () {
-    function ButtonDirective(el, domHandler) {
-        this.el = el;
-        this.domHandler = domHandler;
-        this.iconPos = 'left';
-        this.cornerStyleClass = 'ui-corner-all';
-    }
-    ButtonDirective.prototype.ngAfterViewInit = function () {
-        this.domHandler.addMultipleClasses(this.el.nativeElement, this.getStyleClass());
-        if (this.icon) {
-            var iconElement = document.createElement("span");
-            iconElement.setAttribute("aria-hidden", "true");
-            var iconPosClass = (this.iconPos == 'right') ? 'ui-button-icon-right' : 'ui-button-icon-left';
-            iconElement.className = iconPosClass + ' ui-clickable fa fa-fw ' + this.icon;
-            this.el.nativeElement.appendChild(iconElement);
-        }
-        var labelElement = document.createElement("span");
-        labelElement.className = 'ui-button-text ui-clickable';
-        labelElement.appendChild(document.createTextNode(this.label || 'ui-btn'));
-        this.el.nativeElement.appendChild(labelElement);
-        this.initialized = true;
-    };
-    ButtonDirective.prototype.getStyleClass = function () {
-        var styleClass = 'ui-button ui-widget ui-state-default ' + this.cornerStyleClass;
-        if (this.icon) {
-            if (this.label != null && this.label != undefined) {
-                if (this.iconPos == 'left')
-                    styleClass = styleClass + ' ui-button-text-icon-left';
-                else
-                    styleClass = styleClass + ' ui-button-text-icon-right';
-            }
-            else {
-                styleClass = styleClass + ' ui-button-icon-only';
-            }
-        }
-        else {
-            if (this.label) {
-                styleClass = styleClass + ' ui-button-text-only';
-            }
-            else {
-                styleClass = styleClass + ' ui-button-text-empty';
-            }
-        }
-        return styleClass;
-    };
-    Object.defineProperty(ButtonDirective.prototype, "label", {
-        get: function () {
-            return this._label;
-        },
-        set: function (val) {
-            this._label = val;
-            if (this.initialized) {
-                this.domHandler.findSingle(this.el.nativeElement, '.ui-button-text').textContent = this._label;
-                if (!this.icon) {
-                    if (this._label) {
-                        this.domHandler.removeClass(this.el.nativeElement, 'ui-button-text-empty');
-                        this.domHandler.addClass(this.el.nativeElement, 'ui-button-text-only');
-                    }
-                    else {
-                        this.domHandler.addClass(this.el.nativeElement, 'ui-button-text-empty');
-                        this.domHandler.removeClass(this.el.nativeElement, 'ui-button-text-only');
-                    }
-                }
-            }
-        },
-        enumerable: true,
-        configurable: true
-    });
-    Object.defineProperty(ButtonDirective.prototype, "icon", {
-        get: function () {
-            return this._icon;
-        },
-        set: function (val) {
-            this._icon = val;
-            if (this.initialized) {
-                var iconPosClass = (this.iconPos == 'right') ? 'ui-button-icon-right' : 'ui-button-icon-left';
-                this.domHandler.findSingle(this.el.nativeElement, '.fa').className =
-                    iconPosClass + ' ui-clickable fa fa-fw ' + this.icon;
-            }
-        },
-        enumerable: true,
-        configurable: true
-    });
-    ButtonDirective.prototype.ngOnDestroy = function () {
-        while (this.el.nativeElement.hasChildNodes()) {
-            this.el.nativeElement.removeChild(this.el.nativeElement.lastChild);
-        }
-        this.initialized = false;
-    };
-    __decorate([
-        core_1.Input(),
-        __metadata("design:type", String)
-    ], ButtonDirective.prototype, "iconPos", void 0);
-    __decorate([
-        core_1.Input(),
-        __metadata("design:type", String)
-    ], ButtonDirective.prototype, "cornerStyleClass", void 0);
-    __decorate([
-        core_1.Input(),
-        __metadata("design:type", String),
-        __metadata("design:paramtypes", [String])
-    ], ButtonDirective.prototype, "label", null);
-    __decorate([
-        core_1.Input(),
-        __metadata("design:type", String),
-        __metadata("design:paramtypes", [String])
-    ], ButtonDirective.prototype, "icon", null);
-    ButtonDirective = __decorate([
-        core_1.Directive({
-            selector: '[pButton]',
-            providers: [domhandler_1.DomHandler]
-        }),
-        __metadata("design:paramtypes", [core_1.ElementRef, domhandler_1.DomHandler])
-    ], ButtonDirective);
-    return ButtonDirective;
-}());
-exports.ButtonDirective = ButtonDirective;
-var Button = /** @class */ (function () {
-    function Button() {
-        this.type = 'button';
-        this.iconPos = 'left';
-        this.onClick = new core_1.EventEmitter();
-        this.onFocus = new core_1.EventEmitter();
-        this.onBlur = new core_1.EventEmitter();
-    }
-    __decorate([
-        core_1.Input(),
-        __metadata("design:type", String)
-    ], Button.prototype, "type", void 0);
-    __decorate([
-        core_1.Input(),
-        __metadata("design:type", String)
-    ], Button.prototype, "iconPos", void 0);
-    __decorate([
-        core_1.Input(),
-        __metadata("design:type", String)
-    ], Button.prototype, "icon", void 0);
-    __decorate([
-        core_1.Input(),
-        __metadata("design:type", String)
-    ], Button.prototype, "label", void 0);
-    __decorate([
-        core_1.Input(),
-        __metadata("design:type", Boolean)
-    ], Button.prototype, "disabled", void 0);
-    __decorate([
-        core_1.Input(),
-        __metadata("design:type", Object)
-    ], Button.prototype, "style", void 0);
-    __decorate([
-        core_1.Input(),
-        __metadata("design:type", String)
-    ], Button.prototype, "styleClass", void 0);
-    __decorate([
-        core_1.Output(),
-        __metadata("design:type", core_1.EventEmitter)
-    ], Button.prototype, "onClick", void 0);
-    __decorate([
-        core_1.Output(),
-        __metadata("design:type", core_1.EventEmitter)
-    ], Button.prototype, "onFocus", void 0);
-    __decorate([
-        core_1.Output(),
-        __metadata("design:type", core_1.EventEmitter)
-    ], Button.prototype, "onBlur", void 0);
-    Button = __decorate([
-        core_1.Component({
-            selector: 'p-button',
-            template: "\n        <button [attr.type]=\"type\" [class]=\"styleClass\" [style]=\"style\" [disabled]=\"disabled\"\n            [ngClass]=\"{'ui-button ui-widget ui-state-default ui-corner-all':true,\n                        'ui-button-icon-only': (icon && !label),\n                        'ui-button-text-icon-left': (icon && label && iconPos === 'left'),\n                        'ui-button-text-icon-right': (icon && label && iconPos === 'right'),\n                        'ui-button-text-only': (!icon && label),\n                        'ui-button-text-empty': (!icon && !label),\n                        'ui-state-disabled': disabled}\"\n                        (click)=\"onClick.emit($event)\" (focus)=\"onFocus.emit($event)\" (blur)=\"onBlur.emit($event)\">\n            <ng-content></ng-content>\n            <span [ngClass]=\"{'ui-clickable': true,\n                        'ui-button-icon-left': (iconPos === 'left'), \n                        'ui-button-icon-right': (iconPos === 'right')}\"\n                        [class]=\"icon\" *ngIf=\"icon\"></span>\n            <span class=\"ui-button-text ui-clickable\">{{label||'ui-btn'}}</span>\n        </button>\n    "
-        })
-    ], Button);
-    return Button;
-}());
-exports.Button = Button;
-var ButtonModule = /** @class */ (function () {
-    function ButtonModule() {
-    }
-    ButtonModule = __decorate([
-        core_1.NgModule({
-            imports: [common_1.CommonModule],
-            exports: [ButtonDirective, Button],
-            declarations: [ButtonDirective, Button]
-        })
-    ], ButtonModule);
-    return ButtonModule;
-}());
-exports.ButtonModule = ButtonModule;
-//# sourceMappingURL=button.js.map
-
-/***/ }),
-
-/***/ "./node_modules/primeng/components/common/messageservice.js":
-/*!******************************************************************!*\
-  !*** ./node_modules/primeng/components/common/messageservice.js ***!
-  \******************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
-    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-    return c > 3 && r && Object.defineProperty(target, key, r), r;
-};
-Object.defineProperty(exports, "__esModule", { value: true });
-var core_1 = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
-var Subject_1 = __webpack_require__(/*! rxjs/Subject */ "./node_modules/rxjs-compat/_esm5/Subject.js");
-var MessageService = /** @class */ (function () {
-    function MessageService() {
-        this.messageSource = new Subject_1.Subject();
-        this.messageObserver = this.messageSource.asObservable();
-    }
-    MessageService.prototype.add = function (message) {
-        if (message) {
-            this.messageSource.next(message);
-        }
-    };
-    MessageService.prototype.addAll = function (messages) {
-        if (messages && messages.length) {
-            this.messageSource.next(messages);
-        }
-    };
-    MessageService.prototype.clear = function () {
-        this.messageSource.next(null);
-    };
-    MessageService = __decorate([
-        core_1.Injectable()
-    ], MessageService);
-    return MessageService;
-}());
-exports.MessageService = MessageService;
-//# sourceMappingURL=messageservice.js.map
-
-/***/ }),
-
-/***/ "./node_modules/primeng/components/common/shared.js":
-/*!**********************************************************!*\
-  !*** ./node_modules/primeng/components/common/shared.js ***!
-  \**********************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
-    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-    return c > 3 && r && Object.defineProperty(target, key, r), r;
-};
-var __metadata = (this && this.__metadata) || function (k, v) {
-    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
-};
-Object.defineProperty(exports, "__esModule", { value: true });
-var core_1 = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
-var common_1 = __webpack_require__(/*! @angular/common */ "./node_modules/@angular/common/fesm5/common.js");
-var core_2 = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
-var Header = /** @class */ (function () {
-    function Header() {
-    }
-    Header = __decorate([
-        core_2.Component({
-            selector: 'p-header',
-            template: '<ng-content></ng-content>'
-        })
-    ], Header);
-    return Header;
-}());
-exports.Header = Header;
-var Footer = /** @class */ (function () {
-    function Footer() {
-    }
-    Footer = __decorate([
-        core_2.Component({
-            selector: 'p-footer',
-            template: '<ng-content></ng-content>'
-        })
-    ], Footer);
-    return Footer;
-}());
-exports.Footer = Footer;
-var PrimeTemplate = /** @class */ (function () {
-    function PrimeTemplate(template) {
-        this.template = template;
-    }
-    PrimeTemplate.prototype.getType = function () {
-        return this.name;
-    };
-    __decorate([
-        core_1.Input(),
-        __metadata("design:type", String)
-    ], PrimeTemplate.prototype, "type", void 0);
-    __decorate([
-        core_1.Input('pTemplate'),
-        __metadata("design:type", String)
-    ], PrimeTemplate.prototype, "name", void 0);
-    PrimeTemplate = __decorate([
-        core_1.Directive({
-            selector: '[pTemplate]',
-            host: {}
-        }),
-        __metadata("design:paramtypes", [core_1.TemplateRef])
-    ], PrimeTemplate);
-    return PrimeTemplate;
-}());
-exports.PrimeTemplate = PrimeTemplate;
-/* Deprecated */
-var Column = /** @class */ (function () {
-    function Column() {
-        this.filterType = 'text';
-        this.exportable = true;
-        this.resizable = true;
-        this.sortFunction = new core_1.EventEmitter();
-    }
-    Column.prototype.ngAfterContentInit = function () {
-        var _this = this;
-        this.templates.forEach(function (item) {
-            switch (item.getType()) {
-                case 'header':
-                    _this.headerTemplate = item.template;
-                    break;
-                case 'body':
-                    _this.bodyTemplate = item.template;
-                    break;
-                case 'footer':
-                    _this.footerTemplate = item.template;
-                    break;
-                case 'filter':
-                    _this.filterTemplate = item.template;
-                    break;
-                case 'editor':
-                    _this.editorTemplate = item.template;
-                    break;
-                default:
-                    _this.bodyTemplate = item.template;
-                    break;
-            }
-        });
-    };
-    __decorate([
-        core_1.Input(),
-        __metadata("design:type", String)
-    ], Column.prototype, "field", void 0);
-    __decorate([
-        core_1.Input(),
-        __metadata("design:type", String)
-    ], Column.prototype, "colId", void 0);
-    __decorate([
-        core_1.Input(),
-        __metadata("design:type", String)
-    ], Column.prototype, "sortField", void 0);
-    __decorate([
-        core_1.Input(),
-        __metadata("design:type", String)
-    ], Column.prototype, "filterField", void 0);
-    __decorate([
-        core_1.Input(),
-        __metadata("design:type", String)
-    ], Column.prototype, "header", void 0);
-    __decorate([
-        core_1.Input(),
-        __metadata("design:type", String)
-    ], Column.prototype, "footer", void 0);
-    __decorate([
-        core_1.Input(),
-        __metadata("design:type", Object)
-    ], Column.prototype, "sortable", void 0);
-    __decorate([
-        core_1.Input(),
-        __metadata("design:type", Boolean)
-    ], Column.prototype, "editable", void 0);
-    __decorate([
-        core_1.Input(),
-        __metadata("design:type", Boolean)
-    ], Column.prototype, "filter", void 0);
-    __decorate([
-        core_1.Input(),
-        __metadata("design:type", String)
-    ], Column.prototype, "filterMatchMode", void 0);
-    __decorate([
-        core_1.Input(),
-        __metadata("design:type", String)
-    ], Column.prototype, "filterType", void 0);
-    __decorate([
-        core_1.Input(),
-        __metadata("design:type", Boolean)
-    ], Column.prototype, "excludeGlobalFilter", void 0);
-    __decorate([
-        core_1.Input(),
-        __metadata("design:type", Number)
-    ], Column.prototype, "rowspan", void 0);
-    __decorate([
-        core_1.Input(),
-        __metadata("design:type", Number)
-    ], Column.prototype, "colspan", void 0);
-    __decorate([
-        core_1.Input(),
-        __metadata("design:type", String)
-    ], Column.prototype, "scope", void 0);
-    __decorate([
-        core_1.Input(),
-        __metadata("design:type", Object)
-    ], Column.prototype, "style", void 0);
-    __decorate([
-        core_1.Input(),
-        __metadata("design:type", String)
-    ], Column.prototype, "styleClass", void 0);
-    __decorate([
-        core_1.Input(),
-        __metadata("design:type", Boolean)
-    ], Column.prototype, "exportable", void 0);
-    __decorate([
-        core_1.Input(),
-        __metadata("design:type", Object)
-    ], Column.prototype, "headerStyle", void 0);
-    __decorate([
-        core_1.Input(),
-        __metadata("design:type", String)
-    ], Column.prototype, "headerStyleClass", void 0);
-    __decorate([
-        core_1.Input(),
-        __metadata("design:type", Object)
-    ], Column.prototype, "bodyStyle", void 0);
-    __decorate([
-        core_1.Input(),
-        __metadata("design:type", String)
-    ], Column.prototype, "bodyStyleClass", void 0);
-    __decorate([
-        core_1.Input(),
-        __metadata("design:type", Object)
-    ], Column.prototype, "footerStyle", void 0);
-    __decorate([
-        core_1.Input(),
-        __metadata("design:type", String)
-    ], Column.prototype, "footerStyleClass", void 0);
-    __decorate([
-        core_1.Input(),
-        __metadata("design:type", Boolean)
-    ], Column.prototype, "hidden", void 0);
-    __decorate([
-        core_1.Input(),
-        __metadata("design:type", Boolean)
-    ], Column.prototype, "expander", void 0);
-    __decorate([
-        core_1.Input(),
-        __metadata("design:type", String)
-    ], Column.prototype, "selectionMode", void 0);
-    __decorate([
-        core_1.Input(),
-        __metadata("design:type", String)
-    ], Column.prototype, "filterPlaceholder", void 0);
-    __decorate([
-        core_1.Input(),
-        __metadata("design:type", Number)
-    ], Column.prototype, "filterMaxlength", void 0);
-    __decorate([
-        core_1.Input(),
-        __metadata("design:type", Boolean)
-    ], Column.prototype, "frozen", void 0);
-    __decorate([
-        core_1.Input(),
-        __metadata("design:type", Boolean)
-    ], Column.prototype, "resizable", void 0);
-    __decorate([
-        core_1.Output(),
-        __metadata("design:type", core_1.EventEmitter)
-    ], Column.prototype, "sortFunction", void 0);
-    __decorate([
-        core_1.ContentChildren(PrimeTemplate),
-        __metadata("design:type", core_1.QueryList)
-    ], Column.prototype, "templates", void 0);
-    __decorate([
-        core_1.ContentChild(core_1.TemplateRef),
-        __metadata("design:type", core_1.TemplateRef)
-    ], Column.prototype, "template", void 0);
-    Column = __decorate([
-        core_2.Component({
-            selector: 'p-column',
-            template: ''
-        })
-    ], Column);
-    return Column;
-}());
-exports.Column = Column;
-/* Deprecated */
-var Row = /** @class */ (function () {
-    function Row() {
-    }
-    __decorate([
-        core_1.ContentChildren(Column),
-        __metadata("design:type", core_1.QueryList)
-    ], Row.prototype, "columns", void 0);
-    Row = __decorate([
-        core_2.Component({
-            selector: 'p-row',
-            template: ""
-        })
-    ], Row);
-    return Row;
-}());
-exports.Row = Row;
-/* Deprecated */
-var HeaderColumnGroup = /** @class */ (function () {
-    function HeaderColumnGroup() {
-    }
-    __decorate([
-        core_1.Input(),
-        __metadata("design:type", Boolean)
-    ], HeaderColumnGroup.prototype, "frozen", void 0);
-    __decorate([
-        core_1.ContentChildren(Row),
-        __metadata("design:type", core_1.QueryList)
-    ], HeaderColumnGroup.prototype, "rows", void 0);
-    HeaderColumnGroup = __decorate([
-        core_2.Component({
-            selector: 'p-headerColumnGroup',
-            template: ""
-        })
-    ], HeaderColumnGroup);
-    return HeaderColumnGroup;
-}());
-exports.HeaderColumnGroup = HeaderColumnGroup;
-/* Deprecated */
-var FooterColumnGroup = /** @class */ (function () {
-    function FooterColumnGroup() {
-    }
-    __decorate([
-        core_1.Input(),
-        __metadata("design:type", Boolean)
-    ], FooterColumnGroup.prototype, "frozen", void 0);
-    __decorate([
-        core_1.ContentChildren(Row),
-        __metadata("design:type", core_1.QueryList)
-    ], FooterColumnGroup.prototype, "rows", void 0);
-    FooterColumnGroup = __decorate([
-        core_2.Component({
-            selector: 'p-footerColumnGroup',
-            template: ""
-        })
-    ], FooterColumnGroup);
-    return FooterColumnGroup;
-}());
-exports.FooterColumnGroup = FooterColumnGroup;
-var SharedModule = /** @class */ (function () {
-    function SharedModule() {
-    }
-    SharedModule = __decorate([
-        core_1.NgModule({
-            imports: [common_1.CommonModule],
-            exports: [Header, Footer, Column, PrimeTemplate, Row, HeaderColumnGroup, FooterColumnGroup],
-            declarations: [Header, Footer, Column, PrimeTemplate, Row, HeaderColumnGroup, FooterColumnGroup]
-        })
-    ], SharedModule);
-    return SharedModule;
-}());
-exports.SharedModule = SharedModule;
-//# sourceMappingURL=shared.js.map
-
-/***/ }),
-
-/***/ "./node_modules/primeng/components/dom/domhandler.js":
-/*!***********************************************************!*\
-  !*** ./node_modules/primeng/components/dom/domhandler.js ***!
-  \***********************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
-    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-    return c > 3 && r && Object.defineProperty(target, key, r), r;
-};
-Object.defineProperty(exports, "__esModule", { value: true });
-var core_1 = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
-var DomHandler = /** @class */ (function () {
-    function DomHandler() {
-        this.calculatedScrollbarWidth = null;
-    }
-    DomHandler.prototype.addClass = function (element, className) {
-        if (element.classList)
-            element.classList.add(className);
-        else
-            element.className += ' ' + className;
-    };
-    DomHandler.prototype.addMultipleClasses = function (element, className) {
-        if (element.classList) {
-            var styles = className.split(' ');
-            for (var i = 0; i < styles.length; i++) {
-                element.classList.add(styles[i]);
-            }
-        }
-        else {
-            var styles = className.split(' ');
-            for (var i = 0; i < styles.length; i++) {
-                element.className += ' ' + styles[i];
-            }
-        }
-    };
-    DomHandler.prototype.removeClass = function (element, className) {
-        if (element.classList)
-            element.classList.remove(className);
-        else
-            element.className = element.className.replace(new RegExp('(^|\\b)' + className.split(' ').join('|') + '(\\b|$)', 'gi'), ' ');
-    };
-    DomHandler.prototype.hasClass = function (element, className) {
-        if (element.classList)
-            return element.classList.contains(className);
-        else
-            return new RegExp('(^| )' + className + '( |$)', 'gi').test(element.className);
-    };
-    DomHandler.prototype.siblings = function (element) {
-        return Array.prototype.filter.call(element.parentNode.children, function (child) {
-            return child !== element;
-        });
-    };
-    DomHandler.prototype.find = function (element, selector) {
-        return element.querySelectorAll(selector);
-    };
-    DomHandler.prototype.findSingle = function (element, selector) {
-        return element.querySelector(selector);
-    };
-    DomHandler.prototype.index = function (element) {
-        var children = element.parentNode.childNodes;
-        var num = 0;
-        for (var i = 0; i < children.length; i++) {
-            if (children[i] == element)
-                return num;
-            if (children[i].nodeType == 1)
-                num++;
-        }
-        return -1;
-    };
-    DomHandler.prototype.indexWithinGroup = function (element, attributeName) {
-        var children = element.parentNode.childNodes;
-        var num = 0;
-        for (var i = 0; i < children.length; i++) {
-            if (children[i] == element)
-                return num;
-            if (children[i].attributes && children[i].attributes[attributeName] && children[i].nodeType == 1)
-                num++;
-        }
-        return -1;
-    };
-    DomHandler.prototype.relativePosition = function (element, target) {
-        var elementDimensions = element.offsetParent ? { width: element.offsetWidth, height: element.offsetHeight } : this.getHiddenElementDimensions(element);
-        var targetHeight = target.offsetHeight;
-        var targetWidth = target.offsetWidth;
-        var targetOffset = target.getBoundingClientRect();
-        var windowScrollTop = this.getWindowScrollTop();
-        var viewport = this.getViewport();
-        var top, left;
-        if ((targetOffset.top + targetHeight + elementDimensions.height) > viewport.height) {
-            top = -1 * (elementDimensions.height);
-            if (targetOffset.top + top < 0) {
-                top = 0;
-            }
-        }
-        else {
-            top = targetHeight;
-        }
-        if ((targetOffset.left + elementDimensions.width) > viewport.width)
-            left = targetWidth - elementDimensions.width;
-        else
-            left = 0;
-        element.style.top = top + 'px';
-        element.style.left = left + 'px';
-    };
-    DomHandler.prototype.absolutePosition = function (element, target) {
-        var elementDimensions = element.offsetParent ? { width: element.offsetWidth, height: element.offsetHeight } : this.getHiddenElementDimensions(element);
-        var elementOuterHeight = elementDimensions.height;
-        var elementOuterWidth = elementDimensions.width;
-        var targetOuterHeight = target.offsetHeight;
-        var targetOuterWidth = target.offsetWidth;
-        var targetOffset = target.getBoundingClientRect();
-        var windowScrollTop = this.getWindowScrollTop();
-        var windowScrollLeft = this.getWindowScrollLeft();
-        var viewport = this.getViewport();
-        var top, left;
-        if (targetOffset.top + targetOuterHeight + elementOuterHeight > viewport.height) {
-            top = targetOffset.top + windowScrollTop - elementOuterHeight;
-            if (top < 0) {
-                top = 0 + windowScrollTop;
-            }
-        }
-        else {
-            top = targetOuterHeight + targetOffset.top + windowScrollTop;
-        }
-        if (targetOffset.left + targetOuterWidth + elementOuterWidth > viewport.width)
-            left = targetOffset.left + windowScrollLeft + targetOuterWidth - elementOuterWidth;
-        else
-            left = targetOffset.left + windowScrollLeft;
-        element.style.top = top + 'px';
-        element.style.left = left + 'px';
-    };
-    DomHandler.prototype.getHiddenElementOuterHeight = function (element) {
-        element.style.visibility = 'hidden';
-        element.style.display = 'block';
-        var elementHeight = element.offsetHeight;
-        element.style.display = 'none';
-        element.style.visibility = 'visible';
-        return elementHeight;
-    };
-    DomHandler.prototype.getHiddenElementOuterWidth = function (element) {
-        element.style.visibility = 'hidden';
-        element.style.display = 'block';
-        var elementWidth = element.offsetWidth;
-        element.style.display = 'none';
-        element.style.visibility = 'visible';
-        return elementWidth;
-    };
-    DomHandler.prototype.getHiddenElementDimensions = function (element) {
-        var dimensions = {};
-        element.style.visibility = 'hidden';
-        element.style.display = 'block';
-        dimensions.width = element.offsetWidth;
-        dimensions.height = element.offsetHeight;
-        element.style.display = 'none';
-        element.style.visibility = 'visible';
-        return dimensions;
-    };
-    DomHandler.prototype.scrollInView = function (container, item) {
-        var borderTopValue = getComputedStyle(container).getPropertyValue('borderTopWidth');
-        var borderTop = borderTopValue ? parseFloat(borderTopValue) : 0;
-        var paddingTopValue = getComputedStyle(container).getPropertyValue('paddingTop');
-        var paddingTop = paddingTopValue ? parseFloat(paddingTopValue) : 0;
-        var containerRect = container.getBoundingClientRect();
-        var itemRect = item.getBoundingClientRect();
-        var offset = (itemRect.top + document.body.scrollTop) - (containerRect.top + document.body.scrollTop) - borderTop - paddingTop;
-        var scroll = container.scrollTop;
-        var elementHeight = container.clientHeight;
-        var itemHeight = this.getOuterHeight(item);
-        if (offset < 0) {
-            container.scrollTop = scroll + offset;
-        }
-        else if ((offset + itemHeight) > elementHeight) {
-            container.scrollTop = scroll + offset - elementHeight + itemHeight;
-        }
-    };
-    DomHandler.prototype.fadeIn = function (element, duration) {
-        element.style.opacity = 0;
-        var last = +new Date();
-        var opacity = 0;
-        var tick = function () {
-            opacity = +element.style.opacity.replace(",", ".") + (new Date().getTime() - last) / duration;
-            element.style.opacity = opacity;
-            last = +new Date();
-            if (+opacity < 1) {
-                (window.requestAnimationFrame && requestAnimationFrame(tick)) || setTimeout(tick, 16);
-            }
-        };
-        tick();
-    };
-    DomHandler.prototype.fadeOut = function (element, ms) {
-        var opacity = 1, interval = 50, duration = ms, gap = interval / duration;
-        var fading = setInterval(function () {
-            opacity = opacity - gap;
-            if (opacity <= 0) {
-                opacity = 0;
-                clearInterval(fading);
-            }
-            element.style.opacity = opacity;
-        }, interval);
-    };
-    DomHandler.prototype.getWindowScrollTop = function () {
-        var doc = document.documentElement;
-        return (window.pageYOffset || doc.scrollTop) - (doc.clientTop || 0);
-    };
-    DomHandler.prototype.getWindowScrollLeft = function () {
-        var doc = document.documentElement;
-        return (window.pageXOffset || doc.scrollLeft) - (doc.clientLeft || 0);
-    };
-    DomHandler.prototype.matches = function (element, selector) {
-        var p = Element.prototype;
-        var f = p['matches'] || p.webkitMatchesSelector || p['mozMatchesSelector'] || p.msMatchesSelector || function (s) {
-            return [].indexOf.call(document.querySelectorAll(s), this) !== -1;
-        };
-        return f.call(element, selector);
-    };
-    DomHandler.prototype.getOuterWidth = function (el, margin) {
-        var width = el.offsetWidth;
-        if (margin) {
-            var style = getComputedStyle(el);
-            width += parseFloat(style.marginLeft) + parseFloat(style.marginRight);
-        }
-        return width;
-    };
-    DomHandler.prototype.getHorizontalPadding = function (el) {
-        var style = getComputedStyle(el);
-        return parseFloat(style.paddingLeft) + parseFloat(style.paddingRight);
-    };
-    DomHandler.prototype.getHorizontalMargin = function (el) {
-        var style = getComputedStyle(el);
-        return parseFloat(style.marginLeft) + parseFloat(style.marginRight);
-    };
-    DomHandler.prototype.innerWidth = function (el) {
-        var width = el.offsetWidth;
-        var style = getComputedStyle(el);
-        width += parseFloat(style.paddingLeft) + parseFloat(style.paddingRight);
-        return width;
-    };
-    DomHandler.prototype.width = function (el) {
-        var width = el.offsetWidth;
-        var style = getComputedStyle(el);
-        width -= parseFloat(style.paddingLeft) + parseFloat(style.paddingRight);
-        return width;
-    };
-    DomHandler.prototype.getInnerHeight = function (el) {
-        var height = el.offsetHeight;
-        var style = getComputedStyle(el);
-        height += parseFloat(style.paddingTop) + parseFloat(style.paddingBottom);
-        return height;
-    };
-    DomHandler.prototype.getOuterHeight = function (el, margin) {
-        var height = el.offsetHeight;
-        if (margin) {
-            var style = getComputedStyle(el);
-            height += parseFloat(style.marginTop) + parseFloat(style.marginBottom);
-        }
-        return height;
-    };
-    DomHandler.prototype.getHeight = function (el) {
-        var height = el.offsetHeight;
-        var style = getComputedStyle(el);
-        height -= parseFloat(style.paddingTop) + parseFloat(style.paddingBottom) + parseFloat(style.borderTopWidth) + parseFloat(style.borderBottomWidth);
-        return height;
-    };
-    DomHandler.prototype.getWidth = function (el) {
-        var width = el.offsetWidth;
-        var style = getComputedStyle(el);
-        width -= parseFloat(style.paddingLeft) + parseFloat(style.paddingRight) + parseFloat(style.borderLeftWidth) + parseFloat(style.borderRightWidth);
-        return width;
-    };
-    DomHandler.prototype.getViewport = function () {
-        var win = window, d = document, e = d.documentElement, g = d.getElementsByTagName('body')[0], w = win.innerWidth || e.clientWidth || g.clientWidth, h = win.innerHeight || e.clientHeight || g.clientHeight;
-        return { width: w, height: h };
-    };
-    DomHandler.prototype.getOffset = function (el) {
-        var rect = el.getBoundingClientRect();
-        return {
-            top: rect.top + document.body.scrollTop,
-            left: rect.left + document.body.scrollLeft
-        };
-    };
-    DomHandler.prototype.replaceElementWith = function (element, replacementElement) {
-        var parentNode = element.parentNode;
-        if (!parentNode)
-            throw "Can't replace element";
-        return parentNode.replaceChild(replacementElement, element);
-    };
-    DomHandler.prototype.getUserAgent = function () {
-        return navigator.userAgent;
-    };
-    DomHandler.prototype.isIE = function () {
-        var ua = window.navigator.userAgent;
-        var msie = ua.indexOf('MSIE ');
-        if (msie > 0) {
-            // IE 10 or older => return version number
-            return true;
-        }
-        var trident = ua.indexOf('Trident/');
-        if (trident > 0) {
-            // IE 11 => return version number
-            var rv = ua.indexOf('rv:');
-            return true;
-        }
-        var edge = ua.indexOf('Edge/');
-        if (edge > 0) {
-            // Edge (IE 12+) => return version number
-            return true;
-        }
-        // other browser
-        return false;
-    };
-    DomHandler.prototype.appendChild = function (element, target) {
-        if (this.isElement(target))
-            target.appendChild(element);
-        else if (target.el && target.el.nativeElement)
-            target.el.nativeElement.appendChild(element);
-        else
-            throw 'Cannot append ' + target + ' to ' + element;
-    };
-    DomHandler.prototype.removeChild = function (element, target) {
-        if (this.isElement(target))
-            target.removeChild(element);
-        else if (target.el && target.el.nativeElement)
-            target.el.nativeElement.removeChild(element);
-        else
-            throw 'Cannot remove ' + element + ' from ' + target;
-    };
-    DomHandler.prototype.isElement = function (obj) {
-        return (typeof HTMLElement === "object" ? obj instanceof HTMLElement :
-            obj && typeof obj === "object" && obj !== null && obj.nodeType === 1 && typeof obj.nodeName === "string");
-    };
-    DomHandler.prototype.calculateScrollbarWidth = function () {
-        if (this.calculatedScrollbarWidth !== null)
-            return this.calculatedScrollbarWidth;
-        var scrollDiv = document.createElement("div");
-        scrollDiv.className = "ui-scrollbar-measure";
-        document.body.appendChild(scrollDiv);
-        var scrollbarWidth = scrollDiv.offsetWidth - scrollDiv.clientWidth;
-        document.body.removeChild(scrollDiv);
-        this.calculatedScrollbarWidth = scrollbarWidth;
-        return scrollbarWidth;
-    };
-    DomHandler.prototype.invokeElementMethod = function (element, methodName, args) {
-        element[methodName].apply(element, args);
-    };
-    DomHandler.prototype.clearSelection = function () {
-        if (window.getSelection) {
-            if (window.getSelection().empty) {
-                window.getSelection().empty();
-            }
-            else if (window.getSelection().removeAllRanges && window.getSelection().rangeCount > 0 && window.getSelection().getRangeAt(0).getClientRects().length > 0) {
-                window.getSelection().removeAllRanges();
-            }
-        }
-        else if (document['selection'] && document['selection'].empty) {
-            try {
-                document['selection'].empty();
-            }
-            catch (error) {
-                //ignore IE bug
-            }
-        }
-    };
-    DomHandler.prototype.getBrowser = function () {
-        if (!this.browser) {
-            var matched = this.resolveUserAgent();
-            this.browser = {};
-            if (matched.browser) {
-                this.browser[matched.browser] = true;
-                this.browser['version'] = matched.version;
-            }
-            if (this.browser['chrome']) {
-                this.browser['webkit'] = true;
-            }
-            else if (this.browser['webkit']) {
-                this.browser['safari'] = true;
-            }
-        }
-        return this.browser;
-    };
-    DomHandler.prototype.resolveUserAgent = function () {
-        var ua = navigator.userAgent.toLowerCase();
-        var match = /(chrome)[ \/]([\w.]+)/.exec(ua) ||
-            /(webkit)[ \/]([\w.]+)/.exec(ua) ||
-            /(opera)(?:.*version|)[ \/]([\w.]+)/.exec(ua) ||
-            /(msie) ([\w.]+)/.exec(ua) ||
-            ua.indexOf("compatible") < 0 && /(mozilla)(?:.*? rv:([\w.]+)|)/.exec(ua) ||
-            [];
-        return {
-            browser: match[1] || "",
-            version: match[2] || "0"
-        };
-    };
-    DomHandler.zindex = 1000;
-    DomHandler = __decorate([
-        core_1.Injectable()
-    ], DomHandler);
-    return DomHandler;
-}());
-exports.DomHandler = DomHandler;
-//# sourceMappingURL=domhandler.js.map
-
-/***/ }),
-
-/***/ "./node_modules/primeng/components/fileupload/fileupload.js":
-/*!******************************************************************!*\
-  !*** ./node_modules/primeng/components/fileupload/fileupload.js ***!
-  \******************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
-    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-    return c > 3 && r && Object.defineProperty(target, key, r), r;
-};
-var __metadata = (this && this.__metadata) || function (k, v) {
-    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
-};
-Object.defineProperty(exports, "__esModule", { value: true });
-var core_1 = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
-var common_1 = __webpack_require__(/*! @angular/common */ "./node_modules/@angular/common/fesm5/common.js");
-var platform_browser_1 = __webpack_require__(/*! @angular/platform-browser */ "./node_modules/@angular/platform-browser/fesm5/platform-browser.js");
-var button_1 = __webpack_require__(/*! ../button/button */ "./node_modules/primeng/components/button/button.js");
-var messages_1 = __webpack_require__(/*! ../messages/messages */ "./node_modules/primeng/components/messages/messages.js");
-var progressbar_1 = __webpack_require__(/*! ../progressbar/progressbar */ "./node_modules/primeng/components/progressbar/progressbar.js");
-var domhandler_1 = __webpack_require__(/*! ../dom/domhandler */ "./node_modules/primeng/components/dom/domhandler.js");
-var shared_1 = __webpack_require__(/*! ../common/shared */ "./node_modules/primeng/components/common/shared.js");
-var FileUpload = /** @class */ (function () {
-    function FileUpload(el, domHandler, sanitizer, zone) {
-        this.el = el;
-        this.domHandler = domHandler;
-        this.sanitizer = sanitizer;
-        this.zone = zone;
-        this.method = 'POST';
-        this.invalidFileSizeMessageSummary = '{0}: Invalid file size, ';
-        this.invalidFileSizeMessageDetail = 'maximum upload size is {0}.';
-        this.invalidFileTypeMessageSummary = '{0}: Invalid file type, ';
-        this.invalidFileTypeMessageDetail = 'allowed file types: {0}.';
-        this.previewWidth = 50;
-        this.chooseLabel = 'Choose';
-        this.uploadLabel = 'Upload';
-        this.cancelLabel = 'Cancel';
-        this.showUploadButton = true;
-        this.showCancelButton = true;
-        this.mode = 'advanced';
-        this.onBeforeUpload = new core_1.EventEmitter();
-        this.onBeforeSend = new core_1.EventEmitter();
-        this.onUpload = new core_1.EventEmitter();
-        this.onError = new core_1.EventEmitter();
-        this.onClear = new core_1.EventEmitter();
-        this.onRemove = new core_1.EventEmitter();
-        this.onSelect = new core_1.EventEmitter();
-        this.onProgress = new core_1.EventEmitter();
-        this.uploadHandler = new core_1.EventEmitter();
-        this.progress = 0;
-    }
-    FileUpload.prototype.ngOnInit = function () {
-        this.files = [];
-    };
-    FileUpload.prototype.ngAfterContentInit = function () {
-        var _this = this;
-        this.templates.forEach(function (item) {
-            switch (item.getType()) {
-                case 'file':
-                    _this.fileTemplate = item.template;
-                    break;
-                case 'content':
-                    _this.contentTemplate = item.template;
-                    break;
-                case 'toolbar':
-                    _this.toolbarTemplate = item.template;
-                    break;
-                default:
-                    _this.fileTemplate = item.template;
-                    break;
-            }
-        });
-    };
-    FileUpload.prototype.ngAfterViewInit = function () {
-        var _this = this;
-        if (this.mode === 'advanced') {
-            this.zone.runOutsideAngular(function () {
-                _this.content.nativeElement.addEventListener('dragover', _this.onDragOver.bind(_this));
-            });
-        }
-    };
-    FileUpload.prototype.onFileSelect = function (event) {
-        if (event.type !== 'drop' && this.isIE11() && this.duplicateIEEvent) {
-            this.duplicateIEEvent = false;
-            return;
-        }
-        this.msgs = [];
-        if (!this.multiple) {
-            this.files = [];
-        }
-        var files = event.dataTransfer ? event.dataTransfer.files : event.target.files;
-        for (var i = 0; i < files.length; i++) {
-            var file = files[i];
-            if (!this.isFileSelected(file)) {
-                if (this.validate(file)) {
-                    if (this.isImage(file)) {
-                        file.objectURL = this.sanitizer.bypassSecurityTrustUrl((window.URL.createObjectURL(files[i])));
-                    }
-                    this.files.push(files[i]);
-                }
-            }
-        }
-        this.onSelect.emit({ originalEvent: event, files: files });
-        if (this.hasFiles() && this.auto) {
-            this.upload();
-        }
-        if (event.type !== 'drop' && this.isIE11()) {
-            this.clearIEInput();
-        }
-        else {
-            this.clearInputElement();
-        }
-    };
-    FileUpload.prototype.isFileSelected = function (file) {
-        for (var _i = 0, _a = this.files; _i < _a.length; _i++) {
-            var sFile = _a[_i];
-            if ((sFile.name + sFile.type + sFile.size) === (file.name + file.type + file.size)) {
-                return true;
-            }
-        }
-        return false;
-    };
-    FileUpload.prototype.isIE11 = function () {
-        return !!window['MSInputMethodContext'] && !!document['documentMode'];
-    };
-    FileUpload.prototype.validate = function (file) {
-        if (this.accept && !this.isFileTypeValid(file)) {
-            this.msgs.push({
-                severity: 'error',
-                summary: this.invalidFileTypeMessageSummary.replace('{0}', file.name),
-                detail: this.invalidFileTypeMessageDetail.replace('{0}', this.accept)
-            });
-            return false;
-        }
-        if (this.maxFileSize && file.size > this.maxFileSize) {
-            this.msgs.push({
-                severity: 'error',
-                summary: this.invalidFileSizeMessageSummary.replace('{0}', file.name),
-                detail: this.invalidFileSizeMessageDetail.replace('{0}', this.formatSize(this.maxFileSize))
-            });
-            return false;
-        }
-        return true;
-    };
-    FileUpload.prototype.isFileTypeValid = function (file) {
-        var acceptableTypes = this.accept.split(',');
-        for (var _i = 0, acceptableTypes_1 = acceptableTypes; _i < acceptableTypes_1.length; _i++) {
-            var type = acceptableTypes_1[_i];
-            var acceptable = this.isWildcard(type) ? this.getTypeClass(file.type) === this.getTypeClass(type)
-                : file.type == type || this.getFileExtension(file) === type;
-            if (acceptable) {
-                return true;
-            }
-        }
-        return false;
-    };
-    FileUpload.prototype.getTypeClass = function (fileType) {
-        return fileType.substring(0, fileType.indexOf('/'));
-    };
-    FileUpload.prototype.isWildcard = function (fileType) {
-        return fileType.indexOf('*') !== -1;
-    };
-    FileUpload.prototype.getFileExtension = function (file) {
-        return '.' + file.name.split('.').pop();
-    };
-    FileUpload.prototype.isImage = function (file) {
-        return /^image\//.test(file.type);
-    };
-    FileUpload.prototype.onImageLoad = function (img) {
-        window.URL.revokeObjectURL(img.src);
-    };
-    FileUpload.prototype.upload = function () {
-        var _this = this;
-        if (this.customUpload) {
-            this.uploadHandler.emit({
-                files: this.files
-            });
-        }
-        else {
-            this.msgs = [];
-            var xhr_1 = new XMLHttpRequest(), formData = new FormData();
-            this.onBeforeUpload.emit({
-                'xhr': xhr_1,
-                'formData': formData
-            });
-            for (var i = 0; i < this.files.length; i++) {
-                formData.append(this.name, this.files[i], this.files[i].name);
-            }
-            xhr_1.upload.addEventListener('progress', function (e) {
-                if (e.lengthComputable) {
-                    _this.progress = Math.round((e.loaded * 100) / e.total);
-                }
-                _this.onProgress.emit({ originalEvent: e, progress: _this.progress });
-            }, false);
-            xhr_1.onreadystatechange = function () {
-                if (xhr_1.readyState == 4) {
-                    _this.progress = 0;
-                    if (xhr_1.status >= 200 && xhr_1.status < 300)
-                        _this.onUpload.emit({ xhr: xhr_1, files: _this.files });
-                    else
-                        _this.onError.emit({ xhr: xhr_1, files: _this.files });
-                    _this.clear();
-                }
-            };
-            xhr_1.open(this.method, this.url, true);
-            this.onBeforeSend.emit({
-                'xhr': xhr_1,
-                'formData': formData
-            });
-            xhr_1.withCredentials = this.withCredentials;
-            xhr_1.send(formData);
-        }
-    };
-    FileUpload.prototype.clear = function () {
-        this.files = [];
-        this.onClear.emit();
-        this.clearInputElement();
-    };
-    FileUpload.prototype.remove = function (event, index) {
-        this.clearInputElement();
-        this.onRemove.emit({ originalEvent: event, file: this.files[index] });
-        this.files.splice(index, 1);
-    };
-    FileUpload.prototype.clearInputElement = function () {
-        if (this.advancedFileInput && this.advancedFileInput.nativeElement) {
-            this.advancedFileInput.nativeElement.value = '';
-        }
-        if (this.basicFileInput && this.basicFileInput.nativeElement) {
-            this.basicFileInput.nativeElement.value = '';
-        }
-    };
-    FileUpload.prototype.clearIEInput = function () {
-        if (this.advancedFileInput && this.advancedFileInput.nativeElement) {
-            this.duplicateIEEvent = true; //IE11 fix to prevent onFileChange trigger again
-            this.advancedFileInput.nativeElement.value = '';
-        }
-    };
-    FileUpload.prototype.hasFiles = function () {
-        return this.files && this.files.length > 0;
-    };
-    FileUpload.prototype.onDragEnter = function (e) {
-        if (!this.disabled) {
-            e.stopPropagation();
-            e.preventDefault();
-        }
-    };
-    FileUpload.prototype.onDragOver = function (e) {
-        if (!this.disabled) {
-            this.domHandler.addClass(this.content.nativeElement, 'ui-fileupload-highlight');
-            this.dragHighlight = true;
-            e.stopPropagation();
-            e.preventDefault();
-        }
-    };
-    FileUpload.prototype.onDragLeave = function (event) {
-        if (!this.disabled) {
-            this.domHandler.removeClass(this.content.nativeElement, 'ui-fileupload-highlight');
-        }
-    };
-    FileUpload.prototype.onDrop = function (event) {
-        if (!this.disabled) {
-            this.domHandler.removeClass(this.content.nativeElement, 'ui-fileupload-highlight');
-            event.stopPropagation();
-            event.preventDefault();
-            var files = event.dataTransfer ? event.dataTransfer.files : event.target.files;
-            var allowDrop = this.multiple || (files && files.length === 1);
-            if (allowDrop) {
-                this.onFileSelect(event);
-            }
-        }
-    };
-    FileUpload.prototype.onFocus = function () {
-        this.focus = true;
-    };
-    FileUpload.prototype.onBlur = function () {
-        this.focus = false;
-    };
-    FileUpload.prototype.formatSize = function (bytes) {
-        if (bytes == 0) {
-            return '0 B';
-        }
-        var k = 1000, dm = 3, sizes = ['B', 'KB', 'MB', 'GB', 'TB', 'PB', 'EB', 'ZB', 'YB'], i = Math.floor(Math.log(bytes) / Math.log(k));
-        return parseFloat((bytes / Math.pow(k, i)).toFixed(dm)) + ' ' + sizes[i];
-    };
-    FileUpload.prototype.onSimpleUploaderClick = function (event) {
-        if (this.hasFiles()) {
-            this.upload();
-        }
-    };
-    FileUpload.prototype.getBlockableElement = function () {
-        return this.el.nativeElement.children[0];
-    };
-    FileUpload.prototype.ngOnDestroy = function () {
-        if (this.content && this.content.nativeElement) {
-            this.content.nativeElement.removeEventListener('dragover', this.onDragOver);
-        }
-    };
-    __decorate([
-        core_1.Input(),
-        __metadata("design:type", String)
-    ], FileUpload.prototype, "name", void 0);
-    __decorate([
-        core_1.Input(),
-        __metadata("design:type", String)
-    ], FileUpload.prototype, "url", void 0);
-    __decorate([
-        core_1.Input(),
-        __metadata("design:type", String)
-    ], FileUpload.prototype, "method", void 0);
-    __decorate([
-        core_1.Input(),
-        __metadata("design:type", Boolean)
-    ], FileUpload.prototype, "multiple", void 0);
-    __decorate([
-        core_1.Input(),
-        __metadata("design:type", String)
-    ], FileUpload.prototype, "accept", void 0);
-    __decorate([
-        core_1.Input(),
-        __metadata("design:type", Boolean)
-    ], FileUpload.prototype, "disabled", void 0);
-    __decorate([
-        core_1.Input(),
-        __metadata("design:type", Boolean)
-    ], FileUpload.prototype, "auto", void 0);
-    __decorate([
-        core_1.Input(),
-        __metadata("design:type", Boolean)
-    ], FileUpload.prototype, "withCredentials", void 0);
-    __decorate([
-        core_1.Input(),
-        __metadata("design:type", Number)
-    ], FileUpload.prototype, "maxFileSize", void 0);
-    __decorate([
-        core_1.Input(),
-        __metadata("design:type", String)
-    ], FileUpload.prototype, "invalidFileSizeMessageSummary", void 0);
-    __decorate([
-        core_1.Input(),
-        __metadata("design:type", String)
-    ], FileUpload.prototype, "invalidFileSizeMessageDetail", void 0);
-    __decorate([
-        core_1.Input(),
-        __metadata("design:type", String)
-    ], FileUpload.prototype, "invalidFileTypeMessageSummary", void 0);
-    __decorate([
-        core_1.Input(),
-        __metadata("design:type", String)
-    ], FileUpload.prototype, "invalidFileTypeMessageDetail", void 0);
-    __decorate([
-        core_1.Input(),
-        __metadata("design:type", String)
-    ], FileUpload.prototype, "style", void 0);
-    __decorate([
-        core_1.Input(),
-        __metadata("design:type", String)
-    ], FileUpload.prototype, "styleClass", void 0);
-    __decorate([
-        core_1.Input(),
-        __metadata("design:type", Number)
-    ], FileUpload.prototype, "previewWidth", void 0);
-    __decorate([
-        core_1.Input(),
-        __metadata("design:type", String)
-    ], FileUpload.prototype, "chooseLabel", void 0);
-    __decorate([
-        core_1.Input(),
-        __metadata("design:type", String)
-    ], FileUpload.prototype, "uploadLabel", void 0);
-    __decorate([
-        core_1.Input(),
-        __metadata("design:type", String)
-    ], FileUpload.prototype, "cancelLabel", void 0);
-    __decorate([
-        core_1.Input(),
-        __metadata("design:type", Boolean)
-    ], FileUpload.prototype, "showUploadButton", void 0);
-    __decorate([
-        core_1.Input(),
-        __metadata("design:type", Boolean)
-    ], FileUpload.prototype, "showCancelButton", void 0);
-    __decorate([
-        core_1.Input(),
-        __metadata("design:type", String)
-    ], FileUpload.prototype, "mode", void 0);
-    __decorate([
-        core_1.Input(),
-        __metadata("design:type", Boolean)
-    ], FileUpload.prototype, "customUpload", void 0);
-    __decorate([
-        core_1.Output(),
-        __metadata("design:type", core_1.EventEmitter)
-    ], FileUpload.prototype, "onBeforeUpload", void 0);
-    __decorate([
-        core_1.Output(),
-        __metadata("design:type", core_1.EventEmitter)
-    ], FileUpload.prototype, "onBeforeSend", void 0);
-    __decorate([
-        core_1.Output(),
-        __metadata("design:type", core_1.EventEmitter)
-    ], FileUpload.prototype, "onUpload", void 0);
-    __decorate([
-        core_1.Output(),
-        __metadata("design:type", core_1.EventEmitter)
-    ], FileUpload.prototype, "onError", void 0);
-    __decorate([
-        core_1.Output(),
-        __metadata("design:type", core_1.EventEmitter)
-    ], FileUpload.prototype, "onClear", void 0);
-    __decorate([
-        core_1.Output(),
-        __metadata("design:type", core_1.EventEmitter)
-    ], FileUpload.prototype, "onRemove", void 0);
-    __decorate([
-        core_1.Output(),
-        __metadata("design:type", core_1.EventEmitter)
-    ], FileUpload.prototype, "onSelect", void 0);
-    __decorate([
-        core_1.Output(),
-        __metadata("design:type", core_1.EventEmitter)
-    ], FileUpload.prototype, "onProgress", void 0);
-    __decorate([
-        core_1.Output(),
-        __metadata("design:type", core_1.EventEmitter)
-    ], FileUpload.prototype, "uploadHandler", void 0);
-    __decorate([
-        core_1.ContentChildren(shared_1.PrimeTemplate),
-        __metadata("design:type", core_1.QueryList)
-    ], FileUpload.prototype, "templates", void 0);
-    __decorate([
-        core_1.ViewChild('advancedfileinput'),
-        __metadata("design:type", core_1.ElementRef)
-    ], FileUpload.prototype, "advancedFileInput", void 0);
-    __decorate([
-        core_1.ViewChild('basicfileinput'),
-        __metadata("design:type", core_1.ElementRef)
-    ], FileUpload.prototype, "basicFileInput", void 0);
-    __decorate([
-        core_1.ViewChild('content'),
-        __metadata("design:type", core_1.ElementRef)
-    ], FileUpload.prototype, "content", void 0);
-    __decorate([
-        core_1.Input(),
-        __metadata("design:type", Array)
-    ], FileUpload.prototype, "files", void 0);
-    FileUpload = __decorate([
-        core_1.Component({
-            selector: 'p-fileUpload',
-            template: "\n        <div [ngClass]=\"'ui-fileupload ui-widget'\" [ngStyle]=\"style\" [class]=\"styleClass\" *ngIf=\"mode === 'advanced'\">\n            <div class=\"ui-fileupload-buttonbar ui-widget-header ui-corner-top\">\n                <span class=\"ui-fileupload-choose\" [label]=\"chooseLabel\" icon=\"fa-plus\" pButton [ngClass]=\"{'ui-state-focus': focus, 'ui-state-disabled':disabled}\"> \n                    <input #advancedfileinput type=\"file\" (change)=\"onFileSelect($event)\" [multiple]=\"multiple\" [accept]=\"accept\" [disabled]=\"disabled\" (focus)=\"onFocus()\" (blur)=\"onBlur()\">\n                </span>\n\n                <button *ngIf=\"!auto&&showUploadButton\" type=\"button\" [label]=\"uploadLabel\" icon=\"fa-upload\" pButton (click)=\"upload()\" [disabled]=\"!hasFiles()\"></button>\n                <button *ngIf=\"!auto&&showCancelButton\" type=\"button\" [label]=\"cancelLabel\" icon=\"fa-close\" pButton (click)=\"clear()\" [disabled]=\"!hasFiles()\"></button>\n            \n                <ng-container *ngTemplateOutlet=\"toolbarTemplate\"></ng-container>\n            </div>\n            <div #content [ngClass]=\"{'ui-fileupload-content ui-widget-content ui-corner-bottom':true}\" \n                (dragenter)=\"onDragEnter($event)\" (dragleave)=\"onDragLeave($event)\" (drop)=\"onDrop($event)\">\n                <p-progressBar [value]=\"progress\" [showValue]=\"false\" *ngIf=\"hasFiles()\"></p-progressBar>\n                \n                <p-messages [value]=\"msgs\" [enableService]=\"false\"></p-messages>\n                \n                <div class=\"ui-fileupload-files\" *ngIf=\"hasFiles()\">\n                    <div *ngIf=\"!fileTemplate\">\n                        <div class=\"ui-fileupload-row\" *ngFor=\"let file of files; let i = index;\">\n                            <div><img [src]=\"file.objectURL\" *ngIf=\"isImage(file)\" [width]=\"previewWidth\" /></div>\n                            <div>{{file.name}}</div>\n                            <div>{{formatSize(file.size)}}</div>\n                            <div><button type=\"button\" icon=\"fa-close\" pButton (click)=\"remove($event,i)\"></button></div>\n                        </div>\n                    </div>\n                    <div *ngIf=\"fileTemplate\">\n                        <ng-template ngFor [ngForOf]=\"files\" [ngForTemplate]=\"fileTemplate\"></ng-template>\n                    </div>\n                </div>\n                <ng-container *ngTemplateOutlet=\"contentTemplate\"></ng-container>\n            </div>\n        </div>\n        <span class=\"ui-button ui-fileupload-choose ui-widget ui-state-default ui-corner-all ui-button-text-icon-left\" *ngIf=\"mode === 'basic'\" \n        (mouseup)=\"onSimpleUploaderClick($event)\"\n        [ngClass]=\"{'ui-fileupload-choose-selected': hasFiles(),'ui-state-focus': focus, 'ui-state-disabled':disabled}\">\n            <span class=\"ui-button-icon-left fa\" [ngClass]=\"{'fa-plus': !hasFiles()||auto, 'fa-upload': hasFiles()&&!auto}\"></span>\n            <span class=\"ui-button-text ui-clickable\">{{auto ? chooseLabel : hasFiles() ? files[0].name : chooseLabel}}</span>\n            <input #basicfileinput type=\"file\" [accept]=\"accept\" [multiple]=\"multiple\" [disabled]=\"disabled\"\n                (change)=\"onFileSelect($event)\" *ngIf=\"!hasFiles()\" (focus)=\"onFocus()\" (blur)=\"onBlur()\">\n        </span>\n    ",
-            providers: [domhandler_1.DomHandler]
-        }),
-        __metadata("design:paramtypes", [core_1.ElementRef, domhandler_1.DomHandler, platform_browser_1.DomSanitizer, core_1.NgZone])
-    ], FileUpload);
-    return FileUpload;
-}());
-exports.FileUpload = FileUpload;
-var FileUploadModule = /** @class */ (function () {
-    function FileUploadModule() {
-    }
-    FileUploadModule = __decorate([
-        core_1.NgModule({
-            imports: [common_1.CommonModule, shared_1.SharedModule, button_1.ButtonModule, progressbar_1.ProgressBarModule, messages_1.MessagesModule],
-            exports: [FileUpload, shared_1.SharedModule, button_1.ButtonModule, progressbar_1.ProgressBarModule, messages_1.MessagesModule],
-            declarations: [FileUpload]
-        })
-    ], FileUploadModule);
-    return FileUploadModule;
-}());
-exports.FileUploadModule = FileUploadModule;
-//# sourceMappingURL=fileupload.js.map
-
-/***/ }),
-
-/***/ "./node_modules/primeng/components/messages/messages.js":
-/*!**************************************************************!*\
-  !*** ./node_modules/primeng/components/messages/messages.js ***!
-  \**************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
-    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-    return c > 3 && r && Object.defineProperty(target, key, r), r;
-};
-var __metadata = (this && this.__metadata) || function (k, v) {
-    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
-};
-var __param = (this && this.__param) || function (paramIndex, decorator) {
-    return function (target, key) { decorator(target, key, paramIndex); }
-};
-Object.defineProperty(exports, "__esModule", { value: true });
-var core_1 = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
-var common_1 = __webpack_require__(/*! @angular/common */ "./node_modules/@angular/common/fesm5/common.js");
-var messageservice_1 = __webpack_require__(/*! ../common/messageservice */ "./node_modules/primeng/components/common/messageservice.js");
-var Messages = /** @class */ (function () {
-    function Messages(messageService) {
-        this.messageService = messageService;
-        this.closable = true;
-        this.enableService = true;
-        this.valueChange = new core_1.EventEmitter();
-    }
-    Messages.prototype.ngOnInit = function () {
-        var _this = this;
-        if (this.messageService && this.enableService) {
-            this.subscription = this.messageService.messageObserver.subscribe(function (messages) {
-                if (messages) {
-                    if (messages instanceof Array) {
-                        var filteredMessages = messages.filter(function (m) { return _this.key === m.key; });
-                        _this.value = _this.value ? _this.value.concat(filteredMessages) : filteredMessages.slice();
-                    }
-                    else if (_this.key === messages.key) {
-                        _this.value = _this.value ? _this.value.concat([messages]) : [messages];
-                    }
-                }
-                else {
-                    _this.value = null;
-                }
-            });
-        }
-    };
-    Messages.prototype.hasMessages = function () {
-        return this.value && this.value.length > 0;
-    };
-    Messages.prototype.getSeverityClass = function () {
-        return this.value[0].severity;
-    };
-    Messages.prototype.clear = function (event) {
-        this.value = [];
-        this.valueChange.emit(this.value);
-        event.preventDefault();
-    };
-    Object.defineProperty(Messages.prototype, "icon", {
-        get: function () {
-            var icon = null;
-            if (this.hasMessages()) {
-                var msg = this.value[0];
-                switch (msg.severity) {
-                    case 'success':
-                        icon = 'fa-check';
-                        break;
-                    case 'info':
-                        icon = 'fa-info-circle';
-                        break;
-                    case 'error':
-                        icon = 'fa-close';
-                        break;
-                    case 'warn':
-                        icon = 'fa-warning';
-                        break;
-                    default:
-                        icon = 'fa-info-circle';
-                        break;
-                }
-            }
-            return icon;
-        },
-        enumerable: true,
-        configurable: true
-    });
-    Messages.prototype.ngOnDestroy = function () {
-        if (this.subscription) {
-            this.subscription.unsubscribe();
-        }
-    };
-    __decorate([
-        core_1.Input(),
-        __metadata("design:type", Array)
-    ], Messages.prototype, "value", void 0);
-    __decorate([
-        core_1.Input(),
-        __metadata("design:type", Boolean)
-    ], Messages.prototype, "closable", void 0);
-    __decorate([
-        core_1.Input(),
-        __metadata("design:type", Object)
-    ], Messages.prototype, "style", void 0);
-    __decorate([
-        core_1.Input(),
-        __metadata("design:type", String)
-    ], Messages.prototype, "styleClass", void 0);
-    __decorate([
-        core_1.Input(),
-        __metadata("design:type", Boolean)
-    ], Messages.prototype, "enableService", void 0);
-    __decorate([
-        core_1.Input(),
-        __metadata("design:type", String)
-    ], Messages.prototype, "key", void 0);
-    __decorate([
-        core_1.Output(),
-        __metadata("design:type", core_1.EventEmitter)
-    ], Messages.prototype, "valueChange", void 0);
-    Messages = __decorate([
-        core_1.Component({
-            selector: 'p-messages',
-            template: "\n        <div *ngIf=\"hasMessages()\" class=\"ui-messages ui-widget ui-corner-all\" style=\"display:block\"\n                    [ngClass]=\"{'ui-messages-info':(value[0].severity === 'info'),\n                    'ui-messages-warn':(value[0].severity === 'warn'),\n                    'ui-messages-error':(value[0].severity === 'error'),\n                    'ui-messages-success':(value[0].severity === 'success')}\"\n                    [ngStyle]=\"style\" [class]=\"styleClass\">\n            <a href=\"#\" class=\"ui-messages-close\" (click)=\"clear($event)\" *ngIf=\"closable\">\n                <i class=\"fa fa-close\"></i>\n            </a>\n            <span class=\"ui-messages-icon fa fa-fw fa-2x\" [ngClass]=\"icon\"></span>\n            <ul>\n                <li *ngFor=\"let msg of value\">\n                    <span *ngIf=\"msg.summary\" class=\"ui-messages-summary\" [innerHTML]=\"msg.summary\"></span>\n                    <span *ngIf=\"msg.detail\" class=\"ui-messages-detail\" [innerHTML]=\"msg.detail\"></span>\n                </li>\n            </ul>\n        </div>\n    "
-        }),
-        __param(0, core_1.Optional()),
-        __metadata("design:paramtypes", [messageservice_1.MessageService])
-    ], Messages);
-    return Messages;
-}());
-exports.Messages = Messages;
-var MessagesModule = /** @class */ (function () {
-    function MessagesModule() {
-    }
-    MessagesModule = __decorate([
-        core_1.NgModule({
-            imports: [common_1.CommonModule],
-            exports: [Messages],
-            declarations: [Messages]
-        })
-    ], MessagesModule);
-    return MessagesModule;
-}());
-exports.MessagesModule = MessagesModule;
-//# sourceMappingURL=messages.js.map
-
-/***/ }),
-
-/***/ "./node_modules/primeng/components/progressbar/progressbar.js":
-/*!********************************************************************!*\
-  !*** ./node_modules/primeng/components/progressbar/progressbar.js ***!
-  \********************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
-    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-    return c > 3 && r && Object.defineProperty(target, key, r), r;
-};
-var __metadata = (this && this.__metadata) || function (k, v) {
-    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
-};
-Object.defineProperty(exports, "__esModule", { value: true });
-var core_1 = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
-var common_1 = __webpack_require__(/*! @angular/common */ "./node_modules/@angular/common/fesm5/common.js");
-var ProgressBar = /** @class */ (function () {
-    function ProgressBar() {
-        this.showValue = true;
-        this.unit = '%';
-        this.mode = 'determinate';
-    }
-    __decorate([
-        core_1.Input(),
-        __metadata("design:type", Object)
-    ], ProgressBar.prototype, "value", void 0);
-    __decorate([
-        core_1.Input(),
-        __metadata("design:type", Boolean)
-    ], ProgressBar.prototype, "showValue", void 0);
-    __decorate([
-        core_1.Input(),
-        __metadata("design:type", Object)
-    ], ProgressBar.prototype, "style", void 0);
-    __decorate([
-        core_1.Input(),
-        __metadata("design:type", String)
-    ], ProgressBar.prototype, "styleClass", void 0);
-    __decorate([
-        core_1.Input(),
-        __metadata("design:type", String)
-    ], ProgressBar.prototype, "unit", void 0);
-    __decorate([
-        core_1.Input(),
-        __metadata("design:type", String)
-    ], ProgressBar.prototype, "mode", void 0);
-    ProgressBar = __decorate([
-        core_1.Component({
-            selector: 'p-progressBar',
-            template: "\n        <div [class]=\"styleClass\" [ngStyle]=\"style\" role=\"progressbar\" aria-valuemin=\"0\" [attr.aria-valuenow]=\"value\" aria-valuemax=\"100\"\n            [ngClass]=\"{'ui-progressbar ui-widget ui-widget-content ui-corner-all': true, 'ui-progressbar-determinate': (mode === 'determinate'), 'ui-progressbar-indeterminate': (mode === 'indeterminate')}\">\n            <div class=\"ui-progressbar-value ui-progressbar-value-animate ui-widget-header ui-corner-all\" [style.width]=\"value + '%'\" style=\"display:block\"></div>\n            <div class=\"ui-progressbar-label\" [style.display]=\"value != null ? 'block' : 'none'\" *ngIf=\"showValue\">{{value}}{{unit}}</div>\n        </div>\n    "
-        })
-    ], ProgressBar);
-    return ProgressBar;
-}());
-exports.ProgressBar = ProgressBar;
-var ProgressBarModule = /** @class */ (function () {
-    function ProgressBarModule() {
-    }
-    ProgressBarModule = __decorate([
-        core_1.NgModule({
-            imports: [common_1.CommonModule],
-            exports: [ProgressBar],
-            declarations: [ProgressBar]
-        })
-    ], ProgressBarModule);
-    return ProgressBarModule;
-}());
-exports.ProgressBarModule = ProgressBarModule;
-//# sourceMappingURL=progressbar.js.map
-
-/***/ }),
-
-/***/ "./node_modules/primeng/fileupload.js":
-/*!********************************************!*\
-  !*** ./node_modules/primeng/fileupload.js ***!
-  \********************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-/* Shorthand */
-
-function __export(m) {
-    for (var p in m) if (!exports.hasOwnProperty(p)) exports[p] = m[p];
-}
-Object.defineProperty(exports, "__esModule", { value: true });
-__export(__webpack_require__(/*! ./components/fileupload/fileupload */ "./node_modules/primeng/components/fileupload/fileupload.js"));
-
-/***/ }),
-
 /***/ "./node_modules/rxjs-compat/_esm5/add/observable/timer.js":
 /*!****************************************************************!*\
   !*** ./node_modules/rxjs-compat/_esm5/add/observable/timer.js ***!
@@ -26539,6 +24822,24 @@ __webpack_require__.r(__webpack_exports__);
 rxjs__WEBPACK_IMPORTED_MODULE_0__["Observable"].prototype.do = _operator_do__WEBPACK_IMPORTED_MODULE_1__["_do"];
 rxjs__WEBPACK_IMPORTED_MODULE_0__["Observable"].prototype._do = _operator_do__WEBPACK_IMPORTED_MODULE_1__["_do"];
 //# sourceMappingURL=do.js.map
+
+/***/ }),
+
+/***/ "./node_modules/rxjs-compat/_esm5/add/operator/pairwise.js":
+/*!*****************************************************************!*\
+  !*** ./node_modules/rxjs-compat/_esm5/add/operator/pairwise.js ***!
+  \*****************************************************************/
+/*! no exports provided */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var rxjs__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! rxjs */ "./node_modules/rxjs/_esm5/index.js");
+/* harmony import */ var _operator_pairwise__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../operator/pairwise */ "./node_modules/rxjs-compat/_esm5/operator/pairwise.js");
+
+
+rxjs__WEBPACK_IMPORTED_MODULE_0__["Observable"].prototype.pairwise = _operator_pairwise__WEBPACK_IMPORTED_MODULE_1__["pairwise"];
+//# sourceMappingURL=pairwise.js.map
 
 /***/ }),
 
@@ -26620,6 +24921,60 @@ function _do(nextOrObserver, error, complete) {
     return Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_0__["tap"])(nextOrObserver, error, complete)(this);
 }
 //# sourceMappingURL=do.js.map
+
+/***/ }),
+
+/***/ "./node_modules/rxjs-compat/_esm5/operator/pairwise.js":
+/*!*************************************************************!*\
+  !*** ./node_modules/rxjs-compat/_esm5/operator/pairwise.js ***!
+  \*************************************************************/
+/*! exports provided: pairwise */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "pairwise", function() { return pairwise; });
+/* harmony import */ var rxjs_operators__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! rxjs/operators */ "./node_modules/rxjs/_esm5/operators/index.js");
+
+/**
+ * Groups pairs of consecutive emissions together and emits them as an array of
+ * two values.
+ *
+ * <span class="informal">Puts the current value and previous value together as
+ * an array, and emits that.</span>
+ *
+ * <img src="./img/pairwise.png" width="100%">
+ *
+ * The Nth emission from the source Observable will cause the output Observable
+ * to emit an array [(N-1)th, Nth] of the previous and the current value, as a
+ * pair. For this reason, `pairwise` emits on the second and subsequent
+ * emissions from the source Observable, but not on the first emission, because
+ * there is no previous value in that case.
+ *
+ * @example <caption>On every click (starting from the second), emit the relative distance to the previous click</caption>
+ * var clicks = Rx.Observable.fromEvent(document, 'click');
+ * var pairs = clicks.pairwise();
+ * var distance = pairs.map(pair => {
+ *   var x0 = pair[0].clientX;
+ *   var y0 = pair[0].clientY;
+ *   var x1 = pair[1].clientX;
+ *   var y1 = pair[1].clientY;
+ *   return Math.sqrt(Math.pow(x0 - x1, 2) + Math.pow(y0 - y1, 2));
+ * });
+ * distance.subscribe(x => console.log(x));
+ *
+ * @see {@link buffer}
+ * @see {@link bufferCount}
+ *
+ * @return {Observable<Array<T>>} An Observable of pairs (as arrays) of
+ * consecutive values from the source Observable.
+ * @method pairwise
+ * @owner Observable
+ */
+function pairwise() {
+    return Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_0__["pairwise"])()(this);
+}
+//# sourceMappingURL=pairwise.js.map
 
 /***/ }),
 
@@ -26707,7 +25062,7 @@ module.exports = ""
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = ""
+module.exports = "<!-- Carousel -->\r\n<div class=\"container\">\r\n  현재 배너\r\n  <div class=\"owl-carousel banner owl-theme\">\r\n    <div class=\"item\">\r\n      <img class=\"d-block w-100\" src=\"../../assets/img/banner_1.jpg\" alt=\"First slide\">\r\n    </div>\r\n    <div class=\"item\">\r\n      <img class=\"d-block w-100\" src=\"../../assets/img/banner_2.jpg\" alt=\"Second slide\">\r\n    </div>\r\n    <div class=\"item\">\r\n      <img class=\"d-block w-100\" src=\"../../assets/img/banner_3.jpg\" alt=\"Third slide\">\r\n    </div>\r\n    <div class=\"item\">\r\n      <img class=\"d-block w-100\" src=\"../../assets/img/banner_4.jpg\" alt=\"Fourth slide\">\r\n    </div>\r\n  </div>\r\n</div>\r\n규격:이미지 파일의 이름은 banner_1~banner_4 까지 가능합니다, 파일 형식은 jpg로 해주셔야됩니다.\r\n<app-file-upload></app-file-upload>\r\n"
 
 /***/ }),
 
@@ -26792,6 +25147,7 @@ module.exports = "<label style=\"padding: 5px\">게시판 관리</label>\r\n<sel
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "AdminBoardComponent", function() { return AdminBoardComponent; });
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var _shared_services_sidenav_service__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../shared/services/sidenav.service */ "./src/app/shared/services/sidenav.service.ts");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -26802,11 +25158,14 @@ var __metadata = (undefined && undefined.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 
+
 var AdminBoardComponent = /** @class */ (function () {
-    function AdminBoardComponent() {
+    function AdminBoardComponent(sideNavService) {
+        this.sideNavService = sideNavService;
     }
     AdminBoardComponent.prototype.selectchange = function (args) {
         this.currentBoard = args.target.value;
+        this.sideNavService.bodyMarginReset();
     };
     AdminBoardComponent.prototype.ngOnInit = function () {
     };
@@ -26816,7 +25175,7 @@ var AdminBoardComponent = /** @class */ (function () {
             template: __webpack_require__(/*! ./admin-board.component.html */ "./src/app/admin/admin-board/admin-board.component.html"),
             styles: [__webpack_require__(/*! ./admin-board.component.css */ "./src/app/admin/admin-board/admin-board.component.css")]
         }),
-        __metadata("design:paramtypes", [])
+        __metadata("design:paramtypes", [_shared_services_sidenav_service__WEBPACK_IMPORTED_MODULE_1__["SidenavService"]])
     ], AdminBoardComponent);
     return AdminBoardComponent;
 }());
@@ -26914,7 +25273,7 @@ module.exports = ""
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<ng2-smart-table\r\n[settings]=\"settings\"\r\n[source]=\"faqList\"\r\n(create)=\"createFaq()\"\r\n(edit)=\"updateFaq($event)\"\r\n></ng2-smart-table>\r\n<div id=\"mySidenav\" class=\"sidenav\">\r\n  <a href=\"javascript:void(0)\" class=\"closebtn\" (click)=\"closeNav()\">&times;</a>\r\n  <h1 id=\"navState\">{{navState}}</h1>\r\n  <table class=\"table\" cellspacing=\"0\" style=\"max-height: 28px\">\r\n    <tbody>\r\n      <tr>\r\n        <th class=\"cyan lighten-4\">제목</th>\r\n        <td colspan=\"4\">\r\n          <input type=\"text\" id=\"exampleForm2\" class=\"form-control\" required [(ngModel)]=\"navFaq.f_title\" [ngModelOptions]=\"{standalone: true}\" />\r\n        </td>\r\n      </tr>\r\n      <tr>\r\n        <th class=\"cyan lighten-4\">카테고리</th>\r\n        <td><select class=\"mdb-select\" [(ngModel)]=\"this.navFaq.f_category\" name=\"navFaq_f_cate\" id=\"navFaq_f_cate\" >\r\n                  <option value=\"\" disabled selected>FAQ 카테고리를 선택해주세요</option>\r\n                  <option value=\"배송\">&nbsp;배송</option>\r\n                  <option value=\"상품\">&nbsp;상품</option>\r\n                  <option value=\"행사\">&nbsp;행사</option>\r\n                </select></td>\r\n                <th class=\"cyan lighten-4\">번호</th>\r\n                <td *ngIf=\"navState==='FAQ 글쓰기'\">{{nextFaqNo}}</td>\r\n                <td *ngIf=\"navState==='FAQ 수정'\">{{ navFaq?.f_no }}</td>\r\n      </tr>\r\n      <tr>\r\n        <th class=\"cyan lighten-4\">작성자</th>\r\n        <td colspan=\"4\">\r\n          {{ navFaq?.a_id}}\r\n        </td>\r\n      </tr>\r\n      <tr>\r\n        <th class=\"cyan lighten-4\">작성일</th>\r\n        <td>{{ navFaq?.f_date | date:'yyyy-MM-dd' }}</td>\r\n        <th class=\"cyan lighten-4\">조회수</th>\r\n        <td>{{ navFaq?.f_hits }}</td>\r\n      </tr>\r\n    </tbody>\r\n  </table>\r\n  <li class=\"list-group-item\"> FAQ 내용\r\n    <span style=\"margin-left:15px; color:crimson\">\r\n      <!-- {{navFaq.q_content}} -->\r\n      <textarea name=\"faqContent\" rows=\"8\" cols=\"150\" placeholder=\"내용을 입력해주세요.\" class=\"form-control\" required [(ngModel)]=\"navFaq.f_content\" [ngModelOptions]=\"{standalone: true}\"></textarea>\r\n    </span>\r\n  </li>\r\n  <button type=\"button\" class=\"btn btn-primary\" (click)=\"confirmCreate()\" *ngIf=\"navState==='FAQ 글쓰기'\">등록</button>\r\n  <button type=\"button\" class=\"btn btn-primary\" (click)=\"confirmEdit()\" *ngIf=\"navState==='FAQ 수정'\">수정</button>\r\n  <button type=\"button\" class=\"btn btn-primary\" (click)=\"confirmDelete()\" *ngIf=\"navState==='FAQ 수정'\">삭제</button>\r\n  <button type=\"button\" class=\"btn btn-primary\" (click)=\"closeNav()\">취소</button>\r\n</div>\r\n"
+module.exports = "<ng2-smart-table\r\n[settings]=\"settings\"\r\n[source]=\"faqList\"\r\n(create)=\"createFaq()\"\r\n(edit)=\"updateFaq($event)\"\r\n></ng2-smart-table>\r\n<div id=\"mySidenav\" class=\"sidenav\">\r\n  <a href=\"javascript:void(0)\" class=\"closebtn\" (click)=\"sideNavService.closeNav()\">&times;</a>\r\n  <h1 id=\"navState\">{{navState}}</h1>\r\n  <table class=\"table\" cellspacing=\"0\" style=\"max-height: 28px\">\r\n    <tbody>\r\n      <tr>\r\n        <th class=\"cyan lighten-4\">제목</th>\r\n        <td colspan=\"4\">\r\n          <input type=\"text\" id=\"exampleForm2\" class=\"form-control\" required [(ngModel)]=\"navFaq.f_title\" [ngModelOptions]=\"{standalone: true}\" />\r\n        </td>\r\n      </tr>\r\n      <tr>\r\n        <th class=\"cyan lighten-4\">카테고리</th>\r\n        <td><select class=\"mdb-select\" [(ngModel)]=\"this.navFaq.f_category\" name=\"navFaq_f_cate\" id=\"navFaq_f_cate\" >\r\n                  <option value=\"\" disabled selected>FAQ 카테고리를 선택해주세요</option>\r\n                  <option value=\"배송\">&nbsp;배송</option>\r\n                  <option value=\"상품\">&nbsp;상품</option>\r\n                  <option value=\"행사\">&nbsp;행사</option>\r\n                </select></td>\r\n                <th class=\"cyan lighten-4\">번호</th>\r\n                <td *ngIf=\"navState==='FAQ 글쓰기'\">{{nextFaqNo}}</td>\r\n                <td *ngIf=\"navState==='FAQ 수정'\">{{ navFaq?.f_no }}</td>\r\n      </tr>\r\n      <tr>\r\n        <th class=\"cyan lighten-4\">작성자</th>\r\n        <td colspan=\"4\">\r\n          {{ navFaq?.a_id}}\r\n        </td>\r\n      </tr>\r\n      <tr>\r\n        <th class=\"cyan lighten-4\">작성일</th>\r\n        <td>{{ navFaq?.f_date | date:'yyyy-MM-dd' }}</td>\r\n        <th class=\"cyan lighten-4\">조회수</th>\r\n        <td>{{ navFaq?.f_hits }}</td>\r\n      </tr>\r\n    </tbody>\r\n  </table>\r\n  <li class=\"list-group-item\"> FAQ 내용\r\n    <span style=\"margin-left:15px; color:crimson\">\r\n      <!-- {{navFaq.q_content}} -->\r\n      <textarea name=\"faqContent\" rows=\"8\" cols=\"150\" placeholder=\"내용을 입력해주세요.\" class=\"form-control\" required [(ngModel)]=\"navFaq.f_content\" [ngModelOptions]=\"{standalone: true}\"></textarea>\r\n    </span>\r\n  </li>\r\n  <button type=\"button\" class=\"btn btn-primary\" (click)=\"confirmCreate()\" *ngIf=\"navState==='FAQ 글쓰기'\">등록</button>\r\n  <button type=\"button\" class=\"btn btn-primary\" (click)=\"confirmEdit()\" *ngIf=\"navState==='FAQ 수정'\">수정</button>\r\n  <button type=\"button\" class=\"btn btn-primary\" (click)=\"confirmDelete()\" *ngIf=\"navState==='FAQ 수정'\">삭제</button>\r\n  <button type=\"button\" class=\"btn btn-primary\" (click)=\"sideNavService.closeNav()\">취소</button>\r\n</div>\r\n"
 
 /***/ }),
 
@@ -26933,6 +25292,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _shared_services_faq_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../shared/services/faq.service */ "./src/app/shared/services/faq.service.ts");
 /* harmony import */ var _angular_common_http__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/common/http */ "./node_modules/@angular/common/fesm5/http.js");
 /* harmony import */ var _shared_services_token_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../../shared/services/token.service */ "./src/app/shared/services/token.service.ts");
+/* harmony import */ var _shared_services_sidenav_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../../shared/services/sidenav.service */ "./src/app/shared/services/sidenav.service.ts");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -26947,9 +25307,11 @@ var __metadata = (undefined && undefined.__metadata) || function (k, v) {
 
 
 
+
 var AdminFAQComponent = /** @class */ (function () {
-    function AdminFAQComponent(tokenService, FaqService, http) {
+    function AdminFAQComponent(tokenService, sideNavService, FaqService, http) {
         this.tokenService = tokenService;
+        this.sideNavService = sideNavService;
         this.FaqService = FaqService;
         this.http = http;
         this.settings = {
@@ -26974,19 +25336,24 @@ var AdminFAQComponent = /** @class */ (function () {
             },
             columns: {
                 f_no: {
-                    title: '번호'
+                    title: '번호',
+                    width: '5%'
                 },
                 f_category: {
-                    title: '카테고리'
+                    title: '카테고리',
+                    width: '5%'
                 },
                 f_title: {
-                    title: '제목'
+                    title: '제목',
+                    width: '30%'
                 },
                 a_id: {
-                    title: '작성자'
+                    title: '작성자',
+                    width: '10%'
                 },
                 f_hits: {
-                    title: '조회수'
+                    title: '조회수',
+                    width: '5%'
                 },
                 f_date: {
                     title: '작성날짜'
@@ -27009,7 +25376,7 @@ var AdminFAQComponent = /** @class */ (function () {
         this.navState = 'FAQ 수정';
         this.editDataBinding(event);
         this.navFaq = this.editFaq;
-        this.openNav();
+        this.sideNavService.openNav();
     };
     AdminFAQComponent.prototype.createFaq = function () {
         this.navState = 'FAQ 글쓰기';
@@ -27017,7 +25384,7 @@ var AdminFAQComponent = /** @class */ (function () {
         this.navFaq.a_id = this.tokenService.getToken("adminToken").a_id;
         this.navFaq.f_date = new Date();
         this.navFaq.f_hits = 0;
-        this.openNav();
+        this.sideNavService.openNav();
     };
     AdminFAQComponent.prototype.confirmCreate = function () {
         var _this = this;
@@ -27059,7 +25426,7 @@ var AdminFAQComponent = /** @class */ (function () {
                 console.log(res);
                 //event.confirm.resolve(event.newData);
                 alert("삭제 됐습니다.");
-                _this.closeNav();
+                _this.sideNavService.closeNav();
                 _this.ngOnInit();
             }, function (err) {
                 if (err.error instanceof Error) {
@@ -27073,14 +25440,6 @@ var AdminFAQComponent = /** @class */ (function () {
         else {
             return false;
         }
-    };
-    AdminFAQComponent.prototype.openNav = function () {
-        document.getElementById("mySidenav").style.width = "650px";
-        document.body.style.marginLeft = "650px";
-    };
-    AdminFAQComponent.prototype.closeNav = function () {
-        document.getElementById("mySidenav").style.width = "0";
-        document.body.style.marginLeft = "0";
     };
     AdminFAQComponent.prototype.navFaqReset = function () {
         this.navFaq = this.editFaq;
@@ -27101,6 +25460,7 @@ var AdminFAQComponent = /** @class */ (function () {
             styles: [__webpack_require__(/*! ./admin-faq.component.css */ "./src/app/admin/admin-board/admin-faq/admin-faq.component.css")]
         }),
         __metadata("design:paramtypes", [_shared_services_token_service__WEBPACK_IMPORTED_MODULE_4__["TokenService"],
+            _shared_services_sidenav_service__WEBPACK_IMPORTED_MODULE_5__["SidenavService"],
             _shared_services_faq_service__WEBPACK_IMPORTED_MODULE_2__["FaqService"],
             _angular_common_http__WEBPACK_IMPORTED_MODULE_3__["HttpClient"]])
     ], AdminFAQComponent);
@@ -27129,7 +25489,7 @@ module.exports = ""
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<ng2-smart-table\r\n[settings]=\"settings\"\r\n[source]=\"noticeList\"\r\n(create)=\"createNotice()\"\r\n(edit)=\"updateNotice($event)\"\r\n></ng2-smart-table>\r\n<div id=\"mySidenav\" class=\"sidenav\">\r\n  <a href=\"javascript:void(0)\" class=\"closebtn\" (click)=\"closeNav()\">&times;</a>\r\n  <h1 id=\"navState\">{{navState}}</h1>\r\n  <table class=\"table\" cellspacing=\"0\" style=\"max-height: 28px\">\r\n    <tbody>\r\n      <tr>\r\n        <th class=\"cyan lighten-4\">제목</th>\r\n        <td colspan=\"4\">\r\n          <input type=\"text\" id=\"exampleForm2\" class=\"form-control\" required [(ngModel)]=\"navNotice.n_title\" [ngModelOptions]=\"{standalone: true}\" />\r\n        </td>\r\n      </tr>\r\n      <tr>\r\n        <th class=\"cyan lighten-4\">카테고리</th>\r\n        <td><select class=\"mdb-select\" [(ngModel)]=\"this.navNotice.n_category\" name=\"navProduct_n_cate\" id=\"navProduct_n_cate\" >\r\n                  <option value=\"\" disabled selected>공지사항 카테고리를 선택해주세요</option>\r\n                  <option value=\"공지\">&nbsp;공지</option>\r\n                  <option value=\"배송\">&nbsp;배송</option>\r\n                  <option value=\"상품\">&nbsp;상품</option>\r\n                  <option value=\"행사\">&nbsp;행사</option>\r\n                  <option value=\"긴급\">&nbsp;긴급</option>\r\n                </select></td>\r\n                <th class=\"cyan lighten-4\">번호</th>\r\n                <td *ngIf=\"navState==='공지사항 글쓰기'\">{{nextNoticeNo}}</td>\r\n                <td *ngIf=\"navState==='공지사항 수정'\">{{ navNotice?.n_no }}</td>\r\n      </tr>\r\n      <tr>\r\n        <th class=\"cyan lighten-4\">작성자</th>\r\n        <td colspan=\"4\">\r\n          {{ navNotice?.a_id}}\r\n        </td>\r\n      </tr>\r\n      <tr>\r\n        <th class=\"cyan lighten-4\">작성일</th>\r\n        <td>{{ navNotice?.n_date | date:'yyyy-MM-dd' }}</td>\r\n        <th class=\"cyan lighten-4\">조회수</th>\r\n        <td>{{ navNotice?.n_hits }}</td>\r\n      </tr>\r\n    </tbody>\r\n  </table>\r\n  <li class=\"list-group-item\"> 공지사항 내용\r\n    <span style=\"margin-left:15px; color:crimson\">\r\n      <!-- {{navNotice.q_content}} -->\r\n      <textarea name=\"NoticeContent\" rows=\"8\" cols=\"150\" placeholder=\"내용을 입력해주세요.\" class=\"form-control\" required [(ngModel)]=\"navNotice.n_content\" [ngModelOptions]=\"{standalone: true}\"></textarea>\r\n    </span>\r\n  </li>\r\n  <button type=\"button\" class=\"btn btn-primary\" (click)=\"confirmCreate()\" *ngIf=\"navState==='공지사항 글쓰기'\">등록</button>\r\n  <button type=\"button\" class=\"btn btn-primary\" (click)=\"confirmEdit()\" *ngIf=\"navState==='공지사항 수정'\">수정</button>\r\n  <button type=\"button\" class=\"btn btn-primary\" (click)=\"confirmDelete()\" *ngIf=\"navState==='공지사항 수정'\">삭제</button>\r\n  <button type=\"button\" class=\"btn btn-primary\" (click)=\"closeNav()\">취소</button>\r\n</div>\r\n"
+module.exports = "<ng2-smart-table\r\n[settings]=\"settings\"\r\n[source]=\"noticeList\"\r\n(create)=\"createNotice()\"\r\n(edit)=\"updateNotice($event)\"\r\n></ng2-smart-table>\r\n<div id=\"mySidenav\" class=\"sidenav\">\r\n  <a href=\"javascript:void(0)\" class=\"closebtn\" (click)=\"sideNavService.closeNav()\">&times;</a>\r\n  <h1 id=\"navState\">{{navState}}</h1>\r\n  <table class=\"table\" cellspacing=\"0\" style=\"max-height: 28px\">\r\n    <tbody>\r\n      <tr>\r\n        <th class=\"cyan lighten-4\">제목</th>\r\n        <td colspan=\"4\">\r\n          <input type=\"text\" id=\"exampleForm2\" class=\"form-control\" required [(ngModel)]=\"navNotice.n_title\" [ngModelOptions]=\"{standalone: true}\" />\r\n        </td>\r\n      </tr>\r\n      <tr>\r\n        <th class=\"cyan lighten-4\">카테고리</th>\r\n        <td><select class=\"mdb-select\" [(ngModel)]=\"this.navNotice.n_category\" name=\"navProduct_n_cate\" id=\"navProduct_n_cate\" >\r\n                  <option value=\"\" disabled selected>공지사항 카테고리를 선택해주세요</option>\r\n                  <option value=\"공지\">&nbsp;공지</option>\r\n                  <option value=\"배송\">&nbsp;배송</option>\r\n                  <option value=\"상품\">&nbsp;상품</option>\r\n                  <option value=\"행사\">&nbsp;행사</option>\r\n                  <option value=\"긴급\">&nbsp;긴급</option>\r\n                </select></td>\r\n                <th class=\"cyan lighten-4\">번호</th>\r\n                <td *ngIf=\"navState==='공지사항 글쓰기'\">{{nextNoticeNo}}</td>\r\n                <td *ngIf=\"navState==='공지사항 수정'\">{{ navNotice?.n_no }}</td>\r\n      </tr>\r\n      <tr>\r\n        <th class=\"cyan lighten-4\">작성자</th>\r\n        <td colspan=\"4\">\r\n          {{ navNotice?.a_id}}\r\n        </td>\r\n      </tr>\r\n      <tr>\r\n        <th class=\"cyan lighten-4\">작성일</th>\r\n        <td>{{ navNotice?.n_date | date:'yyyy-MM-dd' }}</td>\r\n        <th class=\"cyan lighten-4\">조회수</th>\r\n        <td>{{ navNotice?.n_hits }}</td>\r\n      </tr>\r\n    </tbody>\r\n  </table>\r\n  <li class=\"list-group-item\"> 공지사항 내용\r\n    <span style=\"margin-left:15px; color:crimson\">\r\n      <!-- {{navNotice.q_content}} -->\r\n      <textarea name=\"NoticeContent\" rows=\"8\" cols=\"150\" placeholder=\"내용을 입력해주세요.\" class=\"form-control\" required [(ngModel)]=\"navNotice.n_content\" [ngModelOptions]=\"{standalone: true}\"></textarea>\r\n    </span>\r\n  </li>\r\n  <button type=\"button\" class=\"btn btn-primary\" (click)=\"confirmCreate()\" *ngIf=\"navState==='공지사항 글쓰기'\">등록</button>\r\n  <button type=\"button\" class=\"btn btn-primary\" (click)=\"confirmEdit()\" *ngIf=\"navState==='공지사항 수정'\">수정</button>\r\n  <button type=\"button\" class=\"btn btn-primary\" (click)=\"confirmDelete()\" *ngIf=\"navState==='공지사항 수정'\">삭제</button>\r\n  <button type=\"button\" class=\"btn btn-primary\" (click)=\"sideNavService.closeNav()\">취소</button>\r\n</div>\r\n"
 
 /***/ }),
 
@@ -27148,6 +25508,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _shared_services_notice_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../shared/services/notice.service */ "./src/app/shared/services/notice.service.ts");
 /* harmony import */ var _angular_common_http__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/common/http */ "./node_modules/@angular/common/fesm5/http.js");
 /* harmony import */ var _shared_services_token_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../../shared/services/token.service */ "./src/app/shared/services/token.service.ts");
+/* harmony import */ var _shared_services_sidenav_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../../shared/services/sidenav.service */ "./src/app/shared/services/sidenav.service.ts");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -27162,10 +25523,12 @@ var __metadata = (undefined && undefined.__metadata) || function (k, v) {
 
 
 
+
 var AdminNoticeComponent = /** @class */ (function () {
-    function AdminNoticeComponent(tokenService, noticeService, http) {
+    function AdminNoticeComponent(tokenService, noticeService, sideNavService, http) {
         this.tokenService = tokenService;
         this.noticeService = noticeService;
+        this.sideNavService = sideNavService;
         this.http = http;
         this.settings = {
             mode: 'external',
@@ -27189,19 +25552,24 @@ var AdminNoticeComponent = /** @class */ (function () {
             },
             columns: {
                 n_no: {
-                    title: '번호'
+                    title: '번호',
+                    width: '5%'
                 },
                 n_category: {
-                    title: '카테고리'
+                    title: '카테고리',
+                    width: '5%'
                 },
                 n_title: {
-                    title: '제목'
+                    title: '제목',
+                    width: '30%'
                 },
                 a_id: {
-                    title: '작성자'
+                    title: '작성자',
+                    width: '10%'
                 },
                 n_hits: {
-                    title: '조회수'
+                    title: '조회수',
+                    width: '5%'
                 },
                 n_date: {
                     title: '작성날짜'
@@ -27224,7 +25592,7 @@ var AdminNoticeComponent = /** @class */ (function () {
         this.navState = '공지사항 수정';
         this.editDataBinding(event);
         this.navNotice = this.editNotice;
-        this.openNav();
+        this.sideNavService.openNav();
     };
     AdminNoticeComponent.prototype.createNotice = function () {
         this.navState = '공지사항 글쓰기';
@@ -27232,7 +25600,7 @@ var AdminNoticeComponent = /** @class */ (function () {
         this.navNotice.a_id = this.tokenService.getToken("adminToken").a_id;
         this.navNotice.n_date = new Date();
         this.navNotice.n_hits = 0;
-        this.openNav();
+        this.sideNavService.openNav();
     };
     AdminNoticeComponent.prototype.confirmCreate = function () {
         var _this = this;
@@ -27274,7 +25642,7 @@ var AdminNoticeComponent = /** @class */ (function () {
                 console.log(res);
                 //event.confirm.resolve(event.newData);
                 alert("삭제 됐습니다.");
-                _this.closeNav();
+                _this.sideNavService.closeNav();
                 _this.ngOnInit();
             }, function (err) {
                 if (err.error instanceof Error) {
@@ -27288,14 +25656,6 @@ var AdminNoticeComponent = /** @class */ (function () {
         else {
             return false;
         }
-    };
-    AdminNoticeComponent.prototype.openNav = function () {
-        document.getElementById("mySidenav").style.width = "650px";
-        document.body.style.marginLeft = "650px";
-    };
-    AdminNoticeComponent.prototype.closeNav = function () {
-        document.getElementById("mySidenav").style.width = "0";
-        document.body.style.marginLeft = "0";
     };
     AdminNoticeComponent.prototype.navnoticeReset = function () {
         this.navNotice = this.editNotice;
@@ -27317,6 +25677,7 @@ var AdminNoticeComponent = /** @class */ (function () {
         }),
         __metadata("design:paramtypes", [_shared_services_token_service__WEBPACK_IMPORTED_MODULE_4__["TokenService"],
             _shared_services_notice_service__WEBPACK_IMPORTED_MODULE_2__["NoticeService"],
+            _shared_services_sidenav_service__WEBPACK_IMPORTED_MODULE_5__["SidenavService"],
             _angular_common_http__WEBPACK_IMPORTED_MODULE_3__["HttpClient"]])
     ], AdminNoticeComponent);
     return AdminNoticeComponent;
@@ -27344,7 +25705,7 @@ module.exports = ""
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<ng2-smart-table\r\n[settings]=\"settings\"\r\n[source]=\"productQnaList\"\r\n(edit)=\"updateProductQna($event)\"\r\n></ng2-smart-table>\r\n<div id=\"mySidenav\" class=\"sidenav\">\r\n  <a href=\"javascript:void(0)\" class=\"closebtn\" (click)=\"closeNav()\">&times;</a>\r\n  <h1 id=\"navState\">{{navState}}</h1>\r\n  <table class=\"table\" cellspacing=\"0\" style=\"max-height: 28px\">\r\n    <tbody>\r\n      <tr>\r\n        <th scope=\"row\" class=\"font-weight-bold\">제목</th>\r\n        <td>{{navProductQna.pq_title}}\r\n        </td>\r\n      </tr>\r\n      <tr>\r\n        <th scope=\"row\" class=\"font-weight-bold\">작성자</th>\r\n        <td>{{navProductQna.u_id}}\r\n        </td>\r\n      </tr>\r\n    </tbody>\r\n  </table>\r\n  <li class=\"list-group-item\"> 질문 내용\r\n    <span style=\"margin-left:15px; color:crimson\">\r\n      <textarea name=\"ProductQnaContent\" readonly=\"true\" rows=\"8\" cols=\"150\" placeholder=\"내용을 입력해주세요.\" class=\"form-control\" required [(ngModel)]=\"navProductQna.pq_content\" [ngModelOptions]=\"{standalone: true}\"></textarea>\r\n    </span>\r\n  </li>\r\n  <li class=\"list-group-item\"> 답변 내용\r\n    <span style=\"margin-left:15px; color:crimson\">\r\n      <textarea name=\"ProductQnaContent\" rows=\"8\" cols=\"150\" placeholder=\"내용을 입력해주세요.\" class=\"form-control\" required [(ngModel)]=\"navProductQna.pq_reply\" [ngModelOptions]=\"{standalone: true}\"></textarea>\r\n    </span>\r\n  </li>\r\n  <button type=\"button\" class=\"btn btn-primary\" (click)=\"confirmEdit()\" *ngIf=\"navState==='상품 질문 답변하기'\">답변</button>\r\n  <button type=\"button\" class=\"btn btn-primary\" (click)=\"closeNav()\">취소</button>\r\n</div>\r\n"
+module.exports = "<ng2-smart-table\r\n[settings]=\"settings\"\r\n[source]=\"productQnaList\"\r\n(edit)=\"updateProductQna($event)\"\r\n></ng2-smart-table>\r\n<div id=\"mySidenav\" class=\"sidenav\">\r\n  <a href=\"javascript:void(0)\" class=\"closebtn\" (click)=\"sideNavService.closeNav()\">&times;</a>\r\n  <h1 id=\"navState\">{{navState}}</h1>\r\n  <div class=\"product-image\">\r\n    <div class=\"view hm-zoom z-depth-2\" style=\"cursor: pointer\">\r\n      <img src=\"./assets/img/{{qnaProduct.p_img}}.jpg\" [alt]=\"qnaProduct.p_name\" width=\"100%\" class=\"img-fluid rounded\">\r\n    </div>\r\n  </div>\r\n  <br/>\r\n  <table class=\"table\" cellspacing=\"0\" style=\"max-height: 28px\">\r\n    <tbody>\r\n      <tr>\r\n        <th scope=\"row\" class=\"font-weight-bold\">상품명</th>\r\n        <td>{{qnaProduct.p_name}}\r\n        </td>\r\n      </tr>\r\n      <tr>\r\n        <th scope=\"row\" class=\"font-weight-bold\">판매가</th>\r\n        <td>{{qnaProduct.p_sellPrice}}\r\n        </td>\r\n      </tr>\r\n      <tr>\r\n        <th scope=\"row\" class=\"font-weight-bold\">제목</th>\r\n        <td>{{navProductQna.pq_title}}\r\n        </td>\r\n      </tr>\r\n      <tr>\r\n        <th scope=\"row\" class=\"font-weight-bold\">작성자</th>\r\n        <td>{{navProductQna.u_id}}\r\n        </td>\r\n      </tr>\r\n    </tbody>\r\n  </table>\r\n  <li class=\"list-group-item\"> 질문 내용\r\n    <span style=\"margin-left:15px; color:crimson\">\r\n      <textarea name=\"ProductQnaContent\" readonly=\"true\" rows=\"8\" cols=\"150\" placeholder=\"내용을 입력해주세요.\" class=\"form-control\" required [(ngModel)]=\"navProductQna.pq_content\" [ngModelOptions]=\"{standalone: true}\"></textarea>\r\n    </span>\r\n  </li>\r\n  <li class=\"list-group-item\"> 답변 내용\r\n    <span style=\"margin-left:15px; color:crimson\">\r\n      <textarea name=\"ProductQnaContent\" rows=\"8\" cols=\"150\" placeholder=\"내용을 입력해주세요.\" class=\"form-control\" required [(ngModel)]=\"navProductQna.pq_reply\" [ngModelOptions]=\"{standalone: true}\"></textarea>\r\n    </span>\r\n  </li>\r\n  <button type=\"button\" class=\"btn btn-primary\" (click)=\"confirmEdit()\" *ngIf=\"navState==='상품 질문 답변하기'\">답변</button>\r\n  <button type=\"button\" class=\"btn btn-primary\" (click)=\"sideNavService.closeNav()\">취소</button>\r\n</div>\r\n"
 
 /***/ }),
 
@@ -27361,7 +25722,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
 /* harmony import */ var _shared_models_productQna__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../../shared/models/productQna */ "./src/app/shared/models/productQna.ts");
 /* harmony import */ var _shared_services_product_qna_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../shared/services/product-qna.service */ "./src/app/shared/services/product-qna.service.ts");
-/* harmony import */ var _angular_common_http__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/common/http */ "./node_modules/@angular/common/fesm5/http.js");
+/* harmony import */ var _shared_services_product_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../shared/services/product.service */ "./src/app/shared/services/product.service.ts");
+/* harmony import */ var _shared_models_product__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../../shared/models/product */ "./src/app/shared/models/product.ts");
+/* harmony import */ var _shared_services_sidenav_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../../shared/services/sidenav.service */ "./src/app/shared/services/sidenav.service.ts");
+/* harmony import */ var _angular_common_http__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @angular/common/http */ "./node_modules/@angular/common/fesm5/http.js");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -27375,9 +25739,14 @@ var __metadata = (undefined && undefined.__metadata) || function (k, v) {
 
 
 
+
+
+
 var AdminProductQnaComponent = /** @class */ (function () {
-    function AdminProductQnaComponent(productQnaService, http) {
+    function AdminProductQnaComponent(productService, productQnaService, sideNavService, http) {
+        this.productService = productService;
         this.productQnaService = productQnaService;
+        this.sideNavService = sideNavService;
         this.http = http;
         this.settings = {
             mode: 'external',
@@ -27401,19 +25770,24 @@ var AdminProductQnaComponent = /** @class */ (function () {
             },
             columns: {
                 pq_no: {
-                    title: '질문번호'
+                    title: '질문번호',
+                    width: '5%'
                 },
                 pq_category: {
-                    title: '카테고리'
+                    title: '카테고리',
+                    width: '5%'
                 },
                 pq_title: {
-                    title: '제목'
+                    title: '제목',
+                    width: '30%'
                 },
                 u_id: {
-                    title: '작성자'
+                    title: '작성자',
+                    width: '10%'
                 },
                 pq_replyyn: {
-                    title: '답변여부'
+                    title: '답변여부',
+                    width: '5%'
                 },
                 pq_date: {
                     title: '질문날짜'
@@ -27422,6 +25796,7 @@ var AdminProductQnaComponent = /** @class */ (function () {
         };
         this.kinds = ["Bakery", "Sauce", "Drink", "Instant", "Snack"];
         this.selectedKind = "All";
+        this.qnaProduct = new _shared_models_product__WEBPACK_IMPORTED_MODULE_4__["Product"];
         this.navProductQna = new _shared_models_productQna__WEBPACK_IMPORTED_MODULE_1__["ProductQna"];
         this.editProductQna = new _shared_models_productQna__WEBPACK_IMPORTED_MODULE_1__["ProductQna"];
     }
@@ -27438,10 +25813,14 @@ var AdminProductQnaComponent = /** @class */ (function () {
         this.editProductQna.pq_date = event.data.pq_date;
     };
     AdminProductQnaComponent.prototype.updateProductQna = function (event) {
+        var _this = this;
         this.navState = '상품 질문 답변하기';
         this.editDataBinding(event);
+        this.productService.getProductById(event.data.p_code).subscribe(function (qnaProduct) {
+            _this.qnaProduct = qnaProduct;
+        });
         this.navProductQna = this.editProductQna;
-        this.openNav();
+        this.sideNavService.openNav();
     };
     AdminProductQnaComponent.prototype.isReplyNull = function (productQna) {
         if (productQna.pq_reply == null) {
@@ -27471,14 +25850,6 @@ var AdminProductQnaComponent = /** @class */ (function () {
             });
         }
     };
-    AdminProductQnaComponent.prototype.openNav = function () {
-        document.getElementById("mySidenav").style.width = "650px";
-        document.body.style.marginLeft = "650px";
-    };
-    AdminProductQnaComponent.prototype.closeNav = function () {
-        document.getElementById("mySidenav").style.width = "0";
-        document.body.style.marginLeft = "0";
-    };
     AdminProductQnaComponent.prototype.navProductQnaReset = function () {
         this.navProductQna = this.editProductQna;
     };
@@ -27495,8 +25866,10 @@ var AdminProductQnaComponent = /** @class */ (function () {
             template: __webpack_require__(/*! ./admin-product-qna.component.html */ "./src/app/admin/admin-board/admin-product-qna/admin-product-qna.component.html"),
             styles: [__webpack_require__(/*! ./admin-product-qna.component.css */ "./src/app/admin/admin-board/admin-product-qna/admin-product-qna.component.css")]
         }),
-        __metadata("design:paramtypes", [_shared_services_product_qna_service__WEBPACK_IMPORTED_MODULE_2__["ProductQnaService"],
-            _angular_common_http__WEBPACK_IMPORTED_MODULE_3__["HttpClient"]])
+        __metadata("design:paramtypes", [_shared_services_product_service__WEBPACK_IMPORTED_MODULE_3__["ProductService"],
+            _shared_services_product_qna_service__WEBPACK_IMPORTED_MODULE_2__["ProductQnaService"],
+            _shared_services_sidenav_service__WEBPACK_IMPORTED_MODULE_5__["SidenavService"],
+            _angular_common_http__WEBPACK_IMPORTED_MODULE_6__["HttpClient"]])
     ], AdminProductQnaComponent);
     return AdminProductQnaComponent;
 }());
@@ -27523,7 +25896,7 @@ module.exports = ""
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<ng2-smart-table\r\n[settings]=\"settings\"\r\n[source]=\"reviewList\"\r\n(userRowSelect)=\"reviewRead($event)\"\r\n(edit)=\"reviewRead($event)\"\r\n></ng2-smart-table>\r\n<div id=\"mySidenav\" class=\"sidenav\">\r\n  <a href=\"javascript:void(0)\" class=\"closebtn\" (click)=\"closeNav()\">&times;</a>\r\n  <h1 id=\"navState\">{{navState}}</h1>\r\n  <div class=\"product-image\">\r\n    <div class=\"view hm-zoom z-depth-2\" style=\"cursor: pointer\">\r\n      <img src=\"./assets/ProductImg/{{reviewProduct.p_img}}.jpg\" [alt]=\"reviewProduct.p_name\" width=\"100%\" class=\"img-fluid rounded\">\r\n    </div>\r\n  </div>\r\n  <br/>\r\n  <table class=\"table\" cellspacing=\"0\" style=\"max-height: 28px\">\r\n    <tbody>\r\n      <tr>\r\n        <th scope=\"row\" class=\"font-weight-bold\">상품명</th>\r\n        <td>{{reviewProduct.p_name}}\r\n        </td>\r\n      </tr>\r\n      <tr>\r\n        <th scope=\"row\" class=\"font-weight-bold\">판매가</th>\r\n        <td>{{reviewProduct.p_sellPrice}}\r\n        </td>\r\n      </tr>\r\n      <tr>\r\n        <th scope=\"row\" class=\"font-weight-bold\">제목</th>\r\n        <td>{{navReview.rev_title}}\r\n        </td>\r\n      </tr>\r\n      <tr>\r\n        <th scope=\"row\" class=\"font-weight-bold\">작성자</th>\r\n        <td>{{navReview.u_id}}\r\n        </td>\r\n      </tr>\r\n    </tbody>\r\n  </table>\r\n  <li class=\"list-group-item\"> 후기 내용\r\n    <span style=\"margin-left:15px; color:crimson\">\r\n      <textarea name=\"ReviewContent\" readonly=\"true\" rows=\"8\" cols=\"150\" placeholder=\"내용을 입력해주세요.\" class=\"form-control\" required [(ngModel)]=\"navReview.rev_content\" [ngModelOptions]=\"{standalone: true}\"></textarea>\r\n    </span>\r\n  </li>\r\n  <button type=\"button\" class=\"btn btn-primary\" (click)=\"confirmEdit()\" *ngIf=\"navState==='상품 질문 답변하기'\">답변</button>\r\n  <button type=\"button\" class=\"btn btn-primary\" (click)=\"closeNav()\">취소</button>\r\n</div>\r\n"
+module.exports = "<ng2-smart-table\r\n[settings]=\"settings\"\r\n[source]=\"reviewList\"\r\n(userRowSelect)=\"reviewRead($event)\"\r\n(edit)=\"reviewRead($event)\"\r\n></ng2-smart-table>\r\n<div id=\"mySidenav\" class=\"sidenav\">\r\n  <a href=\"javascript:void(0)\" class=\"closebtn\" (click)=\"sideNavService.closeNav()\">&times;</a>\r\n  <h1 id=\"navState\">{{navState}}</h1>\r\n  <div class=\"product-image\">\r\n    <div class=\"view hm-zoom z-depth-2\" style=\"cursor: pointer\">\r\n      <img src=\"./assets/img/{{reviewProduct.p_img}}.jpg\" [alt]=\"reviewProduct.p_name\" width=\"100%\" class=\"img-fluid rounded\">\r\n    </div>\r\n  </div>\r\n  <br/>\r\n  <table class=\"table\" cellspacing=\"0\" style=\"max-height: 28px\">\r\n    <tbody>\r\n      <tr>\r\n        <th scope=\"row\" class=\"font-weight-bold\">상품명</th>\r\n        <td>{{reviewProduct.p_name}}\r\n        </td>\r\n      </tr>\r\n      <tr>\r\n        <th scope=\"row\" class=\"font-weight-bold\">판매가</th>\r\n        <td>{{reviewProduct.p_sellPrice}}\r\n        </td>\r\n      </tr>\r\n      <tr>\r\n        <th scope=\"row\" class=\"font-weight-bold\">제목</th>\r\n        <td>{{navReview.rev_title}}\r\n        </td>\r\n      </tr>\r\n      <tr>\r\n        <th scope=\"row\" class=\"font-weight-bold\">작성자</th>\r\n        <td>{{navReview.u_id}}\r\n        </td>\r\n      </tr>\r\n    </tbody>\r\n  </table>\r\n  <li class=\"list-group-item\"> 후기 내용\r\n    <span style=\"margin-left:15px; color:crimson\">\r\n      <textarea name=\"ReviewContent\" readonly=\"true\" rows=\"8\" cols=\"150\" placeholder=\"내용을 입력해주세요.\" class=\"form-control\" required [(ngModel)]=\"navReview.rev_content\" [ngModelOptions]=\"{standalone: true}\"></textarea>\r\n    </span>\r\n  </li>\r\n  <button type=\"button\" class=\"btn btn-primary\" (click)=\"confirmEdit()\" *ngIf=\"navState==='상품 질문 답변하기'\">답변</button>\r\n  <button type=\"button\" class=\"btn btn-primary\" (click)=\"sideNavService.closeNav()\">취소</button>\r\n</div>\r\n"
 
 /***/ }),
 
@@ -27543,6 +25916,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _shared_services_product_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../shared/services/product.service */ "./src/app/shared/services/product.service.ts");
 /* harmony import */ var _shared_models_product__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../../shared/models/product */ "./src/app/shared/models/product.ts");
 /* harmony import */ var _angular_common_http__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @angular/common/http */ "./node_modules/@angular/common/fesm5/http.js");
+/* harmony import */ var _shared_services_sidenav_service__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../../../shared/services/sidenav.service */ "./src/app/shared/services/sidenav.service.ts");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -27558,10 +25932,12 @@ var __metadata = (undefined && undefined.__metadata) || function (k, v) {
 
 
 
+
 var AdminProductReviewComponent = /** @class */ (function () {
-    function AdminProductReviewComponent(productService, reviewService, http) {
+    function AdminProductReviewComponent(productService, reviewService, sideNavService, http) {
         this.productService = productService;
         this.reviewService = reviewService;
+        this.sideNavService = sideNavService;
         this.http = http;
         this.settings = {
             mode: 'external',
@@ -27583,16 +25959,20 @@ var AdminProductReviewComponent = /** @class */ (function () {
             },
             columns: {
                 rev_no: {
-                    title: '번호'
+                    title: '번호',
+                    width: '5%'
                 },
                 rev_title: {
-                    title: '제목'
+                    title: '제목',
+                    width: '40%'
                 },
                 u_id: {
-                    title: '작성자'
+                    title: '작성자',
+                    width: '10%'
                 },
                 rev_hits: {
-                    title: '조회수'
+                    title: '조회수',
+                    width: '5%'
                 },
                 rev_date: {
                     title: '후기날짜'
@@ -27607,19 +25987,12 @@ var AdminProductReviewComponent = /** @class */ (function () {
     }
     AdminProductReviewComponent.prototype.reviewRead = function (event) {
         var _this = this;
+        this.navState = '상품 후기';
         this.navReview = event.data;
         this.productService.getProductById(event.data.p_code).subscribe(function (reviewProduct) {
             _this.reviewProduct = reviewProduct;
         });
-        this.openNav();
-    };
-    AdminProductReviewComponent.prototype.openNav = function () {
-        document.getElementById("mySidenav").style.width = "650px";
-        document.body.style.marginLeft = "650px";
-    };
-    AdminProductReviewComponent.prototype.closeNav = function () {
-        document.getElementById("mySidenav").style.width = "0";
-        document.body.style.marginLeft = "0";
+        this.sideNavService.openNav();
     };
     AdminProductReviewComponent.prototype.ngOnInit = function () {
         var _this = this;
@@ -27636,6 +26009,7 @@ var AdminProductReviewComponent = /** @class */ (function () {
         }),
         __metadata("design:paramtypes", [_shared_services_product_service__WEBPACK_IMPORTED_MODULE_3__["ProductService"],
             _shared_services_review_service__WEBPACK_IMPORTED_MODULE_2__["ReviewService"],
+            _shared_services_sidenav_service__WEBPACK_IMPORTED_MODULE_6__["SidenavService"],
             _angular_common_http__WEBPACK_IMPORTED_MODULE_5__["HttpClient"]])
     ], AdminProductReviewComponent);
     return AdminProductReviewComponent;
@@ -27663,7 +26037,7 @@ module.exports = ""
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<ng2-smart-table\r\n[settings]=\"settings\"\r\n[source]=\"qnaList\"\r\n(edit)=\"updateQna($event)\"\r\n></ng2-smart-table>\r\n<div id=\"mySidenav\" class=\"sidenav\">\r\n  <a href=\"javascript:void(0)\" class=\"closebtn\" (click)=\"closeNav()\">&times;</a>\r\n  <h1 id=\"navState\">{{navState}}</h1>\r\n  <table class=\"table\" cellspacing=\"0\" style=\"max-height: 28px\">\r\n    <tbody>\r\n      <tr>\r\n        <th scope=\"row\" class=\"font-weight-bold\">제목</th>\r\n        <td>{{navQna.q_title}}\r\n          <!-- <input type=\"text\" id=\"exampleForm2\" class=\"form-control\" required [(ngModel)]=\"navQna.q_title\" [ngModelOptions]=\"{standalone: true}\" /> -->\r\n        </td>\r\n      </tr>\r\n      <tr>\r\n        <th scope=\"row\" class=\"font-weight-bold\">작성자</th>\r\n        <td>{{navQna.u_id}}\r\n        </td>\r\n      </tr>\r\n    </tbody>\r\n  </table>\r\n  <li class=\"list-group-item\"> 질문 내용\r\n    <span style=\"margin-left:15px; color:crimson\">\r\n      <!-- {{navQna.q_content}} -->\r\n      <textarea name=\"qnaContent\" readonly=\"true\" rows=\"8\" cols=\"150\" placeholder=\"내용을 입력해주세요.\" class=\"form-control\" required [(ngModel)]=\"navQna.q_content\" [ngModelOptions]=\"{standalone: true}\"></textarea>\r\n    </span>\r\n  </li>\r\n  <li class=\"list-group-item\"> 답변 내용\r\n    <span style=\"margin-left:15px; color:crimson\">\r\n      <textarea name=\"qnaContent\" rows=\"8\" cols=\"150\" placeholder=\"내용을 입력해주세요.\" class=\"form-control\" required [(ngModel)]=\"navQna.q_reply\" [ngModelOptions]=\"{standalone: true}\"></textarea>\r\n    </span>\r\n  </li>\r\n  <button type=\"button\" class=\"btn btn-primary\" (click)=\"confirmEdit()\" *ngIf=\"navState==='1:1질문 답변하기'\">답변</button>\r\n  <button type=\"button\" class=\"btn btn-primary\" (click)=\"closeNav()\">취소</button>\r\n</div>\r\n"
+module.exports = "<ng2-smart-table\r\n[settings]=\"settings\"\r\n[source]=\"qnaList\"\r\n(edit)=\"updateQna($event)\"\r\n></ng2-smart-table>\r\n<div id=\"mySidenav\" class=\"sidenav\">\r\n  <a href=\"javascript:void(0)\" class=\"closebtn\" (click)=\"sideNavService.closeNav()\">&times;</a>\r\n  <h1 id=\"navState\">{{navState}}</h1>\r\n  <table class=\"table\" cellspacing=\"0\" style=\"max-height: 28px\">\r\n    <tbody>\r\n      <tr>\r\n        <th scope=\"row\" class=\"font-weight-bold\">제목</th>\r\n        <td>{{navQna.q_title}}\r\n          <!-- <input type=\"text\" id=\"exampleForm2\" class=\"form-control\" required [(ngModel)]=\"navQna.q_title\" [ngModelOptions]=\"{standalone: true}\" /> -->\r\n        </td>\r\n      </tr>\r\n      <tr>\r\n        <th scope=\"row\" class=\"font-weight-bold\">작성자</th>\r\n        <td>{{navQna.u_id}}\r\n        </td>\r\n      </tr>\r\n    </tbody>\r\n  </table>\r\n  <li class=\"list-group-item\"> 질문 내용\r\n    <span style=\"margin-left:15px; color:crimson\">\r\n      <!-- {{navQna.q_content}} -->\r\n      <textarea name=\"qnaContent\" readonly=\"true\" rows=\"8\" cols=\"150\" placeholder=\"내용을 입력해주세요.\" class=\"form-control\" required [(ngModel)]=\"navQna.q_content\" [ngModelOptions]=\"{standalone: true}\"></textarea>\r\n    </span>\r\n  </li>\r\n  <li class=\"list-group-item\"> 답변 내용\r\n    <span style=\"margin-left:15px; color:crimson\">\r\n      <textarea name=\"qnaContent\" rows=\"8\" cols=\"150\" placeholder=\"내용을 입력해주세요.\" class=\"form-control\" required [(ngModel)]=\"navQna.q_reply\" [ngModelOptions]=\"{standalone: true}\"></textarea>\r\n    </span>\r\n  </li>\r\n  <button type=\"button\" class=\"btn btn-primary\" (click)=\"confirmEdit()\" *ngIf=\"navState==='1:1질문 답변하기'\">답변</button>\r\n  <button type=\"button\" class=\"btn btn-primary\" (click)=\"sideNavService.closeNav()\">취소</button>\r\n</div>\r\n"
 
 /***/ }),
 
@@ -27681,6 +26055,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _shared_models_qna__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../../shared/models/qna */ "./src/app/shared/models/qna.ts");
 /* harmony import */ var _shared_services_qna_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../shared/services/qna.service */ "./src/app/shared/services/qna.service.ts");
 /* harmony import */ var _angular_common_http__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/common/http */ "./node_modules/@angular/common/fesm5/http.js");
+/* harmony import */ var _shared_services_sidenav_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../../shared/services/sidenav.service */ "./src/app/shared/services/sidenav.service.ts");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -27694,9 +26069,11 @@ var __metadata = (undefined && undefined.__metadata) || function (k, v) {
 
 
 
+
 var AdminQnaComponent = /** @class */ (function () {
-    function AdminQnaComponent(qnaService, http) {
+    function AdminQnaComponent(qnaService, sideNavService, http) {
         this.qnaService = qnaService;
+        this.sideNavService = sideNavService;
         this.http = http;
         this.settings = {
             mode: 'external',
@@ -27720,13 +26097,16 @@ var AdminQnaComponent = /** @class */ (function () {
             },
             columns: {
                 q_no: {
-                    title: '질문번호'
+                    title: '질문번호',
+                    width: '5%'
                 },
                 q_title: {
-                    title: '제목'
+                    title: '제목',
+                    width: '30%'
                 },
                 u_id: {
-                    title: '작성자'
+                    title: '작성자',
+                    width: '20%'
                 },
                 q_date: {
                     title: '질문날짜'
@@ -27750,7 +26130,7 @@ var AdminQnaComponent = /** @class */ (function () {
         this.navState = '1:1질문 답변하기';
         this.editDataBinding(event);
         this.navQna = this.editQna;
-        this.openNav();
+        this.sideNavService.openNav();
     };
     AdminQnaComponent.prototype.isReplyNull = function (qna) {
         if (qna.q_reply == null) {
@@ -27779,14 +26159,6 @@ var AdminQnaComponent = /** @class */ (function () {
             });
         }
     };
-    AdminQnaComponent.prototype.openNav = function () {
-        document.getElementById("mySidenav").style.width = "650px";
-        document.body.style.marginLeft = "650px";
-    };
-    AdminQnaComponent.prototype.closeNav = function () {
-        document.getElementById("mySidenav").style.width = "0";
-        document.body.style.marginLeft = "0";
-    };
     AdminQnaComponent.prototype.navQnaReset = function () {
         this.navQna = this.editQna;
     };
@@ -27804,6 +26176,7 @@ var AdminQnaComponent = /** @class */ (function () {
             styles: [__webpack_require__(/*! ./admin-qna.component.css */ "./src/app/admin/admin-board/admin-qna/admin-qna.component.css")]
         }),
         __metadata("design:paramtypes", [_shared_services_qna_service__WEBPACK_IMPORTED_MODULE_2__["QnaService"],
+            _shared_services_sidenav_service__WEBPACK_IMPORTED_MODULE_4__["SidenavService"],
             _angular_common_http__WEBPACK_IMPORTED_MODULE_3__["HttpClient"]])
     ], AdminQnaComponent);
     return AdminQnaComponent;
@@ -27831,7 +26204,7 @@ module.exports = ""
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<ng2-smart-table\r\n    [settings]=\"settings\"\r\n    [source]=\"adminList\"\r\n    (create)=\"createAdmin()\">\r\n</ng2-smart-table>\r\n<div id=\"mySidenav\" class=\"sidenav\">\r\n  <a href=\"javascript:void(0)\" class=\"closebtn\" (click)=\"closeNav()\">&times;</a>\r\n  <h1 id=\"navState\">{{navState}}</h1>\r\n  <table class=\"table\" cellspacing=\"0\" style=\"max-height: 28px\">\r\n    <tbody>\r\n      <tr>\r\n        <th class=\"cyan lighten-4\">이름</th>\r\n        <td colspan=\"4\">\r\n          <input type=\"text\" id=\"exampleForm2\" class=\"form-control\" required [(ngModel)]=\"navAdmin.a_name\" [ngModelOptions]=\"{standalone: true}\" />\r\n        </td>\r\n      </tr>\r\n      <tr>\r\n        <th class=\"cyan lighten-4\">아이디</th>\r\n        <td colspan=\"4\">\r\n          <input type=\"text\" id=\"exampleForm2\" class=\"form-control\" required [(ngModel)]=\"navAdmin.a_id\" [ngModelOptions]=\"{standalone: true}\" />\r\n        </td>\r\n      </tr>\r\n      <tr>\r\n        <th class=\"cyan lighten-4\">패스워드</th>\r\n        <td colspan=\"4\">\r\n          <input type=\"text\" id=\"exampleForm2\" class=\"form-control\" required [(ngModel)]=\"navAdmin.a_pw\" [ngModelOptions]=\"{standalone: true}\" />\r\n        </td>\r\n      </tr>\r\n      <tr>\r\n        <th class=\"cyan lighten-4\">패스워드 확인</th>\r\n        <td colspan=\"4\">\r\n          <input type=\"text\" id=\"exampleForm2\" class=\"form-control\" required [(ngModel)]=\"navAdmin.a_pw\" [ngModelOptions]=\"{standalone: true}\" />\r\n        </td>\r\n      </tr>\r\n      <tr>\r\n        <th class=\"cyan lighten-4\">직위</th>\r\n        <td><select class=\"mdb-select\" [(ngModel)]=\"this.navAdmin.a_position\" name=\"navAdmin_a_cate\" id=\"navAdmin_a_cate\" >\r\n                  <option value=\"\" disabled selected>선택</option>\r\n                  <option value=\"사장\">&nbsp;사장</option>\r\n                  <option value=\"전무이사\">&nbsp;전무이사</option>\r\n                  <option value=\"사원\">&nbsp;사원</option>\r\n                  <option value=\"대리\">&nbsp;대리</option>\r\n                  <option value=\"차장\">&nbsp;차장</option>\r\n                  <option value=\"부장\">&nbsp;부장</option>\r\n                  <option value=\"대표\">&nbsp;대표</option>\r\n                </select></td>\r\n                <th class=\"cyan lighten-4\">직무</th>\r\n                <td><select class=\"mdb-select\" [(ngModel)]=\"this.navAdmin.a_position\" name=\"navAdmin_a_cate\" id=\"navAdmin_a_cate\" >\r\n                          <option value=\"\" disabled selected>선택</option>\r\n                          <option value=\"전무이사\">&nbsp;전무이사</option>\r\n                          <option value=\"경리\">&nbsp;경리</option>\r\n                          <option value=\"디자인\">&nbsp;디자인</option>\r\n                          <option value=\"개발\">&nbsp;개발</option>\r\n                          <option value=\"영업\">&nbsp;영업</option>\r\n                        </select></td>\r\n      </tr>\r\n      <tr>\r\n        <th class=\"cyan lighten-4\">이메일주소</th>\r\n        <td colspan=\"4\">\r\n          <input type=\"email\" id=\"exampleForm2\" class=\"form-control\" required [(ngModel)]=\"navAdmin.a_email\" [ngModelOptions]=\"{standalone: true}\" />\r\n        </td>\r\n      </tr>\r\n      <tr>\r\n        <th class=\"cyan lighten-4\">연락처</th>\r\n        <td colspan=\"4\">\r\n          <input type=\"text\" id=\"exampleForm2\" class=\"form-control\" required [(ngModel)]=\"navAdmin.a_phone\" [ngModelOptions]=\"{standalone: true}\" />\r\n        </td>\r\n      </tr>\r\n    </tbody>\r\n  </table>\r\n  <button type=\"button\" class=\"btn btn-primary\" (click)=\"confirmCreate()\" *ngIf=\"navState==='직원 등록'\">등록</button>\r\n  <button type=\"button\" class=\"btn btn-primary\" (click)=\"closeNav()\">취소</button>\r\n</div>\r\n"
+module.exports = "<ng2-smart-table\r\n    [settings]=\"settings\"\r\n    [source]=\"adminList\"\r\n    (createConfirm)=\"createAdmin($event)\"\r\n    (editConfirm)=\"updateAdmin($event)\">\r\n</ng2-smart-table>\r\n<div id=\"mySidenav\" class=\"sidenav\">\r\n  <a href=\"javascript:void(0)\" class=\"closebtn\" (click)=\"closeNav()\">&times;</a>\r\n  <h1 id=\"navState\">{{navState}}</h1>\r\n  <table class=\"table\" cellspacing=\"0\" style=\"max-height: 28px\" *ngIf=\"navState==='직원 등록'\">\r\n    <tbody>\r\n      <tr>\r\n        <th class=\"cyan lighten-4\">패스워드</th>\r\n        <td colspan=\"4\">\r\n          <input type=\"password\" id=\"exampleForm1\" class=\"form-control\" required [(ngModel)]=\"navAdmin.a_pw\" [ngModelOptions]=\"{standalone: true}\" />\r\n        </td>\r\n      </tr>\r\n      <tr>\r\n        <th class=\"cyan lighten-4\">패스워드 확인</th>\r\n        <td colspan=\"4\">\r\n          <input type=\"password\" id=\"exampleForm2\" class=\"form-control\" required [(ngModel)]=\"apw2\" [ngModelOptions]=\"{standalone: true}\" />\r\n        </td>\r\n      </tr>\r\n    </tbody>\r\n  </table>\r\n  <button type=\"button\" class=\"btn btn-primary\" (click)=\"confirmCreate()\" *ngIf=\"navState==='직원 등록'\">등록</button>\r\n  <button type=\"button\" class=\"btn btn-primary\" (click)=\"sideNavService.closeNav()\">취소</button>\r\n</div>\r\n"
 
 /***/ }),
 
@@ -27848,7 +26221,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
 /* harmony import */ var _shared_models_admin__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../shared/models/admin */ "./src/app/shared/models/admin.ts");
 /* harmony import */ var _angular_common_http__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/common/http */ "./node_modules/@angular/common/fesm5/http.js");
-/* harmony import */ var _shared_services_token_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../shared/services/token.service */ "./src/app/shared/services/token.service.ts");
+/* harmony import */ var _shared_services_sidenav_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../shared/services/sidenav.service */ "./src/app/shared/services/sidenav.service.ts");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -27863,9 +26236,9 @@ var __metadata = (undefined && undefined.__metadata) || function (k, v) {
 
 
 var AdminEmployeeComponent = /** @class */ (function () {
-    function AdminEmployeeComponent(http, tokenService) {
+    function AdminEmployeeComponent(http, sideNavService) {
         this.http = http;
-        this.tokenService = tokenService;
+        this.sideNavService = sideNavService;
         this.settings = {
             mode: 'inline',
             actions: {
@@ -27873,7 +26246,7 @@ var AdminEmployeeComponent = /** @class */ (function () {
                 columnTitle: '직원관리'
             },
             add: {
-                confirmCreate: 'false',
+                confirmCreate: 'true',
                 addButtonContent: '등록'
             },
             edit: {
@@ -27888,12 +26261,10 @@ var AdminEmployeeComponent = /** @class */ (function () {
             },
             columns: {
                 a_id: {
-                    title: '직원아이디',
-                    editable: 'false'
+                    title: '직원아이디'
                 },
                 a_name: {
-                    title: '이름',
-                    editable: 'false'
+                    title: '이름'
                 },
                 a_position: {
                     title: '직위',
@@ -27928,29 +26299,26 @@ var AdminEmployeeComponent = /** @class */ (function () {
                     }
                 },
                 a_email: {
-                    title: '이메일',
-                    editable: 'false'
+                    title: '이메일'
                 },
                 a_phone: {
-                    title: '연락처',
-                    editable: 'false'
+                    title: '연락처'
                 }
             }
         };
         this.navAdmin = new _shared_models_admin__WEBPACK_IMPORTED_MODULE_1__["Admin"];
     }
     AdminEmployeeComponent.prototype.newDataBinding = function (event) {
-        var data = { "a_id": event.newData.a_id,
-            "a_name": event.newData.a_name,
-            "a_position": event.newData.a_position,
-            "a_job": event.newData.a_job,
-            "a_email": event.newData.a_email,
-            "a_phone": event.newData.a_phone,
-        };
-        return data;
+        this.navAdmin.a_id = event.newData.a_id;
+        this.navAdmin.a_name = event.newData.a_name;
+        this.navAdmin.a_position = event.newData.a_position;
+        this.navAdmin.a_job = event.newData.a_job,
+            this.navAdmin.a_email = event.newData.a_email,
+            this.navAdmin.a_phone = event.newData.a_phone;
     };
     AdminEmployeeComponent.prototype.editDataBinding = function (event) {
         var data = { "a_id": event.data.a_id,
+            "a_pw": event.data.a_pw,
             "a_name": event.data.a_name,
             "a_position": event.data.a_position,
             "a_job": event.data.a_job,
@@ -27959,35 +26327,72 @@ var AdminEmployeeComponent = /** @class */ (function () {
         };
         return data;
     };
+    AdminEmployeeComponent.prototype.isAdminValueNull = function (event) {
+        if (event.newData.a_name == null) {
+            alert("이름을 입력하세요");
+            return true;
+        }
+        else if (event.newData.a_job == null) {
+            alert("직무를 선택하세요");
+            return true;
+        }
+        else if (event.newData.a_phone == null) {
+            alert("연락처를 입력하세요");
+            return true;
+        }
+        else if (event.newData.a_email == null) {
+            alert("이메일을 입력하세요");
+            return true;
+        }
+        else if (event.newData.a_position == null) {
+            alert("직위를 입력하세요");
+            return true;
+        }
+        else if (event.newData.a_id == null) {
+            alert("아이디를 입력하세요");
+            return true;
+        }
+        else {
+            return false;
+        }
+    };
     AdminEmployeeComponent.prototype.createAdmin = function (event) {
         this.navState = '직원 등록';
         this.navAdmin = new _shared_models_admin__WEBPACK_IMPORTED_MODULE_1__["Admin"];
-        this.openNav();
+        this.newDataBinding(event);
+        if (this.isAdminValueNull(event)) {
+            return false;
+        }
+        else {
+            this.sideNavService.openNav();
+        }
     };
-    AdminEmployeeComponent.prototype.confirmCreate = function (event) {
-        //$('#myModal').modal('show')
+    AdminEmployeeComponent.prototype.confirmCreate = function () {
         var _this = this;
-        this.http.post('http://localhost:8080/toma/admin/', this.newDataBinding(event)).subscribe(function (res) {
-            console.log(res);
-            event.confirm.resolve(event.newData);
-            alert("직원이 등록되었습니다.");
-            _this.tokenService.removeToken("adminListToken");
-        }, function (err) {
-            if (err.error instanceof Error) {
-                alert("Client-side error occured.");
-            }
-            else {
-                alert("Server-side error occured.");
-            }
-        });
+        if (this.navAdmin.a_pw !== this.apw2) {
+            alert("비밀번호 확인이 불일치 합니다");
+        }
+        else {
+            this.http.post('http://localhost:8080/toma/admin/', this.navAdmin).subscribe(function (res) {
+                console.log(res);
+                alert("직원이 등록되었습니다.");
+                _this.sideNavService.closeNav();
+                _this.ngOnInit();
+            }, function (err) {
+                if (err.error instanceof Error) {
+                    alert("Client-side error occured.");
+                }
+                else {
+                    alert("Server-side error occured.");
+                }
+            });
+        }
     };
     AdminEmployeeComponent.prototype.updateAdmin = function (event) {
-        var _this = this;
-        this.http.put('http://localhost:8080/toma/admin/', this.newDataBinding(event)).subscribe(function (res) {
+        this.http.put('http://localhost:8080/toma/admin/', this.editDataBinding(event)).subscribe(function (res) {
             console.log(res);
             event.confirm.resolve(event.newData);
             alert("직원 정보가 수정되었습니다.");
-            _this.tokenService.removeToken("adminListToken");
         }, function (err) {
             if (err.error instanceof Error) {
                 alert("Client-side error occured.");
@@ -27998,12 +26403,10 @@ var AdminEmployeeComponent = /** @class */ (function () {
         });
     };
     AdminEmployeeComponent.prototype.deleteProduct = function (event) {
-        var _this = this;
         this.http.delete('http://localhost:8080/toma/admin/' + event.data.a_id).subscribe(function (res) {
             console.log(res);
             event.confirm.resolve(event.source.data);
             alert("직원 정보가 삭제되었습니다.");
-            _this.tokenService.removeToken("adminListToken");
         }, function (err) {
             if (err.error instanceof Error) {
                 alert("Client-side error occured.");
@@ -28019,7 +26422,6 @@ var AdminEmployeeComponent = /** @class */ (function () {
         this.http.get('http://localhost:8080/toma/admin/')
             .subscribe(function (adminList) {
             _this.adminList = adminList;
-            _this.tokenService.saveToken("adminListToken", _this.adminList);
         }, function (err) {
             if (err.error instanceof Error) {
                 alert("Client-side error occured.");
@@ -28029,22 +26431,8 @@ var AdminEmployeeComponent = /** @class */ (function () {
             }
         });
     };
-    AdminEmployeeComponent.prototype.openNav = function () {
-        document.getElementById("mySidenav").style.width = "650px";
-        document.body.style.marginLeft = "650px";
-    };
-    AdminEmployeeComponent.prototype.closeNav = function () {
-        document.getElementById("mySidenav").style.width = "0";
-        document.body.style.marginLeft = "0";
-    };
     AdminEmployeeComponent.prototype.ngOnInit = function () {
-        if (this.tokenService.isToken("adminListToken")) {
-            this.adminList = this.tokenService.getToken("adminListToken");
-        }
-        else {
-            this.getAdminList();
-            this.tokenService.saveToken("adminListToken", this.adminList);
-        }
+        this.getAdminList();
     };
     AdminEmployeeComponent = __decorate([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
@@ -28053,7 +26441,7 @@ var AdminEmployeeComponent = /** @class */ (function () {
             styles: [__webpack_require__(/*! ./admin-employee.component.css */ "./src/app/admin/admin-employee/admin-employee.component.css")]
         }),
         __metadata("design:paramtypes", [_angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpClient"],
-            _shared_services_token_service__WEBPACK_IMPORTED_MODULE_3__["TokenService"]])
+            _shared_services_sidenav_service__WEBPACK_IMPORTED_MODULE_3__["SidenavService"]])
     ], AdminEmployeeComponent);
     return AdminEmployeeComponent;
 }());
@@ -28096,7 +26484,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "AdminOrderComponent", function() { return AdminOrderComponent; });
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
 /* harmony import */ var _angular_common_http__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/common/http */ "./node_modules/@angular/common/fesm5/http.js");
-/* harmony import */ var _shared_services_token_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../shared/services/token.service */ "./src/app/shared/services/token.service.ts");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -28108,11 +26495,9 @@ var __metadata = (undefined && undefined.__metadata) || function (k, v) {
 };
 
 
-
 var AdminOrderComponent = /** @class */ (function () {
-    function AdminOrderComponent(http, tokenService) {
+    function AdminOrderComponent(http) {
         this.http = http;
-        this.tokenService = tokenService;
         this.settings = {
             mode: 'inline',
             add: {
@@ -28180,7 +26565,6 @@ var AdminOrderComponent = /** @class */ (function () {
             console.log(res);
             event.confirm.resolve(event.newData);
             alert("주문처리가 변경되었습니다");
-            _this.tokenService.removeToken("adminOrderToken");
             _this.ngOnInit();
         }, function (err) {
             if (err.error instanceof Error) {
@@ -28196,7 +26580,6 @@ var AdminOrderComponent = /** @class */ (function () {
         this.http.get('http://localhost:8080/toma/order/')
             .subscribe(function (orderList) {
             _this.orderList = orderList;
-            _this.tokenService.saveToken("adminOrderToken", _this.orderList);
         }, function (err) {
             if (err.error instanceof Error) {
                 alert("Client-side error occured.");
@@ -28207,13 +26590,7 @@ var AdminOrderComponent = /** @class */ (function () {
         });
     };
     AdminOrderComponent.prototype.ngOnInit = function () {
-        if (this.tokenService.isToken("adminOrderToken")) {
-            this.orderList = this.tokenService.getToken("adminOrderToken");
-        }
-        else {
-            this.getOrderList();
-            this.tokenService.saveToken("adminOrderToken", this.orderList);
-        }
+        this.getOrderList();
     };
     AdminOrderComponent = __decorate([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
@@ -28221,8 +26598,7 @@ var AdminOrderComponent = /** @class */ (function () {
             template: __webpack_require__(/*! ./admin-order.component.html */ "./src/app/admin/admin-order/admin-order.component.html"),
             styles: [__webpack_require__(/*! ./admin-order.component.css */ "./src/app/admin/admin-order/admin-order.component.css")]
         }),
-        __metadata("design:paramtypes", [_angular_common_http__WEBPACK_IMPORTED_MODULE_1__["HttpClient"],
-            _shared_services_token_service__WEBPACK_IMPORTED_MODULE_2__["TokenService"]])
+        __metadata("design:paramtypes", [_angular_common_http__WEBPACK_IMPORTED_MODULE_1__["HttpClient"]])
     ], AdminOrderComponent);
     return AdminOrderComponent;
 }());
@@ -28238,7 +26614,7 @@ var AdminOrderComponent = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "/* The side navigation menu */\r\n#navState{\r\n   text-align: center;\r\n}\r\n.sidenav {\r\n    height: 100%; /* 100% Full-height */\r\n    width: 0; /* 0 width - change this with JavaScript */\r\n    position: fixed; /* Stay in place */\r\n    z-index: 1; /* Stay on top */\r\n    top: 0; /* Stay at the top */\r\n    left: 0;\r\n    background-color: white; /* Black*/\r\n\r\n    overflow-x: hidden; /* Disable horizontal scroll */\r\n    padding-top: 60px; /* Place content 60px from the top */\r\n    transition: 0.5s; /* 0.5 second transition effect to slide in the sidenav */\r\n}\r\n/* The navigation menu links */\r\n.sidenav a {\r\n    padding: 8px 8px 8px 32px;\r\n    text-decoration: none;\r\n    font-size: 25px;\r\n    color: #818181;\r\n    display: block;\r\n    transition: 0.3s;\r\n}\r\n/* When you mouse over the navigation links, change their color */\r\n.sidenav a:hover {\r\n    color: #f1f1f1;\r\n}\r\n/* Position and style the close button (top right corner) */\r\n.sidenav .closebtn {\r\n    position: absolute;\r\n    top: 0;\r\n    right: 25px;\r\n    font-size: 36px;\r\n    margin-left: 50px;\r\n}\r\n/* Style page content - use this if you want to push the page content to the right when you open the side navigation */\r\n#main {\r\n    transition: margin-left .5s;\r\n    padding: 20px;\r\n}\r\n/* On smaller screens, where height is less than 450px, change the style of the sidenav (less padding and a smaller font size) */\r\n@media screen and (max-height: 450px) {\r\n    .sidenav {padding-top: 15px;}\r\n    .sidenav a {font-size: 18px;}\r\n}\r\n"
+module.exports = ""
 
 /***/ }),
 
@@ -28249,7 +26625,7 @@ module.exports = "/* The side navigation menu */\r\n#navState{\r\n   text-align:
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<ng2-smart-table\r\n[settings]=\"settings\"\r\n[source]=\"productList\"\r\n(create)=\"insertProduct($event)\"\r\n(edit)=\"updateProduct($event)\"\r\n></ng2-smart-table>\r\n<div id=\"mySidenav\" class=\"sidenav\">\r\n  <a href=\"javascript:void(0)\" class=\"closebtn\" (click)=\"closeNav()\">&times;</a>\r\n  <h1 id=\"navState\">{{navState}}</h1>\r\n  <div class=\"product-image\">\r\n    <div class=\"view hm-zoom z-depth-2\" style=\"cursor: pointer\">\r\n      <img src=\"./assets/ProductImg/{{navProduct.p_img}}.jpg\" [alt]=\"navProduct.p_name\" width=\"100%\" class=\"img-fluid rounded\">\r\n      <h1 *ngIf=\"productNullCheck()\">상품정보가 없습니다</h1>\r\n      <button  class=\"btn btn-primary\" data-toggle=\"collapse\" data-target=\"#demo\">이미지 수정</button>\r\n    <div id=\"demo\" class=\"collapse\">\r\n      <app-file-upload></app-file-upload>\r\n    </div>  <!-- collapse -->\r\n    </div>\r\n  </div>\r\n  <br/>\r\n  <h5 class=\"product-head font-weight-bold\">상품 상세 정보</h5>\r\n  <table class=\"table\" cellspacing=\"0\" style=\"max-height: 28px\">\r\n    <tbody>\r\n      <tr>\r\n        <th scope=\"row\" class=\"font-weight-bold\">상품 이름</th>\r\n        <td><input type=\"text\" id=\"exampleForm2\" class=\"form-control\" required [(ngModel)]=\"navProduct.p_name\" [ngModelOptions]=\"{standalone: true}\" />\r\n        </td>\r\n      </tr>\r\n      <tr>\r\n        <th scope=\"row\" class=\"font-weight-bold\">카테고리</th>\r\n        <td>\r\n          <select class=\"mdb-select\" [(ngModel)]=\"this.navProduct.p_kind\" name=\"navProduct_p_kind\" id=\"navProduct_p_kind\" >\r\n            <option value=\"\" disabled selected>상품 카테고리를 선택해주세요</option>\r\n            <option value=\"Bakery\">&nbsp;Bakery</option>\r\n            <option value=\"Sauce\">&nbsp;Sauce</option>\r\n            <option value=\"Drink\">&nbsp;Drink</option>\r\n            <option value=\"Instant\">&nbsp;Instant</option>\r\n            <option value=\"Snack\">&nbsp;Snack</option>\r\n          </select>\r\n        </td>\r\n      <tr>\r\n        <th scope=\"row\" class=\"font-weight-bold\">원가</th>\r\n        <td><input type=\"text\" id=\"exampleForm2\" class=\"form-control\" required [(ngModel)]=\"navProduct.p_price\" [ngModelOptions]=\"{standalone: true}\" />\r\n        </td>\r\n      </tr>\r\n      <tr>\r\n        <th scope=\"row\" class=\"font-weight-bold\">판매가</th>\r\n        <td><input type=\"text\" id=\"exampleForm2\" class=\"form-control\" required [(ngModel)]=\"navProduct.p_sellPrice\" [ngModelOptions]=\"{standalone: true}\" />\r\n        </td>\r\n      </tr>\r\n      <tr>\r\n        <th scope=\"row\" class=\"font-weight-bold\">순이익</th>\r\n        <td><input type=\"text\" id=\"exampleForm2\" class=\"form-control\" required [(ngModel)]=\"navProduct.p_profit\" [ngModelOptions]=\"{standalone: true}\" />\r\n        </td>\r\n      </tr>\r\n      <tr>\r\n        <th scope=\"row\" class=\"font-weight-bold\">재고</th>\r\n        <td><input type=\"number\" min=\"1\" [(ngModel)]='this.navProduct.p_count'  [ngModelOptions]=\"{standalone: true}\" required />\r\n        </td>\r\n      </tr>\r\n    </tbody>\r\n  </table>\r\n  <li class=\"list-group-item\"> 상품내용\r\n    <span style=\"margin-left:15px; color:crimson\">\r\n      <textarea name=\"qnaContent\" rows=\"8\" cols=\"150\" placeholder=\"내용을 입력해주세요.\" class=\"form-control\" required [(ngModel)]=\"navProduct.p_content\" [ngModelOptions]=\"{standalone: true}\"></textarea>\r\n    </span>\r\n  </li>\r\n  <button type=\"button\" class=\"btn btn-primary\" (click)=\"confirmEdit()\" *ngIf=\"navState==='상품 정보 수정'\">수정</button>\r\n  <button type=\"button\" class=\"btn btn-primary\" (click)=\"confirmEdit()\" *ngIf=\"navState==='상품 등록'\">등록</button>\r\n  <button type=\"button\" class=\"btn btn-primary\" (click)=\"closeNav()\">취소</button>\r\n  <button type=\"button\" class=\"btn btn-primary\" (click)=\"navProductReset()\" >초기화</button>\r\n</div>\r\n"
+module.exports = "<ng2-smart-table\r\n[settings]=\"settings\"\r\n[source]=\"productList\"\r\n(create)=\"insertProduct($event)\"\r\n(edit)=\"updateProduct($event)\"\r\n></ng2-smart-table>\r\n<div id=\"mySidenav\" class=\"sidenav\">\r\n  <a href=\"javascript:void(0)\" class=\"closebtn\" (click)=\"sideNavService.closeNav()\">&times;</a>\r\n  <h1 id=\"navState\">{{navState}}</h1>\r\n  <div class=\"product-image\">\r\n    <div class=\"view hm-zoom z-depth-2\" style=\"cursor: pointer\">\r\n      <img src=\"./assets/img/{{navProduct.p_img}}.jpg\" [alt]=\"navProduct.p_name\" width=\"100%\" class=\"img-fluid rounded\">\r\n      <button  class=\"btn btn-primary\" *ngIf=\"navState==='상품 정보 수정'\" data-toggle=\"collapse\" data-target=\"#demo\">이미지 수정</button>\r\n      <button  class=\"btn btn-primary\" *ngIf=\"navState==='상품 등록'\" data-toggle=\"collapse\" data-target=\"#demo\">이미지 등록</button>\r\n    <div id=\"demo\" class=\"collapse\">\r\n      <app-file-upload></app-file-upload>\r\n    </div>  <!-- collapse -->\r\n    </div>\r\n  </div>\r\n  <br/>\r\n  <h5 class=\"product-head font-weight-bold\">상품 상세 정보</h5>\r\n  <table class=\"table\" cellspacing=\"0\" style=\"max-height: 28px\">\r\n    <tbody>\r\n      <tr>\r\n        <th scope=\"row\" class=\"font-weight-bold\">상품 이름</th>\r\n        <td><input type=\"text\" id=\"p_name\" class=\"form-control\" required [(ngModel)]=\"navProduct.p_name\" [ngModelOptions]=\"{standalone: true}\" />\r\n        </td>\r\n      </tr>\r\n      <tr *ngIf=\"navState==='상품 등록'\">\r\n        <th scope=\"row\" class=\"font-weight-bold\">상품코드</th>\r\n        <td *ngIf=\"autoCodeGeneratorOn\">\r\n          <input type=\"text\" readonly=\"readonly\" id=\"p_code\" class=\"form-control\" required [(ngModel)]=\"navProduct.p_code\" [ngModelOptions]=\"{standalone: true}\" />\r\n        </td>\r\n        <td *ngIf=\"!autoCodeGeneratorOn\">\r\n          <input type=\"text\" id=\"exampleForm2\" class=\"form-control\" required [(ngModel)]=\"navProduct.p_code\" [ngModelOptions]=\"{standalone: true}\" />\r\n        </td>\r\n      <tr>\r\n        <tr *ngIf=\"navState==='상품 등록'\">\r\n          <th scope=\"row\" class=\"font-weight-bold\">자동 코드 생성</th>\r\n          <td><input type=\"checkbox\" id=\"exampleForm2\" class=\"form-control\" [(ngModel)]=\"autoCodeGeneratorOn\" [ngModelOptions]=\"{standalone: true}\" />\r\n          </td>\r\n        <tr>\r\n      <tr *ngIf=\"navState==='상품 정보 수정'\">\r\n        <th scope=\"row\" class=\"font-weight-bold\">상품코드</th>\r\n        <td>\r\n          {{this.navProduct.p_code}}\r\n        </td>\r\n      <tr>\r\n      <tr>\r\n        <th scope=\"row\" class=\"font-weight-bold\">카테고리</th>\r\n        <td *ngIf=\"navState==='상품 등록'\">\r\n          <select class=\"mdb-select\" [(ngModel)]=\"this.navProduct.p_kind\" name=\"navProduct_p_kind\" id=\"p_kind\" >\r\n            <option value=\"\" disabled selected>상품 카테고리를 선택해주세요</option>\r\n            <option value=\"Bakery\">&nbsp;Bakery</option>\r\n            <option value=\"Sauce\">&nbsp;Sauce</option>\r\n            <option value=\"Drink\">&nbsp;Drink</option>\r\n            <option value=\"Instant\">&nbsp;Instant</option>\r\n            <option value=\"Snack\">&nbsp;Snack</option>\r\n          </select>\r\n        </td>\r\n        <!-- 카테고리는 수정 불가능 -->\r\n        <td *ngIf=\"navState==='상품 정보 수정'\">\r\n          {{this.navProduct.p_kind}}\r\n        </td>\r\n      <tr>\r\n        <th scope=\"row\" class=\"font-weight-bold\">원가</th>\r\n        <td><input type=\"number\" min=\"1\" (input)=\"onSearchChange($event.target.value)\" id=\"p_price\" class=\"form-control\" required [(ngModel)]=\"navProduct.p_price\" [ngModelOptions]=\"{standalone: true}\" />\r\n        </td>\r\n      </tr>\r\n      <tr>\r\n        <th scope=\"row\" class=\"font-weight-bold\">판매가</th>\r\n        <td><input type=\"number\" min=\"1\" (input)=\"onSearchChange($event.target.value)\" id=\"p_sellPrice\" class=\"form-control\" required [(ngModel)]=\"navProduct.p_sellPrice\" [ngModelOptions]=\"{standalone: true}\" />\r\n        </td>\r\n      </tr>\r\n      <tr>\r\n        <th scope=\"row\" class=\"font-weight-bold\">순이익</th>\r\n        <td>{{this.navProduct.p_profit}}\r\n        </td>\r\n      </tr>\r\n      <tr>\r\n        <th scope=\"row\" class=\"font-weight-bold\">재고</th>\r\n        <td><input type=\"number\" min=\"1\" id=\"p_count\" [(ngModel)]='this.navProduct.p_count'  [ngModelOptions]=\"{standalone: true}\" required />\r\n        </td>\r\n      </tr>\r\n    </tbody>\r\n  </table>\r\n  <li class=\"list-group-item\"> 상품내용\r\n    <span style=\"margin-left:15px; color:crimson\">\r\n      <textarea name=\"qnaContent\" rows=\"8\" cols=\"150\" id=\"p_content\" placeholder=\"내용을 입력해주세요.\" class=\"form-control\" required [(ngModel)]=\"navProduct.p_content\" [ngModelOptions]=\"{standalone: true}\"></textarea>\r\n    </span>\r\n  </li>\r\n  <button type=\"button\" class=\"btn btn-primary\" (click)=\"confirmEdit()\" *ngIf=\"navState==='상품 정보 수정'\">수정</button>\r\n  <button type=\"button\" class=\"btn btn-primary\" (click)=\"confirmCreate()\" *ngIf=\"navState==='상품 등록'\">등록</button>\r\n  <button type=\"button\" class=\"btn btn-primary\" (click)=\"sideNavService.closeNav()\">취소</button>\r\n</div>\r\n"
 
 /***/ }),
 
@@ -28266,7 +26642,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
 /* harmony import */ var _shared_services_product_service__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../shared/services/product.service */ "./src/app/shared/services/product.service.ts");
 /* harmony import */ var _shared_models_product__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../shared/models/product */ "./src/app/shared/models/product.ts");
-/* harmony import */ var _angular_common_http__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/common/http */ "./node_modules/@angular/common/fesm5/http.js");
+/* harmony import */ var _shared_services_sidenav_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../shared/services/sidenav.service */ "./src/app/shared/services/sidenav.service.ts");
+/* harmony import */ var _angular_common_http__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @angular/common/http */ "./node_modules/@angular/common/fesm5/http.js");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -28280,8 +26657,10 @@ var __metadata = (undefined && undefined.__metadata) || function (k, v) {
 
 
 
+
 var AdminProductComponent = /** @class */ (function () {
-    function AdminProductComponent(productService, http) {
+    function AdminProductComponent(sideNavService, productService, http) {
+        this.sideNavService = sideNavService;
         this.productService = productService;
         this.http = http;
         this.settings = {
@@ -28346,8 +26725,6 @@ var AdminProductComponent = /** @class */ (function () {
                 }
             }
         };
-        this.kinds = ["Bakery", "Sauce", "Drink", "Instant", "Snack"];
-        this.selectedKind = "All";
         this.navProduct = new _shared_models_product__WEBPACK_IMPORTED_MODULE_2__["Product"];
         this.editProduct = new _shared_models_product__WEBPACK_IMPORTED_MODULE_2__["Product"];
         this.newProduct = new _shared_models_product__WEBPACK_IMPORTED_MODULE_2__["Product"];
@@ -28368,7 +26745,7 @@ var AdminProductComponent = /** @class */ (function () {
         this.navState = '상품 정보 수정';
         this.editDataBinding(event);
         this.navProduct = this.editProduct;
-        this.openNav();
+        this.sideNavService.openNav();
     };
     AdminProductComponent.prototype.confirmEdit = function () {
         var _this = this;
@@ -28389,49 +26766,69 @@ var AdminProductComponent = /** @class */ (function () {
     AdminProductComponent.prototype.insertProduct = function (event) {
         this.navState = '상품 등록';
         this.navProduct = new _shared_models_product__WEBPACK_IMPORTED_MODULE_2__["Product"];
-        this.openNav();
+        this.sideNavService.openNav();
     };
-    AdminProductComponent.prototype.confirmCreate = function () {
-        this.http.post('http://localhost:8080/toma/product', this.navProduct).subscribe(function (res) {
-            console.log(res);
-            //event.confirm.resolve(event.newData);
-            alert("상품이 등록되었습니다.");
-        }, function (err) {
-            if (err.error instanceof Error) {
-                alert("Client-side error occured.");
-            }
-            else {
-                alert("Server-side error occured.");
-            }
-        });
-    };
-    AdminProductComponent.prototype.openNav = function () {
-        document.getElementById("mySidenav").style.width = "650px";
-        document.body.style.marginLeft = "650px";
-    };
-    AdminProductComponent.prototype.closeNav = function () {
-        document.getElementById("mySidenav").style.width = "0";
-        document.body.style.marginLeft = "0";
-    };
-    AdminProductComponent.prototype.productNullCheck = function () {
-        if (this.navProduct == null) {
+    AdminProductComponent.prototype.isProductValueNull = function (product) {
+        if (product.p_name == null) {
+            $("#p_name").focus();
+            alert("상품명을 입력하세요");
+            return true;
+        }
+        else if (product.p_kind == null) {
+            $("#p_kind").focus();
+            alert("상품종류를 선택하세요");
+            return true;
+        }
+        else if (product.p_price == null) {
+            $("#p_price").focus();
+            alert("원가를 입력하세요");
+            return true;
+        }
+        else if (product.p_sellPrice == null) {
+            $("#p_sellPrice").focus();
+            alert("판매가를 입력하세요");
+            return true;
+        }
+        else if (product.p_count == null) {
+            $("#p_count").focus();
+            alert("재고를 입력하세요");
+            return true;
+        }
+        else if (product.p_content == null) {
+            $("#p_content").focus();
+            alert("상품내용을 입력하세요");
             return true;
         }
         else {
             return false;
         }
     };
+    AdminProductComponent.prototype.confirmCreate = function () {
+        var _this = this;
+        if (this.isProductValueNull(this.navProduct)) {
+            return false;
+        }
+        else {
+            this.http.post('http://localhost:8080/toma/product', this.navProduct).subscribe(function (res) {
+                console.log(res);
+                alert("상품이 등록되었습니다.");
+                _this.navProduct = new _shared_models_product__WEBPACK_IMPORTED_MODULE_2__["Product"];
+                _this.ngOnInit();
+            }, function (err) {
+                if (err.error instanceof Error) {
+                    alert("Client-side error occured.");
+                }
+                else {
+                    alert("Server-side error occured.");
+                }
+            });
+        }
+    };
     AdminProductComponent.prototype.navProductReset = function () {
         this.navProduct = this.editProduct;
     };
-    AdminProductComponent.prototype.p_countUp = function () {
-        ++this.navProduct.p_count;
-    };
-    AdminProductComponent.prototype.p_countDown = function () {
-        if (this.navProduct.p_count > 1)
-            --this.navProduct.p_count;
-        else
-            alert('더 이상 줄일 수 없습니다.');
+    AdminProductComponent.prototype.onSearchChange = function (searchValue) {
+        this.navProduct.p_profit = this.navProduct.p_sellPrice - this.navProduct.p_price;
     };
     AdminProductComponent.prototype.ngOnInit = function () {
         var _this = this;
@@ -28446,8 +26843,9 @@ var AdminProductComponent = /** @class */ (function () {
             template: __webpack_require__(/*! ./admin-product.component.html */ "./src/app/admin/admin-product/admin-product.component.html"),
             styles: [__webpack_require__(/*! ./admin-product.component.css */ "./src/app/admin/admin-product/admin-product.component.css")]
         }),
-        __metadata("design:paramtypes", [_shared_services_product_service__WEBPACK_IMPORTED_MODULE_1__["ProductService"],
-            _angular_common_http__WEBPACK_IMPORTED_MODULE_3__["HttpClient"]])
+        __metadata("design:paramtypes", [_shared_services_sidenav_service__WEBPACK_IMPORTED_MODULE_3__["SidenavService"],
+            _shared_services_product_service__WEBPACK_IMPORTED_MODULE_1__["ProductService"],
+            _angular_common_http__WEBPACK_IMPORTED_MODULE_4__["HttpClient"]])
     ], AdminProductComponent);
     return AdminProductComponent;
 }());
@@ -28463,7 +26861,7 @@ var AdminProductComponent = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = ""
+module.exports = ".nav nav-pills mb-3{\r\n  background-color: red;\r\n}\r\n"
 
 /***/ }),
 
@@ -28474,7 +26872,7 @@ module.exports = ""
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<!-- Nav tabs -->\r\n<ul class=\"nav nav-tabs nav-justified\">\r\n    <li class=\"nav-item\">\r\n    <a [routerLink]=\"['/admin', {outlets: {'adminOutlet': ['product']}}]\"><li class=\"list-group-item\">상품 관리</li></a>\r\n    </li>\r\n    <li class=\"nav-item\"><a [routerLink]=\"['/admin', {outlets: {'adminOutlet': ['order']}}]\"><li class=\"list-group-item\">주문 관리</li></a>\r\n    </li>\r\n    <li class=\"nav-item\">\r\n      <a [routerLink]=\"['/admin', {outlets: {'adminOutlet': ['banner']}}]\"><li class=\"list-group-item\">배너 관리</li></a>\r\n    </li>\r\n    <li class=\"nav-item\">  <a [routerLink]=\"['/admin', {outlets: {'adminOutlet': ['board']}}]\"><li class=\"list-group-item\">게시판 관리</li></a>\r\n    </li>\r\n    <li class=\"nav-item\">  <a [routerLink]=\"['/admin', {outlets: {'adminOutlet': ['employee']}}]\"><li class=\"list-group-item\">직원 관리</li></a>\r\n    </li>\r\n</ul>\r\n<!-- Tab panels -->\r\n<div class=\"tab-content card\">\r\n    <router-outlet name=\"adminOutlet\"></router-outlet>\r\n</div>\r\n"
+module.exports = "<!-- Nav tabs -->\r\n<mdb-navbar SideClass=\"navbar navbar-expand-lg navbar-dark danger-color indigo scrolling-navbar\">\r\n  <links>\r\n    <ul class=\"navbar-nav mr-auto\">\r\n      <li class=\"nav-item\" [ngClass]=\"{'active': select==='상품 관리'}\" (click)=\"select='상품 관리'\">\r\n        <a class=\"nav-link waves-light\" mdbRippleRadius [routerLink]=\"['/admin', {outlets: {'adminOutlet': ['product']}}]\">상품 관리\r\n          <span class=\"sr-only\">(current)</span>\r\n        </a>\r\n      </li>\r\n      <li class=\"nav-item\" [ngClass]=\"{'active': select==='주문 관리'}\" (click)=\"select='주문 관리'\">\r\n        <a class=\"nav-link waves-light\" mdbRippleRadius [routerLink]=\"['/admin', {outlets: {'adminOutlet': ['order']}}]\">주문 관리</a>\r\n      </li>\r\n      <li class=\"nav-item\" [ngClass]=\"{'active': select==='배너 관리'}\" (click)=\"select='배너 관리'\">\r\n        <a class=\"nav-link waves-light\" mdbRippleRadius [routerLink]=\"['/admin', {outlets: {'adminOutlet': ['banner']}}]\">배너 관리</a>\r\n      </li>\r\n      <li class=\"nav-item\" [ngClass]=\"{'active': select==='게시판 관리'}\" (click)=\"select='게시판 관리'\">\r\n        <a class=\"nav-link waves-light\" mdbRippleRadius [routerLink]=\"['/admin', {outlets: {'adminOutlet': ['board']}}]\">게시판 관리</a>\r\n      </li>\r\n      <li class=\"nav-item\" [ngClass]=\"{'active': select==='직원 관리'}\" (click)=\"select='직원 관리'\">\r\n        <a class=\"nav-link waves-light\" mdbRippleRadius   [routerLink]=\"['/admin', {outlets: {'adminOutlet': ['employee']}}]\">직원 관리</a>\r\n      </li>\r\n    </ul>\r\n  </links>\r\n</mdb-navbar>\r\n<!-- Tab panels -->\r\n<router-outlet name=\"adminOutlet\"></router-outlet>\r\n"
 
 /***/ }),
 
@@ -28489,6 +26887,9 @@ module.exports = "<!-- Nav tabs -->\r\n<ul class=\"nav nav-tabs nav-justified\">
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "AdminComponent", function() { return AdminComponent; });
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var rxjs_add_operator_pairwise__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! rxjs/add/operator/pairwise */ "./node_modules/rxjs-compat/_esm5/add/operator/pairwise.js");
+/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm5/router.js");
+/* harmony import */ var _shared_services_sidenav_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../shared/services/sidenav.service */ "./src/app/shared/services/sidenav.service.ts");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -28499,9 +26900,27 @@ var __metadata = (undefined && undefined.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 
+
+
+
 var AdminComponent = /** @class */ (function () {
-    function AdminComponent() {
+    function AdminComponent(router, sideNavService) {
+        var _this = this;
+        this.router = router;
+        this.sideNavService = sideNavService;
+        router.events.subscribe(function (event) {
+            if (event instanceof _angular_router__WEBPACK_IMPORTED_MODULE_2__["NavigationStart"]) {
+                _this.sideNavService.bodyMarginReset(); //수정 nav 닫아주고 margin 초기화
+            }
+            if (event instanceof _angular_router__WEBPACK_IMPORTED_MODULE_2__["NavigationEnd"]) {
+                _this.sideNavService.bodyMarginReset();
+            }
+            if (event instanceof _angular_router__WEBPACK_IMPORTED_MODULE_2__["NavigationError"]) {
+                _this.sideNavService.bodyMarginReset();
+            }
+        });
     }
+    ;
     AdminComponent.prototype.ngOnInit = function () {
     };
     AdminComponent = __decorate([
@@ -28510,7 +26929,8 @@ var AdminComponent = /** @class */ (function () {
             template: __webpack_require__(/*! ./admin.component.html */ "./src/app/admin/admin.component.html"),
             styles: [__webpack_require__(/*! ./admin.component.css */ "./src/app/admin/admin.component.css")]
         }),
-        __metadata("design:paramtypes", [])
+        __metadata("design:paramtypes", [_angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"],
+            _shared_services_sidenav_service__WEBPACK_IMPORTED_MODULE_3__["SidenavService"]])
     ], AdminComponent);
     return AdminComponent;
 }());
@@ -28531,19 +26951,18 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "AdminModule", function() { return AdminModule; });
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
 /* harmony import */ var _angular_common__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/common */ "./node_modules/@angular/common/fesm5/common.js");
-/* harmony import */ var primeng_fileupload__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! primeng/fileupload */ "./node_modules/primeng/fileupload.js");
-/* harmony import */ var primeng_fileupload__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(primeng_fileupload__WEBPACK_IMPORTED_MODULE_2__);
-/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm5/router.js");
-/* harmony import */ var _admin_component__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./admin.component */ "./src/app/admin/admin.component.ts");
-/* harmony import */ var _admin_product_admin_product_component__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./admin-product/admin-product.component */ "./src/app/admin/admin-product/admin-product.component.ts");
-/* harmony import */ var _admin_banner_admin_banner_component__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./admin-banner/admin-banner.component */ "./src/app/admin/admin-banner/admin-banner.component.ts");
-/* harmony import */ var _admin_employee_admin_employee_component__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./admin-employee/admin-employee.component */ "./src/app/admin/admin-employee/admin-employee.component.ts");
-/* harmony import */ var _admin_routing__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./admin.routing */ "./src/app/admin/admin.routing.ts");
-/* harmony import */ var _shared_shared_module__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ../shared/shared.module */ "./src/app/shared/shared.module.ts");
-/* harmony import */ var _shared_services_product_service__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ../shared/services/product.service */ "./src/app/shared/services/product.service.ts");
-/* harmony import */ var ng2_smart_table__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ng2-smart-table */ "./node_modules/ng2-smart-table/index.js");
-/* harmony import */ var _admin_order_admin_order_component__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./admin-order/admin-order.component */ "./src/app/admin/admin-order/admin-order.component.ts");
-/* harmony import */ var _shared_services_token_service__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ../shared/services/token.service */ "./src/app/shared/services/token.service.ts");
+/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm5/router.js");
+/* harmony import */ var _admin_component__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./admin.component */ "./src/app/admin/admin.component.ts");
+/* harmony import */ var _admin_product_admin_product_component__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./admin-product/admin-product.component */ "./src/app/admin/admin-product/admin-product.component.ts");
+/* harmony import */ var _admin_banner_admin_banner_component__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./admin-banner/admin-banner.component */ "./src/app/admin/admin-banner/admin-banner.component.ts");
+/* harmony import */ var _admin_employee_admin_employee_component__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./admin-employee/admin-employee.component */ "./src/app/admin/admin-employee/admin-employee.component.ts");
+/* harmony import */ var _admin_routing__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./admin.routing */ "./src/app/admin/admin.routing.ts");
+/* harmony import */ var _shared_shared_module__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../shared/shared.module */ "./src/app/shared/shared.module.ts");
+/* harmony import */ var _shared_services_product_service__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ../shared/services/product.service */ "./src/app/shared/services/product.service.ts");
+/* harmony import */ var ng2_smart_table__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ng2-smart-table */ "./node_modules/ng2-smart-table/index.js");
+/* harmony import */ var _admin_order_admin_order_component__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./admin-order/admin-order.component */ "./src/app/admin/admin-order/admin-order.component.ts");
+/* harmony import */ var _shared_services_token_service__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ../shared/services/token.service */ "./src/app/shared/services/token.service.ts");
+/* harmony import */ var _shared_services_sidenav_service__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ../shared/services/sidenav.service */ "./src/app/shared/services/sidenav.service.ts");
 /* harmony import */ var _admin_board_admin_board_module__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ./admin-board/admin-board.module */ "./src/app/admin/admin-board/admin-board.module.ts");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -28573,21 +26992,20 @@ var AdminModule = /** @class */ (function () {
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["NgModule"])({
             imports: [
                 _angular_common__WEBPACK_IMPORTED_MODULE_1__["CommonModule"],
-                _angular_router__WEBPACK_IMPORTED_MODULE_3__["RouterModule"].forChild(_admin_routing__WEBPACK_IMPORTED_MODULE_8__["AdminRoutes"]),
-                _shared_shared_module__WEBPACK_IMPORTED_MODULE_9__["SharedModule"],
-                ng2_smart_table__WEBPACK_IMPORTED_MODULE_11__["Ng2SmartTableModule"],
-                primeng_fileupload__WEBPACK_IMPORTED_MODULE_2__["FileUploadModule"],
+                _angular_router__WEBPACK_IMPORTED_MODULE_2__["RouterModule"].forChild(_admin_routing__WEBPACK_IMPORTED_MODULE_7__["AdminRoutes"]),
+                _shared_shared_module__WEBPACK_IMPORTED_MODULE_8__["SharedModule"],
+                ng2_smart_table__WEBPACK_IMPORTED_MODULE_10__["Ng2SmartTableModule"],
                 _admin_board_admin_board_module__WEBPACK_IMPORTED_MODULE_14__["AdminBoardModule"]
             ],
             declarations: [
-                _admin_component__WEBPACK_IMPORTED_MODULE_4__["AdminComponent"],
-                _admin_product_admin_product_component__WEBPACK_IMPORTED_MODULE_5__["AdminProductComponent"],
-                _admin_banner_admin_banner_component__WEBPACK_IMPORTED_MODULE_6__["AdminBannerComponent"],
-                _admin_employee_admin_employee_component__WEBPACK_IMPORTED_MODULE_7__["AdminEmployeeComponent"],
-                _admin_order_admin_order_component__WEBPACK_IMPORTED_MODULE_12__["AdminOrderComponent"]
+                _admin_component__WEBPACK_IMPORTED_MODULE_3__["AdminComponent"],
+                _admin_product_admin_product_component__WEBPACK_IMPORTED_MODULE_4__["AdminProductComponent"],
+                _admin_banner_admin_banner_component__WEBPACK_IMPORTED_MODULE_5__["AdminBannerComponent"],
+                _admin_employee_admin_employee_component__WEBPACK_IMPORTED_MODULE_6__["AdminEmployeeComponent"],
+                _admin_order_admin_order_component__WEBPACK_IMPORTED_MODULE_11__["AdminOrderComponent"]
             ],
             exports: [],
-            providers: [_shared_services_product_service__WEBPACK_IMPORTED_MODULE_10__["ProductService"], _shared_services_token_service__WEBPACK_IMPORTED_MODULE_13__["TokenService"]]
+            providers: [_shared_services_product_service__WEBPACK_IMPORTED_MODULE_9__["ProductService"], _shared_services_token_service__WEBPACK_IMPORTED_MODULE_12__["TokenService"], _shared_services_sidenav_service__WEBPACK_IMPORTED_MODULE_13__["SidenavService"]]
         })
     ], AdminModule);
     return AdminModule;
@@ -28623,47 +27041,54 @@ __webpack_require__.r(__webpack_exports__);
 
 var AdminRoutes = [
     {
-        path: "admin",
-        component: _admin_component__WEBPACK_IMPORTED_MODULE_0__["AdminComponent"],
+        path: "admin", component: _admin_component__WEBPACK_IMPORTED_MODULE_0__["AdminComponent"],
         children: [
             {
-                path: "",
-                component: _admin_component__WEBPACK_IMPORTED_MODULE_0__["AdminComponent"],
-                canActivate: [_shared_services_admin_gaurd__WEBPACK_IMPORTED_MODULE_6__["AdminGaurd"]]
+                path: "", component: _admin_component__WEBPACK_IMPORTED_MODULE_0__["AdminComponent"], canActivate: [_shared_services_admin_gaurd__WEBPACK_IMPORTED_MODULE_6__["AdminGaurd"]]
             },
             {
-                path: "product",
-                component: _admin_product_admin_product_component__WEBPACK_IMPORTED_MODULE_1__["AdminProductComponent"],
-                canActivate: [_shared_services_admin_gaurd__WEBPACK_IMPORTED_MODULE_6__["AdminGaurd"]],
+                path: "product", component: _admin_product_admin_product_component__WEBPACK_IMPORTED_MODULE_1__["AdminProductComponent"], canActivate: [_shared_services_admin_gaurd__WEBPACK_IMPORTED_MODULE_6__["AdminGaurd"]],
                 outlet: "adminOutlet"
             },
             {
-                path: "order",
-                component: _admin_order_admin_order_component__WEBPACK_IMPORTED_MODULE_4__["AdminOrderComponent"],
-                canActivate: [_shared_services_admin_gaurd__WEBPACK_IMPORTED_MODULE_6__["AdminGaurd"]],
+                path: "order", component: _admin_order_admin_order_component__WEBPACK_IMPORTED_MODULE_4__["AdminOrderComponent"], canActivate: [_shared_services_admin_gaurd__WEBPACK_IMPORTED_MODULE_6__["AdminGaurd"]],
                 outlet: "adminOutlet"
             },
             {
-                path: "banner",
-                component: _admin_banner_admin_banner_component__WEBPACK_IMPORTED_MODULE_2__["AdminBannerComponent"],
-                canActivate: [_shared_services_admin_gaurd__WEBPACK_IMPORTED_MODULE_6__["AdminGaurd"]],
+                path: "banner", component: _admin_banner_admin_banner_component__WEBPACK_IMPORTED_MODULE_2__["AdminBannerComponent"], canActivate: [_shared_services_admin_gaurd__WEBPACK_IMPORTED_MODULE_6__["AdminGaurd"]],
                 outlet: "adminOutlet"
             },
             {
-                path: "board",
-                component: _admin_board_admin_board_component__WEBPACK_IMPORTED_MODULE_5__["AdminBoardComponent"],
-                canActivate: [_shared_services_admin_gaurd__WEBPACK_IMPORTED_MODULE_6__["AdminGaurd"]],
+                path: "board", component: _admin_board_admin_board_component__WEBPACK_IMPORTED_MODULE_5__["AdminBoardComponent"], canActivate: [_shared_services_admin_gaurd__WEBPACK_IMPORTED_MODULE_6__["AdminGaurd"]],
                 outlet: "adminOutlet"
             },
             {
-                path: "employee",
-                component: _admin_employee_admin_employee_component__WEBPACK_IMPORTED_MODULE_3__["AdminEmployeeComponent"],
-                canActivate: [_shared_services_admin_gaurd__WEBPACK_IMPORTED_MODULE_6__["AdminGaurd"]],
+                path: "employee", component: _admin_employee_admin_employee_component__WEBPACK_IMPORTED_MODULE_3__["AdminEmployeeComponent"], canActivate: [_shared_services_admin_gaurd__WEBPACK_IMPORTED_MODULE_6__["AdminGaurd"]],
                 outlet: "adminOutlet"
             }
         ]
     }
 ];
+
+
+/***/ }),
+
+/***/ "./src/app/shared/models/admin.ts":
+/*!****************************************!*\
+  !*** ./src/app/shared/models/admin.ts ***!
+  \****************************************/
+/*! exports provided: Admin */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Admin", function() { return Admin; });
+var Admin = /** @class */ (function () {
+    function Admin() {
+    }
+    return Admin;
+}());
+
 
 
 /***/ }),
@@ -28792,7 +27217,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ProductQnaService", function() { return ProductQnaService; });
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
 /* harmony import */ var _angular_common_http__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/common/http */ "./node_modules/@angular/common/fesm5/http.js");
-/* harmony import */ var _product_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./product.service */ "./src/app/shared/services/product.service.ts");
+/* harmony import */ var rxjs_Observable__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! rxjs/Observable */ "./node_modules/rxjs-compat/_esm5/Observable.js");
+/* harmony import */ var _product_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./product.service */ "./src/app/shared/services/product.service.ts");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -28802,6 +27228,7 @@ var __decorate = (undefined && undefined.__decorate) || function (decorators, ta
 var __metadata = (undefined && undefined.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
+
 
 
 
@@ -28817,15 +27244,47 @@ var ProductQnaService = /** @class */ (function () {
     ProductQnaService.prototype.getProductQna = function () {
         return this.http.get(this.url + this.p_code);
     };
-    ProductQnaService.prototype.setQnaNo = function (pq_no) {
+    ProductQnaService.prototype.setProductQnaNo = function (pq_no) {
         this.pq_no = pq_no;
+    };
+    ProductQnaService.prototype.setProductQnaObject = function (productQna_update) {
+        this.productQna_update = productQna_update;
+    };
+    ProductQnaService.prototype.getProductQnaObject = function () {
+        return this.productQna_update;
+    };
+    ProductQnaService.prototype.incrementProductQnaHits = function (productQna) {
+        return this.http.put(this.url + this.pq_no, productQna);
+    };
+    ProductQnaService.prototype.setProductQnaNoObject = function (productQna) {
+        var _this = this;
+        this.incrementProductQnaHits(productQna).subscribe(function () {
+            _this.productQna = productQna;
+        });
+    };
+    ProductQnaService.prototype.getProductQnaNoObject = function () {
+        return this.http.get(this.url + "detail/" + this.pq_no);
+    };
+    ProductQnaService.prototype.insertProductQna = function (productQna) {
+        return this.http.post(this.url + "write", productQna);
+    };
+    ProductQnaService.prototype.updateProductQna = function (productQna_update) {
+        return this.http.put(this.url + "update", productQna_update)
+            .catch(this.handleError);
+    };
+    ProductQnaService.prototype.deleteProductQna = function (productQna) {
+        return this.http.post(this.url + "delete", productQna);
+    };
+    ProductQnaService.prototype.handleError = function (error) {
+        console.error(error.message || error);
+        return rxjs_Observable__WEBPACK_IMPORTED_MODULE_2__["Observable"].throw(error.status);
     };
     ProductQnaService = __decorate([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Injectable"])({
             providedIn: 'root'
         }),
         __metadata("design:paramtypes", [_angular_common_http__WEBPACK_IMPORTED_MODULE_1__["HttpClient"],
-            _product_service__WEBPACK_IMPORTED_MODULE_2__["ProductService"]])
+            _product_service__WEBPACK_IMPORTED_MODULE_3__["ProductService"]])
     ], ProductQnaService);
     return ProductQnaService;
 }());
@@ -28846,7 +27305,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ReviewService", function() { return ReviewService; });
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
 /* harmony import */ var _angular_common_http__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/common/http */ "./node_modules/@angular/common/fesm5/http.js");
-/* harmony import */ var _product_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./product.service */ "./src/app/shared/services/product.service.ts");
+/* harmony import */ var rxjs_Observable__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! rxjs/Observable */ "./node_modules/rxjs-compat/_esm5/Observable.js");
+/* harmony import */ var _product_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./product.service */ "./src/app/shared/services/product.service.ts");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -28856,6 +27316,7 @@ var __decorate = (undefined && undefined.__decorate) || function (decorators, ta
 var __metadata = (undefined && undefined.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
+
 
 
 
@@ -28874,11 +27335,43 @@ var ReviewService = /** @class */ (function () {
     ReviewService.prototype.setProductCode = function () {
         this.p_code = this.productService.getProductCode();
     };
+    ReviewService.prototype.setReviewNoObject = function (review) {
+        var _this = this;
+        this.incrementReviewHits(review).subscribe(function () {
+            _this.review = review;
+        });
+    };
+    ReviewService.prototype.setReviewObject = function (review_update) {
+        this.review_update = review_update;
+    };
+    ReviewService.prototype.getReviewObject = function () {
+        return this.review_update;
+    };
+    ReviewService.prototype.incrementReviewHits = function (review) {
+        return this.http.put(this.url + this.rev_no, review);
+    };
+    ReviewService.prototype.getReviewNoObject = function () {
+        return this.http.get(this.url + "detail/" + this.rev_no);
+    };
+    ReviewService.prototype.insertReview = function (review) {
+        return this.http.post(this.url + "write", review);
+    };
+    ReviewService.prototype.updateReview = function (review_update) {
+        return this.http.post(this.url + "update", review_update)
+            .catch(this.handleError);
+    };
+    ReviewService.prototype.deleteReview = function (review) {
+        return this.http.post(this.url + "delete", review);
+    };
+    ReviewService.prototype.handleError = function (error) {
+        console.error(error.message || error);
+        return rxjs_Observable__WEBPACK_IMPORTED_MODULE_2__["Observable"].throw(error.status);
+    };
     ReviewService = __decorate([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Injectable"])({
             providedIn: 'root'
         }),
-        __metadata("design:paramtypes", [_angular_common_http__WEBPACK_IMPORTED_MODULE_1__["HttpClient"], _product_service__WEBPACK_IMPORTED_MODULE_2__["ProductService"]])
+        __metadata("design:paramtypes", [_angular_common_http__WEBPACK_IMPORTED_MODULE_1__["HttpClient"], _product_service__WEBPACK_IMPORTED_MODULE_3__["ProductService"]])
     ], ReviewService);
     return ReviewService;
 }());
