@@ -284,6 +284,22 @@ public class MainController {
 		return noticeObj;
 	}
 	
+	@PutMapping(value = "/notice.update")
+	public void updateNotice(@RequestBody Map notice) {
+		ArrayList noticeList = (ArrayList)notice.get("updateNotice");
+		Map noticeMap;
+		Notice noticeObj = new Notice();
+		for (int i=0; i < noticeList.size(); i++) {
+			noticeMap = (Map)noticeList.get(i);
+			System.out.println(noticeMap);
+			System.out.println(noticeMap.get("rowStatus").toString());
+			if(noticeMap.get("rowStatus").toString().equals("U")) {
+				noticeObj.setN_no((int)noticeMap.get("nno"));
+				noticeService.editNotice(noticeObj);
+			}
+		}
+	}
+	
 	@DeleteMapping(value = "/notice.delete")
 	public void removeNotice(@RequestBody Map rNotice) {
 		ArrayList noticeList = new ArrayList();
