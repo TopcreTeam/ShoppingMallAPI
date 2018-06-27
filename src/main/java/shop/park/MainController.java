@@ -301,16 +301,21 @@ public class MainController {
 	}
 	
 	@DeleteMapping(value = "/notice.delete")
-	public void removeNotice(@RequestBody Map rNotice) {
+	public Map removeNotice(@RequestBody Map notice) {
 		ArrayList noticeList = new ArrayList();
-		noticeList = (ArrayList) rNotice.get("removes");
-		Map rowData;
-		for(int i=0; i < noticeList.size(); i++) {
-			rowData = (Map)noticeList.get(i);
-//			System.out.println(rowData.get("col1"));
-			int removeNotice = (int)rowData.get("col1");
-			noticeService.deleteNotice(removeNotice);
+		noticeList = (ArrayList) notice.get("removeNotice");
+		Map noticeMap;
+		for(int i = 0; i < noticeList.size(); i++) {
+			noticeMap = (Map)noticeList.get(i);
+			if(noticeMap.get("rowStatus").toString().equals("D")) {
+				noticeService.deleteNotice((int)noticeMap.get("nno"));
+			}
 		}
+		
+		Map newListMap = new HashMap();
+		ArrayList newList = (ArrayList) noticeService.selectAllNotice();
+		newListMap.put("noticeList", newList);
+		return newListMap;
 	}
 
 	@PostMapping(value = "/notice/saveAndSelectMember.do")
