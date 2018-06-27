@@ -1,6 +1,7 @@
 package shop.park;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -285,30 +286,34 @@ public class MainController {
 	}
 	
 	@PutMapping(value = "/notice.update")
-	public void updateNotice(@RequestBody Map notice) {
-		ArrayList noticeList = (ArrayList)notice.get("updateNotice");
+	public Map updateNotice(@RequestBody Map notice) {
+		ArrayList noticeList = (ArrayList) notice.get("noticeList");
 		Map noticeMap;
 		Notice noticeObj = new Notice();
-		for (int i=0; i < noticeList.size(); i++) {
+		for(int i = 0; i < noticeList.size(); i++) {
 			noticeMap = (Map)noticeList.get(i);
-			System.out.println(noticeMap);
-			System.out.println(noticeMap.get("rowStatus").toString());
 			if(noticeMap.get("rowStatus").toString().equals("U")) {
-				noticeObj.setN_no((int)noticeMap.get("nno"));
+				noticeObj.setN_no((int)noticeMap.get("n_no"));
+				
 				noticeService.editNotice(noticeObj);
 			}
 		}
+		
+		Map newListMap = new HashMap();
+		ArrayList newList = (ArrayList) noticeService.selectAllNotice();
+		newListMap.put("noticeList", newList);
+		return newListMap;
 	}
 	
 	@DeleteMapping(value = "/notice.delete")
 	public Map removeNotice(@RequestBody Map notice) {
-		ArrayList noticeList = new ArrayList();
-		noticeList = (ArrayList) notice.get("removeNotice");
+		ArrayList noticeList = (ArrayList) notice.get("noticeList");
+		System.out.println(noticeList);
 		Map noticeMap;
 		for(int i = 0; i < noticeList.size(); i++) {
 			noticeMap = (Map)noticeList.get(i);
 			if(noticeMap.get("rowStatus").toString().equals("D")) {
-				noticeService.deleteNotice((int)noticeMap.get("nno"));
+				noticeService.deleteNotice((int)noticeMap.get("n_no"));
 			}
 		}
 		
