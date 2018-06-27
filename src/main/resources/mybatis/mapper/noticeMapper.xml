@@ -29,7 +29,7 @@
 	</select>
 	
 	<update id="updateNoticeHits" parameterType="long">
-		UPDATE tm_notice SET n_hits=#{n_hits}
+		UPDATE tm_notice SET n_hits=#{n_hits} WHERE n_no=#{n_no}
 	</update>
 	
 	

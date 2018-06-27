@@ -18,6 +18,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import shop.son.productqna.model.ProductQna;
 import shop.son.productqna.service.ProductQnaService;
+import shop.son.review.exception.ReviewNotFoundException;
 import shop.son.review.model.Review;
 
 @RestController
@@ -35,12 +36,12 @@ public class ProductQnaController {
 
 	}
 	
-	@DeleteMapping("/delete")
+	@PostMapping("/delete")
 	public int deleteProductQna(@RequestBody ProductQna productQna) {
 		return productQnaService.deleteProductQna(productQna);
 	}
 	
-	@PutMapping("/edit")
+	@PutMapping("/update")
 	public int editProductQna(@RequestBody ProductQna productQna) {
 		return productQnaService.editProductQna(productQna); 
 	}
@@ -53,6 +54,15 @@ public class ProductQnaController {
 		return new ResponseEntity<ProductQna>(HttpStatus.CREATED);
 		
 	}
+	
+	
+	@RequestMapping(value = "/detail/{pq_no}", method = RequestMethod.GET)
+	public ProductQna selectByProductQnaNo(@PathVariable("pq_no") int pq_no ) throws ReviewNotFoundException{
+		ProductQna productQna = productQnaService.selectByProductQnaNo(pq_no);
+		return productQna;
+	}
+	
+	
 	
 	@PutMapping(value = "/{pq_no}")
 	public ResponseEntity<?> getByProductQnaNo(@PathVariable("pq_no")  int pq_no, @RequestBody ProductQna productQna) {
