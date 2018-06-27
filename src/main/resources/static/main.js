@@ -10,27 +10,36 @@
 var map = {
 	"./admin/admin.module": [
 		"./src/app/admin/admin.module.ts",
-		"admin-admin-module~notice-notice-module~product-product-module~user-user-module",
+		"admin-admin-module~index-index-module~notice-notice-module~product-product-module~user-user-module",
 		"common",
 		"admin-admin-module"
 	],
+	"./index/index.module": [
+		"./src/app/index/index.module.ts",
+		"admin-admin-module~index-index-module~notice-notice-module~product-product-module~user-user-module",
+		"index-index-module~notice-notice-module~product-product-module",
+		"index-index-module~notice-notice-module",
+		"common",
+		"index-index-module"
+	],
 	"./notice/notice.module": [
 		"./src/app/notice/notice.module.ts",
-		"admin-admin-module~notice-notice-module~product-product-module~user-user-module",
+		"admin-admin-module~index-index-module~notice-notice-module~product-product-module~user-user-module",
+		"index-index-module~notice-notice-module~product-product-module",
 		"notice-notice-module~user-user-module",
-		"notice-notice-module~product-product-module",
+		"index-index-module~notice-notice-module",
 		"common",
 		"notice-notice-module"
 	],
 	"./product/product.module": [
 		"./src/app/product/product.module.ts",
-		"admin-admin-module~notice-notice-module~product-product-module~user-user-module",
-		"notice-notice-module~product-product-module",
+		"admin-admin-module~index-index-module~notice-notice-module~product-product-module~user-user-module",
+		"index-index-module~notice-notice-module~product-product-module",
 		"common"
 	],
 	"./user/user.module": [
 		"./src/app/user/user.module.ts",
-		"admin-admin-module~notice-notice-module~product-product-module~user-user-module",
+		"admin-admin-module~index-index-module~notice-notice-module~product-product-module~user-user-module",
 		"notice-notice-module~user-user-module",
 		"common"
 	]
@@ -75,7 +84,7 @@ module.exports = ""
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = ""
+module.exports = "<!-- Carousel -->\r\n<div class=\"container\">\r\n  현재 배너\r\n  <div class=\"owl-carousel banner owl-theme\">\r\n    <div class=\"item\">\r\n      <img class=\"d-block w-100\" src=\"../../assets/img/banner_1.jpg\" alt=\"First slide\">\r\n    </div>\r\n    <div class=\"item\">\r\n      <img class=\"d-block w-100\" src=\"../../assets/img/banner_2.jpg\" alt=\"Second slide\">\r\n    </div>\r\n    <div class=\"item\">\r\n      <img class=\"d-block w-100\" src=\"../../assets/img/banner_3.jpg\" alt=\"Third slide\">\r\n    </div>\r\n    <div class=\"item\">\r\n      <img class=\"d-block w-100\" src=\"../../assets/img/banner_4.jpg\" alt=\"Fourth slide\">\r\n    </div>\r\n  </div>\r\n</div>\r\n규격:이미지 파일의 이름은 banner_1~banner_4 까지 가능합니다, 파일 형식은 jpg로 해주셔야됩니다.\r\n<app-file-upload></app-file-upload>\r\n"
 
 /***/ }),
 
@@ -160,6 +169,7 @@ module.exports = "<label style=\"padding: 5px\">게시판 관리</label>\r\n<sel
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "AdminBoardComponent", function() { return AdminBoardComponent; });
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var _shared_services_sidenav_service__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../shared/services/sidenav.service */ "./src/app/shared/services/sidenav.service.ts");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -170,11 +180,14 @@ var __metadata = (undefined && undefined.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 
+
 var AdminBoardComponent = /** @class */ (function () {
-    function AdminBoardComponent() {
+    function AdminBoardComponent(sideNavService) {
+        this.sideNavService = sideNavService;
     }
     AdminBoardComponent.prototype.selectchange = function (args) {
         this.currentBoard = args.target.value;
+        this.sideNavService.bodyMarginReset();
     };
     AdminBoardComponent.prototype.ngOnInit = function () {
     };
@@ -184,7 +197,7 @@ var AdminBoardComponent = /** @class */ (function () {
             template: __webpack_require__(/*! ./admin-board.component.html */ "./src/app/admin/admin-board/admin-board.component.html"),
             styles: [__webpack_require__(/*! ./admin-board.component.css */ "./src/app/admin/admin-board/admin-board.component.css")]
         }),
-        __metadata("design:paramtypes", [])
+        __metadata("design:paramtypes", [_shared_services_sidenav_service__WEBPACK_IMPORTED_MODULE_1__["SidenavService"]])
     ], AdminBoardComponent);
     return AdminBoardComponent;
 }());
@@ -282,7 +295,7 @@ module.exports = ""
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<ng2-smart-table\r\n[settings]=\"settings\"\r\n[source]=\"faqList\"\r\n(create)=\"createFaq()\"\r\n(edit)=\"updateFaq($event)\"\r\n></ng2-smart-table>\r\n<div id=\"mySidenav\" class=\"sidenav\">\r\n  <a href=\"javascript:void(0)\" class=\"closebtn\" (click)=\"closeNav()\">&times;</a>\r\n  <h1 id=\"navState\">{{navState}}</h1>\r\n  <table class=\"table\" cellspacing=\"0\" style=\"max-height: 28px\">\r\n    <tbody>\r\n      <tr>\r\n        <th class=\"cyan lighten-4\">제목</th>\r\n        <td colspan=\"4\">\r\n          <input type=\"text\" id=\"exampleForm2\" class=\"form-control\" required [(ngModel)]=\"navFaq.f_title\" [ngModelOptions]=\"{standalone: true}\" />\r\n        </td>\r\n      </tr>\r\n      <tr>\r\n        <th class=\"cyan lighten-4\">카테고리</th>\r\n        <td><select class=\"mdb-select\" [(ngModel)]=\"this.navFaq.f_category\" name=\"navFaq_f_cate\" id=\"navFaq_f_cate\" >\r\n                  <option value=\"\" disabled selected>FAQ 카테고리를 선택해주세요</option>\r\n                  <option value=\"배송\">&nbsp;배송</option>\r\n                  <option value=\"상품\">&nbsp;상품</option>\r\n                  <option value=\"행사\">&nbsp;행사</option>\r\n                </select></td>\r\n                <th class=\"cyan lighten-4\">번호</th>\r\n                <td *ngIf=\"navState==='FAQ 글쓰기'\">{{nextFaqNo}}</td>\r\n                <td *ngIf=\"navState==='FAQ 수정'\">{{ navFaq?.f_no }}</td>\r\n      </tr>\r\n      <tr>\r\n        <th class=\"cyan lighten-4\">작성자</th>\r\n        <td colspan=\"4\">\r\n          {{ navFaq?.a_id}}\r\n        </td>\r\n      </tr>\r\n      <tr>\r\n        <th class=\"cyan lighten-4\">작성일</th>\r\n        <td>{{ navFaq?.f_date | date:'yyyy-MM-dd' }}</td>\r\n        <th class=\"cyan lighten-4\">조회수</th>\r\n        <td>{{ navFaq?.f_hits }}</td>\r\n      </tr>\r\n    </tbody>\r\n  </table>\r\n  <li class=\"list-group-item\"> FAQ 내용\r\n    <span style=\"margin-left:15px; color:crimson\">\r\n      <!-- {{navFaq.q_content}} -->\r\n      <textarea name=\"faqContent\" rows=\"8\" cols=\"150\" placeholder=\"내용을 입력해주세요.\" class=\"form-control\" required [(ngModel)]=\"navFaq.f_content\" [ngModelOptions]=\"{standalone: true}\"></textarea>\r\n    </span>\r\n  </li>\r\n  <button type=\"button\" class=\"btn btn-primary\" (click)=\"confirmCreate()\" *ngIf=\"navState==='FAQ 글쓰기'\">등록</button>\r\n  <button type=\"button\" class=\"btn btn-primary\" (click)=\"confirmEdit()\" *ngIf=\"navState==='FAQ 수정'\">수정</button>\r\n  <button type=\"button\" class=\"btn btn-primary\" (click)=\"confirmDelete()\" *ngIf=\"navState==='FAQ 수정'\">삭제</button>\r\n  <button type=\"button\" class=\"btn btn-primary\" (click)=\"closeNav()\">취소</button>\r\n</div>\r\n"
+module.exports = "<ng2-smart-table\r\n[settings]=\"settings\"\r\n[source]=\"faqList\"\r\n(create)=\"createFaq()\"\r\n(edit)=\"updateFaq($event)\"\r\n></ng2-smart-table>\r\n<div id=\"mySidenav\" class=\"sidenav\">\r\n  <a href=\"javascript:void(0)\" class=\"closebtn\" (click)=\"sideNavService.closeNav()\">&times;</a>\r\n  <h1 id=\"navState\">{{navState}}</h1>\r\n  <table class=\"table\" cellspacing=\"0\" style=\"max-height: 28px\">\r\n    <tbody>\r\n      <tr>\r\n        <th class=\"cyan lighten-4\">제목</th>\r\n        <td colspan=\"4\">\r\n          <input type=\"text\" id=\"exampleForm2\" class=\"form-control\" required [(ngModel)]=\"navFaq.f_title\" [ngModelOptions]=\"{standalone: true}\" />\r\n        </td>\r\n      </tr>\r\n      <tr>\r\n        <th class=\"cyan lighten-4\">카테고리</th>\r\n        <td><select class=\"mdb-select\" [(ngModel)]=\"this.navFaq.f_category\" name=\"navFaq_f_cate\" id=\"navFaq_f_cate\" >\r\n                  <option value=\"\" disabled selected>FAQ 카테고리를 선택해주세요</option>\r\n                  <option value=\"배송\">&nbsp;배송</option>\r\n                  <option value=\"상품\">&nbsp;상품</option>\r\n                  <option value=\"행사\">&nbsp;행사</option>\r\n                </select></td>\r\n                <th class=\"cyan lighten-4\">번호</th>\r\n                <td *ngIf=\"navState==='FAQ 글쓰기'\">{{nextFaqNo}}</td>\r\n                <td *ngIf=\"navState==='FAQ 수정'\">{{ navFaq?.f_no }}</td>\r\n      </tr>\r\n      <tr>\r\n        <th class=\"cyan lighten-4\">작성자</th>\r\n        <td colspan=\"4\">\r\n          {{ navFaq?.a_id}}\r\n        </td>\r\n      </tr>\r\n      <tr>\r\n        <th class=\"cyan lighten-4\">작성일</th>\r\n        <td>{{ navFaq?.f_date | date:'yyyy-MM-dd' }}</td>\r\n        <th class=\"cyan lighten-4\">조회수</th>\r\n        <td>{{ navFaq?.f_hits }}</td>\r\n      </tr>\r\n    </tbody>\r\n  </table>\r\n  <li class=\"list-group-item\"> FAQ 내용\r\n    <span style=\"margin-left:15px; color:crimson\">\r\n      <!-- {{navFaq.q_content}} -->\r\n      <textarea name=\"faqContent\" rows=\"8\" cols=\"150\" placeholder=\"내용을 입력해주세요.\" class=\"form-control\" required [(ngModel)]=\"navFaq.f_content\" [ngModelOptions]=\"{standalone: true}\"></textarea>\r\n    </span>\r\n  </li>\r\n  <button type=\"button\" class=\"btn btn-primary\" (click)=\"confirmCreate()\" *ngIf=\"navState==='FAQ 글쓰기'\">등록</button>\r\n  <button type=\"button\" class=\"btn btn-primary\" (click)=\"confirmEdit()\" *ngIf=\"navState==='FAQ 수정'\">수정</button>\r\n  <button type=\"button\" class=\"btn btn-primary\" (click)=\"confirmDelete()\" *ngIf=\"navState==='FAQ 수정'\">삭제</button>\r\n  <button type=\"button\" class=\"btn btn-primary\" (click)=\"sideNavService.closeNav()\">취소</button>\r\n</div>\r\n"
 
 /***/ }),
 
@@ -301,6 +314,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _shared_services_faq_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../shared/services/faq.service */ "./src/app/shared/services/faq.service.ts");
 /* harmony import */ var _angular_common_http__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/common/http */ "./node_modules/@angular/common/fesm5/http.js");
 /* harmony import */ var _shared_services_token_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../../shared/services/token.service */ "./src/app/shared/services/token.service.ts");
+/* harmony import */ var _shared_services_sidenav_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../../shared/services/sidenav.service */ "./src/app/shared/services/sidenav.service.ts");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -315,9 +329,11 @@ var __metadata = (undefined && undefined.__metadata) || function (k, v) {
 
 
 
+
 var AdminFAQComponent = /** @class */ (function () {
-    function AdminFAQComponent(tokenService, FaqService, http) {
+    function AdminFAQComponent(tokenService, sideNavService, FaqService, http) {
         this.tokenService = tokenService;
+        this.sideNavService = sideNavService;
         this.FaqService = FaqService;
         this.http = http;
         this.settings = {
@@ -342,19 +358,24 @@ var AdminFAQComponent = /** @class */ (function () {
             },
             columns: {
                 f_no: {
-                    title: '번호'
+                    title: '번호',
+                    width: '5%'
                 },
                 f_category: {
-                    title: '카테고리'
+                    title: '카테고리',
+                    width: '5%'
                 },
                 f_title: {
-                    title: '제목'
+                    title: '제목',
+                    width: '30%'
                 },
                 a_id: {
-                    title: '작성자'
+                    title: '작성자',
+                    width: '10%'
                 },
                 f_hits: {
-                    title: '조회수'
+                    title: '조회수',
+                    width: '5%'
                 },
                 f_date: {
                     title: '작성날짜'
@@ -377,7 +398,7 @@ var AdminFAQComponent = /** @class */ (function () {
         this.navState = 'FAQ 수정';
         this.editDataBinding(event);
         this.navFaq = this.editFaq;
-        this.openNav();
+        this.sideNavService.openNav();
     };
     AdminFAQComponent.prototype.createFaq = function () {
         this.navState = 'FAQ 글쓰기';
@@ -385,7 +406,7 @@ var AdminFAQComponent = /** @class */ (function () {
         this.navFaq.a_id = this.tokenService.getToken("adminToken").a_id;
         this.navFaq.f_date = new Date();
         this.navFaq.f_hits = 0;
-        this.openNav();
+        this.sideNavService.openNav();
     };
     AdminFAQComponent.prototype.confirmCreate = function () {
         var _this = this;
@@ -427,7 +448,7 @@ var AdminFAQComponent = /** @class */ (function () {
                 console.log(res);
                 //event.confirm.resolve(event.newData);
                 alert("삭제 됐습니다.");
-                _this.closeNav();
+                _this.sideNavService.closeNav();
                 _this.ngOnInit();
             }, function (err) {
                 if (err.error instanceof Error) {
@@ -441,14 +462,6 @@ var AdminFAQComponent = /** @class */ (function () {
         else {
             return false;
         }
-    };
-    AdminFAQComponent.prototype.openNav = function () {
-        document.getElementById("mySidenav").style.width = "650px";
-        document.body.style.marginLeft = "650px";
-    };
-    AdminFAQComponent.prototype.closeNav = function () {
-        document.getElementById("mySidenav").style.width = "0";
-        document.body.style.marginLeft = "0";
     };
     AdminFAQComponent.prototype.navFaqReset = function () {
         this.navFaq = this.editFaq;
@@ -469,6 +482,7 @@ var AdminFAQComponent = /** @class */ (function () {
             styles: [__webpack_require__(/*! ./admin-faq.component.css */ "./src/app/admin/admin-board/admin-faq/admin-faq.component.css")]
         }),
         __metadata("design:paramtypes", [_shared_services_token_service__WEBPACK_IMPORTED_MODULE_4__["TokenService"],
+            _shared_services_sidenav_service__WEBPACK_IMPORTED_MODULE_5__["SidenavService"],
             _shared_services_faq_service__WEBPACK_IMPORTED_MODULE_2__["FaqService"],
             _angular_common_http__WEBPACK_IMPORTED_MODULE_3__["HttpClient"]])
     ], AdminFAQComponent);
@@ -497,7 +511,7 @@ module.exports = ""
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<ng2-smart-table\r\n[settings]=\"settings\"\r\n[source]=\"noticeList\"\r\n(create)=\"createNotice()\"\r\n(edit)=\"updateNotice($event)\"\r\n></ng2-smart-table>\r\n<div id=\"mySidenav\" class=\"sidenav\">\r\n  <a href=\"javascript:void(0)\" class=\"closebtn\" (click)=\"closeNav()\">&times;</a>\r\n  <h1 id=\"navState\">{{navState}}</h1>\r\n  <table class=\"table\" cellspacing=\"0\" style=\"max-height: 28px\">\r\n    <tbody>\r\n      <tr>\r\n        <th class=\"cyan lighten-4\">제목</th>\r\n        <td colspan=\"4\">\r\n          <input type=\"text\" id=\"exampleForm2\" class=\"form-control\" required [(ngModel)]=\"navNotice.n_title\" [ngModelOptions]=\"{standalone: true}\" />\r\n        </td>\r\n      </tr>\r\n      <tr>\r\n        <th class=\"cyan lighten-4\">카테고리</th>\r\n        <td><select class=\"mdb-select\" [(ngModel)]=\"this.navNotice.n_category\" name=\"navProduct_n_cate\" id=\"navProduct_n_cate\" >\r\n                  <option value=\"\" disabled selected>공지사항 카테고리를 선택해주세요</option>\r\n                  <option value=\"공지\">&nbsp;공지</option>\r\n                  <option value=\"배송\">&nbsp;배송</option>\r\n                  <option value=\"상품\">&nbsp;상품</option>\r\n                  <option value=\"행사\">&nbsp;행사</option>\r\n                  <option value=\"긴급\">&nbsp;긴급</option>\r\n                </select></td>\r\n                <th class=\"cyan lighten-4\">번호</th>\r\n                <td *ngIf=\"navState==='공지사항 글쓰기'\">{{nextNoticeNo}}</td>\r\n                <td *ngIf=\"navState==='공지사항 수정'\">{{ navNotice?.n_no }}</td>\r\n      </tr>\r\n      <tr>\r\n        <th class=\"cyan lighten-4\">작성자</th>\r\n        <td colspan=\"4\">\r\n          {{ navNotice?.a_id}}\r\n        </td>\r\n      </tr>\r\n      <tr>\r\n        <th class=\"cyan lighten-4\">작성일</th>\r\n        <td>{{ navNotice?.n_date | date:'yyyy-MM-dd' }}</td>\r\n        <th class=\"cyan lighten-4\">조회수</th>\r\n        <td>{{ navNotice?.n_hits }}</td>\r\n      </tr>\r\n    </tbody>\r\n  </table>\r\n  <li class=\"list-group-item\"> 공지사항 내용\r\n    <span style=\"margin-left:15px; color:crimson\">\r\n      <!-- {{navNotice.q_content}} -->\r\n      <textarea name=\"NoticeContent\" rows=\"8\" cols=\"150\" placeholder=\"내용을 입력해주세요.\" class=\"form-control\" required [(ngModel)]=\"navNotice.n_content\" [ngModelOptions]=\"{standalone: true}\"></textarea>\r\n    </span>\r\n  </li>\r\n  <button type=\"button\" class=\"btn btn-primary\" (click)=\"confirmCreate()\" *ngIf=\"navState==='공지사항 글쓰기'\">등록</button>\r\n  <button type=\"button\" class=\"btn btn-primary\" (click)=\"confirmEdit()\" *ngIf=\"navState==='공지사항 수정'\">수정</button>\r\n  <button type=\"button\" class=\"btn btn-primary\" (click)=\"confirmDelete()\" *ngIf=\"navState==='공지사항 수정'\">삭제</button>\r\n  <button type=\"button\" class=\"btn btn-primary\" (click)=\"closeNav()\">취소</button>\r\n</div>\r\n"
+module.exports = "<ng2-smart-table\r\n[settings]=\"settings\"\r\n[source]=\"noticeList\"\r\n(create)=\"createNotice()\"\r\n(edit)=\"updateNotice($event)\"\r\n></ng2-smart-table>\r\n<div id=\"mySidenav\" class=\"sidenav\">\r\n  <a href=\"javascript:void(0)\" class=\"closebtn\" (click)=\"sideNavService.closeNav()\">&times;</a>\r\n  <h1 id=\"navState\">{{navState}}</h1>\r\n  <table class=\"table\" cellspacing=\"0\" style=\"max-height: 28px\">\r\n    <tbody>\r\n      <tr>\r\n        <th class=\"cyan lighten-4\">제목</th>\r\n        <td colspan=\"4\">\r\n          <input type=\"text\" id=\"exampleForm2\" class=\"form-control\" required [(ngModel)]=\"navNotice.n_title\" [ngModelOptions]=\"{standalone: true}\" />\r\n        </td>\r\n      </tr>\r\n      <tr>\r\n        <th class=\"cyan lighten-4\">카테고리</th>\r\n        <td><select class=\"mdb-select\" [(ngModel)]=\"this.navNotice.n_category\" name=\"navProduct_n_cate\" id=\"navProduct_n_cate\" >\r\n                  <option value=\"\" disabled selected>공지사항 카테고리를 선택해주세요</option>\r\n                  <option value=\"공지\">&nbsp;공지</option>\r\n                  <option value=\"배송\">&nbsp;배송</option>\r\n                  <option value=\"상품\">&nbsp;상품</option>\r\n                  <option value=\"행사\">&nbsp;행사</option>\r\n                  <option value=\"긴급\">&nbsp;긴급</option>\r\n                </select></td>\r\n                <th class=\"cyan lighten-4\">번호</th>\r\n                <td *ngIf=\"navState==='공지사항 글쓰기'\">{{nextNoticeNo}}</td>\r\n                <td *ngIf=\"navState==='공지사항 수정'\">{{ navNotice?.n_no }}</td>\r\n      </tr>\r\n      <tr>\r\n        <th class=\"cyan lighten-4\">작성자</th>\r\n        <td colspan=\"4\">\r\n          {{ navNotice?.a_id}}\r\n        </td>\r\n      </tr>\r\n      <tr>\r\n        <th class=\"cyan lighten-4\">작성일</th>\r\n        <td>{{ navNotice?.n_date | date:'yyyy-MM-dd' }}</td>\r\n        <th class=\"cyan lighten-4\">조회수</th>\r\n        <td>{{ navNotice?.n_hits }}</td>\r\n      </tr>\r\n    </tbody>\r\n  </table>\r\n  <li class=\"list-group-item\"> 공지사항 내용\r\n    <span style=\"margin-left:15px; color:crimson\">\r\n      <!-- {{navNotice.q_content}} -->\r\n      <textarea name=\"NoticeContent\" rows=\"8\" cols=\"150\" placeholder=\"내용을 입력해주세요.\" class=\"form-control\" required [(ngModel)]=\"navNotice.n_content\" [ngModelOptions]=\"{standalone: true}\"></textarea>\r\n    </span>\r\n  </li>\r\n  <button type=\"button\" class=\"btn btn-primary\" (click)=\"confirmCreate()\" *ngIf=\"navState==='공지사항 글쓰기'\">등록</button>\r\n  <button type=\"button\" class=\"btn btn-primary\" (click)=\"confirmEdit()\" *ngIf=\"navState==='공지사항 수정'\">수정</button>\r\n  <button type=\"button\" class=\"btn btn-primary\" (click)=\"confirmDelete()\" *ngIf=\"navState==='공지사항 수정'\">삭제</button>\r\n  <button type=\"button\" class=\"btn btn-primary\" (click)=\"sideNavService.closeNav()\">취소</button>\r\n</div>\r\n"
 
 /***/ }),
 
@@ -516,6 +530,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _shared_services_notice_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../shared/services/notice.service */ "./src/app/shared/services/notice.service.ts");
 /* harmony import */ var _angular_common_http__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/common/http */ "./node_modules/@angular/common/fesm5/http.js");
 /* harmony import */ var _shared_services_token_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../../shared/services/token.service */ "./src/app/shared/services/token.service.ts");
+/* harmony import */ var _shared_services_sidenav_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../../shared/services/sidenav.service */ "./src/app/shared/services/sidenav.service.ts");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -530,10 +545,12 @@ var __metadata = (undefined && undefined.__metadata) || function (k, v) {
 
 
 
+
 var AdminNoticeComponent = /** @class */ (function () {
-    function AdminNoticeComponent(tokenService, noticeService, http) {
+    function AdminNoticeComponent(tokenService, noticeService, sideNavService, http) {
         this.tokenService = tokenService;
         this.noticeService = noticeService;
+        this.sideNavService = sideNavService;
         this.http = http;
         this.settings = {
             mode: 'external',
@@ -557,19 +574,24 @@ var AdminNoticeComponent = /** @class */ (function () {
             },
             columns: {
                 n_no: {
-                    title: '번호'
+                    title: '번호',
+                    width: '5%'
                 },
                 n_category: {
-                    title: '카테고리'
+                    title: '카테고리',
+                    width: '5%'
                 },
                 n_title: {
-                    title: '제목'
+                    title: '제목',
+                    width: '30%'
                 },
                 a_id: {
-                    title: '작성자'
+                    title: '작성자',
+                    width: '10%'
                 },
                 n_hits: {
-                    title: '조회수'
+                    title: '조회수',
+                    width: '5%'
                 },
                 n_date: {
                     title: '작성날짜'
@@ -592,7 +614,7 @@ var AdminNoticeComponent = /** @class */ (function () {
         this.navState = '공지사항 수정';
         this.editDataBinding(event);
         this.navNotice = this.editNotice;
-        this.openNav();
+        this.sideNavService.openNav();
     };
     AdminNoticeComponent.prototype.createNotice = function () {
         this.navState = '공지사항 글쓰기';
@@ -600,7 +622,7 @@ var AdminNoticeComponent = /** @class */ (function () {
         this.navNotice.a_id = this.tokenService.getToken("adminToken").a_id;
         this.navNotice.n_date = new Date();
         this.navNotice.n_hits = 0;
-        this.openNav();
+        this.sideNavService.openNav();
     };
     AdminNoticeComponent.prototype.confirmCreate = function () {
         var _this = this;
@@ -642,7 +664,7 @@ var AdminNoticeComponent = /** @class */ (function () {
                 console.log(res);
                 //event.confirm.resolve(event.newData);
                 alert("삭제 됐습니다.");
-                _this.closeNav();
+                _this.sideNavService.closeNav();
                 _this.ngOnInit();
             }, function (err) {
                 if (err.error instanceof Error) {
@@ -656,14 +678,6 @@ var AdminNoticeComponent = /** @class */ (function () {
         else {
             return false;
         }
-    };
-    AdminNoticeComponent.prototype.openNav = function () {
-        document.getElementById("mySidenav").style.width = "650px";
-        document.body.style.marginLeft = "650px";
-    };
-    AdminNoticeComponent.prototype.closeNav = function () {
-        document.getElementById("mySidenav").style.width = "0";
-        document.body.style.marginLeft = "0";
     };
     AdminNoticeComponent.prototype.navnoticeReset = function () {
         this.navNotice = this.editNotice;
@@ -685,6 +699,7 @@ var AdminNoticeComponent = /** @class */ (function () {
         }),
         __metadata("design:paramtypes", [_shared_services_token_service__WEBPACK_IMPORTED_MODULE_4__["TokenService"],
             _shared_services_notice_service__WEBPACK_IMPORTED_MODULE_2__["NoticeService"],
+            _shared_services_sidenav_service__WEBPACK_IMPORTED_MODULE_5__["SidenavService"],
             _angular_common_http__WEBPACK_IMPORTED_MODULE_3__["HttpClient"]])
     ], AdminNoticeComponent);
     return AdminNoticeComponent;
@@ -712,7 +727,7 @@ module.exports = ""
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<ng2-smart-table\r\n[settings]=\"settings\"\r\n[source]=\"productQnaList\"\r\n(edit)=\"updateProductQna($event)\"\r\n></ng2-smart-table>\r\n<div id=\"mySidenav\" class=\"sidenav\">\r\n  <a href=\"javascript:void(0)\" class=\"closebtn\" (click)=\"closeNav()\">&times;</a>\r\n  <h1 id=\"navState\">{{navState}}</h1>\r\n  <table class=\"table\" cellspacing=\"0\" style=\"max-height: 28px\">\r\n    <tbody>\r\n      <tr>\r\n        <th scope=\"row\" class=\"font-weight-bold\">제목</th>\r\n        <td>{{navProductQna.pq_title}}\r\n        </td>\r\n      </tr>\r\n      <tr>\r\n        <th scope=\"row\" class=\"font-weight-bold\">작성자</th>\r\n        <td>{{navProductQna.u_id}}\r\n        </td>\r\n      </tr>\r\n    </tbody>\r\n  </table>\r\n  <li class=\"list-group-item\"> 질문 내용\r\n    <span style=\"margin-left:15px; color:crimson\">\r\n      <textarea name=\"ProductQnaContent\" readonly=\"true\" rows=\"8\" cols=\"150\" placeholder=\"내용을 입력해주세요.\" class=\"form-control\" required [(ngModel)]=\"navProductQna.pq_content\" [ngModelOptions]=\"{standalone: true}\"></textarea>\r\n    </span>\r\n  </li>\r\n  <li class=\"list-group-item\"> 답변 내용\r\n    <span style=\"margin-left:15px; color:crimson\">\r\n      <textarea name=\"ProductQnaContent\" rows=\"8\" cols=\"150\" placeholder=\"내용을 입력해주세요.\" class=\"form-control\" required [(ngModel)]=\"navProductQna.pq_reply\" [ngModelOptions]=\"{standalone: true}\"></textarea>\r\n    </span>\r\n  </li>\r\n  <button type=\"button\" class=\"btn btn-primary\" (click)=\"confirmEdit()\" *ngIf=\"navState==='상품 질문 답변하기'\">답변</button>\r\n  <button type=\"button\" class=\"btn btn-primary\" (click)=\"closeNav()\">취소</button>\r\n</div>\r\n"
+module.exports = "<ng2-smart-table\r\n[settings]=\"settings\"\r\n[source]=\"productQnaList\"\r\n(edit)=\"updateProductQna($event)\"\r\n></ng2-smart-table>\r\n<div id=\"mySidenav\" class=\"sidenav\">\r\n  <a href=\"javascript:void(0)\" class=\"closebtn\" (click)=\"sideNavService.closeNav()\">&times;</a>\r\n  <h1 id=\"navState\">{{navState}}</h1>\r\n  <div class=\"product-image\">\r\n    <div class=\"view hm-zoom z-depth-2\" style=\"cursor: pointer\">\r\n      <img src=\"./assets/img/{{qnaProduct.p_img}}.jpg\" [alt]=\"qnaProduct.p_name\" width=\"100%\" class=\"img-fluid rounded\">\r\n    </div>\r\n  </div>\r\n  <br/>\r\n  <table class=\"table\" cellspacing=\"0\" style=\"max-height: 28px\">\r\n    <tbody>\r\n      <tr>\r\n        <th scope=\"row\" class=\"font-weight-bold\">상품명</th>\r\n        <td>{{qnaProduct.p_name}}\r\n        </td>\r\n      </tr>\r\n      <tr>\r\n        <th scope=\"row\" class=\"font-weight-bold\">판매가</th>\r\n        <td>{{qnaProduct.p_sellPrice}}\r\n        </td>\r\n      </tr>\r\n      <tr>\r\n        <th scope=\"row\" class=\"font-weight-bold\">제목</th>\r\n        <td>{{navProductQna.pq_title}}\r\n        </td>\r\n      </tr>\r\n      <tr>\r\n        <th scope=\"row\" class=\"font-weight-bold\">작성자</th>\r\n        <td>{{navProductQna.u_id}}\r\n        </td>\r\n      </tr>\r\n    </tbody>\r\n  </table>\r\n  <li class=\"list-group-item\"> 질문 내용\r\n    <span style=\"margin-left:15px; color:crimson\">\r\n      <textarea name=\"ProductQnaContent\" readonly=\"true\" rows=\"8\" cols=\"150\" placeholder=\"내용을 입력해주세요.\" class=\"form-control\" required [(ngModel)]=\"navProductQna.pq_content\" [ngModelOptions]=\"{standalone: true}\"></textarea>\r\n    </span>\r\n  </li>\r\n  <li class=\"list-group-item\"> 답변 내용\r\n    <span style=\"margin-left:15px; color:crimson\">\r\n      <textarea name=\"ProductQnaContent\" rows=\"8\" cols=\"150\" placeholder=\"내용을 입력해주세요.\" class=\"form-control\" required [(ngModel)]=\"navProductQna.pq_reply\" [ngModelOptions]=\"{standalone: true}\"></textarea>\r\n    </span>\r\n  </li>\r\n  <button type=\"button\" class=\"btn btn-primary\" (click)=\"confirmEdit()\" *ngIf=\"navState==='상품 질문 답변하기'\">답변</button>\r\n  <button type=\"button\" class=\"btn btn-primary\" (click)=\"sideNavService.closeNav()\">취소</button>\r\n</div>\r\n"
 
 /***/ }),
 
@@ -729,7 +744,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
 /* harmony import */ var _shared_models_productQna__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../../shared/models/productQna */ "./src/app/shared/models/productQna.ts");
 /* harmony import */ var _shared_services_product_qna_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../shared/services/product-qna.service */ "./src/app/shared/services/product-qna.service.ts");
-/* harmony import */ var _angular_common_http__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/common/http */ "./node_modules/@angular/common/fesm5/http.js");
+/* harmony import */ var _shared_services_product_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../shared/services/product.service */ "./src/app/shared/services/product.service.ts");
+/* harmony import */ var _shared_models_product__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../../shared/models/product */ "./src/app/shared/models/product.ts");
+/* harmony import */ var _shared_services_sidenav_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../../shared/services/sidenav.service */ "./src/app/shared/services/sidenav.service.ts");
+/* harmony import */ var _angular_common_http__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @angular/common/http */ "./node_modules/@angular/common/fesm5/http.js");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -743,9 +761,14 @@ var __metadata = (undefined && undefined.__metadata) || function (k, v) {
 
 
 
+
+
+
 var AdminProductQnaComponent = /** @class */ (function () {
-    function AdminProductQnaComponent(productQnaService, http) {
+    function AdminProductQnaComponent(productService, productQnaService, sideNavService, http) {
+        this.productService = productService;
         this.productQnaService = productQnaService;
+        this.sideNavService = sideNavService;
         this.http = http;
         this.settings = {
             mode: 'external',
@@ -769,19 +792,24 @@ var AdminProductQnaComponent = /** @class */ (function () {
             },
             columns: {
                 pq_no: {
-                    title: '질문번호'
+                    title: '질문번호',
+                    width: '5%'
                 },
                 pq_category: {
-                    title: '카테고리'
+                    title: '카테고리',
+                    width: '5%'
                 },
                 pq_title: {
-                    title: '제목'
+                    title: '제목',
+                    width: '30%'
                 },
                 u_id: {
-                    title: '작성자'
+                    title: '작성자',
+                    width: '10%'
                 },
                 pq_replyyn: {
-                    title: '답변여부'
+                    title: '답변여부',
+                    width: '5%'
                 },
                 pq_date: {
                     title: '질문날짜'
@@ -790,6 +818,7 @@ var AdminProductQnaComponent = /** @class */ (function () {
         };
         this.kinds = ["Bakery", "Sauce", "Drink", "Instant", "Snack"];
         this.selectedKind = "All";
+        this.qnaProduct = new _shared_models_product__WEBPACK_IMPORTED_MODULE_4__["Product"];
         this.navProductQna = new _shared_models_productQna__WEBPACK_IMPORTED_MODULE_1__["ProductQna"];
         this.editProductQna = new _shared_models_productQna__WEBPACK_IMPORTED_MODULE_1__["ProductQna"];
     }
@@ -806,10 +835,14 @@ var AdminProductQnaComponent = /** @class */ (function () {
         this.editProductQna.pq_date = event.data.pq_date;
     };
     AdminProductQnaComponent.prototype.updateProductQna = function (event) {
+        var _this = this;
         this.navState = '상품 질문 답변하기';
         this.editDataBinding(event);
+        this.productService.getProductById(event.data.p_code).subscribe(function (qnaProduct) {
+            _this.qnaProduct = qnaProduct;
+        });
         this.navProductQna = this.editProductQna;
-        this.openNav();
+        this.sideNavService.openNav();
     };
     AdminProductQnaComponent.prototype.isReplyNull = function (productQna) {
         if (productQna.pq_reply == null) {
@@ -839,14 +872,6 @@ var AdminProductQnaComponent = /** @class */ (function () {
             });
         }
     };
-    AdminProductQnaComponent.prototype.openNav = function () {
-        document.getElementById("mySidenav").style.width = "650px";
-        document.body.style.marginLeft = "650px";
-    };
-    AdminProductQnaComponent.prototype.closeNav = function () {
-        document.getElementById("mySidenav").style.width = "0";
-        document.body.style.marginLeft = "0";
-    };
     AdminProductQnaComponent.prototype.navProductQnaReset = function () {
         this.navProductQna = this.editProductQna;
     };
@@ -863,8 +888,10 @@ var AdminProductQnaComponent = /** @class */ (function () {
             template: __webpack_require__(/*! ./admin-product-qna.component.html */ "./src/app/admin/admin-board/admin-product-qna/admin-product-qna.component.html"),
             styles: [__webpack_require__(/*! ./admin-product-qna.component.css */ "./src/app/admin/admin-board/admin-product-qna/admin-product-qna.component.css")]
         }),
-        __metadata("design:paramtypes", [_shared_services_product_qna_service__WEBPACK_IMPORTED_MODULE_2__["ProductQnaService"],
-            _angular_common_http__WEBPACK_IMPORTED_MODULE_3__["HttpClient"]])
+        __metadata("design:paramtypes", [_shared_services_product_service__WEBPACK_IMPORTED_MODULE_3__["ProductService"],
+            _shared_services_product_qna_service__WEBPACK_IMPORTED_MODULE_2__["ProductQnaService"],
+            _shared_services_sidenav_service__WEBPACK_IMPORTED_MODULE_5__["SidenavService"],
+            _angular_common_http__WEBPACK_IMPORTED_MODULE_6__["HttpClient"]])
     ], AdminProductQnaComponent);
     return AdminProductQnaComponent;
 }());
@@ -891,7 +918,7 @@ module.exports = ""
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<ng2-smart-table\r\n[settings]=\"settings\"\r\n[source]=\"reviewList\"\r\n(userRowSelect)=\"reviewRead($event)\"\r\n(edit)=\"reviewRead($event)\"\r\n></ng2-smart-table>\r\n<div id=\"mySidenav\" class=\"sidenav\">\r\n  <a href=\"javascript:void(0)\" class=\"closebtn\" (click)=\"closeNav()\">&times;</a>\r\n  <h1 id=\"navState\">{{navState}}</h1>\r\n  <div class=\"product-image\">\r\n    <div class=\"view hm-zoom z-depth-2\" style=\"cursor: pointer\">\r\n      <img src=\"./assets/ProductImg/{{reviewProduct.p_img}}.jpg\" [alt]=\"reviewProduct.p_name\" width=\"100%\" class=\"img-fluid rounded\">\r\n    </div>\r\n  </div>\r\n  <br/>\r\n  <table class=\"table\" cellspacing=\"0\" style=\"max-height: 28px\">\r\n    <tbody>\r\n      <tr>\r\n        <th scope=\"row\" class=\"font-weight-bold\">상품명</th>\r\n        <td>{{reviewProduct.p_name}}\r\n        </td>\r\n      </tr>\r\n      <tr>\r\n        <th scope=\"row\" class=\"font-weight-bold\">판매가</th>\r\n        <td>{{reviewProduct.p_sellPrice}}\r\n        </td>\r\n      </tr>\r\n      <tr>\r\n        <th scope=\"row\" class=\"font-weight-bold\">제목</th>\r\n        <td>{{navReview.rev_title}}\r\n        </td>\r\n      </tr>\r\n      <tr>\r\n        <th scope=\"row\" class=\"font-weight-bold\">작성자</th>\r\n        <td>{{navReview.u_id}}\r\n        </td>\r\n      </tr>\r\n    </tbody>\r\n  </table>\r\n  <li class=\"list-group-item\"> 후기 내용\r\n    <span style=\"margin-left:15px; color:crimson\">\r\n      <textarea name=\"ReviewContent\" readonly=\"true\" rows=\"8\" cols=\"150\" placeholder=\"내용을 입력해주세요.\" class=\"form-control\" required [(ngModel)]=\"navReview.rev_content\" [ngModelOptions]=\"{standalone: true}\"></textarea>\r\n    </span>\r\n  </li>\r\n  <button type=\"button\" class=\"btn btn-primary\" (click)=\"confirmEdit()\" *ngIf=\"navState==='상품 질문 답변하기'\">답변</button>\r\n  <button type=\"button\" class=\"btn btn-primary\" (click)=\"closeNav()\">취소</button>\r\n</div>\r\n"
+module.exports = "<ng2-smart-table\r\n[settings]=\"settings\"\r\n[source]=\"reviewList\"\r\n(userRowSelect)=\"reviewRead($event)\"\r\n(edit)=\"reviewRead($event)\"\r\n></ng2-smart-table>\r\n<div id=\"mySidenav\" class=\"sidenav\">\r\n  <a href=\"javascript:void(0)\" class=\"closebtn\" (click)=\"sideNavService.closeNav()\">&times;</a>\r\n  <h1 id=\"navState\">{{navState}}</h1>\r\n  <div class=\"product-image\">\r\n    <div class=\"view hm-zoom z-depth-2\" style=\"cursor: pointer\">\r\n      <img src=\"./assets/img/{{reviewProduct.p_img}}.jpg\" [alt]=\"reviewProduct.p_name\" width=\"100%\" class=\"img-fluid rounded\">\r\n    </div>\r\n  </div>\r\n  <br/>\r\n  <table class=\"table\" cellspacing=\"0\" style=\"max-height: 28px\">\r\n    <tbody>\r\n      <tr>\r\n        <th scope=\"row\" class=\"font-weight-bold\">상품명</th>\r\n        <td>{{reviewProduct.p_name}}\r\n        </td>\r\n      </tr>\r\n      <tr>\r\n        <th scope=\"row\" class=\"font-weight-bold\">판매가</th>\r\n        <td>{{reviewProduct.p_sellPrice}}\r\n        </td>\r\n      </tr>\r\n      <tr>\r\n        <th scope=\"row\" class=\"font-weight-bold\">제목</th>\r\n        <td>{{navReview.rev_title}}\r\n        </td>\r\n      </tr>\r\n      <tr>\r\n        <th scope=\"row\" class=\"font-weight-bold\">작성자</th>\r\n        <td>{{navReview.u_id}}\r\n        </td>\r\n      </tr>\r\n    </tbody>\r\n  </table>\r\n  <li class=\"list-group-item\"> 후기 내용\r\n    <span style=\"margin-left:15px; color:crimson\">\r\n      <textarea name=\"ReviewContent\" readonly=\"true\" rows=\"8\" cols=\"150\" placeholder=\"내용을 입력해주세요.\" class=\"form-control\" required [(ngModel)]=\"navReview.rev_content\" [ngModelOptions]=\"{standalone: true}\"></textarea>\r\n    </span>\r\n  </li>\r\n  <button type=\"button\" class=\"btn btn-primary\" (click)=\"confirmEdit()\" *ngIf=\"navState==='상품 질문 답변하기'\">답변</button>\r\n  <button type=\"button\" class=\"btn btn-primary\" (click)=\"sideNavService.closeNav()\">취소</button>\r\n</div>\r\n"
 
 /***/ }),
 
@@ -911,6 +938,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _shared_services_product_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../shared/services/product.service */ "./src/app/shared/services/product.service.ts");
 /* harmony import */ var _shared_models_product__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../../shared/models/product */ "./src/app/shared/models/product.ts");
 /* harmony import */ var _angular_common_http__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @angular/common/http */ "./node_modules/@angular/common/fesm5/http.js");
+/* harmony import */ var _shared_services_sidenav_service__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../../../shared/services/sidenav.service */ "./src/app/shared/services/sidenav.service.ts");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -926,10 +954,12 @@ var __metadata = (undefined && undefined.__metadata) || function (k, v) {
 
 
 
+
 var AdminProductReviewComponent = /** @class */ (function () {
-    function AdminProductReviewComponent(productService, reviewService, http) {
+    function AdminProductReviewComponent(productService, reviewService, sideNavService, http) {
         this.productService = productService;
         this.reviewService = reviewService;
+        this.sideNavService = sideNavService;
         this.http = http;
         this.settings = {
             mode: 'external',
@@ -951,16 +981,20 @@ var AdminProductReviewComponent = /** @class */ (function () {
             },
             columns: {
                 rev_no: {
-                    title: '번호'
+                    title: '번호',
+                    width: '5%'
                 },
                 rev_title: {
-                    title: '제목'
+                    title: '제목',
+                    width: '40%'
                 },
                 u_id: {
-                    title: '작성자'
+                    title: '작성자',
+                    width: '10%'
                 },
                 rev_hits: {
-                    title: '조회수'
+                    title: '조회수',
+                    width: '5%'
                 },
                 rev_date: {
                     title: '후기날짜'
@@ -975,19 +1009,12 @@ var AdminProductReviewComponent = /** @class */ (function () {
     }
     AdminProductReviewComponent.prototype.reviewRead = function (event) {
         var _this = this;
+        this.navState = '상품 후기';
         this.navReview = event.data;
         this.productService.getProductById(event.data.p_code).subscribe(function (reviewProduct) {
             _this.reviewProduct = reviewProduct;
         });
-        this.openNav();
-    };
-    AdminProductReviewComponent.prototype.openNav = function () {
-        document.getElementById("mySidenav").style.width = "650px";
-        document.body.style.marginLeft = "650px";
-    };
-    AdminProductReviewComponent.prototype.closeNav = function () {
-        document.getElementById("mySidenav").style.width = "0";
-        document.body.style.marginLeft = "0";
+        this.sideNavService.openNav();
     };
     AdminProductReviewComponent.prototype.ngOnInit = function () {
         var _this = this;
@@ -1004,6 +1031,7 @@ var AdminProductReviewComponent = /** @class */ (function () {
         }),
         __metadata("design:paramtypes", [_shared_services_product_service__WEBPACK_IMPORTED_MODULE_3__["ProductService"],
             _shared_services_review_service__WEBPACK_IMPORTED_MODULE_2__["ReviewService"],
+            _shared_services_sidenav_service__WEBPACK_IMPORTED_MODULE_6__["SidenavService"],
             _angular_common_http__WEBPACK_IMPORTED_MODULE_5__["HttpClient"]])
     ], AdminProductReviewComponent);
     return AdminProductReviewComponent;
@@ -1031,7 +1059,7 @@ module.exports = ""
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<ng2-smart-table\r\n[settings]=\"settings\"\r\n[source]=\"qnaList\"\r\n(edit)=\"updateQna($event)\"\r\n></ng2-smart-table>\r\n<div id=\"mySidenav\" class=\"sidenav\">\r\n  <a href=\"javascript:void(0)\" class=\"closebtn\" (click)=\"closeNav()\">&times;</a>\r\n  <h1 id=\"navState\">{{navState}}</h1>\r\n  <table class=\"table\" cellspacing=\"0\" style=\"max-height: 28px\">\r\n    <tbody>\r\n      <tr>\r\n        <th scope=\"row\" class=\"font-weight-bold\">제목</th>\r\n        <td>{{navQna.q_title}}\r\n          <!-- <input type=\"text\" id=\"exampleForm2\" class=\"form-control\" required [(ngModel)]=\"navQna.q_title\" [ngModelOptions]=\"{standalone: true}\" /> -->\r\n        </td>\r\n      </tr>\r\n      <tr>\r\n        <th scope=\"row\" class=\"font-weight-bold\">작성자</th>\r\n        <td>{{navQna.u_id}}\r\n        </td>\r\n      </tr>\r\n    </tbody>\r\n  </table>\r\n  <li class=\"list-group-item\"> 질문 내용\r\n    <span style=\"margin-left:15px; color:crimson\">\r\n      <!-- {{navQna.q_content}} -->\r\n      <textarea name=\"qnaContent\" readonly=\"true\" rows=\"8\" cols=\"150\" placeholder=\"내용을 입력해주세요.\" class=\"form-control\" required [(ngModel)]=\"navQna.q_content\" [ngModelOptions]=\"{standalone: true}\"></textarea>\r\n    </span>\r\n  </li>\r\n  <li class=\"list-group-item\"> 답변 내용\r\n    <span style=\"margin-left:15px; color:crimson\">\r\n      <textarea name=\"qnaContent\" rows=\"8\" cols=\"150\" placeholder=\"내용을 입력해주세요.\" class=\"form-control\" required [(ngModel)]=\"navQna.q_reply\" [ngModelOptions]=\"{standalone: true}\"></textarea>\r\n    </span>\r\n  </li>\r\n  <button type=\"button\" class=\"btn btn-primary\" (click)=\"confirmEdit()\" *ngIf=\"navState==='1:1질문 답변하기'\">답변</button>\r\n  <button type=\"button\" class=\"btn btn-primary\" (click)=\"closeNav()\">취소</button>\r\n</div>\r\n"
+module.exports = "<ng2-smart-table\r\n[settings]=\"settings\"\r\n[source]=\"qnaList\"\r\n(edit)=\"updateQna($event)\"\r\n></ng2-smart-table>\r\n<div id=\"mySidenav\" class=\"sidenav\">\r\n  <a href=\"javascript:void(0)\" class=\"closebtn\" (click)=\"sideNavService.closeNav()\">&times;</a>\r\n  <h1 id=\"navState\">{{navState}}</h1>\r\n  <table class=\"table\" cellspacing=\"0\" style=\"max-height: 28px\">\r\n    <tbody>\r\n      <tr>\r\n        <th scope=\"row\" class=\"font-weight-bold\">제목</th>\r\n        <td>{{navQna.q_title}}\r\n          <!-- <input type=\"text\" id=\"exampleForm2\" class=\"form-control\" required [(ngModel)]=\"navQna.q_title\" [ngModelOptions]=\"{standalone: true}\" /> -->\r\n        </td>\r\n      </tr>\r\n      <tr>\r\n        <th scope=\"row\" class=\"font-weight-bold\">작성자</th>\r\n        <td>{{navQna.u_id}}\r\n        </td>\r\n      </tr>\r\n    </tbody>\r\n  </table>\r\n  <li class=\"list-group-item\"> 질문 내용\r\n    <span style=\"margin-left:15px; color:crimson\">\r\n      <!-- {{navQna.q_content}} -->\r\n      <textarea name=\"qnaContent\" readonly=\"true\" rows=\"8\" cols=\"150\" placeholder=\"내용을 입력해주세요.\" class=\"form-control\" required [(ngModel)]=\"navQna.q_content\" [ngModelOptions]=\"{standalone: true}\"></textarea>\r\n    </span>\r\n  </li>\r\n  <li class=\"list-group-item\"> 답변 내용\r\n    <span style=\"margin-left:15px; color:crimson\">\r\n      <textarea name=\"qnaContent\" rows=\"8\" cols=\"150\" placeholder=\"내용을 입력해주세요.\" class=\"form-control\" required [(ngModel)]=\"navQna.q_reply\" [ngModelOptions]=\"{standalone: true}\"></textarea>\r\n    </span>\r\n  </li>\r\n  <button type=\"button\" class=\"btn btn-primary\" (click)=\"confirmEdit()\" *ngIf=\"navState==='1:1질문 답변하기'\">답변</button>\r\n  <button type=\"button\" class=\"btn btn-primary\" (click)=\"sideNavService.closeNav()\">취소</button>\r\n</div>\r\n"
 
 /***/ }),
 
@@ -1049,6 +1077,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _shared_models_qna__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../../shared/models/qna */ "./src/app/shared/models/qna.ts");
 /* harmony import */ var _shared_services_qna_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../shared/services/qna.service */ "./src/app/shared/services/qna.service.ts");
 /* harmony import */ var _angular_common_http__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/common/http */ "./node_modules/@angular/common/fesm5/http.js");
+/* harmony import */ var _shared_services_sidenav_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../../shared/services/sidenav.service */ "./src/app/shared/services/sidenav.service.ts");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -1062,9 +1091,11 @@ var __metadata = (undefined && undefined.__metadata) || function (k, v) {
 
 
 
+
 var AdminQnaComponent = /** @class */ (function () {
-    function AdminQnaComponent(qnaService, http) {
+    function AdminQnaComponent(qnaService, sideNavService, http) {
         this.qnaService = qnaService;
+        this.sideNavService = sideNavService;
         this.http = http;
         this.settings = {
             mode: 'external',
@@ -1088,13 +1119,16 @@ var AdminQnaComponent = /** @class */ (function () {
             },
             columns: {
                 q_no: {
-                    title: '질문번호'
+                    title: '질문번호',
+                    width: '5%'
                 },
                 q_title: {
-                    title: '제목'
+                    title: '제목',
+                    width: '30%'
                 },
                 u_id: {
-                    title: '작성자'
+                    title: '작성자',
+                    width: '20%'
                 },
                 q_date: {
                     title: '질문날짜'
@@ -1118,7 +1152,7 @@ var AdminQnaComponent = /** @class */ (function () {
         this.navState = '1:1질문 답변하기';
         this.editDataBinding(event);
         this.navQna = this.editQna;
-        this.openNav();
+        this.sideNavService.openNav();
     };
     AdminQnaComponent.prototype.isReplyNull = function (qna) {
         if (qna.q_reply == null) {
@@ -1147,14 +1181,6 @@ var AdminQnaComponent = /** @class */ (function () {
             });
         }
     };
-    AdminQnaComponent.prototype.openNav = function () {
-        document.getElementById("mySidenav").style.width = "650px";
-        document.body.style.marginLeft = "650px";
-    };
-    AdminQnaComponent.prototype.closeNav = function () {
-        document.getElementById("mySidenav").style.width = "0";
-        document.body.style.marginLeft = "0";
-    };
     AdminQnaComponent.prototype.navQnaReset = function () {
         this.navQna = this.editQna;
     };
@@ -1172,6 +1198,7 @@ var AdminQnaComponent = /** @class */ (function () {
             styles: [__webpack_require__(/*! ./admin-qna.component.css */ "./src/app/admin/admin-board/admin-qna/admin-qna.component.css")]
         }),
         __metadata("design:paramtypes", [_shared_services_qna_service__WEBPACK_IMPORTED_MODULE_2__["QnaService"],
+            _shared_services_sidenav_service__WEBPACK_IMPORTED_MODULE_4__["SidenavService"],
             _angular_common_http__WEBPACK_IMPORTED_MODULE_3__["HttpClient"]])
     ], AdminQnaComponent);
     return AdminQnaComponent;
@@ -1199,7 +1226,7 @@ module.exports = ""
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<ng2-smart-table\r\n    [settings]=\"settings\"\r\n    [source]=\"adminList\"\r\n    (create)=\"createAdmin()\">\r\n</ng2-smart-table>\r\n<div id=\"mySidenav\" class=\"sidenav\">\r\n  <a href=\"javascript:void(0)\" class=\"closebtn\" (click)=\"closeNav()\">&times;</a>\r\n  <h1 id=\"navState\">{{navState}}</h1>\r\n  <table class=\"table\" cellspacing=\"0\" style=\"max-height: 28px\">\r\n    <tbody>\r\n      <tr>\r\n        <th class=\"cyan lighten-4\">이름</th>\r\n        <td colspan=\"4\">\r\n          <input type=\"text\" id=\"exampleForm2\" class=\"form-control\" required [(ngModel)]=\"navAdmin.a_name\" [ngModelOptions]=\"{standalone: true}\" />\r\n        </td>\r\n      </tr>\r\n      <tr>\r\n        <th class=\"cyan lighten-4\">아이디</th>\r\n        <td colspan=\"4\">\r\n          <input type=\"text\" id=\"exampleForm2\" class=\"form-control\" required [(ngModel)]=\"navAdmin.a_id\" [ngModelOptions]=\"{standalone: true}\" />\r\n        </td>\r\n      </tr>\r\n      <tr>\r\n        <th class=\"cyan lighten-4\">패스워드</th>\r\n        <td colspan=\"4\">\r\n          <input type=\"text\" id=\"exampleForm2\" class=\"form-control\" required [(ngModel)]=\"navAdmin.a_pw\" [ngModelOptions]=\"{standalone: true}\" />\r\n        </td>\r\n      </tr>\r\n      <tr>\r\n        <th class=\"cyan lighten-4\">패스워드 확인</th>\r\n        <td colspan=\"4\">\r\n          <input type=\"text\" id=\"exampleForm2\" class=\"form-control\" required [(ngModel)]=\"navAdmin.a_pw\" [ngModelOptions]=\"{standalone: true}\" />\r\n        </td>\r\n      </tr>\r\n      <tr>\r\n        <th class=\"cyan lighten-4\">직위</th>\r\n        <td><select class=\"mdb-select\" [(ngModel)]=\"this.navAdmin.a_position\" name=\"navAdmin_a_cate\" id=\"navAdmin_a_cate\" >\r\n                  <option value=\"\" disabled selected>선택</option>\r\n                  <option value=\"사장\">&nbsp;사장</option>\r\n                  <option value=\"전무이사\">&nbsp;전무이사</option>\r\n                  <option value=\"사원\">&nbsp;사원</option>\r\n                  <option value=\"대리\">&nbsp;대리</option>\r\n                  <option value=\"차장\">&nbsp;차장</option>\r\n                  <option value=\"부장\">&nbsp;부장</option>\r\n                  <option value=\"대표\">&nbsp;대표</option>\r\n                </select></td>\r\n                <th class=\"cyan lighten-4\">직무</th>\r\n                <td><select class=\"mdb-select\" [(ngModel)]=\"this.navAdmin.a_position\" name=\"navAdmin_a_cate\" id=\"navAdmin_a_cate\" >\r\n                          <option value=\"\" disabled selected>선택</option>\r\n                          <option value=\"전무이사\">&nbsp;전무이사</option>\r\n                          <option value=\"경리\">&nbsp;경리</option>\r\n                          <option value=\"디자인\">&nbsp;디자인</option>\r\n                          <option value=\"개발\">&nbsp;개발</option>\r\n                          <option value=\"영업\">&nbsp;영업</option>\r\n                        </select></td>\r\n      </tr>\r\n      <tr>\r\n        <th class=\"cyan lighten-4\">이메일주소</th>\r\n        <td colspan=\"4\">\r\n          <input type=\"email\" id=\"exampleForm2\" class=\"form-control\" required [(ngModel)]=\"navAdmin.a_email\" [ngModelOptions]=\"{standalone: true}\" />\r\n        </td>\r\n      </tr>\r\n      <tr>\r\n        <th class=\"cyan lighten-4\">연락처</th>\r\n        <td colspan=\"4\">\r\n          <input type=\"text\" id=\"exampleForm2\" class=\"form-control\" required [(ngModel)]=\"navAdmin.a_phone\" [ngModelOptions]=\"{standalone: true}\" />\r\n        </td>\r\n      </tr>\r\n    </tbody>\r\n  </table>\r\n  <button type=\"button\" class=\"btn btn-primary\" (click)=\"confirmCreate()\" *ngIf=\"navState==='직원 등록'\">등록</button>\r\n  <button type=\"button\" class=\"btn btn-primary\" (click)=\"closeNav()\">취소</button>\r\n</div>\r\n"
+module.exports = "<ng2-smart-table\r\n    [settings]=\"settings\"\r\n    [source]=\"adminList\"\r\n    (createConfirm)=\"createAdmin($event)\"\r\n    (editConfirm)=\"updateAdmin($event)\">\r\n</ng2-smart-table>\r\n<div id=\"mySidenav\" class=\"sidenav\">\r\n  <a href=\"javascript:void(0)\" class=\"closebtn\" (click)=\"closeNav()\">&times;</a>\r\n  <h1 id=\"navState\">{{navState}}</h1>\r\n  <table class=\"table\" cellspacing=\"0\" style=\"max-height: 28px\" *ngIf=\"navState==='직원 등록'\">\r\n    <tbody>\r\n      <tr>\r\n        <th class=\"cyan lighten-4\">패스워드</th>\r\n        <td colspan=\"4\">\r\n          <input type=\"password\" id=\"exampleForm1\" class=\"form-control\" required [(ngModel)]=\"navAdmin.a_pw\" [ngModelOptions]=\"{standalone: true}\" />\r\n        </td>\r\n      </tr>\r\n      <tr>\r\n        <th class=\"cyan lighten-4\">패스워드 확인</th>\r\n        <td colspan=\"4\">\r\n          <input type=\"password\" id=\"exampleForm2\" class=\"form-control\" required [(ngModel)]=\"apw2\" [ngModelOptions]=\"{standalone: true}\" />\r\n        </td>\r\n      </tr>\r\n    </tbody>\r\n  </table>\r\n  <button type=\"button\" class=\"btn btn-primary\" (click)=\"confirmCreate()\" *ngIf=\"navState==='직원 등록'\">등록</button>\r\n  <button type=\"button\" class=\"btn btn-primary\" (click)=\"sideNavService.closeNav()\">취소</button>\r\n</div>\r\n"
 
 /***/ }),
 
@@ -1216,7 +1243,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
 /* harmony import */ var _shared_models_admin__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../shared/models/admin */ "./src/app/shared/models/admin.ts");
 /* harmony import */ var _angular_common_http__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/common/http */ "./node_modules/@angular/common/fesm5/http.js");
-/* harmony import */ var _shared_services_token_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../shared/services/token.service */ "./src/app/shared/services/token.service.ts");
+/* harmony import */ var _shared_services_sidenav_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../shared/services/sidenav.service */ "./src/app/shared/services/sidenav.service.ts");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -1231,9 +1258,9 @@ var __metadata = (undefined && undefined.__metadata) || function (k, v) {
 
 
 var AdminEmployeeComponent = /** @class */ (function () {
-    function AdminEmployeeComponent(http, tokenService) {
+    function AdminEmployeeComponent(http, sideNavService) {
         this.http = http;
-        this.tokenService = tokenService;
+        this.sideNavService = sideNavService;
         this.settings = {
             mode: 'inline',
             actions: {
@@ -1241,7 +1268,7 @@ var AdminEmployeeComponent = /** @class */ (function () {
                 columnTitle: '직원관리'
             },
             add: {
-                confirmCreate: 'false',
+                confirmCreate: 'true',
                 addButtonContent: '등록'
             },
             edit: {
@@ -1256,12 +1283,10 @@ var AdminEmployeeComponent = /** @class */ (function () {
             },
             columns: {
                 a_id: {
-                    title: '직원아이디',
-                    editable: 'false'
+                    title: '직원아이디'
                 },
                 a_name: {
-                    title: '이름',
-                    editable: 'false'
+                    title: '이름'
                 },
                 a_position: {
                     title: '직위',
@@ -1296,29 +1321,26 @@ var AdminEmployeeComponent = /** @class */ (function () {
                     }
                 },
                 a_email: {
-                    title: '이메일',
-                    editable: 'false'
+                    title: '이메일'
                 },
                 a_phone: {
-                    title: '연락처',
-                    editable: 'false'
+                    title: '연락처'
                 }
             }
         };
         this.navAdmin = new _shared_models_admin__WEBPACK_IMPORTED_MODULE_1__["Admin"];
     }
     AdminEmployeeComponent.prototype.newDataBinding = function (event) {
-        var data = { "a_id": event.newData.a_id,
-            "a_name": event.newData.a_name,
-            "a_position": event.newData.a_position,
-            "a_job": event.newData.a_job,
-            "a_email": event.newData.a_email,
-            "a_phone": event.newData.a_phone,
-        };
-        return data;
+        this.navAdmin.a_id = event.newData.a_id;
+        this.navAdmin.a_name = event.newData.a_name;
+        this.navAdmin.a_position = event.newData.a_position;
+        this.navAdmin.a_job = event.newData.a_job,
+            this.navAdmin.a_email = event.newData.a_email,
+            this.navAdmin.a_phone = event.newData.a_phone;
     };
     AdminEmployeeComponent.prototype.editDataBinding = function (event) {
         var data = { "a_id": event.data.a_id,
+            "a_pw": event.data.a_pw,
             "a_name": event.data.a_name,
             "a_position": event.data.a_position,
             "a_job": event.data.a_job,
@@ -1327,35 +1349,72 @@ var AdminEmployeeComponent = /** @class */ (function () {
         };
         return data;
     };
+    AdminEmployeeComponent.prototype.isAdminValueNull = function (event) {
+        if (event.newData.a_name == null) {
+            alert("이름을 입력하세요");
+            return true;
+        }
+        else if (event.newData.a_job == null) {
+            alert("직무를 선택하세요");
+            return true;
+        }
+        else if (event.newData.a_phone == null) {
+            alert("연락처를 입력하세요");
+            return true;
+        }
+        else if (event.newData.a_email == null) {
+            alert("이메일을 입력하세요");
+            return true;
+        }
+        else if (event.newData.a_position == null) {
+            alert("직위를 입력하세요");
+            return true;
+        }
+        else if (event.newData.a_id == null) {
+            alert("아이디를 입력하세요");
+            return true;
+        }
+        else {
+            return false;
+        }
+    };
     AdminEmployeeComponent.prototype.createAdmin = function (event) {
         this.navState = '직원 등록';
         this.navAdmin = new _shared_models_admin__WEBPACK_IMPORTED_MODULE_1__["Admin"];
-        this.openNav();
+        this.newDataBinding(event);
+        if (this.isAdminValueNull(event)) {
+            return false;
+        }
+        else {
+            this.sideNavService.openNav();
+        }
     };
-    AdminEmployeeComponent.prototype.confirmCreate = function (event) {
-        //$('#myModal').modal('show')
+    AdminEmployeeComponent.prototype.confirmCreate = function () {
         var _this = this;
-        this.http.post('http://localhost:8080/toma/admin/', this.newDataBinding(event)).subscribe(function (res) {
-            console.log(res);
-            event.confirm.resolve(event.newData);
-            alert("직원이 등록되었습니다.");
-            _this.tokenService.removeToken("adminListToken");
-        }, function (err) {
-            if (err.error instanceof Error) {
-                alert("Client-side error occured.");
-            }
-            else {
-                alert("Server-side error occured.");
-            }
-        });
+        if (this.navAdmin.a_pw !== this.apw2) {
+            alert("비밀번호 확인이 불일치 합니다");
+        }
+        else {
+            this.http.post('http://localhost:8080/toma/admin/', this.navAdmin).subscribe(function (res) {
+                console.log(res);
+                alert("직원이 등록되었습니다.");
+                _this.sideNavService.closeNav();
+                _this.ngOnInit();
+            }, function (err) {
+                if (err.error instanceof Error) {
+                    alert("Client-side error occured.");
+                }
+                else {
+                    alert("Server-side error occured.");
+                }
+            });
+        }
     };
     AdminEmployeeComponent.prototype.updateAdmin = function (event) {
-        var _this = this;
-        this.http.put('http://localhost:8080/toma/admin/', this.newDataBinding(event)).subscribe(function (res) {
+        this.http.put('http://localhost:8080/toma/admin/', this.editDataBinding(event)).subscribe(function (res) {
             console.log(res);
             event.confirm.resolve(event.newData);
             alert("직원 정보가 수정되었습니다.");
-            _this.tokenService.removeToken("adminListToken");
         }, function (err) {
             if (err.error instanceof Error) {
                 alert("Client-side error occured.");
@@ -1366,12 +1425,10 @@ var AdminEmployeeComponent = /** @class */ (function () {
         });
     };
     AdminEmployeeComponent.prototype.deleteProduct = function (event) {
-        var _this = this;
         this.http.delete('http://localhost:8080/toma/admin/' + event.data.a_id).subscribe(function (res) {
             console.log(res);
             event.confirm.resolve(event.source.data);
             alert("직원 정보가 삭제되었습니다.");
-            _this.tokenService.removeToken("adminListToken");
         }, function (err) {
             if (err.error instanceof Error) {
                 alert("Client-side error occured.");
@@ -1387,7 +1444,6 @@ var AdminEmployeeComponent = /** @class */ (function () {
         this.http.get('http://localhost:8080/toma/admin/')
             .subscribe(function (adminList) {
             _this.adminList = adminList;
-            _this.tokenService.saveToken("adminListToken", _this.adminList);
         }, function (err) {
             if (err.error instanceof Error) {
                 alert("Client-side error occured.");
@@ -1397,22 +1453,8 @@ var AdminEmployeeComponent = /** @class */ (function () {
             }
         });
     };
-    AdminEmployeeComponent.prototype.openNav = function () {
-        document.getElementById("mySidenav").style.width = "650px";
-        document.body.style.marginLeft = "650px";
-    };
-    AdminEmployeeComponent.prototype.closeNav = function () {
-        document.getElementById("mySidenav").style.width = "0";
-        document.body.style.marginLeft = "0";
-    };
     AdminEmployeeComponent.prototype.ngOnInit = function () {
-        if (this.tokenService.isToken("adminListToken")) {
-            this.adminList = this.tokenService.getToken("adminListToken");
-        }
-        else {
-            this.getAdminList();
-            this.tokenService.saveToken("adminListToken", this.adminList);
-        }
+        this.getAdminList();
     };
     AdminEmployeeComponent = __decorate([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
@@ -1421,7 +1463,7 @@ var AdminEmployeeComponent = /** @class */ (function () {
             styles: [__webpack_require__(/*! ./admin-employee.component.css */ "./src/app/admin/admin-employee/admin-employee.component.css")]
         }),
         __metadata("design:paramtypes", [_angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpClient"],
-            _shared_services_token_service__WEBPACK_IMPORTED_MODULE_3__["TokenService"]])
+            _shared_services_sidenav_service__WEBPACK_IMPORTED_MODULE_3__["SidenavService"]])
     ], AdminEmployeeComponent);
     return AdminEmployeeComponent;
 }());
@@ -1464,7 +1506,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "AdminOrderComponent", function() { return AdminOrderComponent; });
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
 /* harmony import */ var _angular_common_http__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/common/http */ "./node_modules/@angular/common/fesm5/http.js");
-/* harmony import */ var _shared_services_token_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../shared/services/token.service */ "./src/app/shared/services/token.service.ts");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -1476,11 +1517,9 @@ var __metadata = (undefined && undefined.__metadata) || function (k, v) {
 };
 
 
-
 var AdminOrderComponent = /** @class */ (function () {
-    function AdminOrderComponent(http, tokenService) {
+    function AdminOrderComponent(http) {
         this.http = http;
-        this.tokenService = tokenService;
         this.settings = {
             mode: 'inline',
             add: {
@@ -1548,7 +1587,6 @@ var AdminOrderComponent = /** @class */ (function () {
             console.log(res);
             event.confirm.resolve(event.newData);
             alert("주문처리가 변경되었습니다");
-            _this.tokenService.removeToken("adminOrderToken");
             _this.ngOnInit();
         }, function (err) {
             if (err.error instanceof Error) {
@@ -1564,7 +1602,6 @@ var AdminOrderComponent = /** @class */ (function () {
         this.http.get('http://localhost:8080/toma/order/')
             .subscribe(function (orderList) {
             _this.orderList = orderList;
-            _this.tokenService.saveToken("adminOrderToken", _this.orderList);
         }, function (err) {
             if (err.error instanceof Error) {
                 alert("Client-side error occured.");
@@ -1575,13 +1612,7 @@ var AdminOrderComponent = /** @class */ (function () {
         });
     };
     AdminOrderComponent.prototype.ngOnInit = function () {
-        if (this.tokenService.isToken("adminOrderToken")) {
-            this.orderList = this.tokenService.getToken("adminOrderToken");
-        }
-        else {
-            this.getOrderList();
-            this.tokenService.saveToken("adminOrderToken", this.orderList);
-        }
+        this.getOrderList();
     };
     AdminOrderComponent = __decorate([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
@@ -1589,8 +1620,7 @@ var AdminOrderComponent = /** @class */ (function () {
             template: __webpack_require__(/*! ./admin-order.component.html */ "./src/app/admin/admin-order/admin-order.component.html"),
             styles: [__webpack_require__(/*! ./admin-order.component.css */ "./src/app/admin/admin-order/admin-order.component.css")]
         }),
-        __metadata("design:paramtypes", [_angular_common_http__WEBPACK_IMPORTED_MODULE_1__["HttpClient"],
-            _shared_services_token_service__WEBPACK_IMPORTED_MODULE_2__["TokenService"]])
+        __metadata("design:paramtypes", [_angular_common_http__WEBPACK_IMPORTED_MODULE_1__["HttpClient"]])
     ], AdminOrderComponent);
     return AdminOrderComponent;
 }());
@@ -1606,7 +1636,7 @@ var AdminOrderComponent = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "/* The side navigation menu */\r\n#navState{\r\n   text-align: center;\r\n}\r\n.sidenav {\r\n    height: 100%; /* 100% Full-height */\r\n    width: 0; /* 0 width - change this with JavaScript */\r\n    position: fixed; /* Stay in place */\r\n    z-index: 1; /* Stay on top */\r\n    top: 0; /* Stay at the top */\r\n    left: 0;\r\n    background-color: white; /* Black*/\r\n\r\n    overflow-x: hidden; /* Disable horizontal scroll */\r\n    padding-top: 60px; /* Place content 60px from the top */\r\n    transition: 0.5s; /* 0.5 second transition effect to slide in the sidenav */\r\n}\r\n/* The navigation menu links */\r\n.sidenav a {\r\n    padding: 8px 8px 8px 32px;\r\n    text-decoration: none;\r\n    font-size: 25px;\r\n    color: #818181;\r\n    display: block;\r\n    transition: 0.3s;\r\n}\r\n/* When you mouse over the navigation links, change their color */\r\n.sidenav a:hover {\r\n    color: #f1f1f1;\r\n}\r\n/* Position and style the close button (top right corner) */\r\n.sidenav .closebtn {\r\n    position: absolute;\r\n    top: 0;\r\n    right: 25px;\r\n    font-size: 36px;\r\n    margin-left: 50px;\r\n}\r\n/* Style page content - use this if you want to push the page content to the right when you open the side navigation */\r\n#main {\r\n    transition: margin-left .5s;\r\n    padding: 20px;\r\n}\r\n/* On smaller screens, where height is less than 450px, change the style of the sidenav (less padding and a smaller font size) */\r\n@media screen and (max-height: 450px) {\r\n    .sidenav {padding-top: 15px;}\r\n    .sidenav a {font-size: 18px;}\r\n}\r\n"
+module.exports = ""
 
 /***/ }),
 
@@ -1617,7 +1647,7 @@ module.exports = "/* The side navigation menu */\r\n#navState{\r\n   text-align:
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<ng2-smart-table\r\n[settings]=\"settings\"\r\n[source]=\"productList\"\r\n(create)=\"insertProduct($event)\"\r\n(edit)=\"updateProduct($event)\"\r\n></ng2-smart-table>\r\n<div id=\"mySidenav\" class=\"sidenav\">\r\n  <a href=\"javascript:void(0)\" class=\"closebtn\" (click)=\"closeNav()\">&times;</a>\r\n  <h1 id=\"navState\">{{navState}}</h1>\r\n  <div class=\"product-image\">\r\n    <div class=\"view hm-zoom z-depth-2\" style=\"cursor: pointer\">\r\n      <img src=\"./assets/ProductImg/{{navProduct.p_img}}.jpg\" [alt]=\"navProduct.p_name\" width=\"100%\" class=\"img-fluid rounded\">\r\n      <h1 *ngIf=\"productNullCheck()\">상품정보가 없습니다</h1>\r\n      <button  class=\"btn btn-primary\" data-toggle=\"collapse\" data-target=\"#demo\">이미지 수정</button>\r\n    <div id=\"demo\" class=\"collapse\">\r\n      <app-file-upload></app-file-upload>\r\n    </div>  <!-- collapse -->\r\n    </div>\r\n  </div>\r\n  <br/>\r\n  <h5 class=\"product-head font-weight-bold\">상품 상세 정보</h5>\r\n  <table class=\"table\" cellspacing=\"0\" style=\"max-height: 28px\">\r\n    <tbody>\r\n      <tr>\r\n        <th scope=\"row\" class=\"font-weight-bold\">상품 이름</th>\r\n        <td><input type=\"text\" id=\"exampleForm2\" class=\"form-control\" required [(ngModel)]=\"navProduct.p_name\" [ngModelOptions]=\"{standalone: true}\" />\r\n        </td>\r\n      </tr>\r\n      <tr>\r\n        <th scope=\"row\" class=\"font-weight-bold\">카테고리</th>\r\n        <td>\r\n          <select class=\"mdb-select\" [(ngModel)]=\"this.navProduct.p_kind\" name=\"navProduct_p_kind\" id=\"navProduct_p_kind\" >\r\n            <option value=\"\" disabled selected>상품 카테고리를 선택해주세요</option>\r\n            <option value=\"Bakery\">&nbsp;Bakery</option>\r\n            <option value=\"Sauce\">&nbsp;Sauce</option>\r\n            <option value=\"Drink\">&nbsp;Drink</option>\r\n            <option value=\"Instant\">&nbsp;Instant</option>\r\n            <option value=\"Snack\">&nbsp;Snack</option>\r\n          </select>\r\n        </td>\r\n      <tr>\r\n        <th scope=\"row\" class=\"font-weight-bold\">원가</th>\r\n        <td><input type=\"text\" id=\"exampleForm2\" class=\"form-control\" required [(ngModel)]=\"navProduct.p_price\" [ngModelOptions]=\"{standalone: true}\" />\r\n        </td>\r\n      </tr>\r\n      <tr>\r\n        <th scope=\"row\" class=\"font-weight-bold\">판매가</th>\r\n        <td><input type=\"text\" id=\"exampleForm2\" class=\"form-control\" required [(ngModel)]=\"navProduct.p_sellPrice\" [ngModelOptions]=\"{standalone: true}\" />\r\n        </td>\r\n      </tr>\r\n      <tr>\r\n        <th scope=\"row\" class=\"font-weight-bold\">순이익</th>\r\n        <td><input type=\"text\" id=\"exampleForm2\" class=\"form-control\" required [(ngModel)]=\"navProduct.p_profit\" [ngModelOptions]=\"{standalone: true}\" />\r\n        </td>\r\n      </tr>\r\n      <tr>\r\n        <th scope=\"row\" class=\"font-weight-bold\">재고</th>\r\n        <td><input type=\"number\" min=\"1\" [(ngModel)]='this.navProduct.p_count'  [ngModelOptions]=\"{standalone: true}\" required />\r\n        </td>\r\n      </tr>\r\n    </tbody>\r\n  </table>\r\n  <li class=\"list-group-item\"> 상품내용\r\n    <span style=\"margin-left:15px; color:crimson\">\r\n      <textarea name=\"qnaContent\" rows=\"8\" cols=\"150\" placeholder=\"내용을 입력해주세요.\" class=\"form-control\" required [(ngModel)]=\"navProduct.p_content\" [ngModelOptions]=\"{standalone: true}\"></textarea>\r\n    </span>\r\n  </li>\r\n  <button type=\"button\" class=\"btn btn-primary\" (click)=\"confirmEdit()\" *ngIf=\"navState==='상품 정보 수정'\">수정</button>\r\n  <button type=\"button\" class=\"btn btn-primary\" (click)=\"confirmEdit()\" *ngIf=\"navState==='상품 등록'\">등록</button>\r\n  <button type=\"button\" class=\"btn btn-primary\" (click)=\"closeNav()\">취소</button>\r\n  <button type=\"button\" class=\"btn btn-primary\" (click)=\"navProductReset()\" >초기화</button>\r\n</div>\r\n"
+module.exports = "<ng2-smart-table\r\n[settings]=\"settings\"\r\n[source]=\"productList\"\r\n(create)=\"insertProduct($event)\"\r\n(edit)=\"updateProduct($event)\"\r\n></ng2-smart-table>\r\n<div id=\"mySidenav\" class=\"sidenav\">\r\n  <a href=\"javascript:void(0)\" class=\"closebtn\" (click)=\"sideNavService.closeNav()\">&times;</a>\r\n  <h1 id=\"navState\">{{navState}}</h1>\r\n  <div class=\"product-image\">\r\n    <div class=\"view hm-zoom z-depth-2\" style=\"cursor: pointer\">\r\n      <img src=\"./assets/img/{{navProduct.p_img}}.jpg\" [alt]=\"navProduct.p_name\" width=\"100%\" class=\"img-fluid rounded\">\r\n      <button  class=\"btn btn-primary\" *ngIf=\"navState==='상품 정보 수정'\" data-toggle=\"collapse\" data-target=\"#demo\">이미지 수정</button>\r\n      <button  class=\"btn btn-primary\" *ngIf=\"navState==='상품 등록'\" data-toggle=\"collapse\" data-target=\"#demo\">이미지 등록</button>\r\n    <div id=\"demo\" class=\"collapse\">\r\n      <app-file-upload></app-file-upload>\r\n    </div>  <!-- collapse -->\r\n    </div>\r\n  </div>\r\n  <br/>\r\n  <h5 class=\"product-head font-weight-bold\">상품 상세 정보</h5>\r\n  <table class=\"table\" cellspacing=\"0\" style=\"max-height: 28px\">\r\n    <tbody>\r\n      <tr>\r\n        <th scope=\"row\" class=\"font-weight-bold\">상품 이름</th>\r\n        <td><input type=\"text\" id=\"p_name\" class=\"form-control\" required [(ngModel)]=\"navProduct.p_name\" [ngModelOptions]=\"{standalone: true}\" />\r\n        </td>\r\n      </tr>\r\n      <tr *ngIf=\"navState==='상품 등록'\">\r\n        <th scope=\"row\" class=\"font-weight-bold\">상품코드</th>\r\n        <td *ngIf=\"autoCodeGeneratorOn\">\r\n          <input type=\"text\" readonly=\"readonly\" id=\"p_code\" class=\"form-control\" required [(ngModel)]=\"navProduct.p_code\" [ngModelOptions]=\"{standalone: true}\" />\r\n        </td>\r\n        <td *ngIf=\"!autoCodeGeneratorOn\">\r\n          <input type=\"text\" id=\"exampleForm2\" class=\"form-control\" required [(ngModel)]=\"navProduct.p_code\" [ngModelOptions]=\"{standalone: true}\" />\r\n        </td>\r\n      <tr>\r\n        <tr *ngIf=\"navState==='상품 등록'\">\r\n          <th scope=\"row\" class=\"font-weight-bold\">자동 코드 생성</th>\r\n          <td><input type=\"checkbox\" id=\"exampleForm2\" class=\"form-control\" [(ngModel)]=\"autoCodeGeneratorOn\" [ngModelOptions]=\"{standalone: true}\" />\r\n          </td>\r\n        <tr>\r\n      <tr *ngIf=\"navState==='상품 정보 수정'\">\r\n        <th scope=\"row\" class=\"font-weight-bold\">상품코드</th>\r\n        <td>\r\n          {{this.navProduct.p_code}}\r\n        </td>\r\n      <tr>\r\n      <tr>\r\n        <th scope=\"row\" class=\"font-weight-bold\">카테고리</th>\r\n        <td *ngIf=\"navState==='상품 등록'\">\r\n          <select class=\"mdb-select\" [(ngModel)]=\"this.navProduct.p_kind\" name=\"navProduct_p_kind\" id=\"p_kind\" >\r\n            <option value=\"\" disabled selected>상품 카테고리를 선택해주세요</option>\r\n            <option value=\"Bakery\">&nbsp;Bakery</option>\r\n            <option value=\"Sauce\">&nbsp;Sauce</option>\r\n            <option value=\"Drink\">&nbsp;Drink</option>\r\n            <option value=\"Instant\">&nbsp;Instant</option>\r\n            <option value=\"Snack\">&nbsp;Snack</option>\r\n          </select>\r\n        </td>\r\n        <!-- 카테고리는 수정 불가능 -->\r\n        <td *ngIf=\"navState==='상품 정보 수정'\">\r\n          {{this.navProduct.p_kind}}\r\n        </td>\r\n      <tr>\r\n        <th scope=\"row\" class=\"font-weight-bold\">원가</th>\r\n        <td><input type=\"number\" min=\"1\" (input)=\"onSearchChange($event.target.value)\" id=\"p_price\" class=\"form-control\" required [(ngModel)]=\"navProduct.p_price\" [ngModelOptions]=\"{standalone: true}\" />\r\n        </td>\r\n      </tr>\r\n      <tr>\r\n        <th scope=\"row\" class=\"font-weight-bold\">판매가</th>\r\n        <td><input type=\"number\" min=\"1\" (input)=\"onSearchChange($event.target.value)\" id=\"p_sellPrice\" class=\"form-control\" required [(ngModel)]=\"navProduct.p_sellPrice\" [ngModelOptions]=\"{standalone: true}\" />\r\n        </td>\r\n      </tr>\r\n      <tr>\r\n        <th scope=\"row\" class=\"font-weight-bold\">순이익</th>\r\n        <td>{{this.navProduct.p_profit}}\r\n        </td>\r\n      </tr>\r\n      <tr>\r\n        <th scope=\"row\" class=\"font-weight-bold\">재고</th>\r\n        <td><input type=\"number\" min=\"1\" id=\"p_count\" [(ngModel)]='this.navProduct.p_count'  [ngModelOptions]=\"{standalone: true}\" required />\r\n        </td>\r\n      </tr>\r\n    </tbody>\r\n  </table>\r\n  <li class=\"list-group-item\"> 상품내용\r\n    <span style=\"margin-left:15px; color:crimson\">\r\n      <textarea name=\"qnaContent\" rows=\"8\" cols=\"150\" id=\"p_content\" placeholder=\"내용을 입력해주세요.\" class=\"form-control\" required [(ngModel)]=\"navProduct.p_content\" [ngModelOptions]=\"{standalone: true}\"></textarea>\r\n    </span>\r\n  </li>\r\n  <button type=\"button\" class=\"btn btn-primary\" (click)=\"confirmEdit()\" *ngIf=\"navState==='상품 정보 수정'\">수정</button>\r\n  <button type=\"button\" class=\"btn btn-primary\" (click)=\"confirmCreate()\" *ngIf=\"navState==='상품 등록'\">등록</button>\r\n  <button type=\"button\" class=\"btn btn-primary\" (click)=\"sideNavService.closeNav()\">취소</button>\r\n</div>\r\n"
 
 /***/ }),
 
@@ -1634,7 +1664,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
 /* harmony import */ var _shared_services_product_service__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../shared/services/product.service */ "./src/app/shared/services/product.service.ts");
 /* harmony import */ var _shared_models_product__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../shared/models/product */ "./src/app/shared/models/product.ts");
-/* harmony import */ var _angular_common_http__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/common/http */ "./node_modules/@angular/common/fesm5/http.js");
+/* harmony import */ var _shared_services_sidenav_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../shared/services/sidenav.service */ "./src/app/shared/services/sidenav.service.ts");
+/* harmony import */ var _angular_common_http__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @angular/common/http */ "./node_modules/@angular/common/fesm5/http.js");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -1648,8 +1679,10 @@ var __metadata = (undefined && undefined.__metadata) || function (k, v) {
 
 
 
+
 var AdminProductComponent = /** @class */ (function () {
-    function AdminProductComponent(productService, http) {
+    function AdminProductComponent(sideNavService, productService, http) {
+        this.sideNavService = sideNavService;
         this.productService = productService;
         this.http = http;
         this.settings = {
@@ -1714,8 +1747,6 @@ var AdminProductComponent = /** @class */ (function () {
                 }
             }
         };
-        this.kinds = ["Bakery", "Sauce", "Drink", "Instant", "Snack"];
-        this.selectedKind = "All";
         this.navProduct = new _shared_models_product__WEBPACK_IMPORTED_MODULE_2__["Product"];
         this.editProduct = new _shared_models_product__WEBPACK_IMPORTED_MODULE_2__["Product"];
         this.newProduct = new _shared_models_product__WEBPACK_IMPORTED_MODULE_2__["Product"];
@@ -1736,7 +1767,7 @@ var AdminProductComponent = /** @class */ (function () {
         this.navState = '상품 정보 수정';
         this.editDataBinding(event);
         this.navProduct = this.editProduct;
-        this.openNav();
+        this.sideNavService.openNav();
     };
     AdminProductComponent.prototype.confirmEdit = function () {
         var _this = this;
@@ -1757,49 +1788,69 @@ var AdminProductComponent = /** @class */ (function () {
     AdminProductComponent.prototype.insertProduct = function (event) {
         this.navState = '상품 등록';
         this.navProduct = new _shared_models_product__WEBPACK_IMPORTED_MODULE_2__["Product"];
-        this.openNav();
+        this.sideNavService.openNav();
     };
-    AdminProductComponent.prototype.confirmCreate = function () {
-        this.http.post('http://localhost:8080/toma/product', this.navProduct).subscribe(function (res) {
-            console.log(res);
-            //event.confirm.resolve(event.newData);
-            alert("상품이 등록되었습니다.");
-        }, function (err) {
-            if (err.error instanceof Error) {
-                alert("Client-side error occured.");
-            }
-            else {
-                alert("Server-side error occured.");
-            }
-        });
-    };
-    AdminProductComponent.prototype.openNav = function () {
-        document.getElementById("mySidenav").style.width = "650px";
-        document.body.style.marginLeft = "650px";
-    };
-    AdminProductComponent.prototype.closeNav = function () {
-        document.getElementById("mySidenav").style.width = "0";
-        document.body.style.marginLeft = "0";
-    };
-    AdminProductComponent.prototype.productNullCheck = function () {
-        if (this.navProduct == null) {
+    AdminProductComponent.prototype.isProductValueNull = function (product) {
+        if (product.p_name == null) {
+            $("#p_name").focus();
+            alert("상품명을 입력하세요");
+            return true;
+        }
+        else if (product.p_kind == null) {
+            $("#p_kind").focus();
+            alert("상품종류를 선택하세요");
+            return true;
+        }
+        else if (product.p_price == null) {
+            $("#p_price").focus();
+            alert("원가를 입력하세요");
+            return true;
+        }
+        else if (product.p_sellPrice == null) {
+            $("#p_sellPrice").focus();
+            alert("판매가를 입력하세요");
+            return true;
+        }
+        else if (product.p_count == null) {
+            $("#p_count").focus();
+            alert("재고를 입력하세요");
+            return true;
+        }
+        else if (product.p_content == null) {
+            $("#p_content").focus();
+            alert("상품내용을 입력하세요");
             return true;
         }
         else {
             return false;
         }
     };
+    AdminProductComponent.prototype.confirmCreate = function () {
+        var _this = this;
+        if (this.isProductValueNull(this.navProduct)) {
+            return false;
+        }
+        else {
+            this.http.post('http://localhost:8080/toma/product', this.navProduct).subscribe(function (res) {
+                console.log(res);
+                alert("상품이 등록되었습니다.");
+                _this.navProduct = new _shared_models_product__WEBPACK_IMPORTED_MODULE_2__["Product"];
+                _this.ngOnInit();
+            }, function (err) {
+                if (err.error instanceof Error) {
+                    alert("Client-side error occured.");
+                }
+                else {
+                    alert("Server-side error occured.");
+                }
+            });
+        }
+    };
     AdminProductComponent.prototype.navProductReset = function () {
         this.navProduct = this.editProduct;
     };
-    AdminProductComponent.prototype.p_countUp = function () {
-        ++this.navProduct.p_count;
-    };
-    AdminProductComponent.prototype.p_countDown = function () {
-        if (this.navProduct.p_count > 1)
-            --this.navProduct.p_count;
-        else
-            alert('더 이상 줄일 수 없습니다.');
+    AdminProductComponent.prototype.onSearchChange = function (searchValue) {
+        this.navProduct.p_profit = this.navProduct.p_sellPrice - this.navProduct.p_price;
     };
     AdminProductComponent.prototype.ngOnInit = function () {
         var _this = this;
@@ -1814,8 +1865,9 @@ var AdminProductComponent = /** @class */ (function () {
             template: __webpack_require__(/*! ./admin-product.component.html */ "./src/app/admin/admin-product/admin-product.component.html"),
             styles: [__webpack_require__(/*! ./admin-product.component.css */ "./src/app/admin/admin-product/admin-product.component.css")]
         }),
-        __metadata("design:paramtypes", [_shared_services_product_service__WEBPACK_IMPORTED_MODULE_1__["ProductService"],
-            _angular_common_http__WEBPACK_IMPORTED_MODULE_3__["HttpClient"]])
+        __metadata("design:paramtypes", [_shared_services_sidenav_service__WEBPACK_IMPORTED_MODULE_3__["SidenavService"],
+            _shared_services_product_service__WEBPACK_IMPORTED_MODULE_1__["ProductService"],
+            _angular_common_http__WEBPACK_IMPORTED_MODULE_4__["HttpClient"]])
     ], AdminProductComponent);
     return AdminProductComponent;
 }());
@@ -1831,7 +1883,7 @@ var AdminProductComponent = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = ""
+module.exports = ".nav nav-pills mb-3{\r\n  background-color: red;\r\n}\r\n"
 
 /***/ }),
 
@@ -1842,7 +1894,7 @@ module.exports = ""
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<!-- Nav tabs -->\r\n<ul class=\"nav nav-tabs nav-justified\">\r\n    <li class=\"nav-item\">\r\n    <a [routerLink]=\"['/admin', {outlets: {'adminOutlet': ['product']}}]\"><li class=\"list-group-item\">상품 관리</li></a>\r\n    </li>\r\n    <li class=\"nav-item\"><a [routerLink]=\"['/admin', {outlets: {'adminOutlet': ['order']}}]\"><li class=\"list-group-item\">주문 관리</li></a>\r\n    </li>\r\n    <li class=\"nav-item\">\r\n      <a [routerLink]=\"['/admin', {outlets: {'adminOutlet': ['banner']}}]\"><li class=\"list-group-item\">배너 관리</li></a>\r\n    </li>\r\n    <li class=\"nav-item\">  <a [routerLink]=\"['/admin', {outlets: {'adminOutlet': ['board']}}]\"><li class=\"list-group-item\">게시판 관리</li></a>\r\n    </li>\r\n    <li class=\"nav-item\">  <a [routerLink]=\"['/admin', {outlets: {'adminOutlet': ['employee']}}]\"><li class=\"list-group-item\">직원 관리</li></a>\r\n    </li>\r\n</ul>\r\n<!-- Tab panels -->\r\n<div class=\"tab-content card\">\r\n    <router-outlet name=\"adminOutlet\"></router-outlet>\r\n</div>\r\n"
+module.exports = "<!-- Nav tabs -->\r\n<mdb-navbar SideClass=\"navbar navbar-expand-lg navbar-dark danger-color indigo scrolling-navbar\">\r\n  <links>\r\n    <ul class=\"navbar-nav mr-auto\">\r\n      <li class=\"nav-item\" [ngClass]=\"{'active': select==='상품 관리'}\" (click)=\"select='상품 관리'\">\r\n        <a class=\"nav-link waves-light\" mdbRippleRadius [routerLink]=\"['/admin', {outlets: {'adminOutlet': ['product']}}]\">상품 관리\r\n          <span class=\"sr-only\">(current)</span>\r\n        </a>\r\n      </li>\r\n      <li class=\"nav-item\" [ngClass]=\"{'active': select==='주문 관리'}\" (click)=\"select='주문 관리'\">\r\n        <a class=\"nav-link waves-light\" mdbRippleRadius [routerLink]=\"['/admin', {outlets: {'adminOutlet': ['order']}}]\">주문 관리</a>\r\n      </li>\r\n      <li class=\"nav-item\" [ngClass]=\"{'active': select==='배너 관리'}\" (click)=\"select='배너 관리'\">\r\n        <a class=\"nav-link waves-light\" mdbRippleRadius [routerLink]=\"['/admin', {outlets: {'adminOutlet': ['banner']}}]\">배너 관리</a>\r\n      </li>\r\n      <li class=\"nav-item\" [ngClass]=\"{'active': select==='게시판 관리'}\" (click)=\"select='게시판 관리'\">\r\n        <a class=\"nav-link waves-light\" mdbRippleRadius [routerLink]=\"['/admin', {outlets: {'adminOutlet': ['board']}}]\">게시판 관리</a>\r\n      </li>\r\n      <li class=\"nav-item\" [ngClass]=\"{'active': select==='직원 관리'}\" (click)=\"select='직원 관리'\">\r\n        <a class=\"nav-link waves-light\" mdbRippleRadius   [routerLink]=\"['/admin', {outlets: {'adminOutlet': ['employee']}}]\">직원 관리</a>\r\n      </li>\r\n    </ul>\r\n  </links>\r\n</mdb-navbar>\r\n<!-- Tab panels -->\r\n<router-outlet name=\"adminOutlet\"></router-outlet>\r\n"
 
 /***/ }),
 
@@ -1857,6 +1909,9 @@ module.exports = "<!-- Nav tabs -->\r\n<ul class=\"nav nav-tabs nav-justified\">
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "AdminComponent", function() { return AdminComponent; });
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var rxjs_add_operator_pairwise__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! rxjs/add/operator/pairwise */ "./node_modules/rxjs-compat/_esm5/add/operator/pairwise.js");
+/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm5/router.js");
+/* harmony import */ var _shared_services_sidenav_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../shared/services/sidenav.service */ "./src/app/shared/services/sidenav.service.ts");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -1867,9 +1922,27 @@ var __metadata = (undefined && undefined.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 
+
+
+
 var AdminComponent = /** @class */ (function () {
-    function AdminComponent() {
+    function AdminComponent(router, sideNavService) {
+        var _this = this;
+        this.router = router;
+        this.sideNavService = sideNavService;
+        router.events.subscribe(function (event) {
+            if (event instanceof _angular_router__WEBPACK_IMPORTED_MODULE_2__["NavigationStart"]) {
+                _this.sideNavService.bodyMarginReset(); //수정 nav 닫아주고 margin 초기화
+            }
+            if (event instanceof _angular_router__WEBPACK_IMPORTED_MODULE_2__["NavigationEnd"]) {
+                _this.sideNavService.bodyMarginReset();
+            }
+            if (event instanceof _angular_router__WEBPACK_IMPORTED_MODULE_2__["NavigationError"]) {
+                _this.sideNavService.bodyMarginReset();
+            }
+        });
     }
+    ;
     AdminComponent.prototype.ngOnInit = function () {
     };
     AdminComponent = __decorate([
@@ -1878,7 +1951,8 @@ var AdminComponent = /** @class */ (function () {
             template: __webpack_require__(/*! ./admin.component.html */ "./src/app/admin/admin.component.html"),
             styles: [__webpack_require__(/*! ./admin.component.css */ "./src/app/admin/admin.component.css")]
         }),
-        __metadata("design:paramtypes", [])
+        __metadata("design:paramtypes", [_angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"],
+            _shared_services_sidenav_service__WEBPACK_IMPORTED_MODULE_3__["SidenavService"]])
     ], AdminComponent);
     return AdminComponent;
 }());
@@ -1899,19 +1973,18 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "AdminModule", function() { return AdminModule; });
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
 /* harmony import */ var _angular_common__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/common */ "./node_modules/@angular/common/fesm5/common.js");
-/* harmony import */ var primeng_fileupload__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! primeng/fileupload */ "./node_modules/primeng/fileupload.js");
-/* harmony import */ var primeng_fileupload__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(primeng_fileupload__WEBPACK_IMPORTED_MODULE_2__);
-/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm5/router.js");
-/* harmony import */ var _admin_component__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./admin.component */ "./src/app/admin/admin.component.ts");
-/* harmony import */ var _admin_product_admin_product_component__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./admin-product/admin-product.component */ "./src/app/admin/admin-product/admin-product.component.ts");
-/* harmony import */ var _admin_banner_admin_banner_component__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./admin-banner/admin-banner.component */ "./src/app/admin/admin-banner/admin-banner.component.ts");
-/* harmony import */ var _admin_employee_admin_employee_component__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./admin-employee/admin-employee.component */ "./src/app/admin/admin-employee/admin-employee.component.ts");
-/* harmony import */ var _admin_routing__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./admin.routing */ "./src/app/admin/admin.routing.ts");
-/* harmony import */ var _shared_shared_module__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ../shared/shared.module */ "./src/app/shared/shared.module.ts");
-/* harmony import */ var _shared_services_product_service__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ../shared/services/product.service */ "./src/app/shared/services/product.service.ts");
-/* harmony import */ var ng2_smart_table__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ng2-smart-table */ "./node_modules/ng2-smart-table/index.js");
-/* harmony import */ var _admin_order_admin_order_component__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./admin-order/admin-order.component */ "./src/app/admin/admin-order/admin-order.component.ts");
-/* harmony import */ var _shared_services_token_service__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ../shared/services/token.service */ "./src/app/shared/services/token.service.ts");
+/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm5/router.js");
+/* harmony import */ var _admin_component__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./admin.component */ "./src/app/admin/admin.component.ts");
+/* harmony import */ var _admin_product_admin_product_component__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./admin-product/admin-product.component */ "./src/app/admin/admin-product/admin-product.component.ts");
+/* harmony import */ var _admin_banner_admin_banner_component__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./admin-banner/admin-banner.component */ "./src/app/admin/admin-banner/admin-banner.component.ts");
+/* harmony import */ var _admin_employee_admin_employee_component__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./admin-employee/admin-employee.component */ "./src/app/admin/admin-employee/admin-employee.component.ts");
+/* harmony import */ var _admin_routing__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./admin.routing */ "./src/app/admin/admin.routing.ts");
+/* harmony import */ var _shared_shared_module__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../shared/shared.module */ "./src/app/shared/shared.module.ts");
+/* harmony import */ var _shared_services_product_service__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ../shared/services/product.service */ "./src/app/shared/services/product.service.ts");
+/* harmony import */ var ng2_smart_table__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ng2-smart-table */ "./node_modules/ng2-smart-table/index.js");
+/* harmony import */ var _admin_order_admin_order_component__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./admin-order/admin-order.component */ "./src/app/admin/admin-order/admin-order.component.ts");
+/* harmony import */ var _shared_services_token_service__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ../shared/services/token.service */ "./src/app/shared/services/token.service.ts");
+/* harmony import */ var _shared_services_sidenav_service__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ../shared/services/sidenav.service */ "./src/app/shared/services/sidenav.service.ts");
 /* harmony import */ var _admin_board_admin_board_module__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ./admin-board/admin-board.module */ "./src/app/admin/admin-board/admin-board.module.ts");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -1941,21 +2014,20 @@ var AdminModule = /** @class */ (function () {
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["NgModule"])({
             imports: [
                 _angular_common__WEBPACK_IMPORTED_MODULE_1__["CommonModule"],
-                _angular_router__WEBPACK_IMPORTED_MODULE_3__["RouterModule"].forChild(_admin_routing__WEBPACK_IMPORTED_MODULE_8__["AdminRoutes"]),
-                _shared_shared_module__WEBPACK_IMPORTED_MODULE_9__["SharedModule"],
-                ng2_smart_table__WEBPACK_IMPORTED_MODULE_11__["Ng2SmartTableModule"],
-                primeng_fileupload__WEBPACK_IMPORTED_MODULE_2__["FileUploadModule"],
+                _angular_router__WEBPACK_IMPORTED_MODULE_2__["RouterModule"].forChild(_admin_routing__WEBPACK_IMPORTED_MODULE_7__["AdminRoutes"]),
+                _shared_shared_module__WEBPACK_IMPORTED_MODULE_8__["SharedModule"],
+                ng2_smart_table__WEBPACK_IMPORTED_MODULE_10__["Ng2SmartTableModule"],
                 _admin_board_admin_board_module__WEBPACK_IMPORTED_MODULE_14__["AdminBoardModule"]
             ],
             declarations: [
-                _admin_component__WEBPACK_IMPORTED_MODULE_4__["AdminComponent"],
-                _admin_product_admin_product_component__WEBPACK_IMPORTED_MODULE_5__["AdminProductComponent"],
-                _admin_banner_admin_banner_component__WEBPACK_IMPORTED_MODULE_6__["AdminBannerComponent"],
-                _admin_employee_admin_employee_component__WEBPACK_IMPORTED_MODULE_7__["AdminEmployeeComponent"],
-                _admin_order_admin_order_component__WEBPACK_IMPORTED_MODULE_12__["AdminOrderComponent"]
+                _admin_component__WEBPACK_IMPORTED_MODULE_3__["AdminComponent"],
+                _admin_product_admin_product_component__WEBPACK_IMPORTED_MODULE_4__["AdminProductComponent"],
+                _admin_banner_admin_banner_component__WEBPACK_IMPORTED_MODULE_5__["AdminBannerComponent"],
+                _admin_employee_admin_employee_component__WEBPACK_IMPORTED_MODULE_6__["AdminEmployeeComponent"],
+                _admin_order_admin_order_component__WEBPACK_IMPORTED_MODULE_11__["AdminOrderComponent"]
             ],
             exports: [],
-            providers: [_shared_services_product_service__WEBPACK_IMPORTED_MODULE_10__["ProductService"], _shared_services_token_service__WEBPACK_IMPORTED_MODULE_13__["TokenService"]]
+            providers: [_shared_services_product_service__WEBPACK_IMPORTED_MODULE_9__["ProductService"], _shared_services_token_service__WEBPACK_IMPORTED_MODULE_12__["TokenService"], _shared_services_sidenav_service__WEBPACK_IMPORTED_MODULE_13__["SidenavService"]]
         })
     ], AdminModule);
     return AdminModule;
@@ -1991,42 +2063,29 @@ __webpack_require__.r(__webpack_exports__);
 
 var AdminRoutes = [
     {
-        path: "admin",
-        component: _admin_component__WEBPACK_IMPORTED_MODULE_0__["AdminComponent"],
+        path: "admin", component: _admin_component__WEBPACK_IMPORTED_MODULE_0__["AdminComponent"],
         children: [
             {
-                path: "",
-                component: _admin_component__WEBPACK_IMPORTED_MODULE_0__["AdminComponent"],
-                canActivate: [_shared_services_admin_gaurd__WEBPACK_IMPORTED_MODULE_6__["AdminGaurd"]]
+                path: "", component: _admin_component__WEBPACK_IMPORTED_MODULE_0__["AdminComponent"], canActivate: [_shared_services_admin_gaurd__WEBPACK_IMPORTED_MODULE_6__["AdminGaurd"]]
             },
             {
-                path: "product",
-                component: _admin_product_admin_product_component__WEBPACK_IMPORTED_MODULE_1__["AdminProductComponent"],
-                canActivate: [_shared_services_admin_gaurd__WEBPACK_IMPORTED_MODULE_6__["AdminGaurd"]],
+                path: "product", component: _admin_product_admin_product_component__WEBPACK_IMPORTED_MODULE_1__["AdminProductComponent"], canActivate: [_shared_services_admin_gaurd__WEBPACK_IMPORTED_MODULE_6__["AdminGaurd"]],
                 outlet: "adminOutlet"
             },
             {
-                path: "order",
-                component: _admin_order_admin_order_component__WEBPACK_IMPORTED_MODULE_4__["AdminOrderComponent"],
-                canActivate: [_shared_services_admin_gaurd__WEBPACK_IMPORTED_MODULE_6__["AdminGaurd"]],
+                path: "order", component: _admin_order_admin_order_component__WEBPACK_IMPORTED_MODULE_4__["AdminOrderComponent"], canActivate: [_shared_services_admin_gaurd__WEBPACK_IMPORTED_MODULE_6__["AdminGaurd"]],
                 outlet: "adminOutlet"
             },
             {
-                path: "banner",
-                component: _admin_banner_admin_banner_component__WEBPACK_IMPORTED_MODULE_2__["AdminBannerComponent"],
-                canActivate: [_shared_services_admin_gaurd__WEBPACK_IMPORTED_MODULE_6__["AdminGaurd"]],
+                path: "banner", component: _admin_banner_admin_banner_component__WEBPACK_IMPORTED_MODULE_2__["AdminBannerComponent"], canActivate: [_shared_services_admin_gaurd__WEBPACK_IMPORTED_MODULE_6__["AdminGaurd"]],
                 outlet: "adminOutlet"
             },
             {
-                path: "board",
-                component: _admin_board_admin_board_component__WEBPACK_IMPORTED_MODULE_5__["AdminBoardComponent"],
-                canActivate: [_shared_services_admin_gaurd__WEBPACK_IMPORTED_MODULE_6__["AdminGaurd"]],
+                path: "board", component: _admin_board_admin_board_component__WEBPACK_IMPORTED_MODULE_5__["AdminBoardComponent"], canActivate: [_shared_services_admin_gaurd__WEBPACK_IMPORTED_MODULE_6__["AdminGaurd"]],
                 outlet: "adminOutlet"
             },
             {
-                path: "employee",
-                component: _admin_employee_admin_employee_component__WEBPACK_IMPORTED_MODULE_3__["AdminEmployeeComponent"],
-                canActivate: [_shared_services_admin_gaurd__WEBPACK_IMPORTED_MODULE_6__["AdminGaurd"]],
+                path: "employee", component: _admin_employee_admin_employee_component__WEBPACK_IMPORTED_MODULE_3__["AdminEmployeeComponent"], canActivate: [_shared_services_admin_gaurd__WEBPACK_IMPORTED_MODULE_6__["AdminGaurd"]],
                 outlet: "adminOutlet"
             }
         ]
@@ -2138,17 +2197,15 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _angular_common_http__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/common/http */ "./node_modules/@angular/common/fesm5/http.js");
 /* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm5/router.js");
 /* harmony import */ var rxjs_add_operator_map__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! rxjs/add/operator/map */ "./node_modules/rxjs-compat/_esm5/add/operator/map.js");
-/* harmony import */ var primeng_table__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! primeng/table */ "./node_modules/primeng/table.js");
-/* harmony import */ var primeng_table__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(primeng_table__WEBPACK_IMPORTED_MODULE_6__);
-/* harmony import */ var _app_component__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./app.component */ "./src/app/app.component.ts");
-/* harmony import */ var _index_index_module__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./index/index.module */ "./src/app/index/index.module.ts");
-/* harmony import */ var _product_product_module__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./product/product.module */ "./src/app/product/product.module.ts");
-/* harmony import */ var _user_user_module__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./user/user.module */ "./src/app/user/user.module.ts");
-/* harmony import */ var _shared_shared_module__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./shared/shared.module */ "./src/app/shared/shared.module.ts");
-/* harmony import */ var _notice_notice_module__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./notice/notice.module */ "./src/app/notice/notice.module.ts");
-/* harmony import */ var _admin_admin_module__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ./admin/admin.module */ "./src/app/admin/admin.module.ts");
-/* harmony import */ var _app_routing__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ./app.routing */ "./src/app/app.routing.ts");
-/* harmony import */ var _shared_services_product_service__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! ./shared/services/product.service */ "./src/app/shared/services/product.service.ts");
+/* harmony import */ var _app_component__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./app.component */ "./src/app/app.component.ts");
+/* harmony import */ var _index_index_module__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./index/index.module */ "./src/app/index/index.module.ts");
+/* harmony import */ var _product_product_module__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./product/product.module */ "./src/app/product/product.module.ts");
+/* harmony import */ var _user_user_module__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./user/user.module */ "./src/app/user/user.module.ts");
+/* harmony import */ var _shared_shared_module__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./shared/shared.module */ "./src/app/shared/shared.module.ts");
+/* harmony import */ var _notice_notice_module__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./notice/notice.module */ "./src/app/notice/notice.module.ts");
+/* harmony import */ var _admin_admin_module__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./admin/admin.module */ "./src/app/admin/admin.module.ts");
+/* harmony import */ var _app_routing__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ./app.routing */ "./src/app/app.routing.ts");
+/* harmony import */ var _shared_services_product_service__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ./shared/services/product.service */ "./src/app/shared/services/product.service.ts");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -2170,32 +2227,28 @@ var __decorate = (undefined && undefined.__decorate) || function (decorators, ta
 
 
 
-//동현임포트수정
-
-//동현임포트수정끝
 var AppModule = /** @class */ (function () {
     function AppModule() {
     }
     AppModule = __decorate([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["NgModule"])({
-            declarations: [_app_component__WEBPACK_IMPORTED_MODULE_7__["AppComponent"]],
+            declarations: [_app_component__WEBPACK_IMPORTED_MODULE_6__["AppComponent"]],
             imports: [
                 _angular_http__WEBPACK_IMPORTED_MODULE_2__["HttpModule"],
                 _angular_common_http__WEBPACK_IMPORTED_MODULE_3__["HttpClientModule"],
                 _angular_platform_browser__WEBPACK_IMPORTED_MODULE_0__["BrowserModule"],
-                _index_index_module__WEBPACK_IMPORTED_MODULE_8__["IndexModule"],
-                _product_product_module__WEBPACK_IMPORTED_MODULE_9__["ProductModule"],
-                _user_user_module__WEBPACK_IMPORTED_MODULE_10__["UserModule"],
-                _shared_shared_module__WEBPACK_IMPORTED_MODULE_11__["SharedModule"],
-                _angular_router__WEBPACK_IMPORTED_MODULE_4__["RouterModule"].forRoot(_app_routing__WEBPACK_IMPORTED_MODULE_14__["AppRoutes"]),
-                _notice_notice_module__WEBPACK_IMPORTED_MODULE_12__["NoticeModule"],
-                _admin_admin_module__WEBPACK_IMPORTED_MODULE_13__["AdminModule"],
-                primeng_table__WEBPACK_IMPORTED_MODULE_6__["TableModule"]
+                _index_index_module__WEBPACK_IMPORTED_MODULE_7__["IndexModule"],
+                _product_product_module__WEBPACK_IMPORTED_MODULE_8__["ProductModule"],
+                _user_user_module__WEBPACK_IMPORTED_MODULE_9__["UserModule"],
+                _shared_shared_module__WEBPACK_IMPORTED_MODULE_10__["SharedModule"],
+                _angular_router__WEBPACK_IMPORTED_MODULE_4__["RouterModule"].forRoot(_app_routing__WEBPACK_IMPORTED_MODULE_13__["AppRoutes"]),
+                _notice_notice_module__WEBPACK_IMPORTED_MODULE_11__["NoticeModule"],
+                _admin_admin_module__WEBPACK_IMPORTED_MODULE_12__["AdminModule"]
             ],
             providers: [
-                _shared_services_product_service__WEBPACK_IMPORTED_MODULE_15__["ProductService"]
+                _shared_services_product_service__WEBPACK_IMPORTED_MODULE_14__["ProductService"]
             ],
-            bootstrap: [_app_component__WEBPACK_IMPORTED_MODULE_7__["AppComponent"]],
+            bootstrap: [_app_component__WEBPACK_IMPORTED_MODULE_6__["AppComponent"]],
             schemas: [_angular_core__WEBPACK_IMPORTED_MODULE_1__["NO_ERRORS_SCHEMA"]]
         })
     ], AppModule);
@@ -2229,10 +2282,10 @@ var AppRoutes = [
         path: "",
         component: _index_index_component__WEBPACK_IMPORTED_MODULE_0__["IndexComponent"],
         children: [
-            // {
-            //   path: "index",
-            //   loadChildren: "./index/index.module#IndexModule"
-            // },
+            {
+                path: "index",
+                loadChildren: "./index/index.module#IndexModule"
+            },
             {
                 path: "products",
                 loadChildren: "./product/product.module#ProductModule"
@@ -2432,7 +2485,7 @@ var FooterComponent = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<!-- Carousel -->\r\n<div class=\"container\">\r\n  <div class=\"owl-carousel banner owl-theme\">\r\n    <div class=\"item\">\r\n      <img class=\"d-block w-100\" src=\"../../assets/banner_img/img_1.jpg\" alt=\"First slide\">\r\n    </div>\r\n    <div class=\"item\">\r\n      <img class=\"d-block w-100\" src=\"../../assets/banner_img/img_2.jpg\" alt=\"Second slide\">\r\n    </div>\r\n    <div class=\"item\">\r\n      <img class=\"d-block w-100\" src=\"../../assets/banner_img/img_3.jpg\" alt=\"Third slide\">\r\n    </div>\r\n    <div class=\"item\">\r\n      <img class=\"d-block w-100\" src=\"../../assets/banner_img/img_4.jpg\" alt=\"Fourth slide\">\r\n    </div>\r\n  </div>\r\n  <app-best-product></app-best-product>\r\n</div>\r\n"
+module.exports = "<!-- Carousel -->\r\n<div class=\"container\">\r\n  <div class=\"owl-carousel banner owl-theme\">\r\n    <div class=\"item\">\r\n      <img class=\"d-block w-100\" src=\"../../assets/img/banner_1.jpg\" alt=\"First slide\">\r\n    </div>\r\n    <div class=\"item\">\r\n      <img class=\"d-block w-100\" src=\"../../assets/img/banner_2.jpg\" alt=\"Second slide\">\r\n    </div>\r\n    <div class=\"item\">\r\n      <img class=\"d-block w-100\" src=\"../../assets/img/banner_3.jpg\" alt=\"Third slide\">\r\n    </div>\r\n    <div class=\"item\">\r\n      <img class=\"d-block w-100\" src=\"../../assets/img/banner_4.jpg\" alt=\"Fourth slide\">\r\n    </div>\r\n  </div>\r\n  <app-best-product></app-best-product>\r\n</div>\r\n"
 
 /***/ }),
 
@@ -2792,7 +2845,7 @@ var LocalFavouritePageComponent = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<br /><br />\r\n<section class=\"container\" style=\"position:relative;\">\r\n  <!-- 로그인 폼 -->\r\n  <div class=\"col-sm-6\" style=\"margin:auto;\">\r\n    <form style=\"width:22rem\" #loginForm=\"ngForm\" (ngSubmit)=\"login()\">\r\n      <p class=\"h5 text-center mb-4\">Sign in</p>\r\n\r\n      <div class=\"md-form\">\r\n        <i class=\"fa fa-envelope prefix grey-text\"></i>\r\n        <input mdbActive type=\"text\" id=\"loginUserId\" class=\"form-control\" name=\"uid\" [(ngModel)]=\"login1.uid\">\r\n        <label for=\"userId\">아이디</label>\r\n      </div>\r\n\r\n      <div class=\"md-form\">\r\n        <i class=\"fa fa-lock prefix grey-text\"></i>\r\n        <input type=\"password\" id=\"userPassword\" name=\"upw\" [(ngModel)]=\"login1.upw\" class=\"form-control\" mdbActive>\r\n        <label for=\"defaultForm-pass\">비밀번호</label>\r\n      </div>\r\n\r\n      <div class=\"text-center\">\r\n        <button type=\"submit\" class=\"btn btn-outline-primary\" id=\"loginButton\" mdbRippleRadius>Login</button>\r\n      </div>\r\n    </form>\r\n    <!-- 로그인 폼 끝-->\r\n\r\n    <!-- 모달 활성화 링크들 -->\r\n    <br />\r\n    <br />\r\n    <br />\r\n    <p>회원이 아니십니까?\r\n      <a data-toggle=\"modal\" data-target=\"#createUserForm\" style=\"color:dodgerblue; font-weight:bold;\">회원가입하기</a>\r\n    </p>\r\n    <p>아이디를 분실하셨나요?\r\n      <a data-toggle=\"modal\" data-target=\"#FindUserIDInfoForm\" style=\"color:dodgerblue; font-weight:bold;\">아이디찾기</a>\r\n    </p>\r\n    <p>비밀번호를 분실하셨나요?\r\n      <a data-toggle=\"modal\" data-target=\"#FindUserPWInfoForm\" style=\"color:dodgerblue; font-weight:bold;\">비밀번호찾기</a>\r\n    </p>\r\n  </div>\r\n  <br>\r\n\r\n\r\n  <!--회원가입폼 (모달)-->\r\n  <div class=\"modal fade\" id=\"createUserForm\" tabindex=\"-1\" role=\"dialog\" aria-labelledby=\"myModalLabel\" aria-hidden=\"true\" >\r\n    <div class=\"modal-dialog cascading-modal\" role=\"document\">\r\n      <form #userForm=\"ngForm\" (ngSubmit)=\"addUser(userForm)\" name=\"JoinForm\">\r\n        <div class=\"modal-content\" >\r\n\r\n          <div class=\"modal-header light-blue darken-3 white-text\" >\r\n            <h4 class=\"title\">\r\n              <i class=\"fa fa-user-plus\"></i> 회원가입</h4>\r\n            <button type=\"button\" class=\"close waves-effect waves-light\" data-dismiss=\"modal\" aria-label=\"Close\">\r\n              <span aria-hidden=\"true\">×</span>\r\n            </button>\r\n          </div>\r\n          <!-- mdbInputValidate: 만족하면 success, 실패하면 false. 글씨가 뜨게해주는 속성 삭제. 컨트롤하는 방법을 모르겠어서 삭제-->\r\n          <div class=\"modal-body\" style=\"font-size:12px;\">\r\n            <div class=\"md-form form-sm\" style=\"margin:0px;\">\r\n              <i class=\"fa fa-envelope prefix\"></i>\r\n              <input mdbActive type=\"text\" id=\"userId\" class=\"form-control\" name=\"uid\" [(ngModel)]=\"createUser.uid\" >\r\n              <label for=\"userId\">아이디(40자이내), 이메일형식입니다.</label>\r\n            </div>\r\n            <div class=\"md-form form-sm\" style=\"width:200px; display:inline-block; height:40px;\">\r\n              <i class=\"fa fa-lock prefix\"></i>\r\n              <input mdbActive type=\"password\" id=\"userPw\" class=\"form-control\" [(ngModel)]=\"createUser.upw\" name=\"upw\" >\r\n              <label for=\"userPw\">비밀번호(20자이내)</label>\r\n            </div>\r\n            <div class=\"md-form form-sm\" style=\"width:200px; display:inline-block; height:40px;\">\r\n              <i class=\"fa fa-lock prefix\"></i>\r\n              <input mdbActive type=\"password\" id=\"userPw2\" class=\"form-control\" name=\"upw2\" [(ngModel)]=\"upw2\">\r\n              <label for=\"userPw2\">비밀번호 확인</label>\r\n            </div>\r\n            <div class=\"md-form form-sm\" style=\"margin:0px; padding:0px;\">\r\n              <i class=\"fa fa-user prefix\"></i>\r\n              <input mdbActive type=\"text\" id=\"userName\" class=\"form-control\"  [(ngModel)]=\"createUser.uname\" name=\"uname\">\r\n              <label for=\"userName\">이름(10자이내)</label>\r\n            </div>\r\n            <div class=\"md-form form-sm\">\r\n              <i class=\"fa fa-phone prefix\"></i>\r\n              <input mdbActive type=\"text\" id=\"userPhone\" class=\"form-control\"  [(ngModel)]=\"createUser.uphone\" name=\"uphone\">\r\n              <label for=\"userPhone\">연락처( '-' 제외, 9~11자리 숫자만입력)</label>\r\n            </div>\r\n            <div class=\"md-form form-sm\">\r\n              <div class=\"dododo\" style=\"margin-left: 28px;\"><btn-daum-address (result)=\"setDaumAddressApi($event)\" [options]=\"daumAddressOptions\"></btn-daum-address></div>\r\n              <i class=\"fa fa-map-marker prefix\"></i>\r\n              <br />\r\n              <p>기본주소 : {{AddrSearch2}}</p>\r\n              <input mdbActive type=\"text\" id=\"DetailAddr\" class=\"form-control\"  [(ngModel)]=\"AddrSearch3\" name=\"uDetailAddr\" placeholder=\"상세주소(50자이내)\">\r\n              <br />\r\n            </div>\r\n            <div class=\"md-form form-sm\">\r\n              <i class=\"fa fa-calendar prefix\"></i>\r\n              <input mdbActive type=\"text\" id=\"userBirth\" class=\"form-control\"  [(ngModel)]=\"createUser.ubirth\" name=\"ubirth\" >\r\n              <label for=\"userBirth\">생년월일(주민등록번호 앞6자리만 입력)</label>\r\n            </div>\r\n\r\n            <div class=\"md-form form-sm\">\r\n              <i class=\"fa fa-transgender prefix\"></i>\r\n              <select class=\"mdb-select\" [(ngModel)]=\"createUser.ugender\" name=\"ugender\" id=\"ugenderlist\" style=\"margin-left:180px; margin-top:10px; width:100px;\" >\r\n                <option value=\"\" disabled selected>성별을 선택해주세요</option>\r\n                <option value=\"M\">남자</option>\r\n                <option value=\"F\">여자</option>\r\n              </select>\r\n              <label for=\"ugenderlist\">성별</label>\r\n            </div>\r\n\r\n            <div class=\"md-form form-sm\">\r\n              <i class=\"fa fa-twitter-square prefix\"></i>\r\n              <select class=\"mdb-select\" [(ngModel)]=\"createUser.usmsyn\" name=\"usmsyn\" id=\"userSmsyn\" style=\"margin-left:180px; margin-top:10px; width:100px;\">\r\n                <option value=\"\" disabled selected>SMS로 정보를 수신하시겠습니까?</option>\r\n                <option value=\"Y\">예</option>\r\n                <option value=\"N\">아니오</option>\r\n              </select>\r\n              <label for=\"userSmsyn\">sms 수신여부</label>\r\n            </div>\r\n            <div class=\"md-form form-sm\">\r\n              <i class=\"fa fa-twitch prefix\"></i>\r\n              <select class=\"mdb-select\" [(ngModel)]=\"createUser.uemailyn\" name=\"uemailyn\" id=\"userEmailyn\" style=\"margin-left:180px; margin-top:10px; width:100px;\">\r\n                <option value=\"\" disabled selected>이메일로 정보를 수신하시겠습니까?</option>\r\n                <option value=\"Y\">예</option>\r\n                <option value=\"N\">아니오</option>\r\n              </select>\r\n              <label for=\"userEmailyn\">이메일 수신여부</label>\r\n            </div>\r\n            <div class=\"text-center mt-2\">\r\n              <button type=\"submit\" class=\"btn btn-info waves-light\" id=\"signUpButton\" mdbRippleRadius>가입하기\r\n                <i class=\"fa fa-sign-in ml-1\"></i>\r\n              </button>\r\n            </div>\r\n          </div>\r\n        </div>\r\n      </form>\r\n    </div>\r\n  </div>\r\n  <!-- 회원가입모달 끝 -->\r\n\r\n  <!-- 아이디 찾기 -->\r\n  <div class=\"modal fade\" id=\"FindUserIDInfoForm\" tabindex=\"-1\" role=\"dialog\" aria-labelledby=\"myModalLabel\" aria-hidden=\"true\">\r\n    <div class=\"modal-dialog cascading-modal\" role=\"document\">\r\n      <!-- 이름,주민등록번호,연락처로 아이디찾기 -->\r\n      <form #FindIdForm=\"ngForm\" (ngSubmit)=\"FindUserId(FindIdForm)\">\r\n        <div class=\"modal-content\">\r\n          <!-- 메뉴타이틀 -->\r\n          <div class=\"modal-header light-blue darken-3 white-text\">\r\n            <h4 class=\"title\">\r\n              <i class=\"fa fa-user-plus\"></i>아이디 찾기</h4>\r\n            <button type=\"button\" class=\"close waves-effect waves-light\" data-dismiss=\"modal\" aria-label=\"Close\">\r\n              <span aria-hidden=\"true\">×</span>\r\n            </button>\r\n          </div>\r\n\r\n          <!-- 입력박스 -->\r\n          <div class=\"modal-body\">\r\n            <div class=\"md-form form-sm\">\r\n              <i class=\"fa fa-user prefix\"></i>\r\n              <input mdbActive type=\"text\" id=\"FindID_userName\" class=\"form-control\" [(ngModel)]=\"findIDUser.uname\" name=\"FindID_uname\">\r\n              <label for=\"FindID_userName\">이름</label>\r\n            </div>\r\n            <div class=\"md-form form-sm\">\r\n              <i class=\"fa fa-phone prefix\"></i>\r\n              <input mdbActive type=\"text\" id=\"FindID_userPhone\" class=\"form-control\" [(ngModel)]=\"findIDUser.uphone\" name=\"FindID_uphone\">\r\n              <label for=\"FindID_userPhone\">연락처('-'제외, 숫자만입력)</label>\r\n            </div>\r\n            <div class=\"md-form form-sm\">\r\n              <i class=\"fa fa-calendar prefix\"></i>\r\n              <input mdbActive type=\"text\" id=\"FindID_userBirth\" class=\"form-control\" [(ngModel)]=\"findIDUser.ubirth\" name=\"FindID_ubirth\">\r\n              <label for=\"FindID_userBirth\">생년월일(숫자만입력)</label>\r\n            </div>\r\n            <div class=\"text-center mt-2\">\r\n              <button type=\"submit\" class=\"btn btn-info waves-light\" id=\"FindID_Button\" mdbRippleRadius>아이디찾기\r\n                <i class=\"fa fa-sign-in ml-1\"></i>\r\n              </button>\r\n            </div>\r\n            <br />\r\n            <ng-template [ngIf]=\"user.uid == null\">위 항목들을 작성해주세요</ng-template>\r\n            <ng-template [ngIf]=\"user.uid != null\"><p style=\"text-align: center; font-weight:bold; font-size:16px;\">일치하는 아이디 : {{user.uid}}</p></ng-template>\r\n\r\n          </div>\r\n        </div>\r\n      </form>\r\n    </div>\r\n  </div>\r\n\r\n\r\n  <!-- 비밀번호 찾기 -->\r\n  <div class=\"modal fade\" id=\"FindUserPWInfoForm\" tabindex=\"-1\" role=\"dialog\" aria-labelledby=\"myModalLabel\" aria-hidden=\"true\">\r\n    <div class=\"modal-dialog cascading-modal\" role=\"document\">\r\n      <!-- 아이디,이름,주민등록번호,연락처로 아이디찾기 -->\r\n      <form #FindPwForm=\"ngForm\" (ngSubmit)=\"FindUserPw(FindPwForm)\">\r\n        <div class=\"modal-content\">\r\n          <!-- 메뉴타이틀 -->\r\n          <div class=\"modal-header light-blue darken-3 white-text\">\r\n            <h4 class=\"title\">\r\n              <i class=\"fa fa-user-plus\"></i>비밀번호 찾기</h4>\r\n            <button type=\"button\" class=\"close waves-effect waves-light\" data-dismiss=\"modal\" aria-label=\"Close\">\r\n              <span aria-hidden=\"true\">×</span>\r\n            </button>\r\n          </div>\r\n\r\n          <!-- 입력박스 -->\r\n          <div class=\"modal-body\">\r\n            <div class=\"md-form form-sm\">\r\n              <i class=\"fa fa-envelope prefix\"></i>\r\n              <input mdbActive type=\"text\" id=\"FindPW_userId\" class=\"form-control\" [(ngModel)]=\"findPWUser.uid\" name=\"FindPW_uid\">\r\n              <label for=\"FindPW_userId\">아이디</label>\r\n            </div>\r\n            <div class=\"md-form form-sm\">\r\n              <i class=\"fa fa-user prefix\"></i>\r\n              <input mdbActive type=\"text\" id=\"FindPW_userName\" class=\"form-control\" [(ngModel)]=\"findPWUser.uname\" name=\"FindPW_uname\">\r\n              <label for=\"FindPW_userName\">이름</label>\r\n            </div>\r\n            <div class=\"md-form form-sm\">\r\n              <i class=\"fa fa-phone prefix\"></i>\r\n              <input mdbActive type=\"text\" id=\"FindPW_userPhone\" class=\"form-control\" [(ngModel)]=\"findPWUser.uphone\" name=\"FindPW_uphone\">\r\n              <label for=\"FindPW_userPhone\">연락처('-'제외, 숫자만입력)</label>\r\n            </div>\r\n            <div class=\"md-form form-sm\">\r\n              <i class=\"fa fa-calendar prefix\"></i>\r\n              <input mdbActive type=\"text\" id=\"FindPW_userBirth\" class=\"form-control\" [(ngModel)]=\"findPWUser.ubirth\" name=\"FindPW_ubirth\">\r\n              <label for=\"FindPW_userBirth\">생년월일</label>\r\n            </div>\r\n            <div class=\"text-center mt-2\">\r\n              <button type=\"submit\" class=\"btn btn-info waves-light\" id=\"FindPW_Button\" mdbRippleRadius>비밀번호찾기\r\n                <i class=\"fa fa-sign-in ml-1\"></i>\r\n              </button>\r\n            </div>\r\n            <br />\r\n            <ng-template [ngIf]=\"user2.upw == null\">위 항목들을 작성해주세요</ng-template>\r\n            <ng-template [ngIf]=\"user2.upw != null\"><p style=\"text-align: center; font-weight:bold; font-size:16px;\">비밀번호 : {{user2.upw}}</p></ng-template>\r\n\r\n          </div>\r\n        </div>\r\n      </form>\r\n    </div>\r\n  </div>\r\n</section>\r\n<br>\r\n<br>\r\n<br>\r\n<ng2-toasty></ng2-toasty>\r\n"
+module.exports = "<br /><br />\r\n<section class=\"container\" style=\"position:relative;\">\r\n  <!-- 로그인 폼 -->\r\n  <div class=\"col-sm-6\" style=\"margin:auto;\">\r\n    <form style=\"width:22rem\" #loginForm=\"ngForm\" (ngSubmit)=\"login()\">\r\n      <p class=\"h5 text-center mb-4\">Sign in</p>\r\n\r\n      <div class=\"md-form\">\r\n        <i class=\"fa fa-envelope prefix grey-text\"></i>\r\n        <input mdbActive type=\"text\" id=\"loginUserId\" class=\"form-control\" name=\"uid\" [(ngModel)]=\"login1.uid\">\r\n        <label for=\"userId\">아이디</label>\r\n      </div>\r\n\r\n      <div class=\"md-form\">\r\n        <i class=\"fa fa-lock prefix grey-text\"></i>\r\n        <input type=\"password\" id=\"userPassword\" name=\"upw\" [(ngModel)]=\"login1.upw\" class=\"form-control\" mdbActive>\r\n        <label for=\"defaultForm-pass\">비밀번호</label>\r\n      </div>\r\n\r\n      <div class=\"text-center\">\r\n        <button type=\"submit\" class=\"btn btn-outline-primary\" id=\"loginButton\" mdbRippleRadius>Login</button>\r\n      </div>\r\n    </form>\r\n    <!-- 로그인 폼 끝-->\r\n\r\n    <!-- 모달 활성화 링크들 -->\r\n    <br />\r\n    <br />\r\n    <br />\r\n    <p>회원이 아니십니까?\r\n      <a data-toggle=\"modal\" data-target=\"#createUserForm\" style=\"color:dodgerblue; font-weight:bold;\">회원가입하기</a>\r\n    </p>\r\n    <p>아이디를 분실하셨나요?\r\n      <a data-toggle=\"modal\" data-target=\"#FindUserIDInfoForm\" style=\"color:dodgerblue; font-weight:bold;\">아이디찾기</a>\r\n    </p>\r\n    <p>비밀번호를 분실하셨나요?\r\n      <a data-toggle=\"modal\" data-target=\"#FindUserPWInfoForm\" style=\"color:dodgerblue; font-weight:bold;\">비밀번호찾기</a>\r\n    </p>\r\n  </div>\r\n  <br>\r\n\r\n\r\n  <!--회원가입폼 (모달)-->\r\n  <div class=\"modal fade\" id=\"createUserForm\" tabindex=\"-1\" role=\"dialog\" aria-labelledby=\"myModalLabel\" aria-hidden=\"true\" style=\"top: -90px;\">\r\n    <div class=\"modal-dialog cascading-modal\" role=\"document\">\r\n      <form #userForm=\"ngForm\" (ngSubmit)=\"addUser(userForm)\" name=\"JoinForm\">\r\n        <div class=\"modal-content\" >\r\n\r\n          <div class=\"modal-header light-blue darken-3 white-text\" >\r\n            <h4 class=\"title\">\r\n              <i class=\"fa fa-user-plus\"></i> 회원가입</h4>\r\n            <button type=\"button\" class=\"close waves-effect waves-light\" data-dismiss=\"modal\" aria-label=\"Close\">\r\n              <span aria-hidden=\"true\">×</span>\r\n            </button>\r\n          </div>\r\n          <!-- mdbInputValidate: 만족하면 success, 실패하면 false. 글씨가 뜨게해주는 속성 삭제. 컨트롤하는 방법을 모르겠어서 삭제-->\r\n          <div class=\"modal-body\" style=\"font-size:12px;\">\r\n            <div class=\"md-form form-sm\" style=\"margin:0px;\">\r\n              <i class=\"fa fa-envelope prefix\"></i>\r\n              <input mdbActive type=\"text\" id=\"userId\" class=\"form-control\" name=\"uid\" [(ngModel)]=\"createUser.uid\" >\r\n              <label for=\"userId\">아이디(40자이내), 이메일형식입니다.</label>\r\n            </div>\r\n            <div class=\"md-form form-sm\" style=\"width:200px; display:inline-block; height:40px;\">\r\n              <i class=\"fa fa-lock prefix\"></i>\r\n              <input mdbActive type=\"password\" id=\"userPw\" class=\"form-control\" [(ngModel)]=\"createUser.upw\" name=\"upw\" >\r\n              <label for=\"userPw\">비밀번호(20자이내)</label>\r\n            </div>\r\n            <div class=\"md-form form-sm\" style=\"width:200px; display:inline-block; height:40px;\">\r\n              <i class=\"fa fa-lock prefix\"></i>\r\n              <input mdbActive type=\"password\" id=\"userPw2\" class=\"form-control\" name=\"upw2\" [(ngModel)]=\"upw2\">\r\n              <label for=\"userPw2\">비밀번호 확인</label>\r\n            </div>\r\n            <div class=\"md-form form-sm\" style=\"margin:0px; padding:0px;\">\r\n              <i class=\"fa fa-user prefix\"></i>\r\n              <input mdbActive type=\"text\" id=\"userName\" class=\"form-control\"  [(ngModel)]=\"createUser.uname\" name=\"uname\">\r\n              <label for=\"userName\">이름(10자이내)</label>\r\n            </div>\r\n            <div class=\"md-form form-sm\">\r\n              <i class=\"fa fa-phone prefix\"></i>\r\n              <input mdbActive type=\"text\" id=\"userPhone\" class=\"form-control\"  [(ngModel)]=\"createUser.uphone\" name=\"uphone\">\r\n              <label for=\"userPhone\">연락처( '-' 제외, 9~11자리 숫자만입력)</label>\r\n            </div>\r\n            <div class=\"md-form form-sm\">\r\n              <div class=\"dododo\" style=\"margin-left: 28px;\"><btn-daum-address (result)=\"setDaumAddressApi($event)\" [options]=\"daumAddressOptions\"></btn-daum-address></div>\r\n              <i class=\"fa fa-map-marker prefix\"></i>\r\n              <br />\r\n              <p>기본주소 : {{AddrSearch2}}</p>\r\n              <input mdbActive type=\"text\" id=\"DetailAddr\" class=\"form-control\"  [(ngModel)]=\"AddrSearch3\" name=\"uDetailAddr\" placeholder=\"상세주소(50자이내)\">\r\n              <br />\r\n            </div>\r\n            <div class=\"md-form form-sm\">\r\n              <i class=\"fa fa-calendar prefix\"></i>\r\n              <input mdbActive type=\"text\" id=\"userBirth\" class=\"form-control\"  [(ngModel)]=\"createUser.ubirth\" name=\"ubirth\" >\r\n              <label for=\"userBirth\">생년월일(주민등록번호 앞6자리만 입력)</label>\r\n            </div>\r\n\r\n            <div class=\"md-form form-sm\">\r\n              <i class=\"fa fa-transgender prefix\"></i>\r\n              <select class=\"mdb-select\" [(ngModel)]=\"createUser.ugender\" name=\"ugender\" id=\"ugenderlist\" style=\"margin-left:180px; margin-top:10px; width:100px;\" >\r\n                <option value=\"\" disabled selected>성별을 선택해주세요</option>\r\n                <option value=\"M\">남자</option>\r\n                <option value=\"F\">여자</option>\r\n              </select>\r\n              <label for=\"ugenderlist\">성별</label>\r\n            </div>\r\n\r\n            <div class=\"md-form form-sm\">\r\n              <i class=\"fa fa-twitter-square prefix\"></i>\r\n              <select class=\"mdb-select\" [(ngModel)]=\"createUser.usmsyn\" name=\"usmsyn\" id=\"userSmsyn\" style=\"margin-left:180px; margin-top:10px; width:100px;\">\r\n                <option value=\"\" disabled selected>SMS로 정보를 수신하시겠습니까?</option>\r\n                <option value=\"Y\">예</option>\r\n                <option value=\"N\">아니오</option>\r\n              </select>\r\n              <label for=\"userSmsyn\">sms 수신여부</label>\r\n            </div>\r\n            <div class=\"md-form form-sm\">\r\n              <i class=\"fa fa-twitch prefix\"></i>\r\n              <select class=\"mdb-select\" [(ngModel)]=\"createUser.uemailyn\" name=\"uemailyn\" id=\"userEmailyn\" style=\"margin-left:180px; margin-top:10px; width:100px;\">\r\n                <option value=\"\" disabled selected>이메일로 정보를 수신하시겠습니까?</option>\r\n                <option value=\"Y\">예</option>\r\n                <option value=\"N\">아니오</option>\r\n              </select>\r\n              <label for=\"userEmailyn\">이메일 수신여부</label>\r\n            </div>\r\n            <div class=\"text-center mt-2\">\r\n              <button type=\"submit\" class=\"btn btn-info waves-light\" id=\"signUpButton\" mdbRippleRadius>가입하기\r\n                <i class=\"fa fa-sign-in ml-1\"></i>\r\n              </button>\r\n            </div>\r\n          </div>\r\n        </div>\r\n      </form>\r\n    </div>\r\n  </div>\r\n  <!-- 회원가입모달 끝 -->\r\n\r\n  <!-- 아이디 찾기 -->\r\n  <div class=\"modal fade\" id=\"FindUserIDInfoForm\" tabindex=\"-1\" role=\"dialog\" aria-labelledby=\"myModalLabel\" aria-hidden=\"true\">\r\n    <div class=\"modal-dialog cascading-modal\" role=\"document\">\r\n      <!-- 이름,주민등록번호,연락처로 아이디찾기 -->\r\n      <form #FindIdForm=\"ngForm\" (ngSubmit)=\"FindUserId(FindIdForm)\">\r\n        <div class=\"modal-content\">\r\n          <!-- 메뉴타이틀 -->\r\n          <div class=\"modal-header light-blue darken-3 white-text\">\r\n            <h4 class=\"title\">\r\n              <i class=\"fa fa-user-plus\"></i>아이디 찾기</h4>\r\n            <button type=\"button\" class=\"close waves-effect waves-light\" data-dismiss=\"modal\" aria-label=\"Close\">\r\n              <span aria-hidden=\"true\">×</span>\r\n            </button>\r\n          </div>\r\n\r\n          <!-- 입력박스 -->\r\n          <div class=\"modal-body\">\r\n            <div class=\"md-form form-sm\">\r\n              <i class=\"fa fa-user prefix\"></i>\r\n              <input mdbActive type=\"text\" id=\"FindID_userName\" class=\"form-control\" [(ngModel)]=\"findIDUser.uname\" name=\"FindID_uname\">\r\n              <label for=\"FindID_userName\">이름</label>\r\n            </div>\r\n            <div class=\"md-form form-sm\">\r\n              <i class=\"fa fa-phone prefix\"></i>\r\n              <input mdbActive type=\"text\" id=\"FindID_userPhone\" class=\"form-control\" [(ngModel)]=\"findIDUser.uphone\" name=\"FindID_uphone\">\r\n              <label for=\"FindID_userPhone\">연락처('-'제외, 숫자만입력)</label>\r\n            </div>\r\n            <div class=\"md-form form-sm\">\r\n              <i class=\"fa fa-calendar prefix\"></i>\r\n              <input mdbActive type=\"text\" id=\"FindID_userBirth\" class=\"form-control\" [(ngModel)]=\"findIDUser.ubirth\" name=\"FindID_ubirth\">\r\n              <label for=\"FindID_userBirth\">생년월일(숫자만입력)</label>\r\n            </div>\r\n            <div class=\"text-center mt-2\">\r\n              <button type=\"submit\" class=\"btn btn-info waves-light\" id=\"FindID_Button\" mdbRippleRadius>아이디찾기\r\n                <i class=\"fa fa-sign-in ml-1\"></i>\r\n              </button>\r\n            </div>\r\n            <br />\r\n            <ng-template [ngIf]=\"user.uid == null\">위 항목들을 작성해주세요</ng-template>\r\n            <ng-template [ngIf]=\"user.uid != null\"><p style=\"text-align: center; font-weight:bold; font-size:16px;\">일치하는 아이디 : {{user.uid}}</p></ng-template>\r\n\r\n          </div>\r\n        </div>\r\n      </form>\r\n    </div>\r\n  </div>\r\n\r\n\r\n  <!-- 비밀번호 찾기 -->\r\n  <div class=\"modal fade\" id=\"FindUserPWInfoForm\" tabindex=\"-1\" role=\"dialog\" aria-labelledby=\"myModalLabel\" aria-hidden=\"true\">\r\n    <div class=\"modal-dialog cascading-modal\" role=\"document\">\r\n      <!-- 아이디,이름,주민등록번호,연락처로 아이디찾기 -->\r\n      <form #FindPwForm=\"ngForm\" (ngSubmit)=\"FindUserPw(FindPwForm)\">\r\n        <div class=\"modal-content\">\r\n          <!-- 메뉴타이틀 -->\r\n          <div class=\"modal-header light-blue darken-3 white-text\">\r\n            <h4 class=\"title\">\r\n              <i class=\"fa fa-user-plus\"></i>비밀번호 찾기</h4>\r\n            <button type=\"button\" class=\"close waves-effect waves-light\" data-dismiss=\"modal\" aria-label=\"Close\">\r\n              <span aria-hidden=\"true\">×</span>\r\n            </button>\r\n          </div>\r\n\r\n          <!-- 입력박스 -->\r\n          <div class=\"modal-body\">\r\n            <div class=\"md-form form-sm\">\r\n              <i class=\"fa fa-envelope prefix\"></i>\r\n              <input mdbActive type=\"text\" id=\"FindPW_userId\" class=\"form-control\" [(ngModel)]=\"findPWUser.uid\" name=\"FindPW_uid\">\r\n              <label for=\"FindPW_userId\">아이디</label>\r\n            </div>\r\n            <div class=\"md-form form-sm\">\r\n              <i class=\"fa fa-user prefix\"></i>\r\n              <input mdbActive type=\"text\" id=\"FindPW_userName\" class=\"form-control\" [(ngModel)]=\"findPWUser.uname\" name=\"FindPW_uname\">\r\n              <label for=\"FindPW_userName\">이름</label>\r\n            </div>\r\n            <div class=\"md-form form-sm\">\r\n              <i class=\"fa fa-phone prefix\"></i>\r\n              <input mdbActive type=\"text\" id=\"FindPW_userPhone\" class=\"form-control\" [(ngModel)]=\"findPWUser.uphone\" name=\"FindPW_uphone\">\r\n              <label for=\"FindPW_userPhone\">연락처('-'제외, 숫자만입력)</label>\r\n            </div>\r\n            <div class=\"md-form form-sm\">\r\n              <i class=\"fa fa-calendar prefix\"></i>\r\n              <input mdbActive type=\"text\" id=\"FindPW_userBirth\" class=\"form-control\" [(ngModel)]=\"findPWUser.ubirth\" name=\"FindPW_ubirth\">\r\n              <label for=\"FindPW_userBirth\">생년월일</label>\r\n            </div>\r\n            <div class=\"text-center mt-2\">\r\n              <button type=\"submit\" class=\"btn btn-info waves-light\" id=\"FindPW_Button\" mdbRippleRadius>비밀번호찾기\r\n                <i class=\"fa fa-sign-in ml-1\"></i>\r\n              </button>\r\n            </div>\r\n            <br />\r\n            <ng-template [ngIf]=\"user2.upw == null\">위 항목들을 작성해주세요</ng-template>\r\n            <ng-template [ngIf]=\"user2.upw != null\"><p style=\"text-align: center; font-weight:bold; font-size:16px;\">비밀번호 : {{user2.upw}}</p></ng-template>\r\n\r\n          </div>\r\n        </div>\r\n      </form>\r\n    </div>\r\n  </div>\r\n</section>\r\n<br>\r\n<br>\r\n<br>\r\n<ng2-toasty></ng2-toasty>\r\n"
 
 /***/ }),
 
@@ -3012,28 +3065,38 @@ var LoginComponent = /** @class */ (function () {
     //로그인
     LoginComponent.prototype.login = function () {
         var _this = this;
-        this.userService.getUsers(this.login1)
-            .subscribe(function (user) {
-            if (user == null) {
-                console.log("아이디 불일치");
-                alert("아이디가 없습니다");
-                return false;
-            }
-            _this.user = user;
-            if (_this.user.uaddr1 == 'err') {
-                console.log("비밀번호 불일치");
-                alert("비밀번호가 틀립니다");
-                return false;
-            }
-            //서비스에 로그인된 객체를 저장
-            _this.userService.loginUser = _this.user;
-            // authService 토큰부여(세션유지)
-            if (_this.userService.loginUser != null) {
-                _this.authService.saveUserToken();
-                _this.router.navigate(["index"]);
-            }
-        }, function (error) {
-        });
+        if (this.login1.uid == null || this.login1.uid == "") {
+            alert("아이디를 입력해주세요");
+            return;
+        }
+        else if (this.login1.upw == null || this.login1.upw == "") {
+            alert("비밀번호를 입력해주세요");
+            return;
+        }
+        else {
+            this.userService.getUsers(this.login1)
+                .subscribe(function (user) {
+                if (user == null) {
+                    console.log("아이디 불일치");
+                    alert("아이디가 없습니다");
+                    return false;
+                }
+                _this.user = user;
+                if (_this.user.uaddr1 == 'err') {
+                    console.log("비밀번호 불일치");
+                    alert("비밀번호가 틀립니다");
+                    return false;
+                }
+                //서비스에 로그인된 객체를 저장
+                _this.userService.loginUser = _this.user;
+                // authService 토큰부여(세션유지)
+                if (_this.userService.loginUser != null) {
+                    _this.authService.saveUserToken();
+                    _this.router.navigate(["index"]);
+                }
+            }, function (error) {
+            });
+        }
     };
     LoginComponent = __decorate([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
@@ -3062,7 +3125,7 @@ var LoginComponent = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<!--Navbar-->\r\n<mdb-navbar SideClass=\"navbar navbar-expand-lg navbar-dark danger-color indigo scrolling-navbar\">\r\n  <links>\r\n    <ul class=\"navbar-nav mr-auto\">\r\n      <li class=\"nav-item\" [ngClass]=\"{'active': select==='Home'}\" (click)=\"select='Home'\">\r\n        <a class=\"nav-link waves-light\" mdbRippleRadius [routerLink]=\"[ '/' ]\">Home\r\n          <span class=\"sr-only\">(current)</span>\r\n        </a>\r\n      </li>\r\n      <li class=\"nav-item\" [ngClass]=\"{'active': select==='Our Products'}\" (click)=\"select='Our Products'\">\r\n        <a class=\"nav-link waves-light\" mdbRippleRadius [routerLink]=\"[ '/products/all-products' ]\">Our Products</a>\r\n      </li>\r\n      <li class=\"nav-item\" *ngIf=\"authService.isAdmin()\" [ngClass]=\"{'active': select==='관리자'}\" (click)=\"select='관리자'\">\r\n        <a class=\"nav-link waves-light\" mdbRippleRadius [routerLink]=\"[ '/admin' ]\">관리자</a>\r\n      </li>\r\n    </ul>\r\n\r\n\r\n    <ul class=\"navbar-nav ml-auto\">\r\n      <li class=\"nav-item\">\r\n        <ng-template #favCountNotLogged>\r\n          <a class=\"nav-link\" href=\"javascript:;;\" [routerLink]=\"['/index/favourites']\">\r\n            <i class=\"fa fa-heart\">\r\n            </i>\r\n          </a>\r\n        </ng-template>\r\n\r\n      </li>\r\n      <li class=\"nav-item\">\r\n        <ng-template #cartCountNotLogged>\r\n          <a class=\"nav-link\" href=\"javascript:;;\" [routerLink]=\"['/index/cartItems']\">\r\n            <i class=\"fa fa-shopping-cart\">\r\n            </i>\r\n          </a>\r\n        </ng-template>\r\n      </li>\r\n\r\n\r\n      <li class=\"nav-item\" *ngIf=\"!authService.isLoggedIn() && !authService.isAdmin()\" [ngClass]=\"{'active': select==='Login'}\" (click)=\"select='Login'\">\r\n        <a class=\"nav-link\" [routerLink]=\"[ '/index/login' ]\">\r\n          <i class=\"fa fa-sign-in\" aria-hidden=\"true\"></i> Login\r\n          <span class=\"sr-only\">(current)</span>\r\n        </a>\r\n      </li>\r\n\r\n      <!-- Dropdown -->\r\n      <li class=\"nav-item dropdown btn-group\" *ngIf=\"!authService.isAdmin()\" dropdown [ngClass]=\"{'active': select==='고객센터'}\" (click)=\"select='고객센터'\">\r\n        <a dropdownToggle type=\"button\" class=\"nav-link dropdown-toggle waves-light\" mdbWavesEffect>\r\n          <i class=\"fa fa-exclamation-triangle\" aria-hidden=\"true\"></i>고객센터\r\n        </a>\r\n        <div class=\"dropdown-menu dropdown-primary dropdown-menu-right\" role=\"menu\">\r\n          <a class=\"dropdown-item\" [routerLink]=\"['/notice']\">공지사항</a>\r\n          <a class=\"dropdown-item\" [routerLink]=\"['/notice/faq']\">자주하는 질문</a>\r\n          <a class=\"dropdown-item\" [routerLink]=\"['/notice/qna']\">1:1 질문하기</a>\r\n        </div>\r\n      </li>\r\n\r\n      <li class=\"nav-item\" *ngIf=\"authService.isLoggedIn() && !authService.isAdmin()\" [ngClass]=\"{'active': select==='My Page'}\" (click)=\"select='My Page'\">\r\n        <a class=\"nav-link\" [routerLink]=\"['/users']\">\r\n          <i class=\"fa fa-user\"></i>My Page</a>\r\n      </li>\r\n      <li class=\"nav-item\" *ngIf=\"authService.isLoggedIn() && !authService.isAdmin()\"  (click)=\"select='Home'\">\r\n       <a class=\"nav-link\" (click)=\"logout()\">\r\n         <i class=\"fa fa-sign-in\"></i>Logout</a>\r\n      </li>\r\n      <li class=\"nav-item\" *ngIf=\"authService.isAdmin()\">\r\n       <a class=\"nav-link\" (click)=\"adminlogout()\">\r\n         <i class=\"fa fa-sign-in\"></i>관리자 로그아웃</a>\r\n      </li>\r\n    </ul>\r\n  </links>\r\n\r\n</mdb-navbar>\r\n<!--/.Navbar-->\r\n"
+module.exports = "<!--Navbar-->\r\n<mdb-navbar SideClass=\"navbar navbar-expand-lg navbar-dark danger-color indigo scrolling-navbar\">\r\n  <links>\r\n    <ul class=\"navbar-nav mr-auto\">\r\n      <li class=\"nav-item\" [ngClass]=\"{'active': select==='Home'}\" (click)=\"select='Home'\">\r\n        <a class=\"nav-link waves-light\" mdbRippleRadius [routerLink]=\"[ '/' ]\">Home\r\n          <span class=\"sr-only\">(current)</span>\r\n        </a>\r\n      </li>\r\n      <li class=\"nav-item\" [ngClass]=\"{'active': select==='Our Products'}\" (click)=\"select='Our Products'\">\r\n        <a class=\"nav-link waves-light\" mdbRippleRadius [routerLink]=\"[ '/products/all-products' ]\">Our Products</a>\r\n      </li>\r\n      <li class=\"nav-item\" *ngIf=\"authService.isAdmin()\" [ngClass]=\"{'active': select==='관리자'}\" (click)=\"select='관리자'\">\r\n        <a class=\"nav-link waves-light\" mdbRippleRadius [routerLink]=\"[ '/admin' ]\">관리자</a>\r\n      </li>\r\n    </ul>\r\n\r\n\r\n    <ul class=\"navbar-nav ml-auto\">\r\n      <li class=\"nav-item\">\r\n        <ng-template #favCountNotLogged>\r\n          <a class=\"nav-link\" href=\"javascript:;;\" [routerLink]=\"['/index/favourites']\">\r\n            <i class=\"fa fa-heart\">\r\n            </i>\r\n          </a>\r\n        </ng-template>\r\n\r\n      </li>\r\n      <li class=\"nav-item\">\r\n        <ng-template #cartCountNotLogged>\r\n          <a class=\"nav-link\" href=\"javascript:;;\" [routerLink]=\"['/index/cartItems']\">\r\n            <i class=\"fa fa-shopping-cart\">\r\n            </i>\r\n          </a>\r\n        </ng-template>\r\n      </li>\r\n      <li class=\"nav-item\" *ngIf=\"!authService.isLoggedIn() && !authService.isAdmin() && numb >= 10\" [ngClass]=\"{'active': select==='관리자 로그인'}\" (click)=\"select='관리자 로그인'\">\r\n        <a class=\"nav-link\" [routerLink]=\"[ '/adminlogin' ]\">\r\n          <i class=\"fa fa-sign-in\" aria-hidden=\"true\"></i> 관리자 로그인\r\n          <span class=\"sr-only\">(current)</span>\r\n        </a>\r\n      </li>\r\n\r\n      <li class=\"nav-item\" *ngIf=\"!authService.isLoggedIn() && !authService.isAdmin()\" [ngClass]=\"{'active': select==='Login'}\" (click)=\"select='Login'\">\r\n        <a class=\"nav-link\" [routerLink]=\"[ '/index/login' ]\" (click)=\"countUp()\">\r\n          <i class=\"fa fa-sign-in\" aria-hidden=\"true\"></i> Login\r\n          <span class=\"sr-only\">(current)</span>\r\n        </a>\r\n      </li>\r\n\r\n      <!-- Dropdown -->\r\n      <li class=\"nav-item dropdown btn-group\" *ngIf=\"!authService.isAdmin()\" dropdown [ngClass]=\"{'active': select==='고객센터'}\" (click)=\"select='고객센터'\">\r\n        <a dropdownToggle type=\"button\" class=\"nav-link dropdown-toggle waves-light\" mdbWavesEffect>\r\n          <i class=\"fa fa-exclamation-triangle\" aria-hidden=\"true\"></i>고객센터\r\n        </a>\r\n        <div class=\"dropdown-menu dropdown-primary dropdown-menu-right\" role=\"menu\">\r\n          <a class=\"dropdown-item\" [routerLink]=\"['/notice']\">공지사항</a>\r\n          <a class=\"dropdown-item\" [routerLink]=\"['/notice/faq']\">자주하는 질문</a>\r\n          <a class=\"dropdown-item\" [routerLink]=\"['/notice/qna']\">1:1 질문하기</a>\r\n        </div>\r\n      </li>\r\n\r\n      <li class=\"nav-item\" *ngIf=\"authService.isLoggedIn() && !authService.isAdmin()\" [ngClass]=\"{'active': select==='My Page'}\" (click)=\"select='My Page'\">\r\n        <a class=\"nav-link\" [routerLink]=\"['/users']\">\r\n          <i class=\"fa fa-user\"></i>My Page</a>\r\n      </li>\r\n      <li class=\"nav-item\" *ngIf=\"authService.isLoggedIn() && !authService.isAdmin()\"  (click)=\"select='Home'\">\r\n       <a class=\"nav-link\" (click)=\"logout()\">\r\n         <i class=\"fa fa-sign-in\"></i>Logout</a>\r\n      </li>\r\n      <li class=\"nav-item\" *ngIf=\"authService.isAdmin()\">\r\n       <a class=\"nav-link\" (click)=\"adminlogout()\">\r\n         <i class=\"fa fa-sign-in\"></i>관리자 로그아웃</a>\r\n      </li>\r\n    </ul>\r\n  </links>\r\n\r\n</mdb-navbar>\r\n<!--/.Navbar-->\r\n"
 
 /***/ }),
 
@@ -3114,7 +3177,9 @@ var NavbarComponent = /** @class */ (function () {
         this.tokenService = tokenService;
         this.select = 'Home';
     }
-    NavbarComponent.prototype.ngOnInit = function () { };
+    NavbarComponent.prototype.ngOnInit = function () {
+        this.numb = 0;
+    };
     NavbarComponent.prototype.logout = function () {
         this.authService.logout();
         this.router.navigate(["/"]);
@@ -3125,6 +3190,9 @@ var NavbarComponent = /** @class */ (function () {
         localStorage.clear();
         this.router.navigate(["/"]);
         location.reload();
+    };
+    NavbarComponent.prototype.countUp = function () {
+        this.numb += 1;
     };
     NavbarComponent = __decorate([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
@@ -3533,7 +3601,7 @@ module.exports = "ol li {\r\n  font-weight: bold;\r\n}\r\n\r\nthead tr th {\r\n 
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<hr class=\"between-sections\">\r\n\r\n<div class=\"card card-cascade wider reverse\">\r\n\r\n  <!-- Card content -->\r\n  <div class=\"card-body card-body-cascade text-center\">\r\n\r\n    <!-- Title -->\r\n    <h4 class=\"card-title\"><strong>공지사항</strong></h4>\r\n  </div>\r\n\r\n</div>\r\n\r\n<hr class=\"between-sections\">\r\n\r\n<ol class=\"breadcrumb\">\r\n  <li class=\"breadcrumb-item\">\r\n    <a [routerLink]=\"['/index']\">Home</a>\r\n  </li>\r\n  <li class=\"breadcrumb-item\">고객센터</li>\r\n  <li class=\"breadcrumb-item\">공지사항</li>\r\n</ol>\r\n\r\n<div id=\"selectDiv\">\r\n  <select (change)=\"getNoticeByCategory($event.target.value)\">\r\n    <option value=\"\" disabled selected>카테고리별 조회</option>\r\n    <option *ngFor=\"let category of categoryList\" [value]=\"category\">\r\n      {{ category }}\r\n    </option>\r\n  </select>\r\n</div>\r\n\r\n<!--Table-->\r\n<table class=\"table\">\r\n  <!--Table head-->\r\n  <thead>\r\n    <tr class=\"cyan lighten-4\">\r\n      <th>번호</th>\r\n      <th>카테고리</th>\r\n      <th>제목</th>\r\n      <th>작성자</th>\r\n      <th>작성일</th>\r\n      <th>조회수</th>\r\n    </tr>\r\n  </thead>\r\n  <!--Table head-->\r\n\r\n  <!--Table body-->\r\n  <tbody class=\"view overlay\">\r\n    <tr *ngFor=\"let notice of noticeList | paginate: { itemsPerPage: 10, currentPage: page }\">\r\n      <th scope=\"row\">{{ notice.n_no }}</th>\r\n      <th>{{ notice.n_category }}</th>\r\n      <th>\r\n        <a [routerLink]=\"['/detail/notice']\" routerLinkActive=\"router-link-active\" (click)=\"setNoticeNo(notice.n_no)\">{{ notice.n_title }}\r\n        </a>\r\n      </th>\r\n      <th>{{ notice.a_id }}</th>\r\n      <th>{{ notice.n_date | date:'yyyy-MM-dd' }}</th>\r\n      <th>{{ notice.n_hits }}</th>\r\n    </tr>\r\n  </tbody>\r\n  <!--Table body-->\r\n\r\n</table>\r\n<!-- Pagination -->\r\n<div class=\"text-center mt-3\">\r\n  <pagination-controls (pageChange)=\"page = $event\"></pagination-controls>\r\n</div>\r\n\r\n<form class=\"form-inline mr-auto\" (ngSubmit)=\"searchTerm()\">\r\n  <input class=\"form-control mr-sm-2 w-50 p-1\" type=\"text\" placeholder=\"검색할 제목을 입력해주세요.\" id=\"searchInput\" [(ngModel)]=\"search\" [ngModelOptions]=\"{standalone: true}\" />\r\n  <button class=\"btn btn-outline-success btn-rounded btn-sm my-0\" type=\"submit\">검색</button>\r\n</form>\r\n\r\n<hr class=\"between-sections\">\r\n"
+module.exports = "<hr class=\"between-sections\">\r\n\r\n<div class=\"card card-cascade wider reverse\">\r\n\r\n  <!-- Card content -->\r\n  <div class=\"card-body card-body-cascade text-center\">\r\n\r\n    <!-- Title -->\r\n    <h4 class=\"card-title\"><strong>공지사항</strong></h4>\r\n  </div>\r\n\r\n</div>\r\n\r\n<hr class=\"between-sections\">\r\n\r\n<ol class=\"breadcrumb\">\r\n  <li class=\"breadcrumb-item\">\r\n    <a [routerLink]=\"['/index']\">Home</a>\r\n  </li>\r\n  <li class=\"breadcrumb-item\">고객센터</li>\r\n  <li class=\"breadcrumb-item\">공지사항</li>\r\n</ol>\r\n\r\n<div id=\"selectDiv\">\r\n  <select (change)=\"getNoticeByCategory($event.target.value)\">\r\n    <option value=\"\" disabled selected>카테고리별 조회</option>\r\n    <option *ngFor=\"let category of categoryList\" [value]=\"category\">\r\n      {{ category }}\r\n    </option>\r\n  </select>\r\n</div>\r\n\r\n<!--Table-->\r\n<table class=\"table\">\r\n  <!--Table head-->\r\n  <thead>\r\n    <tr class=\"cyan lighten-4\">\r\n      <th>번호</th>\r\n      <th>카테고리</th>\r\n      <th>제목</th>\r\n      <th>작성자</th>\r\n      <th>작성일</th>\r\n      <th>조회수</th>\r\n    </tr>\r\n  </thead>\r\n  <!--Table head-->\r\n\r\n  <!--Table body-->\r\n  <tbody class=\"view overlay\">\r\n    <tr *ngFor=\"let notice of noticeList | paginate: { itemsPerPage: 10, currentPage: page }; let i = index\">\r\n      <th scope=\"row\">{{ i+1 }}</th>\r\n      <th>{{ notice.n_category }}</th>\r\n      <th>\r\n        <a [routerLink]=\"['/detail/notice']\" routerLinkActive=\"router-link-active\" (click)=\"setNoticeNo(notice.n_no)\">{{ notice.n_title }}\r\n        </a>\r\n      </th>\r\n      <th>{{ notice.a_id }}</th>\r\n      <th>{{ notice.n_date | date:'yyyy-MM-dd' }}</th>\r\n      <th>{{ notice.n_hits }}</th>\r\n    </tr>\r\n  </tbody>\r\n  <!--Table body-->\r\n\r\n</table>\r\n<!-- Pagination -->\r\n<div class=\"text-center mt-3\">\r\n  <pagination-controls (pageChange)=\"page = $event\"></pagination-controls>\r\n</div>\r\n\r\n<form class=\"form-inline mr-auto\" (ngSubmit)=\"searchTerm()\">\r\n  <input class=\"form-control mr-sm-2 w-50 p-1\" type=\"text\" placeholder=\"검색할 제목을 입력해주세요.\" id=\"searchInput\" [(ngModel)]=\"search\" [ngModelOptions]=\"{standalone: true}\" />\r\n  <button class=\"btn btn-outline-success btn-rounded btn-sm my-0\" type=\"submit\">검색</button>\r\n</form>\r\n\r\n<hr class=\"between-sections\">\r\n"
 
 /***/ }),
 
@@ -3570,7 +3638,7 @@ var NoticeComponent = /** @class */ (function () {
         this.searchService = searchService;
         this.tokenService = tokenService;
         this.page = 1;
-        this.categoryList = ["전체조회", "공지", "이벤트"];
+        this.categoryList = ["전체조회", "공지", "상품", "배송"];
         this.search = '';
     }
     NoticeComponent.prototype.ngOnInit = function () {
@@ -3819,7 +3887,7 @@ module.exports = "#qna_update_button {\r\n  float: right;\r\n}\r\n\r\n#qna_back_
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<hr class=\"between-sections\">\r\n\r\n<div class=\"card card-cascade wider reverse\">\r\n\r\n  <!-- Card content -->\r\n  <div class=\"card-body card-body-cascade text-center\">\r\n\r\n    <!-- Title -->\r\n    <h4 class=\"card-title\"><strong>1:1 질문하기</strong></h4>\r\n  </div>\r\n\r\n</div>\r\n\r\n<hr class=\"between-sections\">\r\n\r\n<ol class=\"breadcrumb\">\r\n  <li class=\"breadcrumb-item\">\r\n    <a [routerLink]=\"['/index']\">Home</a>\r\n  </li>\r\n  <li class=\"breadcrumb-item\">고객센터</li>\r\n  <li class=\"breadcrumb-item\">\r\n    <a [routerLink]=\"['/notice/qna']\">1:1 질문하기</a>\r\n  </li>\r\n</ol>\r\n\r\n<!--Table-->\r\n<table class=\"table table-bordered\">\r\n\r\n  <!--Table body-->\r\n  <tbody>\r\n    <tr>\r\n      <th class=\"cyan lighten-4\">제목</th>\r\n      <td colspan=\"3\">{{ qna?.q_title }}</td>\r\n    </tr>\r\n    <tr>\r\n      <th class=\"cyan lighten-4\">작성자</th>\r\n      <td colspan=\"3\">{{ qna?.u_id }}</td>\r\n    </tr>\r\n    <tr>\r\n      <th class=\"cyan lighten-4\">작성일</th>\r\n      <td>{{ qna?.q_date | date:'yyyy-MM-dd' }}</td>\r\n      <th class=\"cyan lighten-4\">답변여부</th>\r\n      <td [(ngModel)]=\"reply\" ngDefaultControl>{{ reply }}</td>\r\n    </tr>\r\n    <tr>\r\n      <td colspan=\"4\">\r\n        <pre>{{ qna?.q_content }}</pre>\r\n      </td>\r\n    </tr>\r\n    <tr *ngIf=\"reply !== 'N'\">\r\n      <th class=\"cyan lighten-4\">답변 내용</th>\r\n      <td colspan=\"3\">\r\n        <pre>\r\n          {{ qna?.q_reply }}\r\n        </pre>\r\n      </td>\r\n    </tr>\r\n  </tbody>\r\n  <!--Table body-->\r\n\r\n</table>\r\n<!--Table-->\r\n\r\n<button type=\"button\" class=\"btn btn-outline-danger waves-effect\" (click)=\"deleteQna(qna?.q_no)\">\r\n  삭제\r\n</button>\r\n\r\n<button type=\"button\" class=\"btn btn-outline-info waves-effect\" id=\"qna_back_button\" [routerLink]=\"['/notice/qna']\">목록\r\n</button>\r\n\r\n<button type=\"button\" class=\"btn btn-outline-info waves-effect\" id=\"qna_update_button\" [routerLink]=\"['/notice/qna/update']\" (click)=\"setQnaObject()\">수정</button>\r\n"
+module.exports = "<hr class=\"between-sections\">\r\n\r\n<div class=\"card card-cascade wider reverse\">\r\n\r\n  <!-- Card content -->\r\n  <div class=\"card-body card-body-cascade text-center\">\r\n\r\n    <!-- Title -->\r\n    <h4 class=\"card-title\"><strong>1:1 질문하기</strong></h4>\r\n  </div>\r\n\r\n</div>\r\n\r\n<hr class=\"between-sections\">\r\n\r\n<ol class=\"breadcrumb\">\r\n  <li class=\"breadcrumb-item\">\r\n    <a [routerLink]=\"['/index']\">Home</a>\r\n  </li>\r\n  <li class=\"breadcrumb-item\">고객센터</li>\r\n  <li class=\"breadcrumb-item\">\r\n    <a [routerLink]=\"['/notice/qna']\">1:1 질문하기</a>\r\n  </li>\r\n</ol>\r\n\r\n<!--Table-->\r\n<table class=\"table table-bordered\">\r\n\r\n  <!--Table body-->\r\n  <tbody>\r\n    <tr>\r\n      <th class=\"cyan lighten-4\">제목</th>\r\n      <td colspan=\"3\">{{ qna?.q_title }}</td>\r\n    </tr>\r\n    <tr>\r\n      <th class=\"cyan lighten-4\">작성자</th>\r\n      <td colspan=\"3\">{{ qna?.u_id }}</td>\r\n    </tr>\r\n    <tr>\r\n      <th class=\"cyan lighten-4\">작성일</th>\r\n      <td>{{ qna?.q_date | date:'yyyy-MM-dd' }}</td>\r\n      <th class=\"cyan lighten-4\">답변여부</th>\r\n      <td [(ngModel)]=\"reply\" ngDefaultControl>{{ reply }}</td>\r\n    </tr>\r\n    <tr>\r\n      <td colspan=\"4\">\r\n        <pre>{{ qna?.q_content }}</pre>\r\n      </td>\r\n    </tr>\r\n    <tr *ngIf=\"reply !== 'N'\">\r\n      <th class=\"cyan lighten-4 align-middle\">답변 내용</th>\r\n      <td colspan=\"3\">\r\n        <pre>\r\n          {{ qna?.q_reply }}\r\n        </pre>\r\n      </td>\r\n    </tr>\r\n  </tbody>\r\n  <!--Table body-->\r\n\r\n</table>\r\n<!--Table-->\r\n\r\n<button type=\"button\" class=\"btn btn-outline-danger waves-effect\" (click)=\"deleteQna(qna?.q_no)\">\r\n  삭제\r\n</button>\r\n\r\n<button type=\"button\" class=\"btn btn-outline-info waves-effect\" id=\"qna_back_button\" [routerLink]=\"['/notice/qna']\">목록\r\n</button>\r\n\r\n<button type=\"button\" class=\"btn btn-outline-info waves-effect\" id=\"qna_update_button\" [routerLink]=\"['/notice/qna/update']\" (click)=\"setQnaObject()\">수정</button>\r\n"
 
 /***/ }),
 
@@ -3884,12 +3952,18 @@ var QnaDetailComponent = /** @class */ (function () {
     };
     QnaDetailComponent.prototype.deleteQna = function (q_no) {
         var _this = this;
-        return this.qnaService.deleteQna(q_no)
-            .subscribe(function () {
-            alert("고객님의 질문이 삭제되었습니다.");
-            // this.tokenService.removeToken("qnaToken");
-            _this.router.navigate(["notice/qna"]);
-        });
+        var confirm = window.confirm('질문을 삭제하시겠습니까?');
+        if (confirm) {
+            return this.qnaService.deleteQna(q_no)
+                .subscribe(function () {
+                alert("고객님의 질문이 삭제되었습니다.");
+                // this.tokenService.removeToken("qnaToken");
+                _this.router.navigate(["notice/qna"]);
+            });
+        }
+        else {
+            return;
+        }
     };
     QnaDetailComponent = __decorate([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
@@ -4219,7 +4293,7 @@ var QnaComponent = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<!--Section: Products v.2-->\r\n<section class=\"section pb-3\">\r\n\r\n  <div class=\"row\">\r\n    <div class=\"col-md-6\">\r\n      <blockquote class=\"blockquote float-left bq-primary\">\r\n        <h3 class=\"bq-title\">Our Best Products</h3>\r\n      </blockquote>\r\n    </div>\r\n    <div class=\"col-md-6\">\r\n      <a class=\"btn btn-default font-weight-bold float-right\" [routerLink]=\"[ '/products/all-products' ]\">View All</a>\r\n    </div>\r\n  </div>\r\n  <owl-carousel [options]=\"options\" [items]=\"productList\" [carouselClasses]=\"['owl-theme', 'row', 'sliding']\">\r\n    <!--First column-->\r\n    <div class=\"item\" style=\"padding:20px\" *ngFor=\"let product of productList; let i = index\">\r\n      <div class=\" mb-r\">\r\n\r\n        <!--Card-->\r\n        <div class=\"card card-cascade wider\">\r\n\r\n          <!--Card image-->\r\n          <a [routerLink]=\"['/products/product', product.p_code]\" routerLinkActive=\"router-link-active\"\r\n              (click)=\"setProductCode(product.p_code)\">\r\n            <div class=\"view overlay hm-white-slight\">\r\n              <img src=\"./assets/ProductImg/{{product.p_img}}.jpg\" class=\"img-fluid\" alt=\"\">\r\n              <a>\r\n                <div class=\"mask waves-effect waves-light\" mdbRippleRadius></div>\r\n              </a>\r\n            </div>\r\n          </a>\r\n          <!--/.Card image-->\r\n\r\n          <!--Card content-->\r\n          <!-- <div class=\"card-body text-center no-padding\">\r\n            <a href=\"\" class=\"text-muted\">\r\n              <h5>{{ product.p_kind }}</h5>\r\n            </a>\r\n            <h5 class=\"card-title\">\r\n              <strong>\r\n                <a [routerLink]=\"['/products/product', product.p_code]\" routerLinkActive=\"router-link-active\"\r\n                    (click)=\"setProductCode(product.p_code)\">\r\n                  {{ product.p_name }}</a>\r\n              </strong>\r\n            </h5>\r\n\r\n            <p class=\"card-text\">{{ product.p_content }}\r\n            </p>\r\n\r\n            <div class=\"card-footer\">\r\n              <span class=\"left\">{{ product.p_sellPrice }}원</span>\r\n              <span class=\"right\">\r\n                <a placement=\"top\" mdbTooltip=\"Add to Wishlist\" container=\"body\">\r\n                  <i class=\"fa fa-heart\"></i>\r\n                </a>\r\n              </span>\r\n            </div>\r\n          </div> -->\r\n          <!--/.Card content-->\r\n        </div>\r\n        <!--/.Card-->\r\n      </div>\r\n      <!--/First column-->\r\n    </div>\r\n  </owl-carousel>\r\n</section>\r\n<!--Section: Products v.2-->\r\n"
+module.exports = "<!--Section: Products v.2-->\r\n<section class=\"section pb-3\">\r\n\r\n  <div class=\"row\">\r\n    <div class=\"col-md-6\">\r\n      <blockquote class=\"blockquote float-left bq-primary\">\r\n        <h3 class=\"bq-title\">Our Best Products</h3>\r\n      </blockquote>\r\n    </div>\r\n    <div class=\"col-md-6\">\r\n      <a class=\"btn btn-default font-weight-bold float-right\" [routerLink]=\"[ '/products/all-products' ]\">View All</a>\r\n    </div>\r\n  </div>\r\n  <owl-carousel [options]=\"options\" [items]=\"productList\" [carouselClasses]=\"['owl-theme', 'row', 'sliding']\">\r\n    <!--First column-->\r\n    <div class=\"item\" style=\"padding:20px\" *ngFor=\"let product of productList; let i = index\">\r\n      <div class=\" mb-r\">\r\n\r\n        <!--Card-->\r\n        <div class=\"card card-cascade wider\">\r\n\r\n          <!--Card image-->\r\n          <a [routerLink]=\"['/products/product', product.p_code]\" routerLinkActive=\"router-link-active\"\r\n              (click)=\"setProductCode(product.p_code)\">\r\n            <div class=\"view overlay hm-white-slight\">\r\n              <img src=\"./assets/img/{{product.p_img}}.jpg\" class=\"img-fluid\" alt=\"\">\r\n              <a>\r\n                <div class=\"mask waves-effect waves-light\" mdbRippleRadius></div>\r\n              </a>\r\n            </div>\r\n          </a>\r\n        </div>\r\n        <!--/.Card-->\r\n      </div>\r\n      <!--/First column-->\r\n    </div>\r\n  </owl-carousel>\r\n</section>\r\n<!--Section: Products v.2-->\r\n"
 
 /***/ }),
 
@@ -4293,20 +4367,6 @@ var BestProductComponent = /** @class */ (function () {
                 _this.productList = productList;
             });
         }
-        // const x = this.productService.getProducts();
-        // x.snapshotChanges().subscribe(product => {
-        //   this.bestProducts = [];
-        //   for (let i = 0; i < 5; i++) {
-        //     const y = product[i].payload.toJSON();
-        //     y["$key"] = product[i].key;
-        //     this.bestProducts.push(y as Product);
-        //   }
-        //   // product.forEach(element => {
-        //   //   const y = element.payload.toJSON();
-        //   //   y["$key"] = element.key;
-        //   //   this.bestProducts.push(y as Product);
-        //   // });
-        // });
     };
     BestProductComponent.prototype.setProductCode = function (p_code) {
         this.productService.setProductCode(p_code);
@@ -4339,7 +4399,7 @@ var BestProductComponent = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<br>\r\n<div class=\"container\">\r\n  <div class=\"row\">\r\n    <div class=\"col-sm-4\">\r\n      <div class=\"product-image\">\r\n        <div class=\"view hm-zoom z-depth-2\" style=\"cursor: pointer\">\r\n          <img src=\"./assets/ProductImg/{{product.p_img}}.jpg\" [alt]=\"product.p_name\" width=\"100%\" class=\"img-fluid rounded\">\r\n\r\n        </div>\r\n        <div class=\"z-depth-1\" style=\"margin-top:15px\">\r\n          <ul class=\"list-group\">\r\n            <li class=\"list-group-item font-weight-bold\"> 상품 가격:\r\n              <span style=\"margin-left:15px; color:crimson\">\r\n                <i class=\"fa fa-inr\" aria-hidden=\"true\"></i> {{product.p_sellPrice}}</span>\r\n            </li>\r\n            <li class=\"list-group-item font-weight-bold\"> 상품 판매자:\r\n              <span style=\"margin-left:15px; color:darkblue\">\r\n                <i class=\"fa fa-building\" aria-hidden=\"true\"></i> 토마토마 </span>\r\n            </li>\r\n          </ul>\r\n        </div>\r\n      </div>\r\n    </div>\r\n    <div class=\"col-sm-7\">\r\n      <div class=\"product-detail z-depth-1\">\r\n        <h5 class=\"product-head font-weight-bold\">상품 상세 정보</h5>\r\n        <table class=\"table\" cellspacing=\"0\" style=\"max-height: 28px\">\r\n          <tbody>\r\n            <tr>\r\n              <th scope=\"row\" class=\"font-weight-bold\">상품 이름</th>\r\n              <td>{{product.p_name}}</td>\r\n            </tr>\r\n            <tr>\r\n              <th scope=\"row\" class=\"font-weight-bold\">상품 설명</th>\r\n              <td>{{product.p_content}}</td>\r\n            </tr>\r\n            <tr>\r\n              <th scope=\"row\" class=\"font-weight-bold\">상품 카테고리</th>\r\n              <td>{{product.p_kind}}</td>\r\n            </tr>\r\n            <tr>\r\n              <th scope=\"row\" class=\"font-weight-bold\">구입할 수량</th>\r\n              <td><input [(ngModel)]='pQuantity' />\r\n                <button (click)='pQuantityUp()'><i class=\"fa fa-plus\" aria-hidden=\"true\"></i></button>\r\n                <button (click)='pQuantityDown()'><i class=\"fa fa-minus\" aria-hidden=\"true\"></i></button>\r\n              </td>\r\n            </tr>\r\n            <!-- <tr>\r\n              <th scope=\"row\">상품 추가 날짜</th>\r\n              <td>{{product.productAdded * 1000 | date}}</td>\r\n            </tr> -->\r\n          </tbody>\r\n        </table>\r\n      </div>\r\n\r\n        <li>\r\n         <span>\r\n          <button type=\"button\" class=\"btn btn-outline-warning waves-effect font-weight-bold\"\r\n              (click)=\"addToCart()\">장바구니담기</button>\r\n          <button type=\"button\" class=\"btn btn-warning font-weight-bold\" (click)=\"gotoOrderWirte()\">구매하기</button>\r\n          </span>\r\n        </li>\r\n\r\n    </div>\r\n\r\n\r\n    <div class=\"col-sm-2\">\r\n      <!-- <div class=\"product-ship border border-dark\"></div> -->\r\n    </div>\r\n  </div>\r\n</div>\r\n<br>\r\n<app-product-review></app-product-review>\r\n<br>\r\n<app-product-qna></app-product-qna>\r\n"
+module.exports = "<br>\r\n<div class=\"container\">\r\n  <div class=\"row\">\r\n    <div class=\"col-sm-4\">\r\n      <div class=\"product-image\">\r\n        <div class=\"view hm-zoom z-depth-2\" style=\"cursor: pointer\">\r\n          <img src=\"./assets/img/{{product.p_img}}.jpg\" [alt]=\"product.p_name\" width=\"100%\" class=\"img-fluid rounded\">\r\n\r\n        </div>\r\n        <div class=\"z-depth-1\" style=\"margin-top:15px\">\r\n          <ul class=\"list-group\">\r\n            <li class=\"list-group-item font-weight-bold\"> 상품 가격:\r\n              <span style=\"margin-left:15px; color:crimson\">\r\n                <i class=\"fa fa-inr\" aria-hidden=\"true\"></i> {{product.p_sellPrice}}</span>\r\n            </li>\r\n            <li class=\"list-group-item font-weight-bold\"> 상품 판매자:\r\n              <span style=\"margin-left:15px; color:darkblue\">\r\n                <i class=\"fa fa-building\" aria-hidden=\"true\"></i> 토마토마 </span>\r\n            </li>\r\n          </ul>\r\n        </div>\r\n      </div>\r\n    </div>\r\n    <div class=\"col-sm-7\">\r\n      <div class=\"product-detail z-depth-1\">\r\n        <h5 class=\"product-head font-weight-bold\">상품 상세 정보</h5>\r\n        <table class=\"table\" cellspacing=\"0\" style=\"max-height: 28px\">\r\n          <tbody>\r\n            <tr>\r\n              <th scope=\"row\" class=\"font-weight-bold\">상품 이름</th>\r\n              <td>{{product.p_name}}</td>\r\n            </tr>\r\n            <tr>\r\n              <th scope=\"row\" class=\"font-weight-bold\">상품 설명</th>\r\n              <td>{{product.p_content}}</td>\r\n            </tr>\r\n            <tr>\r\n              <th scope=\"row\" class=\"font-weight-bold\">상품 카테고리</th>\r\n              <td>{{product.p_kind}}</td>\r\n            </tr>\r\n            <tr>\r\n              <th scope=\"row\" class=\"font-weight-bold\">구입할 수량</th>\r\n              <td><input [(ngModel)]='pQuantity' />\r\n                <button (click)='pQuantityUp()'><i class=\"fa fa-plus\" aria-hidden=\"true\"></i></button>\r\n                <button (click)='pQuantityDown()'><i class=\"fa fa-minus\" aria-hidden=\"true\"></i></button>\r\n              </td>\r\n            </tr>\r\n            <!-- <tr>\r\n              <th scope=\"row\">상품 추가 날짜</th>\r\n              <td>{{product.productAdded * 1000 | date}}</td>\r\n            </tr> -->\r\n          </tbody>\r\n        </table>\r\n      </div>\r\n\r\n        <li>\r\n         <span>\r\n          <button type=\"button\" class=\"btn btn-outline-warning waves-effect font-weight-bold\"\r\n              (click)=\"addToCart()\">장바구니담기</button>\r\n          <button type=\"button\" class=\"btn btn-warning font-weight-bold\" (click)=\"gotoOrderWirte()\">구매하기</button>\r\n          </span>\r\n        </li>\r\n\r\n    </div>\r\n\r\n\r\n    <div class=\"col-sm-2\">\r\n      <!-- <div class=\"product-ship border border-dark\"></div> -->\r\n    </div>\r\n  </div>\r\n</div>\r\n<br>\r\n<app-product-review></app-product-review>\r\n<br>\r\n<app-product-qna></app-product-qna>\r\n"
 
 /***/ }),
 
@@ -4408,33 +4468,25 @@ var ProductDetailComponent = /** @class */ (function () {
         //   this.getProductDetail(id);
         // });
         var _this = this;
-        if (this.tokenService.isToken("productListToken")) {
-            var p_code = this.productService.getProductCode();
-            if (p_code == null) {
-                p_code = this.tokenService.getToken("pcodeToken");
-            }
-            this.productList = this.tokenService.getToken("productListToken");
-            this.product = this.productList.find(function (item) {
-                return item.p_code == p_code;
-            });
-        }
-        else {
-            this.productService.getProductById(this.p_code)
-                .subscribe(function (product) {
-                _this.product = product;
-                _this.tokenService.saveToken("productDetailToken", product);
-                console.log(_this.product.p_price);
-                console.log(_this.product.p_sellPrice);
-                console.log(_this.product.p_name);
-                console.log(_this.product.p_profit);
-            });
-        }
-        // getOneProductFromToken(p_code){
-        //   var result = this.tokenService.getToken("productListToken").find(function (item) {
-        //       return item.p_code === p_code;
-        //   });
+        // if(this.tokenService.isToken("pcodeToken")){
+        //   this.p_code = this.tokenService.getToken("pcodeToken");
+        // }else{
+        //
         // }
+        this.p_code = this.tokenService.getToken("p_code");
+        this.productService.getProductById(this.p_code)
+            .subscribe(function (product) {
+            _this.product = product;
+            _this.tokenService.removeToken("p_code");
+            _this.tokenService.saveToken("p_code", _this.product.p_code);
+        });
+        // alert(this.tokenService.getToken("p_code"));
     };
+    // getOneProductFromToken(p_code){
+    //   var result = this.tokenService.getToken("productListToken").find(function (item) {
+    //       return item.p_code === p_code;
+    //   });
+    // }
     ProductDetailComponent.prototype.setProductCode = function (p_code) {
         this.productService.setProductCode(p_code);
     };
@@ -4533,7 +4585,7 @@ var ProductDetailComponent = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<br>\r\n<div class=\"container\">\r\n  <!-- <div class=\"row\" *ngIf=\"authService.isAdmin()\">\r\n    <div class=\"col-sm\">\r\n      <div class=\"float-right\">\r\n        <button type=\"button\" class=\"btn btn-primary waves-light\" data-toggle=\"modal\" data-target=\"#exampleModalLong\">\r\n          Add Product\r\n        </button>\r\n      </div>\r\n    </div>\r\n  </div> -->\r\n  <div class=\"row\">\r\n    <div class=\"col-md-3\">\r\n      <div class=\"form-group\">\r\n        <label for=\"kind_select\">카테고리별 조회 :</label>\r\n        <select class=\"form-control\" name=\"\" id=\"kind_select\" [(ngModel)]=\"selectedKind\">\r\n          <option *ngFor=\"let kind of kinds\">{{kind}}</option>\r\n        </select>\r\n      </div>\r\n      <ul class=\"list-group font-weight-bold\">\r\n        <li class=\"list-group-item\">오늘 날짜 : {{ currentDate | date }}</li>\r\n      </ul>\r\n    </div>\r\n    <div class=\"col-md-9\">\r\n      <div class=\"container\">\r\n        <div class=\"row\">\r\n          <!-- List of Products -->\r\n          <div class=\"col-sm-4 mb-2\" *ngFor=\"let product of productList | filterByKind: selectedKind | paginate: { itemsPerPage: 6, currentPage: page }\">\r\n            <div class=\"item\">\r\n              <div class=\" mb-r\">\r\n                <!--Card-->\r\n                <div class=\"card card-cascade wider\">\r\n                  <!--Card image-->\r\n\r\n                  <!-- <a [routerLink]=\"['/products', product.p_kind]\">\r\n                    <div class=\"view overlay hm-white-slight\">\r\n                      <img [src]=\"product.productImageUrl\" class=\"img-fluid\" alt=\"\" width=\"360px\" height=\"640px\">\r\n                      <p>{{p_name}}</p>\r\n                      <a>\r\n                        <div class=\"mask waves-effect waves-light\" mdbRippleRadius></div>\r\n                      </a>\r\n                    </div>\r\n                  </a> -->\r\n                  <!--/.Card image-->\r\n                  <!--Card content-->\r\n                  <div class=\"card-body text-center no-padding\">\r\n                    <!--Category & Title-->\r\n                    <a class=\"text-muted\">\r\n                      <!-- <h5>{{ product.p_content }}</h5> -->\r\n\r\n\r\n                      <div>\r\n\r\n                        <a [routerLink]=\"['/products/product', product.p_code]\" routerLinkActive=\"router-link-active\" (click)=\"setProductCode(product.p_code)\">\r\n                              <img src=\"./assets/ProductImg/{{product.p_img}}.jpg\" class=\"product_image\" width=\"200px\" height=\"200px\"/>\r\n                        </a>\r\n                      </div>\r\n                    </a>\r\n                    <p class=\"card-title\">\r\n                      <strong>\r\n                        <a [routerLink]=\"['/products/product', product.p_code]\" routerLinkActive=\"router-link-active\" (click)=\"setProductCode(product.p_code)\">{{ product.p_name }}</a>\r\n                      </strong>\r\n                    </p>\r\n                    <!--Description-->\r\n                    <p class=\"card-text\">{{ product.p_content }}\r\n                    </p>\r\n                    <!--Card footer-->\r\n                    <div class=\"card-footer\">\r\n                      <span class=\"left\">{{ product.p_sellPrice}} 원</span>\r\n                      <span class=\"right\">\r\n                        <a placement=\"top\" mdbTooltip=\"Quick Look\" container=\"body\" [routerLink]=\"['/products/product', product.p_code]\">\r\n                          <i class=\"fa fa-eye\"></i>\r\n                        </a>\r\n                        <a placement=\"top\" mdbTooltip=\"Add to Cart\" container=\"body\" (click)=\"addToCart(product)\">\r\n                          <i class=\"fa fa-shopping-cart\"></i>\r\n                        </a>\r\n                        <!-- <a placement=\"top\" mdbTooltip=\"Remove Product\" container=\"body\" *ngIf=\"authService.isAdmin()\" (click)=\"removeProduct(product.$key)\">\r\n                          <i class=\"fa fa-trash\"></i>\r\n                        </a> -->\r\n                      </span>\r\n                    </div>\r\n\r\n                  </div>\r\n                  <!--/.Card content-->\r\n\r\n                </div>\r\n                <!--/.Card-->\r\n\r\n              </div>\r\n            </div>\r\n          </div>\r\n        </div>\r\n        <!-- Pagination -->\r\n        <div class=\"text-center mt-3\">\r\n          <pagination-controls (pageChange)=\"page = $event\"></pagination-controls>\r\n        </div>\r\n      </div>\r\n      <!--/.Card-->\r\n    </div>\r\n  </div>\r\n</div>\r\n<ng2-toasty></ng2-toasty>\r\n"
+module.exports = "<br>\r\n<div class=\"container\">\r\n  <!-- <div class=\"row\" *ngIf=\"authService.isAdmin()\">\r\n    <div class=\"col-sm\">\r\n      <div class=\"float-right\">\r\n        <button type=\"button\" class=\"btn btn-primary waves-light\" data-toggle=\"modal\" data-target=\"#exampleModalLong\">\r\n          Add Product\r\n        </button>\r\n      </div>\r\n    </div>\r\n  </div> -->\r\n  <div class=\"row\">\r\n    <div class=\"col-md-3\">\r\n      <div class=\"form-group\">\r\n        <label for=\"kind_select\">카테고리별 조회 :</label>\r\n        <select class=\"form-control\" name=\"\" id=\"kind_select\" [(ngModel)]=\"selectedKind\">\r\n          <option *ngFor=\"let kind of kinds\">{{kind}}</option>\r\n        </select>\r\n      </div>\r\n      <ul class=\"list-group font-weight-bold\">\r\n        <li class=\"list-group-item\">오늘 날짜 : {{ currentDate | date }}</li>\r\n      </ul>\r\n    </div>\r\n    <div class=\"col-md-9\">\r\n      <div class=\"container\">\r\n        <div class=\"row\">\r\n          <!-- List of Products -->\r\n          <div class=\"col-sm-4 mb-2\" *ngFor=\"let product of productList | filterByKind: selectedKind | paginate: { itemsPerPage: 6, currentPage: page }\">\r\n            <div class=\"item\">\r\n              <div class=\" mb-r\">\r\n                <!--Card-->\r\n                <div class=\"card card-cascade wider\">\r\n\r\n                  <div class=\"card-body text-center no-padding\">\r\n                    <!--Category & Title-->\r\n                    <a class=\"text-muted\">\r\n\r\n\r\n\r\n                      <div>\r\n\r\n                        <a [routerLink]=\"['/products/product', product.p_code]\" routerLinkActive=\"router-link-active\" (click)=\"setProductCode(product.p_code)\">\r\n                              <img src=\"./assets/img/{{product.p_img}}.jpg\" class=\"product_image\" width=\"200px\" height=\"200px\"/>\r\n                        </a>\r\n                      </div>\r\n                    </a>\r\n                    <p class=\"card-title\">\r\n                      <strong>\r\n                        <a [routerLink]=\"['/products/product', product.p_code]\" routerLinkActive=\"router-link-active\" (click)=\"setProductCode(product.p_code)\">{{ product.p_name }}</a>\r\n                      </strong>\r\n                    </p>\r\n                    <!--Description-->\r\n                    <p class=\"card-text\">{{ product.p_content }}\r\n                    </p>\r\n                    <!--Card footer-->\r\n                    <div class=\"card-footer\">\r\n                      <span class=\"left\">{{ product.p_sellPrice}}원</span>\r\n                      <span class=\"right\">\r\n                        <a placement=\"top\" mdbTooltip=\"Quick Look\" container=\"body\" [routerLink]=\"['/products/product', product.p_code]\">\r\n                          <i class=\"fa fa-eye\"></i>\r\n                        </a>\r\n                        <a placement=\"top\" mdbTooltip=\"Add to Cart\" container=\"body\" (click)=\"addToCart(product)\">\r\n                          <i class=\"fa fa-shopping-cart\"></i>\r\n                        </a>\r\n                        <!-- <a placement=\"top\" mdbTooltip=\"Remove Product\" container=\"body\" *ngIf=\"authService.isAdmin()\" (click)=\"removeProduct(product.$key)\">\r\n                          <i class=\"fa fa-trash\"></i>\r\n                        </a> -->\r\n                      </span>\r\n                    </div>\r\n\r\n                  </div>\r\n                  <!--/.Card content-->\r\n\r\n                </div>\r\n                <!--/.Card-->\r\n\r\n              </div>\r\n            </div>\r\n          </div>\r\n        </div>\r\n        <!-- Pagination -->\r\n        <div class=\"text-center mt-3\">\r\n          <pagination-controls (pageChange)=\"page = $event\"></pagination-controls>\r\n        </div>\r\n      </div>\r\n      <!--/.Card-->\r\n    </div>\r\n  </div>\r\n</div>\r\n<ng2-toasty></ng2-toasty>\r\n"
 
 /***/ }),
 
@@ -4603,44 +4655,20 @@ var ProductListComponent = /** @class */ (function () {
     }
     ProductListComponent.prototype.ngOnInit = function () {
         var _this = this;
-        if (this.tokenService.isToken("productListToken")) {
-            this.productList = this.tokenService.getToken("productListToken");
-        }
-        else {
-            this.productService.getProducts()
-                .subscribe(function (productList) {
-                _this.tokenService.saveToken("productListToken", productList);
-                _this.productList = productList;
-            });
-        }
+        this.productService.getProducts()
+            .subscribe(function (productList) {
+            _this.productList = productList;
+        });
     };
     ProductListComponent.prototype.setProductCode = function (p_code) {
         this.productService.setProductCode(p_code);
-        if (this.tokenService.isToken("pcodeToken")) {
-            this.tokenService.removeToken("pcodeToken");
+        if (this.tokenService.isToken("p_code")) {
+            this.tokenService.removeToken("p_code");
         }
-        this.tokenService.saveToken("pcodeToken", p_code);
+        this.tokenService.saveToken("p_code", p_code);
         this.p_code = p_code;
     };
-    // getAllProducts() {
-    //   // this.spinnerService.show();
-    //   // const x = this.productService.getProducts();
-    //   // x.snapshotChanges().subscribe(product => {
-    //   //   this.spinnerService.hide();
-    //   //   this.productList = [];
-    //   //   product.forEach(element => {
-    //   //     const y = element.payload.toJSON();
-    //   //     y["$key"] = element.key;
-    //   //     this.productList.push(y as Product);
-    //   //   });
-    //   // });
-    //
-    //
-    //
-    // }
     ProductListComponent.prototype.getProductByKind = function (p_kind) {
-        // this.product = this.db.object("products/" + key);
-        // return this.product;
         var _this = this;
         this.productService.getProductByKind(this.selectedKind)
             .subscribe(function (productList) {
@@ -4694,6 +4722,289 @@ var ProductListComponent = /** @class */ (function () {
 
 /***/ }),
 
+/***/ "./src/app/product/product-qna-detail/product-qna-detail.component.css":
+/*!*****************************************************************************!*\
+  !*** ./src/app/product/product-qna-detail/product-qna-detail.component.css ***!
+  \*****************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = ""
+
+/***/ }),
+
+/***/ "./src/app/product/product-qna-detail/product-qna-detail.component.html":
+/*!******************************************************************************!*\
+  !*** ./src/app/product/product-qna-detail/product-qna-detail.component.html ***!
+  \******************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "<hr class=\"between-sections\">\r\n\r\n<div class=\"card card-cascade wider reverse\">\r\n\r\n  <!-- Card content -->\r\n  <div class=\"card-body card-body-cascade text-center\">\r\n\r\n    <!-- Title -->\r\n    <h4 class=\"card-title\"><strong>상품 문의</strong></h4>\r\n  </div>\r\n\r\n</div>\r\n\r\n<hr class=\"between-sections\">\r\n\r\n<ol class=\"breadcrumb\">\r\n  <li class=\"breadcrumb-item\">\r\n    <a [routerLink]=\"['/index']\">Home</a>\r\n  </li>\r\n  <li class=\"breadcrumb-item\">상품상세</li>\r\n  <li class=\"breadcrumb-item\">\r\n  상품문의\r\n    <!-- delete : (click)=\"removeToken()\" -->\r\n  </li>\r\n</ol>\r\n\r\n<!--Table-->\r\n<table class=\"table table-bordered\">\r\n\r\n  <!--Table body-->\r\n  <tbody>\r\n    <tr>\r\n      <th>제목</th>\r\n      <td colspan=\"3\">{{ productQna?.pq_title }}</td>\r\n    </tr>\r\n    <tr>\r\n      <th>작성자</th>\r\n      <td colspan=\"3\">{{ productQna?.u_id }}</td>\r\n    </tr>\r\n    <tr>\r\n      <th>작성일</th>\r\n      <td>{{ productQna?.pq_date | date:'yyyy-MM-dd' }}</td>\r\n      <th>조회수</th>\r\n      <td>{{ productQna?.pq_hits }}</td>\r\n    </tr>\r\n    <tr>\r\n      <td colspan=\"4\">\r\n        <pre>{{ productQna?.pq_content }}</pre>\r\n      </td>\r\n    </tr>\r\n    <tr *ngIf=\"replyyn !== 'n'\">\r\n      <th class=\"cyan lighten-4\">답변 내용</th>\r\n      <td colspan=\"3\">\r\n        <pre>\r\n          {{ productQna?.pq_reply }}\r\n        </pre>\r\n      </td>\r\n    </tr>\r\n  </tbody>\r\n  <!--Table body-->\r\n\r\n</table>\r\n<!--Table-->\r\n\r\n<button type=\"button\" class=\"btn btn-outline-danger waves-effect\" (click)=\"deleteProductQna()\">\r\n  삭제\r\n</button>\r\n\r\n<button type=\"button\" class=\"btn btn-outline-info waves-effect\" [routerLink]=\"['/products/product', productQna.p_code]\">목록\r\n  <!-- (click)=\"removeToken()\" -->\r\n</button>\r\n\r\n<button type=\"button\" class=\"btn btn-outline-info waves-effect\" id=\"pq_update_button\" [routerLink]=\"['/products/productqna/update']\" (click)=\"setProductQnaObject()\">수정</button>\r\n"
+
+/***/ }),
+
+/***/ "./src/app/product/product-qna-detail/product-qna-detail.component.ts":
+/*!****************************************************************************!*\
+  !*** ./src/app/product/product-qna-detail/product-qna-detail.component.ts ***!
+  \****************************************************************************/
+/*! exports provided: ProductQnaDetailComponent */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ProductQnaDetailComponent", function() { return ProductQnaDetailComponent; });
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var _angular_common_http__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/common/http */ "./node_modules/@angular/common/fesm5/http.js");
+/* harmony import */ var _shared_services_product_qna_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../shared/services/product-qna.service */ "./src/app/shared/services/product-qna.service.ts");
+/* harmony import */ var _shared_services_token_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../shared/services/token.service */ "./src/app/shared/services/token.service.ts");
+/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm5/router.js");
+var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (undefined && undefined.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+
+
+
+var ProductQnaDetailComponent = /** @class */ (function () {
+    function ProductQnaDetailComponent(productQnaService, http, router, tokenService) {
+        this.productQnaService = productQnaService;
+        this.http = http;
+        this.router = router;
+        this.tokenService = tokenService;
+    }
+    ProductQnaDetailComponent.prototype.ngOnInit = function () {
+        var _this = this;
+        this.productQnaService.getProductQnaNoObject().subscribe(function (productQna) {
+            _this.tokenService.saveToken("productQnaToken", productQna);
+            _this.productQna = productQna;
+            return _this.productQna;
+        });
+    };
+    ProductQnaDetailComponent.prototype.setProductQnaObject = function () {
+        this.productQna = this.tokenService.getToken("productQnaToken");
+        this.productQnaService.setProductQnaObject(this.productQna);
+    };
+    ProductQnaDetailComponent.prototype.deleteProductQna = function (productQna) {
+        var _this = this;
+        this.productQnaService.deleteProductQna(this.productQna)
+            .subscribe(function () {
+            alert("고객님의 상품문의가 삭제되었습니다.");
+            _this.router.navigate(['/products/product', _this.productQna.p_code]);
+        });
+    };
+    ProductQnaDetailComponent = __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
+            selector: 'app-product-qna-detail',
+            template: __webpack_require__(/*! ./product-qna-detail.component.html */ "./src/app/product/product-qna-detail/product-qna-detail.component.html"),
+            styles: [__webpack_require__(/*! ./product-qna-detail.component.css */ "./src/app/product/product-qna-detail/product-qna-detail.component.css")]
+        }),
+        __metadata("design:paramtypes", [_shared_services_product_qna_service__WEBPACK_IMPORTED_MODULE_2__["ProductQnaService"],
+            _angular_common_http__WEBPACK_IMPORTED_MODULE_1__["HttpClient"],
+            _angular_router__WEBPACK_IMPORTED_MODULE_4__["Router"],
+            _shared_services_token_service__WEBPACK_IMPORTED_MODULE_3__["TokenService"]])
+    ], ProductQnaDetailComponent);
+    return ProductQnaDetailComponent;
+}());
+
+
+
+/***/ }),
+
+/***/ "./src/app/product/product-qna-update/product-qna-update.component.css":
+/*!*****************************************************************************!*\
+  !*** ./src/app/product/product-qna-update/product-qna-update.component.css ***!
+  \*****************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = ""
+
+/***/ }),
+
+/***/ "./src/app/product/product-qna-update/product-qna-update.component.html":
+/*!******************************************************************************!*\
+  !*** ./src/app/product/product-qna-update/product-qna-update.component.html ***!
+  \******************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "<hr class=\"between-sections\">\r\n\r\n<div class=\"card card-cascade wider reverse\">\r\n\r\n  <!-- Card content -->\r\n  <div class=\"card-body card-body-cascade text-center\">\r\n\r\n    <!-- Title -->\r\n    <h4 class=\"card-title\"><strong>상품 문의 수정</strong></h4>\r\n  </div>\r\n\r\n</div>\r\n\r\n<hr class=\"between-sections\">\r\n\r\n<!-- Default form contact -->\r\n<form name=\"updateForm\" #updateProductQnaForm=\"ngForm\" (ngSubmit)=\"updateProductQna(updateProductQnaForm)\">\r\n  <!--Table-->\r\n  <table class=\"table table-bordered\">\r\n    <!--Table body-->\r\n    <tbody>\r\n      <tr [hidden]=true>\r\n        <th>문의 번호</th>\r\n        <td>\r\n          <input type=\"number\" id=\"exampleForm2\" class=\"form-control\" required [(ngModel)]=\"productQna.pq_no\" [ngModelOptions]=\"{standalone: true}\" />\r\n        </td>\r\n      </tr>\r\n      <tr>\r\n        <th class=\"cyan lighten-4\">제목</th>\r\n        <td>\r\n          <input type=\"text\" id=\"exampleForm2\" class=\"form-control\" placeholder=\"제목을 입력해주세요.\"\r\n            required [(ngModel)]=\"productQna.pq_title\" [ngModelOptions]=\"{standalone: true}\" />\r\n        </td>\r\n      </tr>\r\n      <tr>\r\n        <th class=\"cyan lighten-4\">카테고리</th>\r\n        <td>\r\n          <input type=\"text\" id=\"exampleForm2\" class=\"form-control\" required [(ngModel)]=\"productQna.pq_category\" [ngModelOptions]=\"{standalone: true}\" [disabled]=true/>\r\n        </td>\r\n      </tr>\r\n      <tr>\r\n        <th class=\"cyan lighten-4\">작성자 ID</th>\r\n        <td>\r\n          <input type=\"text\" id=\"exampleForm2\" class=\"form-control\" required [(ngModel)]=\"productQna.u_id\" [ngModelOptions]=\"{standalone: true}\" [disabled]=true/>\r\n        </td>\r\n      </tr>\r\n      <tr>\r\n        <th class=\"cyan lighten-4\">후기 내용</th>\r\n        <td colspan=\"2\">\r\n          <textarea name=\"productQnaContent\" rows=\"8\" cols=\"150\" placeholder=\"내용을 입력해주세요.\" class=\"form-control\" required [(ngModel)]=\"productQna.pq_content\" [ngModelOptions]=\"{standalone: true}\"></textarea>\r\n        </td>\r\n      </tr>\r\n    </tbody>\r\n  </table>\r\n\r\n  <div class=\"text-center mt-4\">\r\n    <button type=\"submit\" class=\"btn btn-outline-danger waves-effect\">수정</button>\r\n    <button type=\"button\" class=\"btn btn-outline-info waves-effect\" [routerLink]=\"['/products/product', productQna.p_code]\">취소</button>\r\n  </div>\r\n</form>\r\n"
+
+/***/ }),
+
+/***/ "./src/app/product/product-qna-update/product-qna-update.component.ts":
+/*!****************************************************************************!*\
+  !*** ./src/app/product/product-qna-update/product-qna-update.component.ts ***!
+  \****************************************************************************/
+/*! exports provided: ProductQnaUpdateComponent */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ProductQnaUpdateComponent", function() { return ProductQnaUpdateComponent; });
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm5/router.js");
+/* harmony import */ var _shared_services_product_qna_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../shared/services/product-qna.service */ "./src/app/shared/services/product-qna.service.ts");
+var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (undefined && undefined.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+
+var ProductQnaUpdateComponent = /** @class */ (function () {
+    function ProductQnaUpdateComponent(productQnaService, router) {
+        this.productQnaService = productQnaService;
+        this.router = router;
+    }
+    ProductQnaUpdateComponent.prototype.ngOnInit = function () {
+        this.productQna = this.productQnaService.getProductQnaObject();
+    };
+    ProductQnaUpdateComponent.prototype.updateProductQna = function () {
+        var _this = this;
+        this.productQnaService.updateProductQna(this.productQna)
+            .subscribe(function () {
+            alert("상품 문의가 수정되었습니다.");
+            _this.router.navigate(['/products/qna', _this.productQna.pq_no]);
+        });
+    };
+    ProductQnaUpdateComponent = __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
+            selector: 'app-product-qna-update',
+            template: __webpack_require__(/*! ./product-qna-update.component.html */ "./src/app/product/product-qna-update/product-qna-update.component.html"),
+            styles: [__webpack_require__(/*! ./product-qna-update.component.css */ "./src/app/product/product-qna-update/product-qna-update.component.css")]
+        }),
+        __metadata("design:paramtypes", [_shared_services_product_qna_service__WEBPACK_IMPORTED_MODULE_2__["ProductQnaService"],
+            _angular_router__WEBPACK_IMPORTED_MODULE_1__["Router"]])
+    ], ProductQnaUpdateComponent);
+    return ProductQnaUpdateComponent;
+}());
+
+
+
+/***/ }),
+
+/***/ "./src/app/product/product-qna-write/product-qna-write.component.css":
+/*!***************************************************************************!*\
+  !*** ./src/app/product/product-qna-write/product-qna-write.component.css ***!
+  \***************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = ""
+
+/***/ }),
+
+/***/ "./src/app/product/product-qna-write/product-qna-write.component.html":
+/*!****************************************************************************!*\
+  !*** ./src/app/product/product-qna-write/product-qna-write.component.html ***!
+  \****************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "<hr class=\"between-sections\">\r\n\r\n<div class=\"card card-cascade wider reverse\">\r\n\r\n  <!-- Card content -->\r\n  <div class=\"card-body card-body-cascade text-center\">\r\n\r\n    <!-- Title -->\r\n    <h4 class=\"card-title\"><strong>상품 문의 하기</strong></h4>\r\n  </div>\r\n\r\n</div>\r\n\r\n<hr class=\"between-sections\">\r\n\r\n<!-- Default form contact -->\r\n<form (ngSubmit)=\"insertProductQna()\">\r\n  <!--Table-->\r\n  <table class=\"table table-bordered\">\r\n\r\n    <tbody>\r\n      <tr>\r\n        <th>제목</th>\r\n        <td>\r\n          <input type=\"text\" id=\"exampleForm2\" class=\"form-control\" placeholder=\"제목을 입력해주세요.\" required [(ngModel)]=\"productQna.pq_title\" [ngModelOptions]=\"{standalone: true}\" />\r\n        </td>\r\n      </tr>\r\n      <tr [hidden]=true>\r\n        <th>작성자</th>\r\n        <td>\r\n          <input type=\"text\" id=\"exampleForm2\" class=\"form-control\" required [(ngModel)]=\"productQna.u_id\" [ngModelOptions]=\"{standalone: true}\" />\r\n        </td>\r\n      </tr>\r\n      <tr>\r\n        <th>카테고리</th>\r\n        <td>\r\n         <select (change)=\"getProductQnaByCategory($event.target.value)\">\r\n           <option value=\"\" disabled selected>카테고리를 선택해주세요</option>\r\n           <option *ngFor=\"let category of categoryList\" [value]=\"category\">\r\n             {{ category }}\r\n           </option>\r\n         </select>\r\n       </td>\r\n    </tr>\r\n\r\n      <tr>\r\n        <th colspan=\"1\">문의 내용</th>\r\n        <td colspan=\"2\">\r\n          <textarea name=\"qnaContent\" rows=\"8\" cols=\"150\" placeholder=\"내용을 입력해주세요.\" class=\"form-control\" required [(ngModel)]=\"productQna.pq_content\" [ngModelOptions]=\"{standalone: true}\"></textarea>\r\n        </td>\r\n      </tr>\r\n    </tbody>\r\n  </table>\r\n\r\n  <div class=\"text-center mt-4\" [hidden]=\"submit\">\r\n    <button type=\"submit\" class=\"btn btn-outline-danger waves-effect\">등록</button>\r\n    <button type=\"button\" class=\"btn btn-outline-info waves-effect\" [routerLink]=\"['/products/product', productQna.p_code]\">취소</button>\r\n  </div>\r\n</form>\r\n"
+
+/***/ }),
+
+/***/ "./src/app/product/product-qna-write/product-qna-write.component.ts":
+/*!**************************************************************************!*\
+  !*** ./src/app/product/product-qna-write/product-qna-write.component.ts ***!
+  \**************************************************************************/
+/*! exports provided: ProductQnaWriteComponent */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ProductQnaWriteComponent", function() { return ProductQnaWriteComponent; });
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm5/router.js");
+/* harmony import */ var _shared_services_product_qna_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../shared/services/product-qna.service */ "./src/app/shared/services/product-qna.service.ts");
+/* harmony import */ var _shared_models_productQna__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../shared/models/productQna */ "./src/app/shared/models/productQna.ts");
+/* harmony import */ var _shared_services_auth_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../shared/services/auth.service */ "./src/app/shared/services/auth.service.ts");
+/* harmony import */ var _shared_services_product_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../shared/services/product.service */ "./src/app/shared/services/product.service.ts");
+/* harmony import */ var _shared_services_token_service__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../../shared/services/token.service */ "./src/app/shared/services/token.service.ts");
+var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (undefined && undefined.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+
+
+
+
+
+var ProductQnaWriteComponent = /** @class */ (function () {
+    function ProductQnaWriteComponent(productQnaService, router, authService, productService, tokenService) {
+        this.productQnaService = productQnaService;
+        this.router = router;
+        this.authService = authService;
+        this.productService = productService;
+        this.tokenService = tokenService;
+        this.submit = false;
+        this.productQna = new _shared_models_productQna__WEBPACK_IMPORTED_MODULE_3__["ProductQna"];
+        this.categoryList = ["상품", "배송"];
+    }
+    ProductQnaWriteComponent.prototype.ngOnInit = function () {
+        this.productQna.u_id = this.authService.getLoggedInUser().uid;
+        console.log(this.productQna.p_code);
+    };
+    ProductQnaWriteComponent.prototype.getProductQnaByCategory = function (pq_category) {
+        this.productQna.pq_category = pq_category;
+    };
+    ProductQnaWriteComponent.prototype.insertProductQna = function () {
+        var _this = this;
+        this.productQna.p_code = this.tokenService.getToken("p_code");
+        this.productQnaService.insertProductQna(this.productQna)
+            .subscribe(function () {
+            alert("질문이 등록되었습니다.");
+            console.log(_this.productQna.pq_category);
+            _this.router.navigate(['/products/product', _this.productQna.p_code]);
+        });
+    };
+    ProductQnaWriteComponent.prototype.setProductCode = function (p_code) {
+        if (this.tokenService.isToken("p_code")) {
+            this.p_code = this.tokenService.getToken("p_code");
+        }
+        console.log(p_code);
+    };
+    ProductQnaWriteComponent = __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
+            selector: 'app-product-qna-write',
+            template: __webpack_require__(/*! ./product-qna-write.component.html */ "./src/app/product/product-qna-write/product-qna-write.component.html"),
+            styles: [__webpack_require__(/*! ./product-qna-write.component.css */ "./src/app/product/product-qna-write/product-qna-write.component.css")]
+        }),
+        __metadata("design:paramtypes", [_shared_services_product_qna_service__WEBPACK_IMPORTED_MODULE_2__["ProductQnaService"],
+            _angular_router__WEBPACK_IMPORTED_MODULE_1__["Router"],
+            _shared_services_auth_service__WEBPACK_IMPORTED_MODULE_4__["AuthService"],
+            _shared_services_product_service__WEBPACK_IMPORTED_MODULE_5__["ProductService"],
+            _shared_services_token_service__WEBPACK_IMPORTED_MODULE_6__["TokenService"]])
+    ], ProductQnaWriteComponent);
+    return ProductQnaWriteComponent;
+}());
+
+
+
+/***/ }),
+
 /***/ "./src/app/product/product-qna/product-qna.component.css":
 /*!***************************************************************!*\
   !*** ./src/app/product/product-qna/product-qna.component.css ***!
@@ -4712,7 +5023,7 @@ module.exports = ""
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<hr class=\"between-sections\">\r\n\r\n<ol class=\"breadcrumb font-weight-bold\">\r\n  <li>상품 문의</li>\r\n</ol>\r\n\r\n<table class=\"table table-responsive-md\">\r\n  <thead class=\"amber lighten-3\">\r\n  <tr>\r\n    <th>번호</th>\r\n    <th>카테고리</th>\r\n    <th>제목</th>\r\n    <th>작성자</th>\r\n    <th>작성일</th>\r\n    <th>조회</th>\r\n  </tr>\r\n  </thead>\r\n\r\n  <tbody>\r\n\r\n    <tr *ngFor=\"let productQna of productQnas | paginate : {itemsPerPage: 10, currentPage : page }\">\r\n    <th>{{productQna.pq_no}}</th>\r\n    <th>{{productQna.pq_category}}</th>\r\n    <th>\r\n      <a [routerLink]=\"['/review']\" routerLinkActive=\"router-link-active\"\r\n      (click)=\"setReviewNo(review.rev_no)\">\r\n      {{productQna.pq_title}}\r\n    </a>\r\n    </th>\r\n    <th>{{productQna.u_id}}</th>\r\n    <th>{{productQna.pq_date | date : 'yyyy-MM-dd'}}</th>\r\n    <th>{{productQna.pq_hits}}</th>\r\n    <!-- <p>{{productQna.pq_content}}</p> -->\r\n  </tr>\r\n\r\n  </tbody>\r\n\r\n</table>\r\n"
+module.exports = "<hr class=\"between-sections\">\r\n\r\n<ol class=\"breadcrumb font-weight-bold\">\r\n  <li>상품 문의</li>\r\n</ol>\r\n\r\n<table class=\"table table-responsive-md\">\r\n  <thead class=\"amber lighten-3\">\r\n  <tr>\r\n    <th>번호</th>\r\n    <th>카테고리</th>\r\n    <th>제목</th>\r\n    <th>작성자</th>\r\n    <th>작성일</th>\r\n    <th>조회</th>\r\n\r\n  </tr>\r\n  </thead>\r\n\r\n  <tbody>\r\n\r\n    <tr *ngFor=\"let productQna of productQnas | paginate: { itemsPerPage: 6, currentPage: page }; let i = index\">\r\n    <th>{{i+1}}</th>\r\n    <th>{{productQna.pq_category}}</th>\r\n    <th>\r\n      <a [routerLink]=\"['/products/qna',productQna.pq_no]\" routerLinkActive=\"router-link-active\"\r\n      (click)=\"setProductQnaNo(productQna.pq_no)\">\r\n      {{productQna.pq_title}}\r\n    </a>\r\n    </th>\r\n    <th>{{productQna.u_id}}</th>\r\n    <th>{{productQna.pq_date | date : 'yyyy-MM-dd'}}</th>\r\n    <th>{{productQna.pq_hits}}</th>\r\n\r\n    <!-- <p>{{productQna.pq_content}}</p> -->\r\n  </tr>\r\n\r\n  </tbody>\r\n\r\n  <div class=\"text-center mt-3\">\r\n    <pagination-controls (pageChange)=\"page = $event\"></pagination-controls>\r\n  </div>\r\n\r\n  <button type=\"button\" class=\"btn btn-outline-info waves-effect\" id=\"qna_button\"\r\n    [routerLink]=\"['/products/productqna/write']\">문의하기\r\n  </button>\r\n\r\n</table>\r\n"
 
 /***/ }),
 
@@ -4752,16 +5063,21 @@ var ProductQnaComponent = /** @class */ (function () {
     }
     ProductQnaComponent.prototype.ngOnInit = function () {
         var _this = this;
-        if (this.tokenService.isToken("productQnaToken")) {
-            this.productQnas = this.tokenService.getToken("productQnaToken");
-        }
-        else {
-            this.productService.getProductQna()
-                .subscribe(function (productQnas) {
-                _this.tokenService.saveToken("productQnaToken", productQnas);
-                _this.productQnas = productQnas;
-            });
-        }
+        this.productService.getProductQna()
+            .subscribe(function (productQnas) {
+            _this.productQnas = productQnas;
+        });
+    };
+    ProductQnaComponent.prototype.setProductQnaNo = function (pq_no) {
+        this.productQnaService.setProductQnaNo(pq_no);
+        this.setProductQnaNoObject(pq_no);
+    };
+    ProductQnaComponent.prototype.setProductQnaNoObject = function (pq_no) {
+        var productQna = this.productQnas.find(function (item) {
+            return item.pq_no == pq_no;
+        });
+        this.productQnaService.setProductQnaNoObject(productQna);
+        // this.check(review);
     };
     ProductQnaComponent = __decorate([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
@@ -4780,10 +5096,10 @@ var ProductQnaComponent = /** @class */ (function () {
 
 /***/ }),
 
-/***/ "./src/app/product/product-review-detail/review-detail.component.css":
-/*!***************************************************************************!*\
-  !*** ./src/app/product/product-review-detail/review-detail.component.css ***!
-  \***************************************************************************/
+/***/ "./src/app/product/product-review-detail/product-review-detail.component.css":
+/*!***********************************************************************************!*\
+  !*** ./src/app/product/product-review-detail/product-review-detail.component.css ***!
+  \***********************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports) {
 
@@ -4791,28 +5107,32 @@ module.exports = ""
 
 /***/ }),
 
-/***/ "./src/app/product/product-review-detail/review-detail.component.html":
-/*!****************************************************************************!*\
-  !*** ./src/app/product/product-review-detail/review-detail.component.html ***!
-  \****************************************************************************/
+/***/ "./src/app/product/product-review-detail/product-review-detail.component.html":
+/*!************************************************************************************!*\
+  !*** ./src/app/product/product-review-detail/product-review-detail.component.html ***!
+  \************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<p>\r\n  review-detail works!\r\n</p>\r\n"
+module.exports = "<hr class=\"between-sections\">\r\n\r\n<div class=\"card card-cascade wider reverse\">\r\n\r\n  <!-- Card content -->\r\n  <div class=\"card-body card-body-cascade text-center\">\r\n\r\n    <!-- Title -->\r\n    <h4 class=\"card-title\"><strong>상품 후기</strong></h4>\r\n  </div>\r\n\r\n</div>\r\n\r\n<hr class=\"between-sections\">\r\n\r\n<ol class=\"breadcrumb\">\r\n  <li class=\"breadcrumb-item\">\r\n    <a [routerLink]=\"['/index']\">Home</a>\r\n  </li>\r\n  <li class=\"breadcrumb-item\">상품상세</li>\r\n  <li class=\"breadcrumb-item\">\r\n  상품후기\r\n    <!-- delete : (click)=\"removeToken()\" -->\r\n  </li>\r\n</ol>\r\n\r\n<!--Table-->\r\n<table class=\"table table-bordered\">\r\n\r\n  <!--Table body-->\r\n  <tbody>\r\n    <tr>\r\n      <th>제목</th>\r\n      <td colspan=\"3\">{{ review?.rev_title }}</td>\r\n    </tr>\r\n    <tr>\r\n      <th>작성자</th>\r\n      <td colspan=\"3\">{{ review?.u_id }}</td>\r\n    </tr>\r\n    <tr>\r\n      <th>작성일</th>\r\n      <td>{{ review?.rev_date | date:'yyyy-MM-dd' }}</td>\r\n      <th>조회수</th>\r\n      <td>{{ review?.rev_hits }}</td>\r\n    </tr>\r\n    <tr>\r\n      <td colspan=\"4\">\r\n        <pre>{{ review?.rev_content }}</pre>\r\n      </td>\r\n    </tr>\r\n  </tbody>\r\n  <!--Table body-->\r\n\r\n</table>\r\n<!--Table-->\r\n\r\n<button type=\"button\" class=\"btn btn-outline-danger waves-effect\" (click)=\"deleteReview()\">\r\n  삭제\r\n</button>\r\n\r\n<button type=\"button\" class=\"btn btn-outline-info waves-effect\" [routerLink]=\"['/products/product', review.p_code]\">목록\r\n  <!-- (click)=\"removeToken()\" -->\r\n</button>\r\n\r\n<button type=\"button\" class=\"btn btn-outline-info waves-effect\" id=\"review_update_button\" [routerLink]=\"['/products/productreview/update']\" (click)=\"setReviewObject()\" >수정</button>\r\n"
 
 /***/ }),
 
-/***/ "./src/app/product/product-review-detail/review-detail.component.ts":
-/*!**************************************************************************!*\
-  !*** ./src/app/product/product-review-detail/review-detail.component.ts ***!
-  \**************************************************************************/
-/*! exports provided: ReviewDetailComponent */
+/***/ "./src/app/product/product-review-detail/product-review-detail.component.ts":
+/*!**********************************************************************************!*\
+  !*** ./src/app/product/product-review-detail/product-review-detail.component.ts ***!
+  \**********************************************************************************/
+/*! exports provided: ProductReviewDetailComponent */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ReviewDetailComponent", function() { return ReviewDetailComponent; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ProductReviewDetailComponent", function() { return ProductReviewDetailComponent; });
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var _angular_common_http__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/common/http */ "./node_modules/@angular/common/fesm5/http.js");
+/* harmony import */ var _shared_services_review_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../shared/services/review.service */ "./src/app/shared/services/review.service.ts");
+/* harmony import */ var _shared_services_token_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../shared/services/token.service */ "./src/app/shared/services/token.service.ts");
+/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm5/router.js");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -4823,20 +5143,234 @@ var __metadata = (undefined && undefined.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 
-var ReviewDetailComponent = /** @class */ (function () {
-    function ReviewDetailComponent() {
+
+
+
+
+var ProductReviewDetailComponent = /** @class */ (function () {
+    function ProductReviewDetailComponent(reviewService, http, tokenService, router) {
+        this.reviewService = reviewService;
+        this.http = http;
+        this.tokenService = tokenService;
+        this.router = router;
     }
-    ReviewDetailComponent.prototype.ngOnInit = function () {
+    ProductReviewDetailComponent.prototype.ngOnInit = function () {
+        var _this = this;
+        this.reviewService.getReviewNoObject().subscribe(function (review) {
+            _this.tokenService.saveToken("reviewToken", review);
+            _this.review = review;
+            return _this.review;
+        });
     };
-    ReviewDetailComponent = __decorate([
+    ProductReviewDetailComponent.prototype.setReviewObject = function () {
+        this.review = this.tokenService.getToken("reviewToken");
+        this.reviewService.setReviewObject(this.review);
+    };
+    ProductReviewDetailComponent.prototype.deleteReview = function (review) {
+        var _this = this;
+        this.reviewService.deleteReview(this.review)
+            .subscribe(function () {
+            alert("고객님의 상품후기가 삭제되었습니다.");
+            _this.router.navigate(['/products/product', _this.review.p_code]);
+        });
+    };
+    ProductReviewDetailComponent = __decorate([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
-            selector: 'app-review-detail',
-            template: __webpack_require__(/*! ./review-detail.component.html */ "./src/app/product/product-review-detail/review-detail.component.html"),
-            styles: [__webpack_require__(/*! ./review-detail.component.css */ "./src/app/product/product-review-detail/review-detail.component.css")]
+            selector: 'app-product-review-detail',
+            template: __webpack_require__(/*! ./product-review-detail.component.html */ "./src/app/product/product-review-detail/product-review-detail.component.html"),
+            styles: [__webpack_require__(/*! ./product-review-detail.component.css */ "./src/app/product/product-review-detail/product-review-detail.component.css")]
         }),
-        __metadata("design:paramtypes", [])
-    ], ReviewDetailComponent);
-    return ReviewDetailComponent;
+        __metadata("design:paramtypes", [_shared_services_review_service__WEBPACK_IMPORTED_MODULE_2__["ReviewService"],
+            _angular_common_http__WEBPACK_IMPORTED_MODULE_1__["HttpClient"],
+            _shared_services_token_service__WEBPACK_IMPORTED_MODULE_3__["TokenService"],
+            _angular_router__WEBPACK_IMPORTED_MODULE_4__["Router"]])
+    ], ProductReviewDetailComponent);
+    return ProductReviewDetailComponent;
+}());
+
+
+
+/***/ }),
+
+/***/ "./src/app/product/product-review-update/product-review-update.component.css":
+/*!***********************************************************************************!*\
+  !*** ./src/app/product/product-review-update/product-review-update.component.css ***!
+  \***********************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = ""
+
+/***/ }),
+
+/***/ "./src/app/product/product-review-update/product-review-update.component.html":
+/*!************************************************************************************!*\
+  !*** ./src/app/product/product-review-update/product-review-update.component.html ***!
+  \************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "<hr class=\"between-sections\">\r\n\r\n<div class=\"card card-cascade wider reverse\">\r\n\r\n  <!-- Card content -->\r\n  <div class=\"card-body card-body-cascade text-center\">\r\n\r\n    <!-- Title -->\r\n    <h4 class=\"card-title\"><strong>상품 후기 수정</strong></h4>\r\n  </div>\r\n\r\n</div>\r\n\r\n<hr class=\"between-sections\">\r\n\r\n<!-- Default form contact -->\r\n<form name=\"updateForm\" #updateReviewForm=\"ngForm\" (ngSubmit)=\"updateReview(updateReviewForm)\">\r\n  <!--Table-->\r\n  <table class=\"table table-bordered\">\r\n    <!--Table body-->\r\n    <tbody>\r\n      <tr [hidden]=true>\r\n        <th>후기 번호</th>\r\n        <td>\r\n          <input type=\"number\" id=\"exampleForm2\" class=\"form-control\" required [(ngModel)]=\"review.rev_no\" [ngModelOptions]=\"{standalone: true}\" />\r\n        </td>\r\n      </tr>\r\n      <tr>\r\n        <th class=\"cyan lighten-4\">제목</th>\r\n        <td>\r\n          <input type=\"text\" id=\"exampleForm2\" class=\"form-control\" placeholder=\"제목을 입력해주세요.\"\r\n            required [(ngModel)]=\"review.rev_title\" [ngModelOptions]=\"{standalone: true}\" />\r\n        </td>\r\n      </tr>\r\n      <tr>\r\n        <th class=\"cyan lighten-4\">작성자 ID</th>\r\n        <td>\r\n          <input type=\"text\" id=\"exampleForm2\" class=\"form-control\" required [(ngModel)]=\"review.u_id\" [ngModelOptions]=\"{standalone: true}\" [disabled]=true/>\r\n        </td>\r\n      </tr>\r\n      <tr>\r\n        <th class=\"cyan lighten-4\">후기 내용</th>\r\n        <td colspan=\"2\">\r\n          <textarea name=\"reviewContent\" rows=\"8\" cols=\"150\" placeholder=\"내용을 입력해주세요.\" class=\"form-control\" required [(ngModel)]=\"review.rev_content\" [ngModelOptions]=\"{standalone: true}\"></textarea>\r\n        </td>\r\n      </tr>\r\n    </tbody>\r\n  </table>\r\n\r\n  <div class=\"text-center mt-4\">\r\n    <button type=\"submit\" class=\"btn btn-outline-danger waves-effect\">수정</button>\r\n    <button type=\"button\" class=\"btn btn-outline-info waves-effect\" [routerLink]=\"['/products/product', review.p_code]\">취소</button>\r\n  </div>\r\n</form>\r\n"
+
+/***/ }),
+
+/***/ "./src/app/product/product-review-update/product-review-update.component.ts":
+/*!**********************************************************************************!*\
+  !*** ./src/app/product/product-review-update/product-review-update.component.ts ***!
+  \**********************************************************************************/
+/*! exports provided: ProductReviewUpdateComponent */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ProductReviewUpdateComponent", function() { return ProductReviewUpdateComponent; });
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm5/router.js");
+/* harmony import */ var _shared_services_review_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../shared/services/review.service */ "./src/app/shared/services/review.service.ts");
+var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (undefined && undefined.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+
+var ProductReviewUpdateComponent = /** @class */ (function () {
+    function ProductReviewUpdateComponent(reviewService, router) {
+        this.reviewService = reviewService;
+        this.router = router;
+    }
+    ProductReviewUpdateComponent.prototype.ngOnInit = function () {
+        this.review = this.reviewService.getReviewObject();
+    };
+    ProductReviewUpdateComponent.prototype.updateReview = function (form) {
+        // console.log(this.review.rev_no);
+        // console.log(this.review.u_id);
+        // console.log(this.review.rev_title);
+        // console.log(this.review.rev_content);
+        var _this = this;
+        this.reviewService.updateReview(this.review)
+            .subscribe(function () {
+            alert("상품 후기가 수정되었습니다.");
+            _this.router.navigate(['/products/review', _this.review.rev_no]);
+        });
+    };
+    ProductReviewUpdateComponent = __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
+            selector: 'app-product-review-update',
+            template: __webpack_require__(/*! ./product-review-update.component.html */ "./src/app/product/product-review-update/product-review-update.component.html"),
+            styles: [__webpack_require__(/*! ./product-review-update.component.css */ "./src/app/product/product-review-update/product-review-update.component.css")]
+        }),
+        __metadata("design:paramtypes", [_shared_services_review_service__WEBPACK_IMPORTED_MODULE_2__["ReviewService"],
+            _angular_router__WEBPACK_IMPORTED_MODULE_1__["Router"]])
+    ], ProductReviewUpdateComponent);
+    return ProductReviewUpdateComponent;
+}());
+
+
+
+/***/ }),
+
+/***/ "./src/app/product/product-review-write/product-review-write.component.css":
+/*!*********************************************************************************!*\
+  !*** ./src/app/product/product-review-write/product-review-write.component.css ***!
+  \*********************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = ""
+
+/***/ }),
+
+/***/ "./src/app/product/product-review-write/product-review-write.component.html":
+/*!**********************************************************************************!*\
+  !*** ./src/app/product/product-review-write/product-review-write.component.html ***!
+  \**********************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "<hr class=\"between-sections\">\r\n\r\n<div class=\"card card-cascade wider reverse\">\r\n\r\n  <!-- Card content -->\r\n  <div class=\"card-body card-body-cascade text-center\">\r\n\r\n    <!-- Title -->\r\n    <h4 class=\"card-title\"><strong>상품 후기 쓰기</strong></h4>\r\n  </div>\r\n\r\n</div>\r\n\r\n<hr class=\"between-sections\">\r\n\r\n<!-- Default form contact -->\r\n<form (ngSubmit)=\"insertProductReview()\">\r\n  <!--Table-->\r\n  <table class=\"table table-bordered\">\r\n    <!--Table body-->\r\n    <tbody>\r\n      <tr>\r\n        <th>제목</th>\r\n        <td>\r\n          <input type=\"text\" id=\"exampleForm2\" class=\"form-control\" placeholder=\"제목을 입력해주세요.\" required [(ngModel)]=\"review.rev_title\" [ngModelOptions]=\"{standalone: true}\" />\r\n        </td>\r\n      </tr>\r\n      <tr [hidden]=true>\r\n        <th>작성자</th>\r\n        <td>\r\n          <input type=\"text\" id=\"exampleForm2\" class=\"form-control\" required [(ngModel)]=\"review.u_id\" [ngModelOptions]=\"{standalone: true}\" />\r\n        </td>\r\n      </tr>\r\n      <tr>\r\n        <th colspan=\"1\">후기 내용</th>\r\n        <td colspan=\"2\">\r\n          <textarea name=\"ReviewContent\" rows=\"8\" cols=\"150\" placeholder=\"내용을 입력해주세요.\" class=\"form-control\" required [(ngModel)]=\"review.rev_content\" [ngModelOptions]=\"{standalone: true}\"></textarea>\r\n        </td>\r\n      </tr>\r\n    </tbody>\r\n  </table>\r\n\r\n  <div class=\"text-center mt-4\" [hidden]=\"submit\">\r\n    <button type=\"submit\" class=\"btn btn-outline-danger waves-effect\">등록</button>\r\n    <button type=\"button\" class=\"btn btn-outline-info waves-effect\" [routerLink]=\"['/products/product', review.p_code]\">취소</button>\r\n  </div>\r\n</form>\r\n"
+
+/***/ }),
+
+/***/ "./src/app/product/product-review-write/product-review-write.component.ts":
+/*!********************************************************************************!*\
+  !*** ./src/app/product/product-review-write/product-review-write.component.ts ***!
+  \********************************************************************************/
+/*! exports provided: ProductReviewWriteComponent */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ProductReviewWriteComponent", function() { return ProductReviewWriteComponent; });
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm5/router.js");
+/* harmony import */ var _shared_services_review_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../shared/services/review.service */ "./src/app/shared/services/review.service.ts");
+/* harmony import */ var _shared_models_review__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../shared/models/review */ "./src/app/shared/models/review.ts");
+/* harmony import */ var _shared_services_auth_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../shared/services/auth.service */ "./src/app/shared/services/auth.service.ts");
+/* harmony import */ var _shared_services_product_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../shared/services/product.service */ "./src/app/shared/services/product.service.ts");
+/* harmony import */ var _shared_services_token_service__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../../shared/services/token.service */ "./src/app/shared/services/token.service.ts");
+var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (undefined && undefined.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+
+
+
+
+
+var ProductReviewWriteComponent = /** @class */ (function () {
+    function ProductReviewWriteComponent(reviewService, router, authService, productService, tokenService) {
+        this.reviewService = reviewService;
+        this.router = router;
+        this.authService = authService;
+        this.productService = productService;
+        this.tokenService = tokenService;
+        this.submit = false;
+        this.review = new _shared_models_review__WEBPACK_IMPORTED_MODULE_3__["Review"];
+    }
+    ProductReviewWriteComponent.prototype.ngOnInit = function () {
+        this.review.u_id = this.authService.getLoggedInUser().uid;
+    };
+    ProductReviewWriteComponent.prototype.insertProductReview = function () {
+        var _this = this;
+        this.review.p_code = this.tokenService.getToken("p_code");
+        this.reviewService.insertReview(this.review)
+            .subscribe(function () {
+            alert("후기가 등록되었습니다.");
+            _this.router.navigate(['/products/product', _this.review.p_code]);
+        });
+    };
+    ProductReviewWriteComponent.prototype.setProductCode = function (p_code) {
+        if (this.tokenService.isToken("p_code")) {
+            this.p_code = this.tokenService.getToken("p_code");
+        }
+        console.log(p_code);
+    };
+    ProductReviewWriteComponent = __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
+            selector: 'app-product-review-write',
+            template: __webpack_require__(/*! ./product-review-write.component.html */ "./src/app/product/product-review-write/product-review-write.component.html"),
+            styles: [__webpack_require__(/*! ./product-review-write.component.css */ "./src/app/product/product-review-write/product-review-write.component.css")]
+        }),
+        __metadata("design:paramtypes", [_shared_services_review_service__WEBPACK_IMPORTED_MODULE_2__["ReviewService"],
+            _angular_router__WEBPACK_IMPORTED_MODULE_1__["Router"],
+            _shared_services_auth_service__WEBPACK_IMPORTED_MODULE_4__["AuthService"],
+            _shared_services_product_service__WEBPACK_IMPORTED_MODULE_5__["ProductService"],
+            _shared_services_token_service__WEBPACK_IMPORTED_MODULE_6__["TokenService"]])
+    ], ProductReviewWriteComponent);
+    return ProductReviewWriteComponent;
 }());
 
 
@@ -4861,7 +5395,7 @@ module.exports = ""
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<hr class=\"between-sections\">\r\n\r\n<ol class=\"breadcrumb font-weight-bold\">\r\n  <li>상품 후기</li>\r\n</ol>\r\n\r\n<table class=\"table table-responsive-md\">\r\n  <thead class=\"amber lighten-3\">\r\n  <tr>\r\n    <th>번호</th>\r\n    <th>제목</th>\r\n    <th>작성자</th>\r\n    <th>작성일</th>\r\n    <th>조회</th>\r\n  </tr>\r\n  </thead>\r\n\r\n  <tbody>\r\n\r\n    <tr *ngFor=\"let review of reviews | paginate : {itemsPerPage: 10, currentPage : page }\">\r\n    <th>{{review.rev_no}}</th>\r\n    <th>\r\n      <a [routerLink]=\"['/review']\" routerLinkActive=\"router-link-active\"\r\n      (click)=\"setReviewNo(review.rev_no)\">\r\n      {{review.rev_title}}\r\n    </a>\r\n    </th>\r\n    <th>{{review.u_id}}</th>\r\n    <th>{{review.rev_date | date : 'yyyy-MM-dd'}}</th>\r\n    <th>{{review.rev_hits}}</th>\r\n    <p>{{review.review_content}}</p>\r\n  </tr>\r\n\r\n  </tbody>\r\n\r\n</table>\r\n"
+module.exports = "<hr class=\"between-sections\">\r\n\r\n<ol class=\"breadcrumb font-weight-bold\">\r\n  <li>상품 후기</li>\r\n</ol>\r\n\r\n<table class=\"table table-responsive-md\">\r\n  <thead class=\"amber lighten-3\">\r\n  <tr>\r\n    <th>번호</th>\r\n    <th>제목</th>\r\n    <th>작성자</th>\r\n    <th>작성일</th>\r\n    <th>조회</th>\r\n  </tr>\r\n  </thead>\r\n\r\n  <tbody>\r\n\r\n    <tr *ngFor=\"let review of reviews | paginate: { itemsPerPage: 5, currentPage: page }; let i = index\">\r\n    <th>{{i+1}}</th>\r\n    <th>\r\n      <a [routerLink]=\"['/products/review', review.rev_no]\" routerLinkActive=\"router-link-active\"\r\n      (click)=\"setReviewNo(review.rev_no)\">\r\n      {{review.rev_title}}\r\n    </a>\r\n    </th>\r\n    <th>{{review.u_id}}</th>\r\n    <th>{{review.rev_date | date : 'yyyy-MM-dd'}}</th>\r\n    <th>{{review.rev_hits}}</th>\r\n    <p>{{review.review_content}}</p>\r\n  </tr>\r\n\r\n  </tbody>\r\n\r\n  <div class=\"text-center mt-3\">\r\n    <pagination-controls (pageChange)=\"page = $event\"></pagination-controls>\r\n  </div>\r\n\r\n\r\n\r\n  <button type=\"button\" class=\"btn btn-outline-info waves-effect\" id=\"qna_button\"\r\n    [routerLink]=\"['/products/productreview/write']\">후기쓰기\r\n  </button>\r\n\r\n</table>\r\n"
 
 /***/ }),
 
@@ -4901,23 +5435,31 @@ var ProductReviewComponent = /** @class */ (function () {
     }
     ProductReviewComponent.prototype.ngOnInit = function () {
         var _this = this;
-        if (this.tokenService.isToken("productReviewToken")) {
-            var p_code = this.productService.getProductCode();
-            if (p_code == null) {
-                p_code = this.tokenService.getToken("pcodeToken");
-            }
-            this.reviews = this.tokenService.getToken("productReviewToken");
-        }
-        else {
-            this.productService.getReview()
-                .subscribe(function (reviews) {
-                // this.tokenService.saveToken("productReviewToken", reviews);
-                _this.reviews = reviews;
-            });
-        }
+        this.productService.getReview()
+            .subscribe(function (reviews) {
+            // this.tokenService.saveToken("productReviewToken", reviews);
+            _this.reviews = reviews;
+        });
     };
     ProductReviewComponent.prototype.setReviewNo = function (rev_no) {
+        // this.reviewService.setReviewNo(rev_no);
         this.reviewService.setReviewNo(rev_no);
+        this.setReviewNoObject(rev_no);
+        if (this.tokenService.isToken("rev_no")) {
+            this.tokenService.removeToken("rev_no");
+        }
+        else {
+            this.tokenService.saveToken("rev_no", rev_no);
+        }
+        // this.rev_no = rev_no;
+        // this.setReviewNoObject(rev_no);
+    };
+    ProductReviewComponent.prototype.setReviewNoObject = function (rev_no) {
+        var review = this.reviews.find(function (item) {
+            return item.rev_no == rev_no;
+        });
+        this.reviewService.setReviewNoObject(review);
+        // this.check(review);
     };
     ProductReviewComponent = __decorate([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
@@ -4943,7 +5485,7 @@ var ProductReviewComponent = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<p>\r\n  product works!\r\n</p>"
+module.exports = "<!-- <hr class=\"between-sections\">\r\n <div class=\"card-body card-body-cascade text-center\">\r\n\r\n\r\n    <h4 class=\"card-title\"><strong>상품 문의</strong></h4>\r\n  </div>\r\n\r\n</div>\r\n\r\n<hr class=\"between-sections\">\r\n\r\n\r\n<form (ngSubmit)=\"insertQna()\">\r\n\r\n  <table class=\"table table-bordered\">\r\n\r\n    <tbody> -->\r\n      <!-- <tr>\r\n        <th>제목</th>\r\n        <td>\r\n          <input type=\"text\" id=\"exampleForm2\" class=\"form-control\" placeholder=\"제목을 입력해주세요.\" required [(ngModel)]=\"productQna.pq_title\" [ngModelOptions]=\"{standalone: true}\" />\r\n        </td>\r\n      </tr>\r\n      <tr [hidden]=true>\r\n        <th>작성자</th>\r\n        <td>\r\n          <input type=\"text\" id=\"exampleForm2\" class=\"form-control\" required [(ngModel)]=\"productQna.u_id\" [ngModelOptions]=\"{standalone: true}\" />\r\n        </td>\r\n      </tr>\r\n      <tr>\r\n        <th colspan=\"1\">문의 내용</th>\r\n        <td colspan=\"2\">\r\n          <textarea name=\"qnaContent\" rows=\"8\" cols=\"150\" placeholder=\"내용을 입력해주세요.\" class=\"form-control\" required [(ngModel)]=\"productQna.pq_content\" [ngModelOptions]=\"{standalone: true}\"></textarea>\r\n        </td>\r\n      </tr>\r\n    </tbody>\r\n  </table>\r\n\r\n  <div class=\"text-center mt-4\" [hidden]=\"submit\">\r\n    <button type=\"submit\" class=\"btn btn-outline-danger waves-effect\">등록</button>\r\n    <button type=\"button\" class=\"btn btn-outline-info waves-effect\" [routerLink]=\"['/products/all-products']\">취소</button>\r\n  </div>\r\n</form> -->\r\n"
 
 /***/ }),
 
@@ -5018,11 +5560,16 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _product_detail_product_detail_component__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./product-detail/product-detail.component */ "./src/app/product/product-detail/product-detail.component.ts");
 /* harmony import */ var _shared_shared_module__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../shared/shared.module */ "./src/app/shared/shared.module.ts");
 /* harmony import */ var _product_review_product_review_component__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./product-review/product-review.component */ "./src/app/product/product-review/product-review.component.ts");
-/* harmony import */ var _product_review_detail_review_detail_component__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./product-review-detail/review-detail.component */ "./src/app/product/product-review-detail/review-detail.component.ts");
+/* harmony import */ var _product_review_detail_product_review_detail_component__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./product-review-detail/product-review-detail.component */ "./src/app/product/product-review-detail/product-review-detail.component.ts");
 /* harmony import */ var _shared_services_product_service__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ../shared/services/product.service */ "./src/app/shared/services/product.service.ts");
 /* harmony import */ var _shared_services_review_service__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ../shared/services/review.service */ "./src/app/shared/services/review.service.ts");
 /* harmony import */ var _product_qna_product_qna_component__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ./product-qna/product-qna.component */ "./src/app/product/product-qna/product-qna.component.ts");
 /* harmony import */ var _shared_services_product_qna_service__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ../shared/services/product-qna.service */ "./src/app/shared/services/product-qna.service.ts");
+/* harmony import */ var _product_qna_detail_product_qna_detail_component__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! ./product-qna-detail/product-qna-detail.component */ "./src/app/product/product-qna-detail/product-qna-detail.component.ts");
+/* harmony import */ var _product_review_write_product_review_write_component__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! ./product-review-write/product-review-write.component */ "./src/app/product/product-review-write/product-review-write.component.ts");
+/* harmony import */ var _product_qna_write_product_qna_write_component__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(/*! ./product-qna-write/product-qna-write.component */ "./src/app/product/product-qna-write/product-qna-write.component.ts");
+/* harmony import */ var _product_review_update_product_review_update_component__WEBPACK_IMPORTED_MODULE_18__ = __webpack_require__(/*! ./product-review-update/product-review-update.component */ "./src/app/product/product-review-update/product-review-update.component.ts");
+/* harmony import */ var _product_qna_update_product_qna_update_component__WEBPACK_IMPORTED_MODULE_19__ = __webpack_require__(/*! ./product-qna-update/product-qna-update.component */ "./src/app/product/product-qna-update/product-qna-update.component.ts");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -5036,6 +5583,11 @@ var __decorate = (undefined && undefined.__decorate) || function (decorators, ta
 // configuration and services
 
 // Components
+
+
+
+
+
 
 
 
@@ -5062,7 +5614,13 @@ var ProductModule = /** @class */ (function () {
                 _product_detail_product_detail_component__WEBPACK_IMPORTED_MODULE_7__["ProductDetailComponent"],
                 _product_review_product_review_component__WEBPACK_IMPORTED_MODULE_9__["ProductReviewComponent"],
                 _product_qna_product_qna_component__WEBPACK_IMPORTED_MODULE_13__["ProductQnaComponent"],
-                _product_review_detail_review_detail_component__WEBPACK_IMPORTED_MODULE_10__["ReviewDetailComponent"]
+                _product_qna_detail_product_qna_detail_component__WEBPACK_IMPORTED_MODULE_15__["ProductQnaDetailComponent"],
+                _product_review_detail_product_review_detail_component__WEBPACK_IMPORTED_MODULE_10__["ProductReviewDetailComponent"],
+                _product_review_write_product_review_write_component__WEBPACK_IMPORTED_MODULE_16__["ProductReviewWriteComponent"],
+                _product_qna_write_product_qna_write_component__WEBPACK_IMPORTED_MODULE_17__["ProductQnaWriteComponent"],
+                _product_review_update_product_review_update_component__WEBPACK_IMPORTED_MODULE_18__["ProductReviewUpdateComponent"],
+                _product_qna_update_product_qna_update_component__WEBPACK_IMPORTED_MODULE_19__["ProductQnaUpdateComponent"],
+                _product_review_detail_product_review_detail_component__WEBPACK_IMPORTED_MODULE_10__["ProductReviewDetailComponent"]
             ],
             exports: [_best_product_best_product_component__WEBPACK_IMPORTED_MODULE_5__["BestProductComponent"]],
             providers: [
@@ -5092,7 +5650,19 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _product_list_product_list_component__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./product-list/product-list.component */ "./src/app/product/product-list/product-list.component.ts");
 /* harmony import */ var _index_index_component__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../index/index.component */ "./src/app/index/index.component.ts");
 /* harmony import */ var _product_detail_product_detail_component__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./product-detail/product-detail.component */ "./src/app/product/product-detail/product-detail.component.ts");
-/* harmony import */ var _product_review_detail_review_detail_component__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./product-review-detail/review-detail.component */ "./src/app/product/product-review-detail/review-detail.component.ts");
+/* harmony import */ var _product_review_detail_product_review_detail_component__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./product-review-detail/product-review-detail.component */ "./src/app/product/product-review-detail/product-review-detail.component.ts");
+/* harmony import */ var _product_review_write_product_review_write_component__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./product-review-write/product-review-write.component */ "./src/app/product/product-review-write/product-review-write.component.ts");
+/* harmony import */ var _product_qna_write_product_qna_write_component__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./product-qna-write/product-qna-write.component */ "./src/app/product/product-qna-write/product-qna-write.component.ts");
+/* harmony import */ var _product_qna_detail_product_qna_detail_component__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./product-qna-detail/product-qna-detail.component */ "./src/app/product/product-qna-detail/product-qna-detail.component.ts");
+/* harmony import */ var _product_review_update_product_review_update_component__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./product-review-update/product-review-update.component */ "./src/app/product/product-review-update/product-review-update.component.ts");
+/* harmony import */ var _product_qna_update_product_qna_update_component__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./product-qna-update/product-qna-update.component */ "./src/app/product/product-qna-update/product-qna-update.component.ts");
+/* harmony import */ var _shared_services_auth_gaurd__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ../shared/services/auth_gaurd */ "./src/app/shared/services/auth_gaurd.ts");
+
+
+
+
+
+
 
 
 
@@ -5118,8 +5688,32 @@ var ProductRoutes = [
                 component: _product_list_product_list_component__WEBPACK_IMPORTED_MODULE_0__["ProductListComponent"]
             },
             {
-                path: ":review",
-                component: _product_review_detail_review_detail_component__WEBPACK_IMPORTED_MODULE_3__["ReviewDetailComponent"]
+                path: "review/:rev_no",
+                component: _product_review_detail_product_review_detail_component__WEBPACK_IMPORTED_MODULE_3__["ProductReviewDetailComponent"]
+            },
+            {
+                path: "qna/:pq_no",
+                component: _product_qna_detail_product_qna_detail_component__WEBPACK_IMPORTED_MODULE_6__["ProductQnaDetailComponent"]
+            },
+            {
+                path: "productqna/write",
+                component: _product_qna_write_product_qna_write_component__WEBPACK_IMPORTED_MODULE_5__["ProductQnaWriteComponent"],
+                canActivate: [_shared_services_auth_gaurd__WEBPACK_IMPORTED_MODULE_9__["AuthGuard"]]
+            },
+            {
+                path: "productreview/write",
+                component: _product_review_write_product_review_write_component__WEBPACK_IMPORTED_MODULE_4__["ProductReviewWriteComponent"],
+                canActivate: [_shared_services_auth_gaurd__WEBPACK_IMPORTED_MODULE_9__["AuthGuard"]]
+            },
+            {
+                path: "productreview/update",
+                component: _product_review_update_product_review_update_component__WEBPACK_IMPORTED_MODULE_7__["ProductReviewUpdateComponent"],
+                canActivate: [_shared_services_auth_gaurd__WEBPACK_IMPORTED_MODULE_9__["AuthGuard"]]
+            },
+            {
+                path: "productqna/update",
+                component: _product_qna_update_product_qna_update_component__WEBPACK_IMPORTED_MODULE_8__["ProductQnaUpdateComponent"],
+                canActivate: [_shared_services_auth_gaurd__WEBPACK_IMPORTED_MODULE_9__["AuthGuard"]]
             }
         ]
     }
@@ -5340,7 +5934,7 @@ module.exports = ""
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"container\">\r\n  <div class=\"row\">\r\n    <div class=\"col-sm-8 col-sm-offset-2 col-md-6 col-md-offset-3\">\r\n      <h4 class=\"text-center\">이미지 파일을 선택 또는 드래그 해주세요</h4>\r\n      <form [formGroup]=\"form\" (ngSubmit)=\"onSubmit(fileInput.files)\">\r\n        <div class=\"form-group\">\r\n          <img *ngIf=\"imageSrc\" [src]=\"imageSrc\" class=\"avatar\">\r\n          <div class=\"btns clearfix\">\r\n            <label class=\"btn btn-file btn-cancel pull-left\">Pick an image\r\n              <input type=\"file\" accept=\"image/*\"\r\n                (change)=\"onFileChange(fileInput.files)\" #fileInput>\r\n            </label>\r\n            <button type=\"submit\" class=\"btn btn-save pull-right\"\r\n              [disabled]=\"form.invalid || loading\">\r\n              바꾸기\r\n              <i class=\"fa fa-spinner fa-spin fa-fw\" *ngIf=\"loading\"></i>\r\n            </button>\r\n          </div>\r\n        </div>\r\n      </form>\r\n      <pre>{{ form.value | json }}</pre>\r\n      <pre>{{ result | json }}</pre>\r\n    </div>\r\n  </div>\r\n</div>\r\n"
+module.exports = "<div class=\"container\">\r\n  <div class=\"row\">\r\n    <div class=\"col-sm-8 col-sm-offset-2 col-md-6 col-md-offset-3\">\r\n      이미지 파일을 선택 또는 드래그 해주세요\r\n      <form [formGroup]=\"form\" (ngSubmit)=\"onSubmit(fileInput.files)\">\r\n        <div class=\"form-group\">\r\n          <img *ngIf=\"imageSrc!=null\" [src]=\"imageSrc\" class=\"avatar\">\r\n          <div class=\"btns clearfix\">\r\n            <label class=\"btn btn-file btn-cancel pull-left\">Pick an image\r\n              <input type=\"file\" accept=\"image/jpeg\"\r\n                (change)=\"onFileChange(fileInput.files)\" #fileInput>\r\n            </label>\r\n            <button type=\"submit\" class=\"btn btn-outline-warning waves-effect font-weight-bold\"\r\n              [disabled]=\"form.invalid || loading\">\r\n              Upload\r\n              <i class=\"fa fa-spinner fa-spin fa-fw\" *ngIf=\"loading\"></i>\r\n            </button>\r\n          </div>\r\n        </div>\r\n      </form>\r\n      <pre>{{ form.value | json }}</pre>\r\n      <pre>{{ result | json }}</pre>\r\n    </div>\r\n  </div>\r\n</div>\r\n"
 
 /***/ }),
 
@@ -5375,7 +5969,7 @@ var FileUploadComponent = /** @class */ (function () {
         this.http = http;
         this.apiUrl = 'http://localhost:8080';
         this.loading = false;
-        this.imageSrc = '/assets/images/john-resig.jpeg';
+        this.imageSrc = '/assets/img/';
         this.form = this.fb.group({
             file: ['', _angular_forms__WEBPACK_IMPORTED_MODULE_1__["Validators"].required]
         });
@@ -5408,7 +6002,7 @@ var FileUploadComponent = /** @class */ (function () {
         this.loading = true;
         // Send data (payload = formData)
         console.log(formData.get('file'));
-        // 폼데이터를 서버로 전송한다.
+        //  폼데이터를 서버로 전송한다.
         this.http.post(this.apiUrl + "/uploadFile", formData)
             .subscribe(function (res) {
             _this.result = res;
@@ -6443,7 +7037,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ProductQnaService", function() { return ProductQnaService; });
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
 /* harmony import */ var _angular_common_http__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/common/http */ "./node_modules/@angular/common/fesm5/http.js");
-/* harmony import */ var _product_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./product.service */ "./src/app/shared/services/product.service.ts");
+/* harmony import */ var rxjs_Observable__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! rxjs/Observable */ "./node_modules/rxjs-compat/_esm5/Observable.js");
+/* harmony import */ var _product_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./product.service */ "./src/app/shared/services/product.service.ts");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -6453,6 +7048,7 @@ var __decorate = (undefined && undefined.__decorate) || function (decorators, ta
 var __metadata = (undefined && undefined.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
+
 
 
 
@@ -6468,15 +7064,47 @@ var ProductQnaService = /** @class */ (function () {
     ProductQnaService.prototype.getProductQna = function () {
         return this.http.get(this.url + this.p_code);
     };
-    ProductQnaService.prototype.setQnaNo = function (pq_no) {
+    ProductQnaService.prototype.setProductQnaNo = function (pq_no) {
         this.pq_no = pq_no;
+    };
+    ProductQnaService.prototype.setProductQnaObject = function (productQna_update) {
+        this.productQna_update = productQna_update;
+    };
+    ProductQnaService.prototype.getProductQnaObject = function () {
+        return this.productQna_update;
+    };
+    ProductQnaService.prototype.incrementProductQnaHits = function (productQna) {
+        return this.http.put(this.url + this.pq_no, productQna);
+    };
+    ProductQnaService.prototype.setProductQnaNoObject = function (productQna) {
+        var _this = this;
+        this.incrementProductQnaHits(productQna).subscribe(function () {
+            _this.productQna = productQna;
+        });
+    };
+    ProductQnaService.prototype.getProductQnaNoObject = function () {
+        return this.http.get(this.url + "detail/" + this.pq_no);
+    };
+    ProductQnaService.prototype.insertProductQna = function (productQna) {
+        return this.http.post(this.url + "write", productQna);
+    };
+    ProductQnaService.prototype.updateProductQna = function (productQna_update) {
+        return this.http.put(this.url + "update", productQna_update)
+            .catch(this.handleError);
+    };
+    ProductQnaService.prototype.deleteProductQna = function (productQna) {
+        return this.http.post(this.url + "delete", productQna);
+    };
+    ProductQnaService.prototype.handleError = function (error) {
+        console.error(error.message || error);
+        return rxjs_Observable__WEBPACK_IMPORTED_MODULE_2__["Observable"].throw(error.status);
     };
     ProductQnaService = __decorate([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Injectable"])({
             providedIn: 'root'
         }),
         __metadata("design:paramtypes", [_angular_common_http__WEBPACK_IMPORTED_MODULE_1__["HttpClient"],
-            _product_service__WEBPACK_IMPORTED_MODULE_2__["ProductService"]])
+            _product_service__WEBPACK_IMPORTED_MODULE_3__["ProductService"]])
     ], ProductQnaService);
     return ProductQnaService;
 }());
@@ -6556,37 +7184,8 @@ var ProductService = /** @class */ (function (_super) {
         _this.productListUrl = 'http://localhost:8080/toma/';
         _this.productReviewUrl = 'http://localhost:8080/toma/review/';
         _this.productQnaUrl = 'http://localhost:8080/toma/productqna/';
-        // products: AngularFireList<Product>;
-        // product: AngularFireObject<Product>;
-        // favouriteProducts
-        // favouriteProducts: AngularFireList<FavouriteProduct>;
-        // cartProducts: AngularFireList<FavouriteProduct>;
-        // NavbarCounts
         _this.navbarCartCount = 0;
         _this.navbarFavProdCount = 0;
-        // constructor()(
-        //   // private db: AngularFireDatabase,
-        //   // private authService: AuthService,
-        //   // 동현생성자수정
-        //   private userService: UserService,
-        //   private http:HttpClient,
-        //   // 동현생성자수정끝
-        //   private toastyService: ToastyService,
-        //   private toastyConfig: ToastyConfig
-        // ) {
-        //   // Toaster Config
-        //   this.toastyConfig.position = "top-right";
-        //   this.toastyConfig.theme = "material";
-        //
-        //   // if (this.authService.isLoggedIn()) {
-        //   //   this.calculateFavProductCounts();
-        //   //   this.calculateCartProductCounts();
-        //   // } else {
-        //   //   this.calculateLocalFavProdCounts();
-        //   //   this.calculateLocalCartProdCounts();
-        //   // }
-        // }
-        //동현변수
         _this.cartToOrder = [];
         _this.fromCart = false;
         // }
@@ -6652,24 +7251,9 @@ var ProductService = /** @class */ (function (_super) {
         return this.p_code;
     };
     ProductService.prototype.getReview = function () {
-        if (this.tokenService.isToken("productReviewToken")) {
-            this.tokenService.removeToken("productReviewToken");
-        }
         return this.http.get(this.productReviewUrl + this.p_code);
     };
     ProductService.prototype.getProducts = function () {
-        // this.products = this.db.list("products");
-        // return this.products;
-        // return this.cache<Product[]>(() => this.products,
-        //                            (val: Observable<Product[]>) => this.products = val,
-        //                            () => this.http
-        //                                      .get("http://localhost:8080/toma")
-        //                                      .map((response) => response.json()
-        //                                                                 .map((item) => {
-        //                                                                   let model = new Product();
-        //                                                                   model.updateFrom(item);
-        //                                                                   return model;
-        //                                                                 })));
         return this.http.get(this.productListUrl);
     };
     ProductService.prototype.createProduct = function (data) {
@@ -6900,7 +7484,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ReviewService", function() { return ReviewService; });
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
 /* harmony import */ var _angular_common_http__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/common/http */ "./node_modules/@angular/common/fesm5/http.js");
-/* harmony import */ var _product_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./product.service */ "./src/app/shared/services/product.service.ts");
+/* harmony import */ var rxjs_Observable__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! rxjs/Observable */ "./node_modules/rxjs-compat/_esm5/Observable.js");
+/* harmony import */ var _product_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./product.service */ "./src/app/shared/services/product.service.ts");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -6910,6 +7495,7 @@ var __decorate = (undefined && undefined.__decorate) || function (decorators, ta
 var __metadata = (undefined && undefined.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
+
 
 
 
@@ -6928,11 +7514,43 @@ var ReviewService = /** @class */ (function () {
     ReviewService.prototype.setProductCode = function () {
         this.p_code = this.productService.getProductCode();
     };
+    ReviewService.prototype.setReviewNoObject = function (review) {
+        var _this = this;
+        this.incrementReviewHits(review).subscribe(function () {
+            _this.review = review;
+        });
+    };
+    ReviewService.prototype.setReviewObject = function (review_update) {
+        this.review_update = review_update;
+    };
+    ReviewService.prototype.getReviewObject = function () {
+        return this.review_update;
+    };
+    ReviewService.prototype.incrementReviewHits = function (review) {
+        return this.http.put(this.url + this.rev_no, review);
+    };
+    ReviewService.prototype.getReviewNoObject = function () {
+        return this.http.get(this.url + "detail/" + this.rev_no);
+    };
+    ReviewService.prototype.insertReview = function (review) {
+        return this.http.post(this.url + "write", review);
+    };
+    ReviewService.prototype.updateReview = function (review_update) {
+        return this.http.post(this.url + "update", review_update)
+            .catch(this.handleError);
+    };
+    ReviewService.prototype.deleteReview = function (review) {
+        return this.http.post(this.url + "delete", review);
+    };
+    ReviewService.prototype.handleError = function (error) {
+        console.error(error.message || error);
+        return rxjs_Observable__WEBPACK_IMPORTED_MODULE_2__["Observable"].throw(error.status);
+    };
     ReviewService = __decorate([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Injectable"])({
             providedIn: 'root'
         }),
-        __metadata("design:paramtypes", [_angular_common_http__WEBPACK_IMPORTED_MODULE_1__["HttpClient"], _product_service__WEBPACK_IMPORTED_MODULE_2__["ProductService"]])
+        __metadata("design:paramtypes", [_angular_common_http__WEBPACK_IMPORTED_MODULE_1__["HttpClient"], _product_service__WEBPACK_IMPORTED_MODULE_3__["ProductService"]])
     ], ReviewService);
     return ReviewService;
 }());
@@ -6985,6 +7603,59 @@ var SearchService = /** @class */ (function () {
         __metadata("design:paramtypes", [_angular_common_http__WEBPACK_IMPORTED_MODULE_1__["HttpClient"]])
     ], SearchService);
     return SearchService;
+}());
+
+
+
+/***/ }),
+
+/***/ "./src/app/shared/services/sidenav.service.ts":
+/*!****************************************************!*\
+  !*** ./src/app/shared/services/sidenav.service.ts ***!
+  \****************************************************/
+/*! exports provided: SidenavService */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "SidenavService", function() { return SidenavService; });
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (undefined && undefined.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+var SidenavService = /** @class */ (function () {
+    function SidenavService() {
+    }
+    SidenavService.prototype.openNav = function () {
+        document.getElementById("mySidenav").style.width = "650px";
+        document.body.style.marginLeft = "650px";
+    };
+    SidenavService.prototype.closeNav = function () {
+        document.getElementById("mySidenav").style.width = "0";
+        document.body.style.marginLeft = "0";
+    };
+    SidenavService.prototype.bodyMarginReset = function () {
+        var sideNav = document.getElementById("mySidenav");
+        if (sideNav != null) {
+            sideNav.style.width = "0";
+            document.body.style.marginLeft = "0";
+        }
+        document.body.style.marginLeft = "0";
+    };
+    SidenavService = __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Injectable"])({
+            providedIn: 'root'
+        }),
+        __metadata("design:paramtypes", [])
+    ], SidenavService);
+    return SidenavService;
 }());
 
 
@@ -7184,6 +7855,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _services_qna_service__WEBPACK_IMPORTED_MODULE_23__ = __webpack_require__(/*! ./services/qna.service */ "./src/app/shared/services/qna.service.ts");
 /* harmony import */ var _services_search_service__WEBPACK_IMPORTED_MODULE_24__ = __webpack_require__(/*! ./services/search.service */ "./src/app/shared/services/search.service.ts");
 /* harmony import */ var _file_upload_file_upload_component__WEBPACK_IMPORTED_MODULE_25__ = __webpack_require__(/*! ./file-upload/file-upload.component */ "./src/app/shared/file-upload/file-upload.component.ts");
+/* harmony import */ var _services_sidenav_service__WEBPACK_IMPORTED_MODULE_26__ = __webpack_require__(/*! ./services/sidenav.service */ "./src/app/shared/services/sidenav.service.ts");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -7206,6 +7878,7 @@ var __decorate = (undefined && undefined.__decorate) || function (decorators, ta
 
 
 // import { FireBaseConfig } from "../../environments/firebaseConfigDummy";
+
 
 
 
@@ -7275,7 +7948,8 @@ var SharedModule = /** @class */ (function () {
                 _services_notice_service__WEBPACK_IMPORTED_MODULE_21__["NoticeService"],
                 _services_faq_service__WEBPACK_IMPORTED_MODULE_22__["FaqService"],
                 _services_qna_service__WEBPACK_IMPORTED_MODULE_23__["QnaService"],
-                _services_search_service__WEBPACK_IMPORTED_MODULE_24__["SearchService"]
+                _services_search_service__WEBPACK_IMPORTED_MODULE_24__["SearchService"],
+                _services_sidenav_service__WEBPACK_IMPORTED_MODULE_26__["SidenavService"]
             ]
         })
     ], SharedModule);
@@ -7293,7 +7967,7 @@ var SharedModule = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<h6 style=\"text-align:right; font-weight:bold; color:#232BDB\">마이페이지 > 회원정보수정</h6>\r\n<br />\r\n\r\n<form #updatePerson=\"ngForm\" (ngSubmit)=\"updateProfile(updatePerson)\" name=\"profileForm\">\r\n  <div class=\"row\">\r\n    <div class=\"col-md-8 mb-3\">\r\n      <label for=\"userName\" class=\"font-weight-bold\" style=\"font-size:1.2em;\">회원이름</label>\r\n      <input type=\"text\" class=\"form-control is-valid font-weight-bold\" id=\"userName\" [(ngModel)]=\"loggedUser.uname\" name=\"userName\" #userName=\"ngModel\" [disabled]=\"true\">\r\n      <!-- 삭제한속성 : (ngModelChange)=\"enbUpdBut = !enbUpdBut\" / [(ngClass)] : 초록색테두리 / required-->\r\n      <div class=\"invalid-feedback\">\r\n        username is Mandatory.\r\n      </div>\r\n    </div>\r\n    <div class=\"col-md-8 mb-3\">\r\n      <label for=\"userId\" class=\"font-weight-bold\" style=\"font-size:1.2em;\">아이디</label>\r\n      <input type=\"text\" class=\"form-control is-valid font-weight-bold\" id=\"userId\" [disabled]=\"true\" name=\"userId\" [(ngModel)]=\"loggedUser.uid\">\r\n    </div>\r\n    <div class=\"col-md-8 mb-3\">\r\n      <label for=\"userJoindate\" class=\"font-weight-bold\" style=\"font-size:1.2em;\">가입일</label>\r\n      <input type=\"text\" class=\"form-control is-valid font-weight-bold\" id=\"userJoindate\" name=\"userJoindate\" [(ngModel)]=\"loggedUser.ujoindate\" [disabled]=\"true\">\r\n    </div>\r\n    <div class=\"col-md-8 mb-3\">\r\n      <label for=\"userPwd\" class=\"font-weight-bold badge grey\" style=\"font-size:1em;\">비밀번호(20자이내)</label>\r\n      <input type=\"password\" class=\"form-control\" id=\"userPwd\" name=\"userPwd\" [(ngModel)]=\"loggedUser.upw\">\r\n    </div>\r\n    <div class=\"col-md-8 mb-3\">\r\n      <label for=\"userPhone\" class=\"font-weight-bold badge grey\" style=\"font-size:1em;\">연락처( '-' 제외, 9~11자리 숫자만입력)</label>\r\n      <input type=\"text\" class=\"form-control\" id=\"userPhone\" name=\"userPhone\" [(ngModel)]=\"loggedUser.uphone\">\r\n    </div>\r\n    <div class=\"col-md-8 mb-3\">\r\n      <label for=\"userBirth\" class=\"font-weight-bold badge grey\" style=\"font-size:1em;\">생년월일(주민등록번호 앞6자리만 입력)</label>\r\n      <input type=\"text\" class=\"form-control\" id=\"userBirth\" name=\"userBirth\" [(ngModel)]=\"loggedUser.ubirth\">\r\n    </div>\r\n\r\n    <div class=\"col-md-8 mb-3\">\r\n      <label class=\"font-weight-bold badge grey\" style=\"font-size:1em;\">주소1</label>\r\n      <span style=\"font-size:1em; margin-left:20px;\" class=\"font-weight-bold\">현재주소 : {{loggedUser.uaddr1}}</span><br />\r\n      <span><a data-toggle=\"modal\" (click)=\"ValueClear();\" data-target=\"#addrChangeForm1\" style=\"color:dodgerblue; font-weight:bold;\">주소변경하기</a></span>\r\n      <!--사용자가 주소를 바꾸길 원할때만 나타남-->\r\n      <!--회원가입폼 (모달)-->\r\n    </div>\r\n    <div class=\"col-md-8 mb-3\">\r\n      <label class=\"font-weight-bold badge grey\" style=\"font-size:1em;\">주소2</label>\r\n      <span style=\"font-size:1em; margin-left:20px;\" class=\"font-weight-bold\">현재주소 : {{loggedUser.uaddr2}}</span><br />\r\n      <span><a data-toggle=\"modal\" (click)=\"ValueClear();\" data-target=\"#addrChangeForm2\" style=\"color:dodgerblue; font-weight:bold;\">주소변경하기</a></span>\r\n    </div>\r\n    <div class=\"col-md-8 mb-3\">\r\n      <label class=\"font-weight-bold badge grey\" style=\"font-size:1em;\">주소3</label>\r\n      <span style=\"font-size:1em; margin-left:20px;\" class=\"font-weight-bold\">현재주소 : {{loggedUser.uaddr3}}</span><br />\r\n      <span><a data-toggle=\"modal\" (click)=\"ValueClear();\" data-target=\"#addrChangeForm3\" style=\"color:dodgerblue; font-weight:bold;\">주소변경하기</a></span>\r\n    </div>\r\n\r\n    <div class=\"col-md-8 mb-3\">\r\n      <label for=\"userAddrcheck\" class=\"font-weight-bold badge grey\" style=\"font-size:1em;\">기본주소선택란</label>\r\n      <br />\r\n      <select class=\"mdb-select\" [(ngModel)]=\"loggedUser.uaddrcheck\" name=\"userAddrcheck\" id=\"userAddrcheck\" style=\"width:100%;\">\r\n        <option value=\"\" disabled selected>기본적으로 사용할 주소지를 선택해주세요</option>\r\n        <option value=1>&nbsp;기본주소</option>\r\n        <option value=2>&nbsp;추가주소</option>\r\n        <option value=3>&nbsp;추가주소 2</option>\r\n      </select>\r\n    </div>\r\n    <div class=\"col-md-8 mb-3\">\r\n      <label for=\"userGender\" class=\"font-weight-bold badge grey\" style=\"font-size:1em;\">성별</label>\r\n      <br />\r\n      <select class=\"mdb-select\" [(ngModel)]=\"loggedUser.ugender\" name=\"userGender\" id=\"userGender\" style=\"width:100%;\">\r\n        <option value=\"\" disabled selected>성별을 선택해주세요</option>\r\n        <option value=\"M\">&nbsp;남자</option>\r\n        <option value=\"F\">&nbsp;여자</option>\r\n      </select>\r\n    </div>\r\n    <div class=\"col-md-8 mb-3\">\r\n      <label for=\"userSmsyn\" class=\"font-weight-bold badge grey\" style=\"font-size:1em;\">SMS 수신여부</label>\r\n      <br />\r\n      <select class=\"mdb-select\" [(ngModel)]=\"loggedUser.usmsyn\" name=\"userSmsyn\" id=\"userSmsyn\" style=\"width:100%;\">\r\n        <option value=\"\" disabled selected>SMS를 통해 정보를 받으시겠습니까 ?</option>\r\n        <option value=\"Y\">&nbsp;예</option>\r\n        <option value=\"N\">&nbsp;아니오</option>\r\n      </select>\r\n    </div>\r\n    <div class=\"col-md-8 mb-3\">\r\n      <label for=\"userEmailyn\" class=\"font-weight-bold badge grey\" style=\"font-size:1em;\">Email 수신여부</label>\r\n      <br />\r\n      <select class=\"mdb-select\" [(ngModel)]=\"loggedUser.uemailyn\" name=\"userEmailyn\" id=\"userEmailyn\" style=\"width:100%;\">\r\n        <option value=\"\" disabled selected>Email을 통해 정보를 받으시겠습니까 ?</option>\r\n        <option value=\"Y\" >&nbsp;예</option>\r\n        <option value=\"N\">&nbsp;아니오</option>\r\n      </select>\r\n    </div>\r\n  </div>\r\n\r\n  <button class=\"btn btn-outline-primary\" type=\"submit\" style=\"margin-left:320px\">정보수정하기</button>\r\n</form>\r\n\r\n<!-- 주소1 변경모달 -->\r\n<div class=\"modal fade\" id=\"addrChangeForm1\" tabindex=\"-1\" role=\"dialog\" aria-labelledby=\"myModalLabel\" aria-hidden=\"true\">\r\n  <div class=\"modal-dialog cascading-modal\" role=\"document\">\r\n    <div class=\"modal-content\">\r\n      <div class=\"modal-header light-blue darken-3 white-text\">\r\n        <h4 class=\"title\">\r\n          <i class=\"fa fa-user-plus\"></i>주소1 변경</h4>\r\n      </div>\r\n      <div class=\"modal-body\" style=\"font-size:12px;\">\r\n        <div class=\"md-form form-sm\">\r\n          <btn-daum-address (result)=\"setDaumAddressApi($event)\" [options]=\"daumAddressOptions\"></btn-daum-address><br /><br /><br />\r\n          <p style=\"font-size:14px;\">선택한 기본주소 :: &nbsp; {{AddrSearch1_2}}</p>\r\n          <input type=\"text\" id=\"AcountDetailAddr\" class=\"form-control\" [(ngModel)]=\"AddrSearch1_3\" name=\"AcountDetailAddr\" placeholder=\"상세주소(50자이내)\">\r\n        </div>\r\n        <div class=\"text-center mt-2\">\r\n          <button (click)=\"modalsubmit();\" class=\"btn btn-outline-success\" id=\"Addr1ChangeButton\" mdbRippleRadius>변경</button>\r\n          <button (click)=\"modalclose();\" data-dismiss=\"modal\" aria-label=\"Close\" class=\"btn btn-outline-danger\" id=\"Addr1CloseButton\" mdbRippleRadius>취소</button>\r\n        </div>\r\n      </div>\r\n    </div>\r\n  </div>\r\n</div>\r\n<!-- 주소2 변경모달 -->\r\n<div class=\"modal fade\" id=\"addrChangeForm2\" tabindex=\"-1\" role=\"dialog\" aria-labelledby=\"myModalLabel\" aria-hidden=\"true\">\r\n  <div class=\"modal-dialog cascading-modal\" role=\"document\">\r\n    <div class=\"modal-content\">\r\n      <div class=\"modal-header light-blue darken-3 white-text\">\r\n        <h4 class=\"title\">\r\n          <i class=\"fa fa-user-plus\"></i>주소2 변경</h4>\r\n      </div>\r\n      <div class=\"modal-body\" style=\"font-size:12px;\">\r\n        <div class=\"md-form form-sm\">\r\n          <btn-daum-address (result)=\"setDaumAddressApi2($event)\" [options]=\"daumAddressOptions\">주소검색</btn-daum-address><br /><br /><br />\r\n          <p style=\"font-size:14px;\">선택한 기본주소 :: &nbsp; {{AddrSearch2_2}}</p>\r\n          <input type=\"text\" id=\"AcountDetailAddr2\" class=\"form-control\" [(ngModel)]=\"AddrSearch2_3\" name=\"AcountDetailAddr2\" placeholder=\"상세주소(50자이내)\">\r\n        </div>\r\n        <div class=\"text-center mt-2\">\r\n          <button (click)=\"modalsubmit2();\" class=\"btn btn-outline-success\" id=\"Addr2ChangeButton\" mdbRippleRadius>변경</button>\r\n          <button (click)=\"modalclose2();\" data-dismiss=\"modal\" aria-label=\"Close\" class=\"btn btn-outline-danger\" id=\"Addr2CloseButton\" mdbRippleRadius>취소</button>\r\n        </div>\r\n      </div>\r\n    </div>\r\n  </div>\r\n</div>\r\n<!-- 주소3 변경모달 -->\r\n<div class=\"modal fade\" id=\"addrChangeForm3\" tabindex=\"-1\" role=\"dialog\" aria-labelledby=\"myModalLabel\" aria-hidden=\"true\">\r\n  <div class=\"modal-dialog cascading-modal\" role=\"document\">\r\n    <div class=\"modal-content\">\r\n      <div class=\"modal-header light-blue darken-3 white-text\">\r\n        <h4 class=\"title\">\r\n          <i class=\"fa fa-user-plus\"></i>주소3 변경</h4>\r\n      </div>\r\n      <div class=\"modal-body\" style=\"font-size:12px;\">\r\n        <div class=\"md-form form-sm\">\r\n          <btn-daum-address (result)=\"setDaumAddressApi3($event)\" [options]=\"daumAddressOptions\"></btn-daum-address><br /><br /><br />\r\n          <p style=\"font-size:14px;\">선택한 기본주소 :: &nbsp; {{AddrSearch3_2}}</p>\r\n          <input type=\"text\" id=\"AcountDetailAddr3\" class=\"form-control\" [(ngModel)]=\"AddrSearch3_3\" name=\"AcountDetailAddr3\" placeholder=\"상세주소(50자이내)\">\r\n        </div>\r\n        <div class=\"text-center mt-2\">\r\n          <button (click)=\"modalsubmit3();\" class=\"btn btn-outline-success\" id=\"Addr3ChangeButton\" mdbRippleRadius>변경</button>\r\n          <button (click)=\"modalclose3();\" data-dismiss=\"modal\" aria-label=\"Close\" class=\"btn btn-outline-danger\" id=\"Addr3CloseButton\" mdbRippleRadius>취소</button>\r\n        </div>\r\n      </div>\r\n    </div>\r\n  </div>\r\n</div>\r\n"
+module.exports = "<h6 style=\"text-align:right; font-weight:bold; color:#232BDB\">마이페이지 > 회원정보수정</h6>\r\n<br />\r\n\r\n<form #updatePerson=\"ngForm\" (ngSubmit)=\"updateProfile(updatePerson)\" name=\"profileForm\">\r\n  <div class=\"row\">\r\n    <div class=\"col-md-8 mb-3\">\r\n      <label for=\"userName\" class=\"font-weight-bold\" style=\"font-size:1.2em;\">회원이름</label>\r\n      <input type=\"text\" class=\"form-control is-valid font-weight-bold\" id=\"userName\" [(ngModel)]=\"loggedUser.uname\" name=\"userName\" #userName=\"ngModel\" [disabled]=\"true\">\r\n      <!-- 삭제한속성 : (ngModelChange)=\"enbUpdBut = !enbUpdBut\" / [(ngClass)] : 초록색테두리 / required-->\r\n      <div class=\"invalid-feedback\">\r\n        username is Mandatory.\r\n      </div>\r\n    </div>\r\n    <div class=\"col-md-8 mb-3\">\r\n      <label for=\"userId\" class=\"font-weight-bold\" style=\"font-size:1.2em;\">아이디</label>\r\n      <input type=\"text\" class=\"form-control is-valid font-weight-bold\" id=\"userId\" [disabled]=\"true\" name=\"userId\" [(ngModel)]=\"loggedUser.uid\">\r\n    </div>\r\n    <div class=\"col-md-8 mb-3\">\r\n      <label for=\"userJoindate\" class=\"font-weight-bold\" style=\"font-size:1.2em;\">가입일</label>\r\n      <input type=\"text\" class=\"form-control is-valid font-weight-bold\" id=\"userJoindate\" name=\"userJoindate\" [(ngModel)]=\"loggedUser.ujoindate\" [disabled]=\"true\">\r\n    </div>\r\n    <div class=\"col-md-8 mb-3\">\r\n      <label for=\"userPwd\" class=\"font-weight-bold badge grey\" style=\"font-size:1em;\">비밀번호(20자이내)</label>\r\n      <input type=\"password\" class=\"form-control\" id=\"userPwd\" name=\"userPwd\" [(ngModel)]=\"loggedUser.upw\">\r\n    </div>\r\n    <div class=\"col-md-8 mb-3\">\r\n      <label for=\"userPhone\" class=\"font-weight-bold badge grey\" style=\"font-size:1em;\">연락처( '-' 제외, 9~11자리 숫자만입력)</label>\r\n      <input type=\"text\" class=\"form-control\" id=\"userPhone\" name=\"userPhone\" [(ngModel)]=\"loggedUser.uphone\">\r\n    </div>\r\n    <div class=\"col-md-8 mb-3\">\r\n      <label for=\"userBirth\" class=\"font-weight-bold badge grey\" style=\"font-size:1em;\">생년월일(주민등록번호 앞6자리만 입력)</label>\r\n      <input type=\"text\" class=\"form-control\" id=\"userBirth\" name=\"userBirth\" [(ngModel)]=\"loggedUser.ubirth\">\r\n    </div>\r\n\r\n    <div class=\"col-md-8 mb-3\">\r\n      <label class=\"font-weight-bold badge grey\" style=\"font-size:1em;\">주소1</label>\r\n      <span style=\"font-size:1em; margin-left:20px;\" class=\"font-weight-bold\">현재주소 : {{loggedUser.uaddr1}}</span><br />\r\n      <span><a data-toggle=\"modal\" (click)=\"ValueClear();\" data-target=\"#addrChangeForm1\" style=\"color:dodgerblue; font-weight:bold;\">주소변경하기</a></span>\r\n      <!--사용자가 주소를 바꾸길 원할때만 나타남-->\r\n      <!--회원가입폼 (모달)-->\r\n    </div>\r\n    <div class=\"col-md-8 mb-3\">\r\n      <label class=\"font-weight-bold badge grey\" style=\"font-size:1em;\">주소2</label>\r\n      <span style=\"font-size:1em; margin-left:20px;\" class=\"font-weight-bold\">현재주소 : {{loggedUser.uaddr2}}</span><br />\r\n      <span><a data-toggle=\"modal\" (click)=\"ValueClear();\" data-target=\"#addrChangeForm2\" style=\"color:dodgerblue; font-weight:bold;\">주소변경하기</a></span>\r\n    </div>\r\n    <div class=\"col-md-8 mb-3\">\r\n      <label class=\"font-weight-bold badge grey\" style=\"font-size:1em;\">주소3</label>\r\n      <span style=\"font-size:1em; margin-left:20px;\" class=\"font-weight-bold\">현재주소 : {{loggedUser.uaddr3}}</span><br />\r\n      <span><a data-toggle=\"modal\" (click)=\"ValueClear();\" data-target=\"#addrChangeForm3\" style=\"color:dodgerblue; font-weight:bold;\">주소변경하기</a></span>\r\n    </div>\r\n\r\n    <div class=\"col-md-8 mb-3\">\r\n      <label for=\"userAddrcheck\" class=\"font-weight-bold badge grey\" style=\"font-size:1em;\">기본주소선택란</label>\r\n      <br />\r\n      <select class=\"mdb-select\" [(ngModel)]=\"loggedUser.uaddrcheck\" name=\"userAddrcheck\" id=\"userAddrcheck\" style=\"width:100%;\">\r\n        <option value=\"\" disabled selected>기본적으로 사용할 주소지를 선택해주세요</option>\r\n        <option value=1>&nbsp;주소1</option>\r\n        <option value=2>&nbsp;주소2</option>\r\n        <option value=3>&nbsp;주소3</option>\r\n      </select>\r\n    </div>\r\n    <div class=\"col-md-8 mb-3\">\r\n      <label for=\"userGender\" class=\"font-weight-bold badge grey\" style=\"font-size:1em;\">성별</label>\r\n      <br />\r\n      <select class=\"mdb-select\" [(ngModel)]=\"loggedUser.ugender\" name=\"userGender\" id=\"userGender\" style=\"width:100%;\">\r\n        <option value=\"\" disabled selected>성별을 선택해주세요</option>\r\n        <option value=\"M\">&nbsp;남자</option>\r\n        <option value=\"F\">&nbsp;여자</option>\r\n      </select>\r\n    </div>\r\n    <div class=\"col-md-8 mb-3\">\r\n      <label for=\"userSmsyn\" class=\"font-weight-bold badge grey\" style=\"font-size:1em;\">SMS 수신여부</label>\r\n      <br />\r\n      <select class=\"mdb-select\" [(ngModel)]=\"loggedUser.usmsyn\" name=\"userSmsyn\" id=\"userSmsyn\" style=\"width:100%;\">\r\n        <option value=\"\" disabled selected>SMS를 통해 정보를 받으시겠습니까 ?</option>\r\n        <option value=\"Y\">&nbsp;예</option>\r\n        <option value=\"N\">&nbsp;아니오</option>\r\n      </select>\r\n    </div>\r\n    <div class=\"col-md-8 mb-3\">\r\n      <label for=\"userEmailyn\" class=\"font-weight-bold badge grey\" style=\"font-size:1em;\">Email 수신여부</label>\r\n      <br />\r\n      <select class=\"mdb-select\" [(ngModel)]=\"loggedUser.uemailyn\" name=\"userEmailyn\" id=\"userEmailyn\" style=\"width:100%;\">\r\n        <option value=\"\" disabled selected>Email을 통해 정보를 받으시겠습니까 ?</option>\r\n        <option value=\"Y\" >&nbsp;예</option>\r\n        <option value=\"N\">&nbsp;아니오</option>\r\n      </select>\r\n    </div>\r\n  </div>\r\n\r\n  <button class=\"btn btn-outline-primary\" type=\"submit\" style=\"margin-left:320px\">정보수정하기</button>\r\n</form>\r\n\r\n<!-- 주소1 변경모달 -->\r\n<div class=\"modal fade\" id=\"addrChangeForm1\" tabindex=\"-1\" role=\"dialog\" aria-labelledby=\"myModalLabel\" aria-hidden=\"true\">\r\n  <div class=\"modal-dialog cascading-modal\" role=\"document\">\r\n    <div class=\"modal-content\">\r\n      <div class=\"modal-header light-blue darken-3 white-text\">\r\n        <h4 class=\"title\">\r\n          <i class=\"fa fa-user-plus\"></i>주소1 변경</h4>\r\n      </div>\r\n      <div class=\"modal-body\" style=\"font-size:12px;\">\r\n        <div class=\"md-form form-sm\">\r\n          <btn-daum-address (result)=\"setDaumAddressApi($event)\" [options]=\"daumAddressOptions\"></btn-daum-address><br /><br /><br />\r\n          <p style=\"font-size:14px;\">선택한 기본주소 :: &nbsp; {{AddrSearch1_2}}</p>\r\n          <input type=\"text\" id=\"AcountDetailAddr\" class=\"form-control\" [(ngModel)]=\"AddrSearch1_3\" name=\"AcountDetailAddr\" placeholder=\"상세주소(50자이내)\">\r\n        </div>\r\n        <div class=\"text-center mt-2\">\r\n          <button (click)=\"modalsubmit();\" class=\"btn btn-outline-success\" id=\"Addr1ChangeButton\" mdbRippleRadius>변경</button>\r\n          <button (click)=\"modalclose();\" data-dismiss=\"modal\" aria-label=\"Close\" class=\"btn btn-outline-danger\" id=\"Addr1CloseButton\" mdbRippleRadius>취소</button>\r\n        </div>\r\n      </div>\r\n    </div>\r\n  </div>\r\n</div>\r\n<!-- 주소2 변경모달 -->\r\n<div class=\"modal fade\" id=\"addrChangeForm2\" tabindex=\"-1\" role=\"dialog\" aria-labelledby=\"myModalLabel\" aria-hidden=\"true\">\r\n  <div class=\"modal-dialog cascading-modal\" role=\"document\">\r\n    <div class=\"modal-content\">\r\n      <div class=\"modal-header light-blue darken-3 white-text\">\r\n        <h4 class=\"title\">\r\n          <i class=\"fa fa-user-plus\"></i>주소2 변경</h4>\r\n      </div>\r\n      <div class=\"modal-body\" style=\"font-size:12px;\">\r\n        <div class=\"md-form form-sm\">\r\n          <btn-daum-address (result)=\"setDaumAddressApi2($event)\" [options]=\"daumAddressOptions\">주소검색</btn-daum-address><br /><br /><br />\r\n          <p style=\"font-size:14px;\">선택한 기본주소 :: &nbsp; {{AddrSearch2_2}}</p>\r\n          <input type=\"text\" id=\"AcountDetailAddr2\" class=\"form-control\" [(ngModel)]=\"AddrSearch2_3\" name=\"AcountDetailAddr2\" placeholder=\"상세주소(50자이내)\">\r\n        </div>\r\n        <div class=\"text-center mt-2\">\r\n          <button (click)=\"modalsubmit2();\" class=\"btn btn-outline-success\" id=\"Addr2ChangeButton\" mdbRippleRadius>변경</button>\r\n          <button (click)=\"modalclose2();\" data-dismiss=\"modal\" aria-label=\"Close\" class=\"btn btn-outline-danger\" id=\"Addr2CloseButton\" mdbRippleRadius>취소</button>\r\n        </div>\r\n      </div>\r\n    </div>\r\n  </div>\r\n</div>\r\n<!-- 주소3 변경모달 -->\r\n<div class=\"modal fade\" id=\"addrChangeForm3\" tabindex=\"-1\" role=\"dialog\" aria-labelledby=\"myModalLabel\" aria-hidden=\"true\">\r\n  <div class=\"modal-dialog cascading-modal\" role=\"document\">\r\n    <div class=\"modal-content\">\r\n      <div class=\"modal-header light-blue darken-3 white-text\">\r\n        <h4 class=\"title\">\r\n          <i class=\"fa fa-user-plus\"></i>주소3 변경</h4>\r\n      </div>\r\n      <div class=\"modal-body\" style=\"font-size:12px;\">\r\n        <div class=\"md-form form-sm\">\r\n          <btn-daum-address (result)=\"setDaumAddressApi3($event)\" [options]=\"daumAddressOptions\"></btn-daum-address><br /><br /><br />\r\n          <p style=\"font-size:14px;\">선택한 기본주소 :: &nbsp; {{AddrSearch3_2}}</p>\r\n          <input type=\"text\" id=\"AcountDetailAddr3\" class=\"form-control\" [(ngModel)]=\"AddrSearch3_3\" name=\"AcountDetailAddr3\" placeholder=\"상세주소(50자이내)\">\r\n        </div>\r\n        <div class=\"text-center mt-2\">\r\n          <button (click)=\"modalsubmit3();\" class=\"btn btn-outline-success\" id=\"Addr3ChangeButton\" mdbRippleRadius>변경</button>\r\n          <button (click)=\"modalclose3();\" data-dismiss=\"modal\" aria-label=\"Close\" class=\"btn btn-outline-danger\" id=\"Addr3CloseButton\" mdbRippleRadius>취소</button>\r\n        </div>\r\n      </div>\r\n    </div>\r\n  </div>\r\n</div>\r\n"
 
 /***/ }),
 
@@ -7545,7 +8219,7 @@ var UserAccountComponent = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<!-- <div *ngIf=\"products.length > 0\"> -->\r\n<h6 style=\"text-align:right; font-weight:bold; color:#232BDB\">마이페이지 > 장바구니</h6>\r\n<br />\r\n<div *ngIf='cartList.length>0'>\r\n  <div class=\"row\">\r\n    <!-- List of Products -->\r\n    <!-- <div class=\"col-sm-4\" *ngFor=\"let cartItem of products | paginate: { itemsPerPage: 6, currentPage: page }\"> -->\r\n    <div class=\"col-sm-4\" *ngFor=\"let cartItem of cartList | paginate: { itemsPerPage: 6, currentPage: page }\">\r\n\r\n      <div class=\"item\">\r\n        <div class=\" mb-r\">\r\n\r\n          <!--Card-->\r\n          <div class=\"card card-cascade wider\">\r\n\r\n            <!--Card image-->\r\n            <a [routerLink]=\"['/products/product', cartItem.productId]\">\r\n\r\n              <div class=\"view overlay hm-white-slight\">\r\n                <img src=\"./assets/ProductImg/{{cartItem.p_img}}.jpg\" class=\"img-fluid\" alt=\"\" width=\"360px\" height=\"640px\">\r\n                <a>\r\n                  <div class=\"mask waves-effect waves-light\" mdbRippleRadius></div>\r\n                </a>\r\n              </div>\r\n            </a>\r\n\r\n            <!--/.Card image-->\r\n\r\n            <!--Card content-->\r\n            <div class=\"card-body text-center no-padding\">\r\n              <!--Category & Title-->\r\n              <a class=\"text-muted\">\r\n                <h5>{{cartItem.p_kind}}</h5>\r\n              </a>\r\n              <p class=\"card-title\">\r\n                <strong>\r\n                  <a [routerLink]=\"['/products/product', cartItem.productId]\" routerLinkActive=\"router-link-active\">{{ cartItem.p_name }}</a>\r\n                </strong>\r\n              </p>\r\n\r\n              <!--Description-->\r\n              <p class=\"card-text\">{{cartItem.p_content}}\r\n              </p>\r\n\r\n              <!--Card footer-->\r\n              <div class=\"card-footer\">\r\n\r\n                <!-- <span class=\"left\">수량 : {{cartItem.camount}}\r\n                  <a placement=\"top\" mdbTooltip=\"Remove Product\" container=\"body\" (click)=\"removeFromCart(cartItem.cno)\">\r\n                    <i class=\"fa fa-edit prefix\"></i>\r\n                  </a>\r\n                </span> -->\r\n                <div class=\"count-input space-bottom\">\r\n                  <span class=\"left\"><p style=\"float:left;\">수량 : &nbsp;</p>\r\n                                <input class=\"quantity\" type=\"text\" name=\"quantity\" [(ngModel)]=\"cartItem.camount\" />\r\n                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;\r\n                                <a (click)=\"updateCart(cartItem)\">\r\n                                  <i class=\"fa fa-edit prefix\"></i>\r\n                                </a>\r\n                  </span>\r\n                </div>\r\n                <br />\r\n                <span class=\"left\">금액 : {{cartItem.p_sellprice*cartItem.camount}}원</span>\r\n                <!-- <span class=\"right\" *ngIf=\"authService.isLoggedIn()\"> -->\r\n\r\n                <span class=\"right\">\r\n                  <a placement=\"top\" mdbTooltip=\"Remove Product\" container=\"body\" (click)=\"removeFromCart(cartItem.cno)\">\r\n                    <i class=\"fa fa-trash\"></i>\r\n                  </a>\r\n                </span>\r\n                <input type=\"checkbox\" (change)='pushCno($event, cartItem.cno)' />\r\n              </div>\r\n\r\n            </div>\r\n            <!--/.Card content-->\r\n\r\n          </div>\r\n          <!--/.Card-->\r\n\r\n        </div>\r\n      </div>\r\n    </div>\r\n  </div>\r\n\r\n  <hr class=\"between-sections\">\r\n\r\n  <button type=\"button\" class=\"btn btn-outline-primary btn-lg btn-block\" (click)=\"gotoOrderWirte()\">\r\n    구매하기\r\n  </button>\r\n\r\n  <hr class=\"between-sections\">\r\n\r\n  <div class=\"text-center\">\r\n    <pagination-controls (pageChange)=\"page = $event\"></pagination-controls>\r\n  </div>\r\n</div>\r\n\r\n<!-- <div *ngIf=\"products.length == 0\"> -->\r\n<div *ngIf=\"cartList.length==0\">\r\n  <app-no-products-found [title]=\"messageTitle\" [description]=\"messageDescription\"></app-no-products-found>\r\n</div>\r\n"
+module.exports = "<!-- <div *ngIf=\"products.length > 0\"> -->\r\n<h6 style=\"text-align:right; font-weight:bold; color:#232BDB\">마이페이지 > 장바구니</h6>\r\n<br />\r\n<div *ngIf='cartList.length>0'>\r\n  <div class=\"row\">\r\n    <!-- List of Products -->\r\n    <!-- <div class=\"col-sm-4\" *ngFor=\"let cartItem of products | paginate: { itemsPerPage: 6, currentPage: page }\"> -->\r\n    <div class=\"col-sm-4\" *ngFor=\"let cartItem of cartList | paginate: { itemsPerPage: 6, currentPage: page }\">\r\n\r\n      <div class=\"item\">\r\n        <div class=\" mb-r\">\r\n\r\n          <!--Card-->\r\n          <div class=\"card card-cascade wider\">\r\n\r\n            <!--Card image-->\r\n            <a [routerLink]=\"['/products/product', cartItem.productId]\">\r\n\r\n              <div class=\"view overlay hm-white-slight\">\r\n                <img src=\"./assets/img/{{cartItem.p_img}}.jpg\" class=\"img-fluid\" alt=\"\" width=\"360px\" height=\"640px\">\r\n                <a>\r\n                  <div class=\"mask waves-effect waves-light\" mdbRippleRadius></div>\r\n                </a>\r\n              </div>\r\n            </a>\r\n\r\n            <!--/.Card image-->\r\n\r\n            <!--Card content-->\r\n            <div class=\"card-body text-center no-padding\">\r\n              <!--Category & Title-->\r\n              <a class=\"text-muted\">\r\n                <h5>{{cartItem.p_kind}}</h5>\r\n              </a>\r\n              <p class=\"card-title\">\r\n                <strong>\r\n                  <a [routerLink]=\"['/products/product', cartItem.productId]\" routerLinkActive=\"router-link-active\">{{ cartItem.p_name }}</a>\r\n                </strong>\r\n              </p>\r\n\r\n              <!--Description-->\r\n              <p class=\"card-text\">{{cartItem.p_content}}\r\n              </p>\r\n\r\n              <!--Card footer-->\r\n              <div class=\"card-footer\">\r\n\r\n                <!-- <span class=\"left\">수량 : {{cartItem.camount}}\r\n                  <a placement=\"top\" mdbTooltip=\"Remove Product\" container=\"body\" (click)=\"removeFromCart(cartItem.cno)\">\r\n                    <i class=\"fa fa-edit prefix\"></i>\r\n                  </a>\r\n                </span> -->\r\n                <div class=\"count-input space-bottom\">\r\n                  <span class=\"left\"><p style=\"float:left;\">수량 : &nbsp;</p>\r\n                                <input class=\"quantity\" type=\"text\" name=\"quantity\" [(ngModel)]=\"cartItem.camount\" />\r\n                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;\r\n                                <a (click)=\"updateCart(cartItem)\">\r\n                                  <i class=\"fa fa-edit prefix\"></i>\r\n                                </a>\r\n                  </span>\r\n                </div>\r\n                <br />\r\n                <span class=\"left\">금액 : {{cartItem.p_sellprice*cartItem.camount}}원</span>\r\n                <!-- <span class=\"right\" *ngIf=\"authService.isLoggedIn()\"> -->\r\n\r\n                <span class=\"right\">\r\n                  <a placement=\"top\" mdbTooltip=\"Remove Product\" container=\"body\" (click)=\"removeFromCart(cartItem.cno)\">\r\n                    <i class=\"fa fa-trash\"></i>\r\n                  </a>\r\n                </span>\r\n                <input type=\"checkbox\" (change)='pushCno($event, cartItem.cno)' />\r\n              </div>\r\n\r\n            </div>\r\n            <!--/.Card content-->\r\n\r\n          </div>\r\n          <!--/.Card-->\r\n\r\n        </div>\r\n      </div>\r\n    </div>\r\n  </div>\r\n\r\n  <hr class=\"between-sections\">\r\n\r\n  <button type=\"button\" class=\"btn btn-outline-primary btn-lg btn-block\" (click)=\"gotoOrderWirte()\">\r\n    구매하기\r\n  </button>\r\n\r\n  <hr class=\"between-sections\">\r\n\r\n  <div class=\"text-center\">\r\n    <pagination-controls (pageChange)=\"page = $event\"></pagination-controls>\r\n  </div>\r\n</div>\r\n\r\n<!-- <div *ngIf=\"products.length == 0\"> -->\r\n<div *ngIf=\"cartList.length==0\">\r\n  <app-no-products-found [title]=\"messageTitle\" [description]=\"messageDescription\"></app-no-products-found>\r\n</div>\r\n"
 
 /***/ }),
 
@@ -7868,25 +8542,28 @@ var UserOrderListComponent = /** @class */ (function () {
         });
     };
     UserOrderListComponent.prototype.cancleOrder = function (order) {
-        if (order.ostatus == 'N') {
-            this.productService.cancleOrder(order.ono).subscribe(function (data) {
-                alert('주문 취소가 완료 되었습니다.');
-            });
-            this.tokenService.removeToken('OrderCancle');
-            this.tokenService.removeToken('OrderWait');
-            this.tokenService.removeToken('OrderCommit');
-            this.tokenService.removeToken('orderLists');
-            this.tokenService.removeToken('orderNum');
-            this.getOrderList(this.authService.getLoggedInUser().uid);
-            return;
-        }
-        else if (order.ostatus == 'C') {
-            alert('이미 취소된 상품입니다.');
-            return;
-        }
-        else {
-            alert('처리 완료된 상품은 취소가 불가능합니다.');
-            return;
+        var conf = confirm('주문 취소하시겠습니까?');
+        if (conf) {
+            if (order.ostatus == 'N') {
+                this.productService.cancleOrder(order.ono).subscribe(function (data) {
+                    alert('주문 취소가 완료 되었습니다.');
+                });
+                this.tokenService.removeToken('OrderCancle');
+                this.tokenService.removeToken('OrderWait');
+                this.tokenService.removeToken('OrderCommit');
+                this.tokenService.removeToken('orderLists');
+                this.tokenService.removeToken('orderNum');
+                this.getOrderList(this.authService.getLoggedInUser().uid);
+                return;
+            }
+            else if (order.ostatus == 'C') {
+                alert('이미 취소된 상품입니다.');
+                return;
+            }
+            else {
+                alert('처리 완료된 상품은 취소가 불가능합니다.');
+                return;
+            }
         }
     };
     UserOrderListComponent = __decorate([
@@ -8413,7 +9090,7 @@ Object(_angular_platform_browser_dynamic__WEBPACK_IMPORTED_MODULE_1__["platformB
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! E:\Portfolio\TestUi\src\main.ts */"./src/main.ts");
+module.exports = __webpack_require__(/*! E:\project\TestUi\src\main.ts */"./src/main.ts");
 
 
 /***/ })

@@ -376,7 +376,7 @@ module.exports = "@charset \"UTF-8\";\n/*!\n *  Font Awesome 4.7.0 by @davegandy
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "/* You can add global styles to this file, and also import other style files */\r\n.jumbotron{\r\n    font-family: 'Gugi', cursive;\r\n     text-align: center;\r\n}\r\n/* The side navigation menu */\r\n#navState{\r\n   text-align: center;\r\n}\r\n.sidenav {\r\n    height: 100%; /* 100% Full-height */\r\n    width: 0; /* 0 width - change this with JavaScript */\r\n    position: fixed; /* Stay in place */\r\n    z-index: 1; /* Stay on top */\r\n    top: 0; /* Stay at the top */\r\n    left: 0;\r\n    background-color: white; /* Black*/\r\n\r\n    overflow-x: hidden; /* Disable horizontal scroll */\r\n    padding-top: 60px; /* Place content 60px from the top */\r\n    transition: 0.5s; /* 0.5 second transition effect to slide in the sidenav */\r\n}\r\n/* The navigation menu links */\r\n.sidenav a {\r\n    padding: 8px 8px 8px 32px;\r\n    text-decoration: none;\r\n    font-size: 25px;\r\n    color: #818181;\r\n    display: block;\r\n    transition: 0.3s;\r\n}\r\n/* When you mouse over the navigation links, change their color */\r\n.sidenav a:hover {\r\n    color: #f1f1f1;\r\n}\r\n/* Position and style the close button (top right corner) */\r\n.sidenav .closebtn {\r\n    position: absolute;\r\n    top: 0;\r\n    right: 25px;\r\n    font-size: 36px;\r\n    margin-left: 50px;\r\n}\r\n/* Style page content - use this if you want to push the page content to the right when you open the side navigation */\r\n#main {\r\n    transition: margin-left .5s;\r\n    padding: 20px;\r\n}\r\n/* On smaller screens, where height is less than 450px, change the style of the sidenav (less padding and a smaller font size) */\r\n@media screen and (max-height: 450px) {\r\n    .sidenav {padding-top: 15px;}\r\n    .sidenav a {font-size: 18px;}\r\n}\r\n"
+module.exports = "/* You can add global styles to this file, and also import other style files */\r\n.jumbotron{\r\n    font-family: 'Gugi', cursive;\r\n     text-align: center;\r\n}\r\n/* The side navigation menu */\r\n#navState{\r\n   text-align: center;\r\n}\r\n.sidenav {\r\n    height: 100%; /* 100% Full-height */\r\n    width: 0; /* 0 width - change this with JavaScript */\r\n    position: fixed; /* Stay in place */\r\n    z-index: 1; /* Stay on top */\r\n    top: 0; /* Stay at the top */\r\n    left: 0;\r\n    background-color: white; /* Black*/\r\n\r\n    overflow-x: hidden; /* Disable horizontal scroll */\r\n    padding-top: 60px; /* Place content 60px from the top */\r\n    transition: 0.5s; /* 0.5 second transition effect to slide in the sidenav */\r\n}\r\n/* The navigation menu links */\r\n.sidenav a {\r\n    padding: 8px 8px 8px 32px;\r\n    text-decoration: none;\r\n    font-size: 25px;\r\n    color: #818181;\r\n    display: block;\r\n    transition: 0.3s;\r\n}\r\n/* When you mouse over the navigation links, change their color */\r\n.sidenav a:hover {\r\n    color: #f1f1f1;\r\n}\r\n/* Position and style the close button (top right corner) */\r\n.sidenav .closebtn {\r\n    position: absolute;\r\n    top: 0;\r\n    right: 25px;\r\n    font-size: 36px;\r\n    margin-left: 50px;\r\n}\r\n/* Style page content - use this if you want to push the page content to the right when you open the side navigation */\r\n#main {\r\n    transition: margin-left .5s;\r\n    padding: 20px;\r\n}\r\n/* On smaller screens, where height is less than 450px, change the style of the sidenav (less padding and a smaller font size) */\r\n@media screen and (max-height: 450px) {\r\n    .sidenav {padding-top: 15px;}\r\n    .sidenav a {font-size: 18px;}\r\n}\r\ninput[type=checkbox]\r\n{\r\n  /* Double-sized Checkboxes */\r\n  -ms-transform: scale(2); /* IE */\r\n  -moz-transform: scale(2); /* FF */\r\n  -webkit-transform: scale(2); /* Safari and Chrome */\r\n  -o-transform: scale(2); /* Opera */\r\n  padding: 10px;\r\n}\r\n"
 
 /***/ }),
 
@@ -908,16 +908,16 @@ if(false) {}
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! E:\Portfolio\TestUi\node_modules\font-awesome\scss\font-awesome.scss */"./node_modules/font-awesome/scss/font-awesome.scss");
-__webpack_require__(/*! E:\Portfolio\TestUi\node_modules\angular-bootstrap-md\scss\bootstrap\bootstrap.scss */"./node_modules/angular-bootstrap-md/scss/bootstrap/bootstrap.scss");
-__webpack_require__(/*! E:\Portfolio\TestUi\node_modules\angular-bootstrap-md\scss\mdb-free.scss */"./node_modules/angular-bootstrap-md/scss/mdb-free.scss");
-__webpack_require__(/*! E:\Portfolio\TestUi\node_modules\owl.carousel\dist\assets\owl.carousel.min.css */"./node_modules/owl.carousel/dist/assets/owl.carousel.min.css");
-__webpack_require__(/*! E:\Portfolio\TestUi\node_modules\owl.carousel\dist\assets\owl.theme.default.min.css */"./node_modules/owl.carousel/dist/assets/owl.theme.default.min.css");
-__webpack_require__(/*! E:\Portfolio\TestUi\node_modules\animate.css\animate.min.css */"./node_modules/animate.css/animate.min.css");
-__webpack_require__(/*! E:\Portfolio\TestUi\node_modules\ng2-toasty\style-bootstrap.css */"./node_modules/ng2-toasty/style-bootstrap.css");
-__webpack_require__(/*! E:\Portfolio\TestUi\node_modules\ng2-toasty\style-default.css */"./node_modules/ng2-toasty/style-default.css");
-__webpack_require__(/*! E:\Portfolio\TestUi\node_modules\ng2-toasty\style-material.css */"./node_modules/ng2-toasty/style-material.css");
-module.exports = __webpack_require__(/*! E:\Portfolio\TestUi\src\styles.css */"./src/styles.css");
+__webpack_require__(/*! E:\project\TestUi\node_modules\font-awesome\scss\font-awesome.scss */"./node_modules/font-awesome/scss/font-awesome.scss");
+__webpack_require__(/*! E:\project\TestUi\node_modules\angular-bootstrap-md\scss\bootstrap\bootstrap.scss */"./node_modules/angular-bootstrap-md/scss/bootstrap/bootstrap.scss");
+__webpack_require__(/*! E:\project\TestUi\node_modules\angular-bootstrap-md\scss\mdb-free.scss */"./node_modules/angular-bootstrap-md/scss/mdb-free.scss");
+__webpack_require__(/*! E:\project\TestUi\node_modules\owl.carousel\dist\assets\owl.carousel.min.css */"./node_modules/owl.carousel/dist/assets/owl.carousel.min.css");
+__webpack_require__(/*! E:\project\TestUi\node_modules\owl.carousel\dist\assets\owl.theme.default.min.css */"./node_modules/owl.carousel/dist/assets/owl.theme.default.min.css");
+__webpack_require__(/*! E:\project\TestUi\node_modules\animate.css\animate.min.css */"./node_modules/animate.css/animate.min.css");
+__webpack_require__(/*! E:\project\TestUi\node_modules\ng2-toasty\style-bootstrap.css */"./node_modules/ng2-toasty/style-bootstrap.css");
+__webpack_require__(/*! E:\project\TestUi\node_modules\ng2-toasty\style-default.css */"./node_modules/ng2-toasty/style-default.css");
+__webpack_require__(/*! E:\project\TestUi\node_modules\ng2-toasty\style-material.css */"./node_modules/ng2-toasty/style-material.css");
+module.exports = __webpack_require__(/*! E:\project\TestUi\src\styles.css */"./src/styles.css");
 
 
 /***/ })

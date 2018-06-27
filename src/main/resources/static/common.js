@@ -1,25 +1,5 @@
 (window["webpackJsonp"] = window["webpackJsonp"] || []).push([["common"],{
 
-/***/ "./src/app/shared/models/admin.ts":
-/*!****************************************!*\
-  !*** ./src/app/shared/models/admin.ts ***!
-  \****************************************/
-/*! exports provided: Admin */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Admin", function() { return Admin; });
-var Admin = /** @class */ (function () {
-    function Admin() {
-    }
-    return Admin;
-}());
-
-
-
-/***/ }),
-
 /***/ "./src/app/shared/models/qna.ts":
 /*!**************************************!*\
   !*** ./src/app/shared/models/qna.ts ***!
