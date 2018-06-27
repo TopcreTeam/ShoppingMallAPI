@@ -66,7 +66,6 @@ public class OrderController {
 	@Transactional
 	void orderInsertDetail(@RequestBody ArrayList<Order_Detail> orderDetailArr) {
 		int ono = orderService.maxO_no();
-		System.out.println(ono);
 		for(int i=0;i<orderDetailArr.size();i++) {
 			orderDetailArr.get(i).setOno(ono);
 			orderService.orderDetailInsert(orderDetailArr.get(i));
