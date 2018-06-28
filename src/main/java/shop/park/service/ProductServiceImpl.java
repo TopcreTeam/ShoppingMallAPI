@@ -41,7 +41,7 @@ public class ProductServiceImpl implements ProductService {
 
 	@Override
 	public void insertProduct(Products product) {
-		if(product.getP_code()==null) {
+		if(product.getP_code()==null || product.getP_code()=="") {
 				List<Products> productList = productMapper.selectByProductKind(product.getP_kind());
 				ProductCodeMaker codeMaker = new ProductCodeMaker(productList);
 				product.setP_code(codeMaker.getNewProductCode());
@@ -50,6 +50,7 @@ public class ProductServiceImpl implements ProductService {
 				
 				productMapper.insertProduct(product);
 		}else {
+				System.out.println("──────────────────── "+product.getP_code());
 			productMapper.insertProduct(product);
 		}
 	}
