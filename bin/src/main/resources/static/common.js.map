@@ -1,0 +1,1 @@
+{"version":3,"sources":["webpack:///./src/app/shared/models/qna.ts"],"names":[],"mappings":";;;;;;;;;;;AAAA;AAAA;IAAA;IAOA,CAAC;IAAD,UAAC;AAAD,CAAC","file":"common.js","sourcesContent":["export class Qna {\r\n  q_no: number;\r\n  q_title: string;\r\n  q_content: string;\r\n  u_id: string;\r\n  q_reply: string;\r\n  q_date: Date;\r\n}\r\n"],"sourceRoot":""}

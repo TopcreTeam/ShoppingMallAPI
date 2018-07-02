@@ -19,7 +19,7 @@
 	<select id="logincheck" resultType="User" resultMap="userResultMap">
 		SELECT * FROM TM_USER WHERE U_ID=#{uid} 
 	</select>
-	<select id="getUser" resultType="User">
+	<select id="getUser" resultType="User" resultMap="userResultMap">
 		select * from tm_user
 	</select>
 </mapper>
