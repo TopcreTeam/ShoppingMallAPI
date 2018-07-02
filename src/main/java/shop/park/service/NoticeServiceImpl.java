@@ -95,23 +95,16 @@ public class NoticeServiceImpl implements NoticeService {
 	@Override
 	public Map saveSpNotice(Map param) throws Exception {
 		Map resMap = new HashMap();
-
 		List arr = null;
-
 		int arrLen = 0;
-
 		int rsNum = 0;
-
+		
 		if (((List) param.get("insert")).size() > 0) {
-
 			resMap.put("I", noticeMapper.insertNoticeWqBatch(param));
-
 		}
 
 		if (((List) param.get("delete")).size() > 0) {
-
 			resMap.put("D", noticeMapper.deleteNoticeWqBatch(param));
-
 		}
 
 		/*
@@ -125,19 +118,13 @@ public class NoticeServiceImpl implements NoticeService {
 		 */
 
 		arr = (List) param.get("update");
-
 		arrLen = arr.size();
 
 		if (arrLen > 0) {
-
 			for (int i = 0; i < arrLen; i++) {
-
 				rsNum += noticeMapper.updateNoticeWq((Map) arr.get(i));
-
 			}
-
 			resMap.put("U", rsNum);
-
 		}
 
 		return resMap;

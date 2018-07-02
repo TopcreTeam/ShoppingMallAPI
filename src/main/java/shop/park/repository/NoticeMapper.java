@@ -26,25 +26,17 @@ public interface NoticeMapper {
 	
 	public int updateNoticeHits(Notice notice);
 	
-	public int insertNoticeWq(Map param);
-
 	
+	// 웹스퀘어용
+	public int insertNoticeWq(Map param);
 
 	public int insertNoticeWqBatch(Map param);
 
-	
-
 	public int updateNoticeWq(Map param);
-
-	
 
 	public int updateNoticeWqBatch(Map param);
 
-	
-
 	public int deleteNoticeWq(Map param);
-
-	
 
 	public int deleteNoticeWqBatch(Map param);
 }

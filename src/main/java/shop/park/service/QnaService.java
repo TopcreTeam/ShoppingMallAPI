@@ -1,6 +1,7 @@
 package shop.park.service;
 
 import java.util.List;
+import java.util.Map;
 
 import shop.park.model.Qna;
 
@@ -14,4 +15,9 @@ public interface QnaService {
 	public void updateQna(Qna qna);
 	public void deleteQna(long q_no);
 	public int updateQnaReply(Qna qna);
+	
+	// 웹스퀘어용
+	int createQna(Qna qna);
+	int editQna(Qna qna);
+	Map saveSpQna(Map param) throws Exception;
 }

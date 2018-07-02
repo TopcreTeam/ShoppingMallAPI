@@ -12,6 +12,8 @@ public interface NoticeService {
 	List<Notice> searchByNoticeTitle(String n_title);
 	void updateNoticeHits(Notice notice);
 	Notice incrementNoticeHits(long n_no);
+
+	// 웹스퀘어용
 	int createNotice(Notice notice);
 	int editNotice(Notice notice);
 	int deleteNotice(long n_no);

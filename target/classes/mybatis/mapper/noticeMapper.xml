@@ -52,18 +52,12 @@
 	<!-- 웹스퀘어용  -->
 
 	<insert id="insertNoticeWq" parameterType="Map">
-
 		INSERT INTO tm_notice(
-
 			n_no, n_category, n_title, n_content, a_id, n_date, n_hits)
-
 		VALUES(
-
 			TM_NOTICE_SEQ.NEXTVAL, #{n_category}, #{n_title}, #{n_content}, #{a_id}, default, 0)
-
 	</insert>
 
-	
 
 	<insert id="insertNoticeWqBatch" parameterType="Map">
 
@@ -75,7 +69,7 @@
 
 			(
 
-				#{param.n_no},
+				TM_NOTICE_SEQ.NEXTVAL,
 
 				#{param.n_category},
 
@@ -95,31 +89,17 @@
 
 	</insert>
 
-	
-
 	<update id="updateNoticeWq" parameterType="Map">
-
 		UPDATE tm_notice SET
-
 			n_no=#{n_no},
-
 			n_category=#{n_category},
-
 			n_title=#{n_title},
-
 			n_content=#{n_content},
-
 			a_id=#{a_id},
-
 			n_date=#{n_date},
-
 			n_hits=#{n_hits}
-
 		WHERE n_no=#{n_no}
-
 	</update>
-
-	
 
 	<update id="updateNoticeWqBatch" parameterType="Map">
 
@@ -149,18 +129,11 @@
 
 	</update>
 
-	
-
-	
-
 	<delete id="deleteNoticeWq" parameterType="Map">
-
 		DELETE FROM tm_notice WHERE n_no=#{n_no}
-
 	</delete>
 
 	
-
 	<delete id="deleteNoticeWqBatch" parameterType="Map">
 
 		DELETE FROM tm_notice WHERE n_no IN

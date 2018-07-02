@@ -52,4 +52,80 @@
 	</update>
 
 	
+	<!-- 웹스퀘어용 -->
+	<insert id="insertQnaWq" parameterType="Map">
+		INSERT INTO tm_qna VALUES(TM_QNA_SEQ.NEXTVAL, #{q_title}, #{q_content}, #{u_id}, 'n', DEFAULT)
+	</insert>
+	
+	<insert id="insertQnaWqBatch" parameterType="Map">
+		INSERT INTO tm_qna(q_no, q_title, q_content, u_id, q_reply, q_date)
+		VALUES
+		<foreach item="param" collection="insert" index="idx" open="" separator="," close="">
+			(
+
+				TM_QNA_SEQ.NEXTVAL,
+
+				#{param.q_title},
+
+				#{param.q_content},
+
+				#{param.u_id},
+
+				#{param.q_reply},
+
+				#{param.q_date}
+
+			)
+		</foreach>
+	</insert>
+	
+	<update id="updateQnaWq" parameterType="Map">
+		UPDATE tm_qna SET 
+			q_no=#{q_no},
+			q_title=#{q_title}, 
+			q_content=#{q_content},
+			u_id=#{u_id},
+			q_reply=#{q_reply}, 
+			q_date=#{q_date} 
+		WHERE q_no=#{q_no}
+	</update>
+	
+	<update id="updateQnaWqBatch" parameterType="Map">
+		<foreach item="param" collection="update" open="" separator=";" close="">
+
+			update tm_qna set
+
+				q_no=#{param.q_no},
+				
+				q_title=#{param.q_title}, 
+				
+				q_content=#{param.q_content},
+				
+				u_id=#{param.u_id},
+				
+				q_reply=#{param.q_reply}, 
+				
+				q_date=#{param.q_date} 
+
+			where q_no=#{param.q_no}
+
+		</foreach>
+	</update>
+	
+	<delete id="deleteQnaWq" parameterType="Map">
+		DELETE tm_qna WHERE q_no=#{q_no}
+	</delete>
+	
+	<delete id="deleteQnaWqBatch" parameterType="Map">
+	
+		DELETE FROM tm_qna WHERE q_no IN
+	
+		<foreach item="param" collection="delete" open="(" separator="," close=")">
+
+			#{param.q_no}
+
+		</foreach>
+			
+	</delete>
+	
 </mapper>

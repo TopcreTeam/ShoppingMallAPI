@@ -285,26 +285,6 @@ public class MainController {
 		return noticeObj;
 	}
 	
-	@PutMapping(value = "/notice.update")
-	public Map updateNotice(@RequestBody Map notice) {
-		ArrayList noticeList = (ArrayList) notice.get("noticeList");
-		Map noticeMap;
-		Notice noticeObj = new Notice();
-		for(int i = 0; i < noticeList.size(); i++) {
-			noticeMap = (Map)noticeList.get(i);
-			if(noticeMap.get("rowStatus").toString().equals("U")) {
-				noticeObj.setN_no((int)noticeMap.get("n_no"));
-				
-				noticeService.editNotice(noticeObj);
-			}
-		}
-		
-		Map newListMap = new HashMap();
-		ArrayList newList = (ArrayList) noticeService.selectAllNotice();
-		newListMap.put("noticeList", newList);
-		return newListMap;
-	}
-	
 	@DeleteMapping(value = "/notice.delete")
 	public Map removeNotice(@RequestBody Map notice) {
 		ArrayList noticeList = (ArrayList) notice.get("noticeList");
@@ -402,6 +382,57 @@ public class MainController {
 		newListMap.put("faqList", newList);
 		return newListMap;
 	}
+	
+	@PostMapping(value = "/faq/saveAndSelectMember.do")
+	public Map saveAndSelectFaq(@RequestBody Map param) throws Exception {
+		Map resObj = new HashMap();
+		List modList = null;
+		Map saveResult = null;
+		int modListLen;
+		Map modParam = new HashMap<String, List>();
+		List insert = new ArrayList<Map>();
+		List update = new ArrayList<Map>();
+		List delete = new ArrayList<Map>();
+		Map rowData;
+		String rowStatus;
+
+		try {
+			modList = (List) param.get("faqList");
+			modListLen = modList.size();
+
+			for (int i = 0; i < modListLen; i++) {
+				rowData = (Map) modList.get(i);
+				rowStatus = (String) rowData.get("rowStatus");
+
+				if (rowStatus.equals("C")) {
+					insert.add(rowData);
+				} else if (rowStatus.equals("U")) {
+					update.add(rowData);
+				} else if (rowStatus.equals("D") || rowStatus.equals("E")) {
+					delete.add(rowData);
+				}
+			}
+			modParam.put("insert", insert);
+			modParam.put("update", update);
+			modParam.put("delete", delete);
+
+//			saveResult = noticeService.saveSpNotice(modParam);
+			saveResult = faqService.saveSpFaq(modParam);
+
+			try {
+				resObj.put("faqList", faqService.selectAllFaq());
+				resObj.put("msg", "조회가 완료되었습니다.");
+			} catch (Exception ex) {
+				throw new RuntimeException("저장은 완료되었으나 조회도중 오류가 발생하였습니다. 다시 조회 해주시기 바랍니다.");
+			}
+			resObj.put("rsObj", saveResult);
+			resObj.put("msg", "저장이 완료되었습니다.");
+			resObj.put("msgCode", "S");
+		} catch (Exception ex) {
+			ex.printStackTrace();
+		}
+		return resObj;
+	}
 
 	// Websquare용 qna controller
 	@PostMapping(value = "/qna.do")
@@ -431,6 +462,56 @@ public class MainController {
 		ArrayList newList = (ArrayList) qnaService.adminSelectAllQna();
 		newListMap.put("qnaList", newList);
 		return newListMap;
+	}
+	
+	@PostMapping(value = "/qna/saveAndSelectMember.do")
+	public Map saveAndSelectQna(@RequestBody Map param) throws Exception {
+		Map resObj = new HashMap();
+		List modList = null;
+		Map saveResult = null;
+		int modListLen;
+		Map modParam = new HashMap<String, List>();
+		List insert = new ArrayList<Map>();
+		List update = new ArrayList<Map>();
+		List delete = new ArrayList<Map>();
+		Map rowData;
+		String rowStatus;
+
+		try {
+			modList = (List) param.get("qnaList");
+			modListLen = modList.size();
+
+			for (int i = 0; i < modListLen; i++) {
+				rowData = (Map) modList.get(i);
+				rowStatus = (String) rowData.get("rowStatus");
+
+				if (rowStatus.equals("C")) {
+					insert.add(rowData);
+				} else if (rowStatus.equals("U")) {
+					update.add(rowData);
+				} else if (rowStatus.equals("D") || rowStatus.equals("E")) {
+					delete.add(rowData);
+				}
+			}
+			modParam.put("insert", insert);
+			modParam.put("update", update);
+			modParam.put("delete", delete);
+
+			saveResult = qnaService.saveSpQna(modParam);
+
+			try {
+				resObj.put("qnaList", qnaService.adminSelectAllQna());
+				resObj.put("msg", "조회가 완료되었습니다.");
+			} catch (Exception ex) {
+				throw new RuntimeException("저장은 완료되었으나 조회도중 오류가 발생하였습니다. 다시 조회 해주시기 바랍니다.");
+			}
+			resObj.put("rsObj", saveResult);
+			resObj.put("msg", "저장이 완료되었습니다.");
+			resObj.put("msgCode", "S");
+		} catch (Exception ex) {
+			ex.printStackTrace();
+		}
+		return resObj;
 	}
 
 	// 관리자 페이지 용 ↓
