@@ -1,0 +1,780 @@
+2018:07:02 14:10:28.881 INFO  --- [main] shop.ShoppingMallApiApplication : Starting ShoppingMallApiApplication on LAPTOP-H9GJICE1 with PID 7872 (C:\Users\수연\git\TopcreTeam\ShoppingMallAPI\target\classes started by Su-Yeon Bak in C:\Users\수연\git\TopcreTeam\ShoppingMallAPI) 
+2018:07:02 14:10:28.891 INFO  --- [main] shop.ShoppingMallApiApplication : No active profile set, falling back to default profiles: default 
+2018:07:02 14:10:28.971 INFO  --- [main] o.s.b.w.s.c.AnnotationConfigServletWebServerApplicationContext : Refreshing org.springframework.boot.web.servlet.context.AnnotationConfigServletWebServerApplicationContext@7d42c224: startup date [Mon Jul 02 14:10:28 KST 2018]; root of context hierarchy 
+2018:07:02 14:10:31.472 INFO  --- [main] o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$cb8b3a83] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying) 
+2018:07:02 14:10:31.917 INFO  --- [main] o.s.b.w.e.tomcat.TomcatWebServer : Tomcat initialized with port(s): 8080 (http) 
+2018:07:02 14:10:31.967 INFO  --- [main] o.a.catalina.core.StandardService : Starting service [Tomcat] 
+2018:07:02 14:10:31.969 INFO  --- [main] o.a.catalina.core.StandardEngine : Starting Servlet Engine: Apache Tomcat/8.5.31 
+2018:07:02 14:10:31.981 INFO  --- [localhost-startStop-1] o.a.c.core.AprLifecycleListener : The APR based Apache Tomcat Native library which allows optimal performance in production environments was not found on the java.library.path: [C:\Program Files\Java\jre-9\bin;C:\WINDOWS\Sun\Java\bin;C:\WINDOWS\system32;C:\WINDOWS;C:\Program Files (x86)\Intel\Intel(R) Management Engine Components\iCLS\;C:\Program Files\Intel\Intel(R) Management Engine Components\iCLS\;C:\ProgramData\Oracle\Java\javapath;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;C:\Program Files (x86)\ePapyrus\Papyrus 5;C:\Program Files (x86)\Intel\Intel(R) Management Engine Components\DAL;C:\Program Files\Intel\Intel(R) Management Engine Components\DAL;C:\Program Files (x86)\Intel\Intel(R) Management Engine Components\IPT;C:\Program Files\Intel\Intel(R) Management Engine Components\IPT;C:\Program Files\nodejs\;C:\WINDOWS\System32\OpenSSH\;C:\Program Files\Intel\WiFi\bin\;C:\Program Files\Common Files\Intel\WirelessCommon\;C:\Program Files\Android\Android Studio\jre\bin;C:\Android\platform-tools;C:\Program Files\Git\cmd;C:\Users\수연\AppData\Local\Microsoft\WindowsApps;C:\Users\수연\AppData\Local\Programs\Python\Python36-32;C:\Users\수연\AppData\Local\atom\bin;C:\Users\수연\AppData\Local\Programs\Python\Python36-32\Scripts;C:\Program Files\Java\jdk-9\bin;C:\Users\수연\AppData\Local\Microsoft\WindowsApps;C:\Users\수연\AppData\Roaming\npm;C:\oracle\instanceclient\instantclient_11_2;C:\Program Files\Intel\WiFi\bin\;C:\Program Files\Common Files\Intel\WirelessCommon\;.] 
+2018:07:02 14:10:32.269 INFO  --- [localhost-startStop-1] o.a.c.c.C.[Tomcat].[localhost].[/] : Initializing Spring embedded WebApplicationContext 
+2018:07:02 14:10:32.283 INFO  --- [localhost-startStop-1] o.s.web.context.ContextLoader : Root WebApplicationContext: initialization completed in 3312 ms 
+2018:07:02 14:10:32.540 INFO  --- [localhost-startStop-1] o.s.b.w.s.ServletRegistrationBean : Servlet dispatcherServlet mapped to [/] 
+2018:07:02 14:10:32.555 INFO  --- [localhost-startStop-1] o.s.b.w.s.FilterRegistrationBean : Mapping filter: 'characterEncodingFilter' to: [/*] 
+2018:07:02 14:10:32.556 INFO  --- [localhost-startStop-1] o.s.b.w.s.FilterRegistrationBean : Mapping filter: 'hiddenHttpMethodFilter' to: [/*] 
+2018:07:02 14:10:32.564 INFO  --- [localhost-startStop-1] o.s.b.w.s.FilterRegistrationBean : Mapping filter: 'httpPutFormContentFilter' to: [/*] 
+2018:07:02 14:10:32.565 INFO  --- [localhost-startStop-1] o.s.b.w.s.FilterRegistrationBean : Mapping filter: 'requestContextFilter' to: [/*] 
+2018:07:02 14:10:33.005 INFO  --- [main] com.zaxxer.hikari.HikariDataSource : HikariPool-1 - Starting... 
+2018:07:02 14:10:33.633 INFO  --- [main] com.zaxxer.hikari.pool.PoolBase : HikariPool-1 - Driver does not support get/set network timeout for connections. (Method oracle/jdbc/driver/T4CConnection.getNetworkTimeout()I is abstract) 
+2018:07:02 14:10:33.652 INFO  --- [main] com.zaxxer.hikari.HikariDataSource : HikariPool-1 - Start completed. 
+2018:07:02 14:10:33.803 INFO  --- [main] o.s.o.j.LocalContainerEntityManagerFactoryBean : Building JPA container EntityManagerFactory for persistence unit 'default' 
+2018:07:02 14:10:33.840 INFO  --- [main] o.h.jpa.internal.util.LogHelper : HHH000204: Processing PersistenceUnitInfo [
+	name: default
+	...] 
+2018:07:02 14:10:33.977 INFO  --- [main] org.hibernate.Version : HHH000412: Hibernate Core {5.2.10.Final} 
+2018:07:02 14:10:33.989 INFO  --- [main] org.hibernate.cfg.Environment : HHH000206: hibernate.properties not found 
+2018:07:02 14:10:34.069 INFO  --- [main] o.h.annotations.common.Version : HCANN000001: Hibernate Commons Annotations {5.0.1.Final} 
+2018:07:02 14:10:34.351 INFO  --- [main] org.hibernate.dialect.Dialect : HHH000400: Using dialect: org.hibernate.dialect.Oracle12cDialect 
+2018:07:02 14:10:34.494 INFO  --- [main] o.hibernate.type.BasicTypeRegistry : HHH000270: Type registration [byte[]] overrides previous : org.hibernate.type.BinaryType@670342a2 
+2018:07:02 14:10:34.506 INFO  --- [main] o.hibernate.type.BasicTypeRegistry : HHH000270: Type registration [[B] overrides previous : org.hibernate.type.BinaryType@670342a2 
+2018:07:02 14:10:34.507 INFO  --- [main] o.hibernate.type.BasicTypeRegistry : HHH000270: Type registration [Byte[]] overrides previous : org.hibernate.type.WrapperBinaryType@14fc9bd 
+2018:07:02 14:10:34.508 INFO  --- [main] o.hibernate.type.BasicTypeRegistry : HHH000270: Type registration [[Ljava.lang.Byte;] overrides previous : org.hibernate.type.WrapperBinaryType@14fc9bd 
+2018:07:02 14:10:34.753 INFO  --- [main] o.s.o.j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default' 
+2018:07:02 14:10:35.599 INFO  --- [main] o.s.w.s.h.SimpleUrlHandlerMapping : Mapped URL path [/**/favicon.ico] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler] 
+2018:07:02 14:10:36.169 INFO  --- [main] o.s.w.s.m.m.a.RequestMappingHandlerAdapter : Looking for @ControllerAdvice: org.springframework.boot.web.servlet.context.AnnotationConfigServletWebServerApplicationContext@7d42c224: startup date [Mon Jul 02 14:10:28 KST 2018]; root of context hierarchy 
+2018:07:02 14:10:36.331 WARN  --- [main] o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration$JpaWebMvcConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning 
+2018:07:02 14:10:36.451 INFO  --- [main] o.s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/toma/admin/login],methods=[POST]}" onto public shop.choi.admin.model.Admin shop.choi.admin.controller.AdminController.adminlogin(shop.choi.admin.model.Admin) 
+2018:07:02 14:10:36.463 INFO  --- [main] o.s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/toma/admin/{a_id}],methods=[DELETE]}" onto public int shop.choi.admin.controller.AdminController.deleteProductQna(java.lang.String) 
+2018:07:02 14:10:36.475 INFO  --- [main] o.s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/toma/admin/],methods=[GET]}" onto public java.util.List shop.choi.admin.controller.AdminController.getAdminList() 
+2018:07:02 14:10:36.486 INFO  --- [main] o.s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/toma/admin/],methods=[PUT]}" onto public int shop.choi.admin.controller.AdminController.updateAdmin(shop.choi.admin.model.Admin) 
+2018:07:02 14:10:36.487 INFO  --- [main] o.s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/toma/admin/],methods=[POST]}" onto public int shop.choi.admin.controller.AdminController.deleteAdmin(shop.choi.admin.model.Admin) 
+2018:07:02 14:10:36.502 INFO  --- [main] o.s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/uploadMultipleFiles],methods=[POST]}" onto public java.util.List<shop.choi.fileupload.payload.UploadFileResponse> shop.choi.fileupload.FileController.uploadMultipleFiles(org.springframework.web.multipart.MultipartFile[]) 
+2018:07:02 14:10:36.503 INFO  --- [main] o.s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/uploadFile],methods=[POST]}" onto public shop.choi.fileupload.payload.UploadFileResponse shop.choi.fileupload.FileController.uploadFile(org.springframework.web.multipart.MultipartFile) 
+2018:07:02 14:10:36.504 INFO  --- [main] o.s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/downloadFile/{fileName:.+}],methods=[GET]}" onto public org.springframework.http.ResponseEntity<org.springframework.core.io.Resource> shop.choi.fileupload.FileController.downloadFile(java.lang.String,javax.servlet.http.HttpServletRequest) 
+2018:07:02 14:10:36.507 INFO  --- [main] o.s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/toma/login/],methods=[POST]}" onto public shop.kim.login.model.User shop.kim.login.LoginController.login(shop.kim.login.model.Login) 
+2018:07:02 14:10:36.529 INFO  --- [main] o.s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/toma/cart/{uid}],methods=[GET]}" onto java.util.ArrayList<shop.kim.order.model.Cart> shop.kim.order.CartController.carList(java.lang.String) 
+2018:07:02 14:10:36.530 INFO  --- [main] o.s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/toma/cart/{cno}],methods=[DELETE]}" onto int shop.kim.order.CartController.cartDelete(int) 
+2018:07:02 14:10:36.531 INFO  --- [main] o.s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/toma/cart/],methods=[PUT]}" onto int shop.kim.order.CartController.cartUpdate(shop.kim.order.model.Cart) 
+2018:07:02 14:10:36.532 INFO  --- [main] o.s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/toma/cart/],methods=[POST]}" onto int shop.kim.order.CartController.cartInsert(shop.kim.order.model.Cart) 
+2018:07:02 14:10:36.533 INFO  --- [main] o.s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/toma/cart/goOrderWrite],methods=[PUT]}" onto java.util.ArrayList<shop.kim.order.model.Cart> shop.kim.order.CartController.orderWriteList(int[]) 
+2018:07:02 14:10:36.539 INFO  --- [main] o.s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/toma/order/{uid}],methods=[GET]}" onto java.util.ArrayList<shop.kim.order.model.Order> shop.kim.order.OrderController.orderList(java.lang.String) 
+2018:07:02 14:10:36.543 INFO  --- [main] o.s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/toma/order/],methods=[GET]}" onto java.util.ArrayList<shop.kim.order.model.Order> shop.kim.order.OrderController.getAllorderList() 
+2018:07:02 14:10:36.547 INFO  --- [main] o.s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/toma/order/cancle],methods=[PUT]}" onto public int shop.kim.order.OrderController.cancleOrder(int) 
+2018:07:02 14:10:36.558 INFO  --- [main] o.s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/toma/order/insert/detail],methods=[POST]}" onto void shop.kim.order.OrderController.orderInsertDetail(java.util.ArrayList<shop.kim.order.model.Order_Detail>) 
+2018:07:02 14:10:36.559 INFO  --- [main] o.s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/toma/order/orderdetail/{ono}],methods=[GET]}" onto java.util.ArrayList<shop.kim.order.model.Order_Detail> shop.kim.order.OrderController.orderDetailList(int) 
+2018:07:02 14:10:36.560 INFO  --- [main] o.s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/toma/order/insert/order],methods=[POST]}" onto int shop.kim.order.OrderController.orderInsertOrder(shop.kim.order.model.Order) 
+2018:07:02 14:10:36.561 INFO  --- [main] o.s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/toma/order/],methods=[PUT]}" onto public int shop.kim.order.OrderController.updateOrder(shop.kim.order.model.Order) 
+2018:07:02 14:10:36.564 INFO  --- [main] o.s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/toma/admin/kdh/orderList],methods=[GET]}" onto public java.util.Map shop.kim.webSquare.kimWebsquareController.getOrder() 
+2018:07:02 14:10:36.565 INFO  --- [main] o.s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/toma/admin/kdh/userList],methods=[GET]}" onto public java.util.Map shop.kim.webSquare.kimWebsquareController.getUser() 
+2018:07:02 14:10:36.567 INFO  --- [main] o.s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/toma/admin/kdh/webLogin],methods=[POST]}" onto public java.util.Map shop.kim.webSquare.kimWebsquareController.webAdLogin(java.util.Map) 
+2018:07:02 14:10:36.568 INFO  --- [main] o.s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/toma/admin/kdh/removeOrder],methods=[DELETE]}" onto public void shop.kim.webSquare.kimWebsquareController.removeOrder(java.util.Map) 
+2018:07:02 14:10:36.568 INFO  --- [main] o.s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/toma/admin/kdh/updateOrder],methods=[PUT]}" onto public void shop.kim.webSquare.kimWebsquareController.updateOrder(java.util.Map) 
+2018:07:02 14:10:36.569 INFO  --- [main] o.s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/toma/join/],methods=[POST]}" onto public int shop.lee.join.JoinController.NewUser(shop.kim.login.model.User) 
+2018:07:02 14:10:36.571 INFO  --- [main] o.s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/toma/user/Update],methods=[PUT]}" onto public org.springframework.http.ResponseEntity<shop.kim.login.model.User> shop.lee.user.UserController.updateUser(shop.kim.login.model.User) 
+2018:07:02 14:10:36.572 INFO  --- [main] o.s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/toma/user/findPW/],methods=[POST]}" onto public shop.kim.login.model.User shop.lee.user.UserController.FindUserPW(shop.kim.login.model.User) 
+2018:07:02 14:10:36.572 INFO  --- [main] o.s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/toma/user/findID/],methods=[POST]}" onto public shop.kim.login.model.User shop.lee.user.UserController.FindUserID(shop.kim.login.model.User) 
+2018:07:02 14:10:36.594 INFO  --- [main] o.s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/toma/detail/notice/{n_no}],methods=[PUT]}" onto public org.springframework.http.ResponseEntity<?> shop.park.MainController.incrementNoticeHits(long,shop.park.model.Notice) 
+2018:07:02 14:10:36.595 INFO  --- [main] o.s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/toma/notice/{n_category}],methods=[GET]}" onto public java.util.List<shop.park.model.Notice> shop.park.MainController.getByNoticeCategory(java.lang.String) 
+2018:07:02 14:10:36.600 INFO  --- [main] o.s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/toma/faq/search/{f_title}],methods=[GET]}" onto public java.util.List<shop.park.model.Faq> shop.park.MainController.getByFaqTitleSearch(java.lang.String) 
+2018:07:02 14:10:36.612 INFO  --- [main] o.s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/toma/qna/search/{q_title}],methods=[GET]}" onto public java.util.List<shop.park.model.Qna> shop.park.MainController.getByQnaTitleSearch(java.lang.String) 
+2018:07:02 14:10:36.613 INFO  --- [main] o.s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/toma/notice/search/{n_title}],methods=[GET]}" onto public java.util.List<shop.park.model.Notice> shop.park.MainController.getByNoticeTitleSearch(java.lang.String) 
+2018:07:02 14:10:36.614 INFO  --- [main] o.s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/toma/notice.do],methods=[POST]}" onto public java.util.Map shop.park.MainController.websquareGetAllNotice() 
+2018:07:02 14:10:36.615 INFO  --- [main] o.s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/toma/notice/saveAndSelectMember.do],methods=[POST]}" onto public java.util.Map shop.park.MainController.saveAndSelectMember(java.util.Map) throws java.lang.Exception 
+2018:07:02 14:10:36.615 INFO  --- [main] o.s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/toma/notice.update],methods=[PUT]}" onto public java.util.Map shop.park.MainController.updateNotice(java.util.Map) 
+2018:07:02 14:10:36.615 INFO  --- [main] o.s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/toma/notice/update],methods=[PUT]}" onto public int shop.park.MainController.updateNotice(shop.park.model.Notice) 
+2018:07:02 14:10:36.616 INFO  --- [main] o.s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/toma/notice.delete],methods=[DELETE]}" onto public java.util.Map shop.park.MainController.removeNotice(java.util.Map) 
+2018:07:02 14:10:36.617 INFO  --- [main] o.s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/toma/qna/list/{u_id}],methods=[GET]}" onto public java.util.List<shop.park.model.Qna> shop.park.MainController.listAllQna(java.lang.String) 
+2018:07:02 14:10:36.618 INFO  --- [main] o.s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/toma/detail/qna/{q_no}],methods=[GET]}" onto public shop.park.model.Qna shop.park.MainController.getByQnaNo(long) 
+2018:07:02 14:10:36.618 INFO  --- [main] o.s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/toma/qna/update/{q_no}],methods=[PUT]}" onto public org.springframework.http.ResponseEntity<?> shop.park.MainController.updateQna(long,shop.park.model.Qna) 
+2018:07:02 14:10:36.619 INFO  --- [main] o.s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/toma/faq.do],methods=[POST]}" onto public java.util.Map shop.park.MainController.websquareGetAllFaq() 
+2018:07:02 14:10:36.619 INFO  --- [main] o.s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/toma/faq.delete],methods=[DELETE]}" onto public java.util.Map shop.park.MainController.removeFaq(java.util.Map) 
+2018:07:02 14:10:36.619 INFO  --- [main] o.s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/toma/qna/write],methods=[POST]}" onto public org.springframework.http.ResponseEntity<?> shop.park.MainController.insertQna(shop.park.model.Qna,org.springframework.web.util.UriComponentsBuilder) 
+2018:07:02 14:10:36.620 INFO  --- [main] o.s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/toma/qna/{q_no}],methods=[DELETE]}" onto public org.springframework.http.ResponseEntity<?> shop.park.MainController.deleteQna(long) 
+2018:07:02 14:10:36.620 INFO  --- [main] o.s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/toma/faq/delete/{f_no}],methods=[DELETE]}" onto public int shop.park.MainController.deleteFaq(long) 
+2018:07:02 14:10:36.620 INFO  --- [main] o.s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/toma/admin/qna/list],methods=[GET]}" onto public java.util.List<shop.park.model.Qna> shop.park.MainController.adminGetlistAllQna() 
+2018:07:02 14:10:36.621 INFO  --- [main] o.s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/toma/qna.do],methods=[POST]}" onto public java.util.Map shop.park.MainController.websquareGetAllQna() 
+2018:07:02 14:10:36.621 INFO  --- [main] o.s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/toma/qna/{q_reply}],methods=[GET]}" onto public java.util.List<shop.park.model.Qna> shop.park.MainController.getByQnaReply(java.lang.String) 
+2018:07:02 14:10:36.622 INFO  --- [main] o.s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/toma/faq/create],methods=[POST]}" onto public int shop.park.MainController.createFaq(shop.park.model.Faq) 
+2018:07:02 14:10:36.622 INFO  --- [main] o.s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/toma/notice/create],methods=[POST]}" onto public int shop.park.MainController.createNotice(shop.park.model.Notice) 
+2018:07:02 14:10:36.623 INFO  --- [main] o.s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/toma/faq/update],methods=[PUT]}" onto public int shop.park.MainController.updateFaq(shop.park.model.Faq) 
+2018:07:02 14:10:36.624 INFO  --- [main] o.s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/toma/notice/delete/{n_no}],methods=[DELETE]}" onto public int shop.park.MainController.DeleteNotice(long) 
+2018:07:02 14:10:36.624 INFO  --- [main] o.s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/toma/qna/reply],methods=[PUT]}" onto public int shop.park.MainController.updateQnaReply(shop.park.model.Qna) 
+2018:07:02 14:10:36.625 INFO  --- [main] o.s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/toma/detail/product/{p_code}],methods=[GET]}" onto public shop.park.model.Products shop.park.MainController.getByProductsCode(java.lang.String) 
+2018:07:02 14:10:36.625 INFO  --- [main] o.s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/toma/product],methods=[POST]}" onto public org.springframework.http.ResponseEntity<?> shop.park.MainController.insertProduct(shop.park.model.Products,org.springframework.web.util.UriComponentsBuilder) 
+2018:07:02 14:10:36.626 INFO  --- [main] o.s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/toma/product/{p_kind}],methods=[GET]}" onto public java.util.List<shop.park.model.Products> shop.park.MainController.getByProductsKind(java.lang.String) 
+2018:07:02 14:10:36.628 INFO  --- [main] o.s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/toma/product/{p_code}],methods=[PUT]}" onto public org.springframework.http.ResponseEntity<?> shop.park.MainController.updateProduct(java.lang.String,shop.park.model.Products) 
+2018:07:02 14:10:36.629 INFO  --- [main] o.s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/toma/faq],methods=[GET]}" onto public java.util.List<shop.park.model.Faq> shop.park.MainController.listAllFaq() 
+2018:07:02 14:10:36.629 INFO  --- [main] o.s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/toma/faq/{f_category}],methods=[GET]}" onto public java.util.List<shop.park.model.Faq> shop.park.MainController.getByFaqCategory(java.lang.String) 
+2018:07:02 14:10:36.630 INFO  --- [main] o.s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/toma/product/{p_code}],methods=[DELETE]}" onto public org.springframework.http.ResponseEntity<?> shop.park.MainController.deleteProduct(java.lang.String) 
+2018:07:02 14:10:36.631 INFO  --- [main] o.s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/toma],methods=[GET]}" onto public java.util.List<shop.park.model.Products> shop.park.MainController.listAllProducts() 
+2018:07:02 14:10:36.632 INFO  --- [main] o.s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/toma/notice],methods=[GET]}" onto public java.util.List<shop.park.model.Notice> shop.park.MainController.listAllNotices() 
+2018:07:02 14:10:36.633 INFO  --- [main] o.s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/toma/detail/faq/{f_no}],methods=[PUT]}" onto public org.springframework.http.ResponseEntity<?> shop.park.MainController.incrementFaqHits(long,shop.park.model.Faq) 
+2018:07:02 14:10:36.639 INFO  --- [main] o.s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/toma/productqna/detail/{pq_no}],methods=[GET]}" onto public shop.son.productqna.model.ProductQna shop.son.productqna.controller.ProductQnaController.selectByProductQnaNo(int) throws shop.son.review.exception.ReviewNotFoundException 
+2018:07:02 14:10:36.640 INFO  --- [main] o.s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/toma/productqna/update],methods=[PUT]}" onto public int shop.son.productqna.controller.ProductQnaController.editProductQna(shop.son.productqna.model.ProductQna) 
+2018:07:02 14:10:36.641 INFO  --- [main] o.s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/toma/productqna/write],methods=[POST]}" onto public org.springframework.http.ResponseEntity<?> shop.son.productqna.controller.ProductQnaController.insertProductQna(shop.son.productqna.model.ProductQna) 
+2018:07:02 14:10:36.642 INFO  --- [main] o.s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/toma/productqna/{p_code}],methods=[GET]}" onto public java.util.List<shop.son.productqna.model.ProductQna> shop.son.productqna.controller.ProductQnaController.listAllProductQna(java.lang.String) 
+2018:07:02 14:10:36.642 INFO  --- [main] o.s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/toma/productqna/{pq_no}],methods=[PUT]}" onto public org.springframework.http.ResponseEntity<?> shop.son.productqna.controller.ProductQnaController.getByProductQnaNo(int,shop.son.productqna.model.ProductQna) 
+2018:07:02 14:10:36.643 INFO  --- [main] o.s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/toma/productqna/reply],methods=[PUT]}" onto public int shop.son.productqna.controller.ProductQnaController.replyProductQna(shop.son.productqna.model.ProductQna) 
+2018:07:02 14:10:36.644 INFO  --- [main] o.s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/toma/productqna/delete],methods=[POST]}" onto public int shop.son.productqna.controller.ProductQnaController.deleteProductQna(shop.son.productqna.model.ProductQna) 
+2018:07:02 14:10:36.644 INFO  --- [main] o.s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/toma/productqna/],methods=[GET]}" onto public java.util.List<shop.son.productqna.model.ProductQna> shop.son.productqna.controller.ProductQnaController.listAllProducts() 
+2018:07:02 14:10:36.649 INFO  --- [main] o.s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/toma/review/],methods=[GET]}" onto public java.util.List<shop.son.review.model.Review> shop.son.review.controller.ReviewController.getReviewList() 
+2018:07:02 14:10:36.650 INFO  --- [main] o.s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/toma/review/{rev_no}],methods=[PUT]}" onto public org.springframework.http.ResponseEntity<?> shop.son.review.controller.ReviewController.getByReviewNo(int,shop.son.review.model.Review) 
+2018:07:02 14:10:36.651 INFO  --- [main] o.s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/toma/review/detail/{rev_no}],methods=[GET]}" onto public shop.son.review.model.Review shop.son.review.controller.ReviewController.selectByReviewNo(int) throws shop.son.review.exception.ReviewNotFoundException 
+2018:07:02 14:10:36.651 INFO  --- [main] o.s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/toma/review/delete],methods=[POST]}" onto public int shop.son.review.controller.ReviewController.deleteReview(shop.son.review.model.Review) 
+2018:07:02 14:10:36.652 INFO  --- [main] o.s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/toma/review/{p_code}],methods=[GET]}" onto public java.util.List<shop.son.review.model.Review> shop.son.review.controller.ReviewController.listAllReviews(java.lang.String) throws shop.son.review.exception.ReviewNotFoundException 
+2018:07:02 14:10:36.653 INFO  --- [main] o.s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/toma/review/update],methods=[POST]}" onto public int shop.son.review.controller.ReviewController.editReview(shop.son.review.model.Review) 
+2018:07:02 14:10:36.653 INFO  --- [main] o.s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/toma/review/write],methods=[POST]}" onto public org.springframework.http.ResponseEntity<?> shop.son.review.controller.ReviewController.insertReview(shop.son.review.model.Review) 
+2018:07:02 14:10:36.658 INFO  --- [main] o.s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/error]}" onto public org.springframework.http.ResponseEntity<java.util.Map<java.lang.String, java.lang.Object>> org.springframework.boot.autoconfigure.web.servlet.error.BasicErrorController.error(javax.servlet.http.HttpServletRequest) 
+2018:07:02 14:10:36.659 INFO  --- [main] o.s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/error],produces=[text/html]}" onto public org.springframework.web.servlet.ModelAndView org.springframework.boot.autoconfigure.web.servlet.error.BasicErrorController.errorHtml(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse) 
+2018:07:02 14:10:36.702 INFO  --- [main] o.s.w.s.h.SimpleUrlHandlerMapping : Mapped URL path [/webjars/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler] 
+2018:07:02 14:10:36.702 INFO  --- [main] o.s.w.s.h.SimpleUrlHandlerMapping : Mapped URL path [/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler] 
+2018:07:02 14:10:36.771 INFO  --- [main] o.s.b.a.w.s.WelcomePageHandlerMapping : Adding welcome page: class path resource [static/index.html] 
+2018:07:02 14:10:37.141 INFO  --- [main] o.s.j.e.a.AnnotationMBeanExporter : Registering beans for JMX exposure on startup 
+2018:07:02 14:10:37.144 INFO  --- [main] o.s.j.e.a.AnnotationMBeanExporter : Bean with name 'dataSource' has been autodetected for JMX exposure 
+2018:07:02 14:10:37.152 INFO  --- [main] o.s.j.e.a.AnnotationMBeanExporter : Located MBean 'dataSource': registering with JMX server as MBean [com.zaxxer.hikari:name=dataSource,type=HikariDataSource] 
+2018:07:02 14:10:37.212 INFO  --- [main] o.s.b.w.e.tomcat.TomcatWebServer : Tomcat started on port(s): 8080 (http) with context path '' 
+2018:07:02 14:10:37.221 INFO  --- [main] shop.ShoppingMallApiApplication : Started ShoppingMallApiApplication in 9.06 seconds (JVM running for 11.204) 
+2018:07:02 14:11:05.875 INFO  --- [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/] : Initializing Spring FrameworkServlet 'dispatcherServlet' 
+2018:07:02 14:11:05.885 INFO  --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet : FrameworkServlet 'dispatcherServlet': initialization started 
+2018:07:02 14:11:05.921 INFO  --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet : FrameworkServlet 'dispatcherServlet': initialization completed in 36 ms 
+2018:07:02 14:11:06.155 INFO  --- [http-nio-8080-exec-1] shop.park.MainController : Get All Faq 
+2018:07:02 14:11:06.310 INFO  --- [http-nio-8080-exec-1] jdbc.resultsettable : 
+|-----|-----------|------------------------|----------------------------------------------|------|-------|----------------------|
+|f_no |f_category |f_title                 |f_content                                     |a_id  |f_hits |f_date                |
+|-----|-----------|------------------------|----------------------------------------------|------|-------|----------------------|
+|4    |tst        |tset                    |test                                          |admin |0      |2018-07-02 00:00:00.0 |
+|3    |배송         |배송지 주소록 변경은 어떻게 하죠?     |로그인을 하신뒤  MyPage 로 가셔서 
+기본 주소 선택란을 변경 하시면 됩니다 |admin |1      |2018-06-28 00:00:00.0 |
+|1    |배송         |제가 해외에 사는데 해외배송도 해주시나요? |저희 토마토마는 해외배송은 해드리지 않습니다                      |admin |111    |2018-06-04 00:00:00.0 |
+|-----|-----------|------------------------|----------------------------------------------|------|-------|----------------------|
+ 
+2018:07:02 14:11:10.361 ERROR --- [http-nio-8080-exec-4] o.a.c.c.C.[.[.[.[dispatcherServlet] : Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed; nested exception is java.lang.NullPointerException] with root cause 
+java.lang.NullPointerException: null
+	at shop.park.MainController.removeFaq(MainController.java:396)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.base/java.lang.reflect.Method.invoke(Unknown Source)
+	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:209)
+	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:136)
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:102)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:877)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:783)
+	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:87)
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:991)
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:925)
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:974)
+	at org.springframework.web.servlet.FrameworkServlet.doDelete(FrameworkServlet.java:899)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:667)
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:851)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:742)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:231)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:52)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:99)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.web.filter.HttpPutFormContentFilter.doFilterInternal(HttpPutFormContentFilter.java:109)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.web.filter.HiddenHttpMethodFilter.doFilterInternal(HiddenHttpMethodFilter.java:81)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:200)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:198)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:96)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:496)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:140)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:81)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:87)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:342)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:803)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:66)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:790)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1468)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(Unknown Source)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(Unknown Source)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
+	at java.base/java.lang.Thread.run(Unknown Source)
+2018:07:02 14:11:42.473 INFO  --- [RMI TCP Connection(8)-127.0.0.1] o.s.b.a.SpringApplicationAdminMXBeanRegistrar$SpringApplicationAdmin : Application shutdown requested. 
+2018:07:02 14:11:42.485 INFO  --- [RMI TCP Connection(8)-127.0.0.1] o.s.b.w.s.c.AnnotationConfigServletWebServerApplicationContext : Closing org.springframework.boot.web.servlet.context.AnnotationConfigServletWebServerApplicationContext@7d42c224: startup date [Mon Jul 02 14:10:28 KST 2018]; root of context hierarchy 
+2018:07:02 14:11:42.488 INFO  --- [RMI TCP Connection(8)-127.0.0.1] o.s.j.e.a.AnnotationMBeanExporter : Unregistering JMX-exposed beans on shutdown 
+2018:07:02 14:11:42.489 INFO  --- [RMI TCP Connection(8)-127.0.0.1] o.s.j.e.a.AnnotationMBeanExporter : Unregistering JMX-exposed beans 
+2018:07:02 14:11:42.491 INFO  --- [RMI TCP Connection(8)-127.0.0.1] o.s.o.j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default' 
+2018:07:02 14:11:42.504 INFO  --- [RMI TCP Connection(8)-127.0.0.1] com.zaxxer.hikari.HikariDataSource : HikariPool-1 - Shutdown initiated... 
+2018:07:02 14:11:52.513 INFO  --- [RMI TCP Connection(8)-127.0.0.1] com.zaxxer.hikari.HikariDataSource : HikariPool-1 - Shutdown completed. 
+2018:07:02 14:12:02.282 INFO  --- [main] shop.ShoppingMallApiApplication : Starting ShoppingMallApiApplication on LAPTOP-H9GJICE1 with PID 11112 (C:\Users\수연\git\TopcreTeam\ShoppingMallAPI\target\classes started by Su-Yeon Bak in C:\Users\수연\git\TopcreTeam\ShoppingMallAPI) 
+2018:07:02 14:12:02.294 INFO  --- [main] shop.ShoppingMallApiApplication : No active profile set, falling back to default profiles: default 
+2018:07:02 14:12:02.350 INFO  --- [main] o.s.b.w.s.c.AnnotationConfigServletWebServerApplicationContext : Refreshing org.springframework.boot.web.servlet.context.AnnotationConfigServletWebServerApplicationContext@7d42c224: startup date [Mon Jul 02 14:12:02 KST 2018]; root of context hierarchy 
+2018:07:02 14:12:04.138 INFO  --- [main] o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$3b5e8a1] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying) 
+2018:07:02 14:12:04.547 INFO  --- [main] o.s.b.w.e.tomcat.TomcatWebServer : Tomcat initialized with port(s): 8080 (http) 
+2018:07:02 14:12:04.588 INFO  --- [main] o.a.catalina.core.StandardService : Starting service [Tomcat] 
+2018:07:02 14:12:04.592 INFO  --- [main] o.a.catalina.core.StandardEngine : Starting Servlet Engine: Apache Tomcat/8.5.31 
+2018:07:02 14:12:04.603 INFO  --- [localhost-startStop-1] o.a.c.core.AprLifecycleListener : The APR based Apache Tomcat Native library which allows optimal performance in production environments was not found on the java.library.path: [C:\Program Files\Java\jre-9\bin;C:\WINDOWS\Sun\Java\bin;C:\WINDOWS\system32;C:\WINDOWS;C:\Program Files (x86)\Intel\Intel(R) Management Engine Components\iCLS\;C:\Program Files\Intel\Intel(R) Management Engine Components\iCLS\;C:\ProgramData\Oracle\Java\javapath;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;C:\Program Files (x86)\ePapyrus\Papyrus 5;C:\Program Files (x86)\Intel\Intel(R) Management Engine Components\DAL;C:\Program Files\Intel\Intel(R) Management Engine Components\DAL;C:\Program Files (x86)\Intel\Intel(R) Management Engine Components\IPT;C:\Program Files\Intel\Intel(R) Management Engine Components\IPT;C:\Program Files\nodejs\;C:\WINDOWS\System32\OpenSSH\;C:\Program Files\Intel\WiFi\bin\;C:\Program Files\Common Files\Intel\WirelessCommon\;C:\Program Files\Android\Android Studio\jre\bin;C:\Android\platform-tools;C:\Program Files\Git\cmd;C:\Users\수연\AppData\Local\Microsoft\WindowsApps;C:\Users\수연\AppData\Local\Programs\Python\Python36-32;C:\Users\수연\AppData\Local\atom\bin;C:\Users\수연\AppData\Local\Programs\Python\Python36-32\Scripts;C:\Program Files\Java\jdk-9\bin;C:\Users\수연\AppData\Local\Microsoft\WindowsApps;C:\Users\수연\AppData\Roaming\npm;C:\oracle\instanceclient\instantclient_11_2;C:\Program Files\Intel\WiFi\bin\;C:\Program Files\Common Files\Intel\WirelessCommon\;.] 
+2018:07:02 14:12:04.923 INFO  --- [localhost-startStop-1] o.a.c.c.C.[Tomcat].[localhost].[/] : Initializing Spring embedded WebApplicationContext 
+2018:07:02 14:12:04.924 INFO  --- [localhost-startStop-1] o.s.web.context.ContextLoader : Root WebApplicationContext: initialization completed in 2575 ms 
+2018:07:02 14:12:05.186 INFO  --- [localhost-startStop-1] o.s.b.w.s.ServletRegistrationBean : Servlet dispatcherServlet mapped to [/] 
+2018:07:02 14:12:05.194 INFO  --- [localhost-startStop-1] o.s.b.w.s.FilterRegistrationBean : Mapping filter: 'characterEncodingFilter' to: [/*] 
+2018:07:02 14:12:05.206 INFO  --- [localhost-startStop-1] o.s.b.w.s.FilterRegistrationBean : Mapping filter: 'hiddenHttpMethodFilter' to: [/*] 
+2018:07:02 14:12:05.206 INFO  --- [localhost-startStop-1] o.s.b.w.s.FilterRegistrationBean : Mapping filter: 'httpPutFormContentFilter' to: [/*] 
+2018:07:02 14:12:05.206 INFO  --- [localhost-startStop-1] o.s.b.w.s.FilterRegistrationBean : Mapping filter: 'requestContextFilter' to: [/*] 
+2018:07:02 14:12:05.442 INFO  --- [main] com.zaxxer.hikari.HikariDataSource : HikariPool-1 - Starting... 
+2018:07:02 14:12:05.999 INFO  --- [main] com.zaxxer.hikari.pool.PoolBase : HikariPool-1 - Driver does not support get/set network timeout for connections. (Method oracle/jdbc/driver/T4CConnection.getNetworkTimeout()I is abstract) 
+2018:07:02 14:12:06.341 INFO  --- [main] com.zaxxer.hikari.HikariDataSource : HikariPool-1 - Start completed. 
+2018:07:02 14:12:06.493 INFO  --- [main] o.s.o.j.LocalContainerEntityManagerFactoryBean : Building JPA container EntityManagerFactory for persistence unit 'default' 
+2018:07:02 14:12:06.542 INFO  --- [main] o.h.jpa.internal.util.LogHelper : HHH000204: Processing PersistenceUnitInfo [
+	name: default
+	...] 
+2018:07:02 14:12:06.712 INFO  --- [main] org.hibernate.Version : HHH000412: Hibernate Core {5.2.10.Final} 
+2018:07:02 14:12:06.715 INFO  --- [main] org.hibernate.cfg.Environment : HHH000206: hibernate.properties not found 
+2018:07:02 14:12:06.813 INFO  --- [main] o.h.annotations.common.Version : HCANN000001: Hibernate Commons Annotations {5.0.1.Final} 
+2018:07:02 14:12:07.194 INFO  --- [main] org.hibernate.dialect.Dialect : HHH000400: Using dialect: org.hibernate.dialect.Oracle12cDialect 
+2018:07:02 14:12:07.451 INFO  --- [main] o.hibernate.type.BasicTypeRegistry : HHH000270: Type registration [byte[]] overrides previous : org.hibernate.type.BinaryType@7ed49a7f 
+2018:07:02 14:12:07.452 INFO  --- [main] o.hibernate.type.BasicTypeRegistry : HHH000270: Type registration [[B] overrides previous : org.hibernate.type.BinaryType@7ed49a7f 
+2018:07:02 14:12:07.466 INFO  --- [main] o.hibernate.type.BasicTypeRegistry : HHH000270: Type registration [Byte[]] overrides previous : org.hibernate.type.WrapperBinaryType@619c93ca 
+2018:07:02 14:12:07.467 INFO  --- [main] o.hibernate.type.BasicTypeRegistry : HHH000270: Type registration [[Ljava.lang.Byte;] overrides previous : org.hibernate.type.WrapperBinaryType@619c93ca 
+2018:07:02 14:12:07.684 INFO  --- [main] o.s.o.j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default' 
+2018:07:02 14:12:08.468 INFO  --- [main] o.s.w.s.h.SimpleUrlHandlerMapping : Mapped URL path [/**/favicon.ico] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler] 
+2018:07:02 14:12:08.921 INFO  --- [main] o.s.w.s.m.m.a.RequestMappingHandlerAdapter : Looking for @ControllerAdvice: org.springframework.boot.web.servlet.context.AnnotationConfigServletWebServerApplicationContext@7d42c224: startup date [Mon Jul 02 14:12:02 KST 2018]; root of context hierarchy 
+2018:07:02 14:12:08.974 WARN  --- [main] o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration$JpaWebMvcConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning 
+2018:07:02 14:12:09.074 INFO  --- [main] o.s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/toma/admin/],methods=[POST]}" onto public int shop.choi.admin.controller.AdminController.deleteAdmin(shop.choi.admin.model.Admin) 
+2018:07:02 14:12:09.077 INFO  --- [main] o.s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/toma/admin/],methods=[PUT]}" onto public int shop.choi.admin.controller.AdminController.updateAdmin(shop.choi.admin.model.Admin) 
+2018:07:02 14:12:09.090 INFO  --- [main] o.s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/toma/admin/],methods=[GET]}" onto public java.util.List shop.choi.admin.controller.AdminController.getAdminList() 
+2018:07:02 14:12:09.091 INFO  --- [main] o.s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/toma/admin/login],methods=[POST]}" onto public shop.choi.admin.model.Admin shop.choi.admin.controller.AdminController.adminlogin(shop.choi.admin.model.Admin) 
+2018:07:02 14:12:09.108 INFO  --- [main] o.s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/toma/admin/{a_id}],methods=[DELETE]}" onto public int shop.choi.admin.controller.AdminController.deleteProductQna(java.lang.String) 
+2018:07:02 14:12:09.111 INFO  --- [main] o.s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/uploadMultipleFiles],methods=[POST]}" onto public java.util.List<shop.choi.fileupload.payload.UploadFileResponse> shop.choi.fileupload.FileController.uploadMultipleFiles(org.springframework.web.multipart.MultipartFile[]) 
+2018:07:02 14:12:09.112 INFO  --- [main] o.s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/uploadFile],methods=[POST]}" onto public shop.choi.fileupload.payload.UploadFileResponse shop.choi.fileupload.FileController.uploadFile(org.springframework.web.multipart.MultipartFile) 
+2018:07:02 14:12:09.113 INFO  --- [main] o.s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/downloadFile/{fileName:.+}],methods=[GET]}" onto public org.springframework.http.ResponseEntity<org.springframework.core.io.Resource> shop.choi.fileupload.FileController.downloadFile(java.lang.String,javax.servlet.http.HttpServletRequest) 
+2018:07:02 14:12:09.125 INFO  --- [main] o.s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/toma/login/],methods=[POST]}" onto public shop.kim.login.model.User shop.kim.login.LoginController.login(shop.kim.login.model.Login) 
+2018:07:02 14:12:09.129 INFO  --- [main] o.s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/toma/cart/{cno}],methods=[DELETE]}" onto int shop.kim.order.CartController.cartDelete(int) 
+2018:07:02 14:12:09.130 INFO  --- [main] o.s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/toma/cart/{uid}],methods=[GET]}" onto java.util.ArrayList<shop.kim.order.model.Cart> shop.kim.order.CartController.carList(java.lang.String) 
+2018:07:02 14:12:09.131 INFO  --- [main] o.s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/toma/cart/],methods=[PUT]}" onto int shop.kim.order.CartController.cartUpdate(shop.kim.order.model.Cart) 
+2018:07:02 14:12:09.132 INFO  --- [main] o.s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/toma/cart/],methods=[POST]}" onto int shop.kim.order.CartController.cartInsert(shop.kim.order.model.Cart) 
+2018:07:02 14:12:09.133 INFO  --- [main] o.s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/toma/cart/goOrderWrite],methods=[PUT]}" onto java.util.ArrayList<shop.kim.order.model.Cart> shop.kim.order.CartController.orderWriteList(int[]) 
+2018:07:02 14:12:09.137 INFO  --- [main] o.s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/toma/order/],methods=[PUT]}" onto public int shop.kim.order.OrderController.updateOrder(shop.kim.order.model.Order) 
+2018:07:02 14:12:09.138 INFO  --- [main] o.s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/toma/order/{uid}],methods=[GET]}" onto java.util.ArrayList<shop.kim.order.model.Order> shop.kim.order.OrderController.orderList(java.lang.String) 
+2018:07:02 14:12:09.151 INFO  --- [main] o.s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/toma/order/orderdetail/{ono}],methods=[GET]}" onto java.util.ArrayList<shop.kim.order.model.Order_Detail> shop.kim.order.OrderController.orderDetailList(int) 
+2018:07:02 14:12:09.152 INFO  --- [main] o.s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/toma/order/cancle],methods=[PUT]}" onto public int shop.kim.order.OrderController.cancleOrder(int) 
+2018:07:02 14:12:09.153 INFO  --- [main] o.s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/toma/order/],methods=[GET]}" onto java.util.ArrayList<shop.kim.order.model.Order> shop.kim.order.OrderController.getAllorderList() 
+2018:07:02 14:12:09.154 INFO  --- [main] o.s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/toma/order/insert/order],methods=[POST]}" onto int shop.kim.order.OrderController.orderInsertOrder(shop.kim.order.model.Order) 
+2018:07:02 14:12:09.154 INFO  --- [main] o.s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/toma/order/insert/detail],methods=[POST]}" onto void shop.kim.order.OrderController.orderInsertDetail(java.util.ArrayList<shop.kim.order.model.Order_Detail>) 
+2018:07:02 14:12:09.158 INFO  --- [main] o.s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/toma/admin/kdh/orderList],methods=[GET]}" onto public java.util.Map shop.kim.webSquare.kimWebsquareController.getOrder() 
+2018:07:02 14:12:09.159 INFO  --- [main] o.s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/toma/admin/kdh/updateOrder],methods=[PUT]}" onto public void shop.kim.webSquare.kimWebsquareController.updateOrder(java.util.Map) 
+2018:07:02 14:12:09.160 INFO  --- [main] o.s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/toma/admin/kdh/userList],methods=[GET]}" onto public java.util.Map shop.kim.webSquare.kimWebsquareController.getUser() 
+2018:07:02 14:12:09.161 INFO  --- [main] o.s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/toma/admin/kdh/webLogin],methods=[POST]}" onto public java.util.Map shop.kim.webSquare.kimWebsquareController.webAdLogin(java.util.Map) 
+2018:07:02 14:12:09.162 INFO  --- [main] o.s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/toma/admin/kdh/removeOrder],methods=[DELETE]}" onto public void shop.kim.webSquare.kimWebsquareController.removeOrder(java.util.Map) 
+2018:07:02 14:12:09.164 INFO  --- [main] o.s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/toma/join/],methods=[POST]}" onto public int shop.lee.join.JoinController.NewUser(shop.kim.login.model.User) 
+2018:07:02 14:12:09.166 INFO  --- [main] o.s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/toma/user/findPW/],methods=[POST]}" onto public shop.kim.login.model.User shop.lee.user.UserController.FindUserPW(shop.kim.login.model.User) 
+2018:07:02 14:12:09.167 INFO  --- [main] o.s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/toma/user/findID/],methods=[POST]}" onto public shop.kim.login.model.User shop.lee.user.UserController.FindUserID(shop.kim.login.model.User) 
+2018:07:02 14:12:09.168 INFO  --- [main] o.s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/toma/user/Update],methods=[PUT]}" onto public org.springframework.http.ResponseEntity<shop.kim.login.model.User> shop.lee.user.UserController.updateUser(shop.kim.login.model.User) 
+2018:07:02 14:12:09.185 INFO  --- [main] o.s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/toma/qna/search/{q_title}],methods=[GET]}" onto public java.util.List<shop.park.model.Qna> shop.park.MainController.getByQnaTitleSearch(java.lang.String) 
+2018:07:02 14:12:09.187 INFO  --- [main] o.s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/toma/faq/search/{f_title}],methods=[GET]}" onto public java.util.List<shop.park.model.Faq> shop.park.MainController.getByFaqTitleSearch(java.lang.String) 
+2018:07:02 14:12:09.201 INFO  --- [main] o.s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/toma/notice/search/{n_title}],methods=[GET]}" onto public java.util.List<shop.park.model.Notice> shop.park.MainController.getByNoticeTitleSearch(java.lang.String) 
+2018:07:02 14:12:09.202 INFO  --- [main] o.s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/toma/notice/{n_category}],methods=[GET]}" onto public java.util.List<shop.park.model.Notice> shop.park.MainController.getByNoticeCategory(java.lang.String) 
+2018:07:02 14:12:09.203 INFO  --- [main] o.s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/toma/detail/notice/{n_no}],methods=[PUT]}" onto public org.springframework.http.ResponseEntity<?> shop.park.MainController.incrementNoticeHits(long,shop.park.model.Notice) 
+2018:07:02 14:12:09.204 INFO  --- [main] o.s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/toma/notice.do],methods=[POST]}" onto public java.util.Map shop.park.MainController.websquareGetAllNotice() 
+2018:07:02 14:12:09.205 INFO  --- [main] o.s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/toma/notice/saveAndSelectMember.do],methods=[POST]}" onto public java.util.Map shop.park.MainController.saveAndSelectMember(java.util.Map) throws java.lang.Exception 
+2018:07:02 14:12:09.206 INFO  --- [main] o.s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/toma],methods=[GET]}" onto public java.util.List<shop.park.model.Products> shop.park.MainController.listAllProducts() 
+2018:07:02 14:12:09.207 INFO  --- [main] o.s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/toma/product/{p_kind}],methods=[GET]}" onto public java.util.List<shop.park.model.Products> shop.park.MainController.getByProductsKind(java.lang.String) 
+2018:07:02 14:12:09.207 INFO  --- [main] o.s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/toma/detail/product/{p_code}],methods=[GET]}" onto public shop.park.model.Products shop.park.MainController.getByProductsCode(java.lang.String) 
+2018:07:02 14:12:09.209 INFO  --- [main] o.s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/toma/notice],methods=[GET]}" onto public java.util.List<shop.park.model.Notice> shop.park.MainController.listAllNotices() 
+2018:07:02 14:12:09.210 INFO  --- [main] o.s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/toma/product/{p_code}],methods=[PUT]}" onto public org.springframework.http.ResponseEntity<?> shop.park.MainController.updateProduct(java.lang.String,shop.park.model.Products) 
+2018:07:02 14:12:09.210 INFO  --- [main] o.s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/toma/faq],methods=[GET]}" onto public java.util.List<shop.park.model.Faq> shop.park.MainController.listAllFaq() 
+2018:07:02 14:12:09.212 INFO  --- [main] o.s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/toma/faq/{f_category}],methods=[GET]}" onto public java.util.List<shop.park.model.Faq> shop.park.MainController.getByFaqCategory(java.lang.String) 
+2018:07:02 14:12:09.213 INFO  --- [main] o.s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/toma/product],methods=[POST]}" onto public org.springframework.http.ResponseEntity<?> shop.park.MainController.insertProduct(shop.park.model.Products,org.springframework.web.util.UriComponentsBuilder) 
+2018:07:02 14:12:09.213 INFO  --- [main] o.s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/toma/product/{p_code}],methods=[DELETE]}" onto public org.springframework.http.ResponseEntity<?> shop.park.MainController.deleteProduct(java.lang.String) 
+2018:07:02 14:12:09.214 INFO  --- [main] o.s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/toma/detail/faq/{f_no}],methods=[PUT]}" onto public org.springframework.http.ResponseEntity<?> shop.park.MainController.incrementFaqHits(long,shop.park.model.Faq) 
+2018:07:02 14:12:09.215 INFO  --- [main] o.s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/toma/qna/list/{u_id}],methods=[GET]}" onto public java.util.List<shop.park.model.Qna> shop.park.MainController.listAllQna(java.lang.String) 
+2018:07:02 14:12:09.215 INFO  --- [main] o.s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/toma/detail/qna/{q_no}],methods=[GET]}" onto public shop.park.model.Qna shop.park.MainController.getByQnaNo(long) 
+2018:07:02 14:12:09.216 INFO  --- [main] o.s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/toma/admin/qna/list],methods=[GET]}" onto public java.util.List<shop.park.model.Qna> shop.park.MainController.adminGetlistAllQna() 
+2018:07:02 14:12:09.216 INFO  --- [main] o.s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/toma/qna/{q_reply}],methods=[GET]}" onto public java.util.List<shop.park.model.Qna> shop.park.MainController.getByQnaReply(java.lang.String) 
+2018:07:02 14:12:09.217 INFO  --- [main] o.s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/toma/notice/create],methods=[POST]}" onto public int shop.park.MainController.createNotice(shop.park.model.Notice) 
+2018:07:02 14:12:09.217 INFO  --- [main] o.s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/toma/faq/delete/{f_no}],methods=[DELETE]}" onto public int shop.park.MainController.deleteFaq(long) 
+2018:07:02 14:12:09.218 INFO  --- [main] o.s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/toma/qna/update/{q_no}],methods=[PUT]}" onto public org.springframework.http.ResponseEntity<?> shop.park.MainController.updateQna(long,shop.park.model.Qna) 
+2018:07:02 14:12:09.218 INFO  --- [main] o.s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/toma/notice.update],methods=[PUT]}" onto public java.util.Map shop.park.MainController.updateNotice(java.util.Map) 
+2018:07:02 14:12:09.219 INFO  --- [main] o.s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/toma/notice/update],methods=[PUT]}" onto public int shop.park.MainController.updateNotice(shop.park.model.Notice) 
+2018:07:02 14:12:09.220 INFO  --- [main] o.s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/toma/qna.do],methods=[POST]}" onto public java.util.Map shop.park.MainController.websquareGetAllQna() 
+2018:07:02 14:12:09.220 INFO  --- [main] o.s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/toma/qna/{q_no}],methods=[DELETE]}" onto public org.springframework.http.ResponseEntity<?> shop.park.MainController.deleteQna(long) 
+2018:07:02 14:12:09.221 INFO  --- [main] o.s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/toma/notice.delete],methods=[DELETE]}" onto public java.util.Map shop.park.MainController.removeNotice(java.util.Map) 
+2018:07:02 14:12:09.221 INFO  --- [main] o.s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/toma/qna/write],methods=[POST]}" onto public org.springframework.http.ResponseEntity<?> shop.park.MainController.insertQna(shop.park.model.Qna,org.springframework.web.util.UriComponentsBuilder) 
+2018:07:02 14:12:09.222 INFO  --- [main] o.s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/toma/faq.do],methods=[POST]}" onto public java.util.Map shop.park.MainController.websquareGetAllFaq() 
+2018:07:02 14:12:09.223 INFO  --- [main] o.s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/toma/faq.delete],methods=[DELETE]}" onto public java.util.Map shop.park.MainController.removeFaq(java.util.Map) 
+2018:07:02 14:12:09.224 INFO  --- [main] o.s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/toma/notice/delete/{n_no}],methods=[DELETE]}" onto public int shop.park.MainController.DeleteNotice(long) 
+2018:07:02 14:12:09.224 INFO  --- [main] o.s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/toma/faq/create],methods=[POST]}" onto public int shop.park.MainController.createFaq(shop.park.model.Faq) 
+2018:07:02 14:12:09.235 INFO  --- [main] o.s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/toma/faq/update],methods=[PUT]}" onto public int shop.park.MainController.updateFaq(shop.park.model.Faq) 
+2018:07:02 14:12:09.236 INFO  --- [main] o.s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/toma/qna/reply],methods=[PUT]}" onto public int shop.park.MainController.updateQnaReply(shop.park.model.Qna) 
+2018:07:02 14:12:09.241 INFO  --- [main] o.s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/toma/productqna/detail/{pq_no}],methods=[GET]}" onto public shop.son.productqna.model.ProductQna shop.son.productqna.controller.ProductQnaController.selectByProductQnaNo(int) throws shop.son.review.exception.ReviewNotFoundException 
+2018:07:02 14:12:09.242 INFO  --- [main] o.s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/toma/productqna/delete],methods=[POST]}" onto public int shop.son.productqna.controller.ProductQnaController.deleteProductQna(shop.son.productqna.model.ProductQna) 
+2018:07:02 14:12:09.243 INFO  --- [main] o.s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/toma/productqna/],methods=[GET]}" onto public java.util.List<shop.son.productqna.model.ProductQna> shop.son.productqna.controller.ProductQnaController.listAllProducts() 
+2018:07:02 14:12:09.243 INFO  --- [main] o.s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/toma/productqna/{p_code}],methods=[GET]}" onto public java.util.List<shop.son.productqna.model.ProductQna> shop.son.productqna.controller.ProductQnaController.listAllProductQna(java.lang.String) 
+2018:07:02 14:12:09.244 INFO  --- [main] o.s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/toma/productqna/update],methods=[PUT]}" onto public int shop.son.productqna.controller.ProductQnaController.editProductQna(shop.son.productqna.model.ProductQna) 
+2018:07:02 14:12:09.244 INFO  --- [main] o.s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/toma/productqna/{pq_no}],methods=[PUT]}" onto public org.springframework.http.ResponseEntity<?> shop.son.productqna.controller.ProductQnaController.getByProductQnaNo(int,shop.son.productqna.model.ProductQna) 
+2018:07:02 14:12:09.245 INFO  --- [main] o.s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/toma/productqna/reply],methods=[PUT]}" onto public int shop.son.productqna.controller.ProductQnaController.replyProductQna(shop.son.productqna.model.ProductQna) 
+2018:07:02 14:12:09.245 INFO  --- [main] o.s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/toma/productqna/write],methods=[POST]}" onto public org.springframework.http.ResponseEntity<?> shop.son.productqna.controller.ProductQnaController.insertProductQna(shop.son.productqna.model.ProductQna) 
+2018:07:02 14:12:09.249 INFO  --- [main] o.s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/toma/review/],methods=[GET]}" onto public java.util.List<shop.son.review.model.Review> shop.son.review.controller.ReviewController.getReviewList() 
+2018:07:02 14:12:09.250 INFO  --- [main] o.s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/toma/review/{rev_no}],methods=[PUT]}" onto public org.springframework.http.ResponseEntity<?> shop.son.review.controller.ReviewController.getByReviewNo(int,shop.son.review.model.Review) 
+2018:07:02 14:12:09.251 INFO  --- [main] o.s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/toma/review/update],methods=[POST]}" onto public int shop.son.review.controller.ReviewController.editReview(shop.son.review.model.Review) 
+2018:07:02 14:12:09.251 INFO  --- [main] o.s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/toma/review/write],methods=[POST]}" onto public org.springframework.http.ResponseEntity<?> shop.son.review.controller.ReviewController.insertReview(shop.son.review.model.Review) 
+2018:07:02 14:12:09.252 INFO  --- [main] o.s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/toma/review/{p_code}],methods=[GET]}" onto public java.util.List<shop.son.review.model.Review> shop.son.review.controller.ReviewController.listAllReviews(java.lang.String) throws shop.son.review.exception.ReviewNotFoundException 
+2018:07:02 14:12:09.252 INFO  --- [main] o.s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/toma/review/detail/{rev_no}],methods=[GET]}" onto public shop.son.review.model.Review shop.son.review.controller.ReviewController.selectByReviewNo(int) throws shop.son.review.exception.ReviewNotFoundException 
+2018:07:02 14:12:09.253 INFO  --- [main] o.s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/toma/review/delete],methods=[POST]}" onto public int shop.son.review.controller.ReviewController.deleteReview(shop.son.review.model.Review) 
+2018:07:02 14:12:09.256 INFO  --- [main] o.s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/error]}" onto public org.springframework.http.ResponseEntity<java.util.Map<java.lang.String, java.lang.Object>> org.springframework.boot.autoconfigure.web.servlet.error.BasicErrorController.error(javax.servlet.http.HttpServletRequest) 
+2018:07:02 14:12:09.257 INFO  --- [main] o.s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/error],produces=[text/html]}" onto public org.springframework.web.servlet.ModelAndView org.springframework.boot.autoconfigure.web.servlet.error.BasicErrorController.errorHtml(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse) 
+2018:07:02 14:12:09.297 INFO  --- [main] o.s.w.s.h.SimpleUrlHandlerMapping : Mapped URL path [/webjars/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler] 
+2018:07:02 14:12:09.297 INFO  --- [main] o.s.w.s.h.SimpleUrlHandlerMapping : Mapped URL path [/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler] 
+2018:07:02 14:12:09.345 INFO  --- [main] o.s.b.a.w.s.WelcomePageHandlerMapping : Adding welcome page: class path resource [static/index.html] 
+2018:07:02 14:12:09.671 INFO  --- [main] o.s.j.e.a.AnnotationMBeanExporter : Registering beans for JMX exposure on startup 
+2018:07:02 14:12:09.674 INFO  --- [main] o.s.j.e.a.AnnotationMBeanExporter : Bean with name 'dataSource' has been autodetected for JMX exposure 
+2018:07:02 14:12:09.684 INFO  --- [main] o.s.j.e.a.AnnotationMBeanExporter : Located MBean 'dataSource': registering with JMX server as MBean [com.zaxxer.hikari:name=dataSource,type=HikariDataSource] 
+2018:07:02 14:12:09.734 INFO  --- [main] o.s.b.w.e.tomcat.TomcatWebServer : Tomcat started on port(s): 8080 (http) with context path '' 
+2018:07:02 14:12:09.741 INFO  --- [main] shop.ShoppingMallApiApplication : Started ShoppingMallApiApplication in 8.033 seconds (JVM running for 9.662) 
+2018:07:02 14:12:20.122 INFO  --- [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/] : Initializing Spring FrameworkServlet 'dispatcherServlet' 
+2018:07:02 14:12:20.131 INFO  --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet : FrameworkServlet 'dispatcherServlet': initialization started 
+2018:07:02 14:12:20.170 INFO  --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet : FrameworkServlet 'dispatcherServlet': initialization completed in 39 ms 
+2018:07:02 14:12:20.368 INFO  --- [http-nio-8080-exec-1] shop.park.MainController : Get All Faq 
+2018:07:02 14:12:20.523 INFO  --- [http-nio-8080-exec-1] jdbc.resultsettable : 
+|-----|-----------|------------------------|----------------------------------------------|------|-------|----------------------|
+|f_no |f_category |f_title                 |f_content                                     |a_id  |f_hits |f_date                |
+|-----|-----------|------------------------|----------------------------------------------|------|-------|----------------------|
+|4    |tst        |tset                    |test                                          |admin |0      |2018-07-02 00:00:00.0 |
+|3    |배송         |배송지 주소록 변경은 어떻게 하죠?     |로그인을 하신뒤  MyPage 로 가셔서 
+기본 주소 선택란을 변경 하시면 됩니다 |admin |1      |2018-06-28 00:00:00.0 |
+|1    |배송         |제가 해외에 사는데 해외배송도 해주시나요? |저희 토마토마는 해외배송은 해드리지 않습니다                      |admin |111    |2018-06-04 00:00:00.0 |
+|-----|-----------|------------------------|----------------------------------------------|------|-------|----------------------|
+ 
+2018:07:02 14:12:23.472 INFO  --- [http-nio-8080-exec-2] jdbc.resultsettable : 
+|-----|-----------|------------------------|----------------------------------------------|------|-------|----------------------|
+|f_no |f_category |f_title                 |f_content                                     |a_id  |f_hits |f_date                |
+|-----|-----------|------------------------|----------------------------------------------|------|-------|----------------------|
+|3    |배송         |배송지 주소록 변경은 어떻게 하죠?     |로그인을 하신뒤  MyPage 로 가셔서 
+기본 주소 선택란을 변경 하시면 됩니다 |admin |1      |2018-06-28 00:00:00.0 |
+|1    |배송         |제가 해외에 사는데 해외배송도 해주시나요? |저희 토마토마는 해외배송은 해드리지 않습니다                      |admin |111    |2018-06-04 00:00:00.0 |
+|-----|-----------|------------------------|----------------------------------------------|------|-------|----------------------|
+ 
+2018:07:02 14:15:17.930 INFO  --- [RMI TCP Connection(12)-127.0.0.1] o.s.b.a.SpringApplicationAdminMXBeanRegistrar$SpringApplicationAdmin : Application shutdown requested. 
+2018:07:02 14:15:17.943 INFO  --- [RMI TCP Connection(12)-127.0.0.1] o.s.b.w.s.c.AnnotationConfigServletWebServerApplicationContext : Closing org.springframework.boot.web.servlet.context.AnnotationConfigServletWebServerApplicationContext@7d42c224: startup date [Mon Jul 02 14:12:02 KST 2018]; root of context hierarchy 
+2018:07:02 14:15:17.949 INFO  --- [RMI TCP Connection(12)-127.0.0.1] o.s.j.e.a.AnnotationMBeanExporter : Unregistering JMX-exposed beans on shutdown 
+2018:07:02 14:15:17.950 INFO  --- [RMI TCP Connection(12)-127.0.0.1] o.s.j.e.a.AnnotationMBeanExporter : Unregistering JMX-exposed beans 
+2018:07:02 14:15:17.954 INFO  --- [RMI TCP Connection(12)-127.0.0.1] o.s.o.j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default' 
+2018:07:02 14:15:17.956 INFO  --- [RMI TCP Connection(12)-127.0.0.1] com.zaxxer.hikari.HikariDataSource : HikariPool-1 - Shutdown initiated... 
+2018:07:02 14:15:18.084 INFO  --- [RMI TCP Connection(12)-127.0.0.1] com.zaxxer.hikari.HikariDataSource : HikariPool-1 - Shutdown completed. 
+2018:07:02 14:18:10.868 INFO  --- [main] shop.ShoppingMallApiApplication : Starting ShoppingMallApiApplication on LAPTOP-H9GJICE1 with PID 14480 (C:\Users\수연\git\TopcreTeam\ShoppingMallAPI\target\classes started by Su-Yeon Bak in C:\Users\수연\git\TopcreTeam\ShoppingMallAPI) 
+2018:07:02 14:18:10.874 INFO  --- [main] shop.ShoppingMallApiApplication : No active profile set, falling back to default profiles: default 
+2018:07:02 14:18:10.944 INFO  --- [main] o.s.b.w.s.c.AnnotationConfigServletWebServerApplicationContext : Refreshing org.springframework.boot.web.servlet.context.AnnotationConfigServletWebServerApplicationContext@7d42c224: startup date [Mon Jul 02 14:18:10 KST 2018]; root of context hierarchy 
+2018:07:02 14:18:12.730 INFO  --- [main] o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$95e19d83] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying) 
+2018:07:02 14:18:13.217 INFO  --- [main] o.s.b.w.e.tomcat.TomcatWebServer : Tomcat initialized with port(s): 8080 (http) 
+2018:07:02 14:18:13.252 INFO  --- [main] o.a.catalina.core.StandardService : Starting service [Tomcat] 
+2018:07:02 14:18:13.253 INFO  --- [main] o.a.catalina.core.StandardEngine : Starting Servlet Engine: Apache Tomcat/8.5.31 
+2018:07:02 14:18:13.260 INFO  --- [localhost-startStop-1] o.a.c.core.AprLifecycleListener : The APR based Apache Tomcat Native library which allows optimal performance in production environments was not found on the java.library.path: [C:\Program Files\Java\jre-9\bin;C:\WINDOWS\Sun\Java\bin;C:\WINDOWS\system32;C:\WINDOWS;C:\Program Files (x86)\Intel\Intel(R) Management Engine Components\iCLS\;C:\Program Files\Intel\Intel(R) Management Engine Components\iCLS\;C:\ProgramData\Oracle\Java\javapath;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;C:\Program Files (x86)\ePapyrus\Papyrus 5;C:\Program Files (x86)\Intel\Intel(R) Management Engine Components\DAL;C:\Program Files\Intel\Intel(R) Management Engine Components\DAL;C:\Program Files (x86)\Intel\Intel(R) Management Engine Components\IPT;C:\Program Files\Intel\Intel(R) Management Engine Components\IPT;C:\Program Files\nodejs\;C:\WINDOWS\System32\OpenSSH\;C:\Program Files\Intel\WiFi\bin\;C:\Program Files\Common Files\Intel\WirelessCommon\;C:\Program Files\Android\Android Studio\jre\bin;C:\Android\platform-tools;C:\Program Files\Git\cmd;C:\Users\수연\AppData\Local\Microsoft\WindowsApps;C:\Users\수연\AppData\Local\Programs\Python\Python36-32;C:\Users\수연\AppData\Local\atom\bin;C:\Users\수연\AppData\Local\Programs\Python\Python36-32\Scripts;C:\Program Files\Java\jdk-9\bin;C:\Users\수연\AppData\Local\Microsoft\WindowsApps;C:\Users\수연\AppData\Roaming\npm;C:\oracle\instanceclient\instantclient_11_2;C:\Program Files\Intel\WiFi\bin\;C:\Program Files\Common Files\Intel\WirelessCommon\;.] 
+2018:07:02 14:18:13.509 INFO  --- [localhost-startStop-1] o.a.c.c.C.[Tomcat].[localhost].[/] : Initializing Spring embedded WebApplicationContext 
+2018:07:02 14:18:13.510 INFO  --- [localhost-startStop-1] o.s.web.context.ContextLoader : Root WebApplicationContext: initialization completed in 2566 ms 
+2018:07:02 14:18:13.746 INFO  --- [localhost-startStop-1] o.s.b.w.s.ServletRegistrationBean : Servlet dispatcherServlet mapped to [/] 
+2018:07:02 14:18:13.753 INFO  --- [localhost-startStop-1] o.s.b.w.s.FilterRegistrationBean : Mapping filter: 'characterEncodingFilter' to: [/*] 
+2018:07:02 14:18:13.762 INFO  --- [localhost-startStop-1] o.s.b.w.s.FilterRegistrationBean : Mapping filter: 'hiddenHttpMethodFilter' to: [/*] 
+2018:07:02 14:18:13.762 INFO  --- [localhost-startStop-1] o.s.b.w.s.FilterRegistrationBean : Mapping filter: 'httpPutFormContentFilter' to: [/*] 
+2018:07:02 14:18:13.762 INFO  --- [localhost-startStop-1] o.s.b.w.s.FilterRegistrationBean : Mapping filter: 'requestContextFilter' to: [/*] 
+2018:07:02 14:18:14.002 INFO  --- [main] com.zaxxer.hikari.HikariDataSource : HikariPool-1 - Starting... 
+2018:07:02 14:18:14.790 INFO  --- [main] com.zaxxer.hikari.pool.PoolBase : HikariPool-1 - Driver does not support get/set network timeout for connections. (Method oracle/jdbc/driver/T4CConnection.getNetworkTimeout()I is abstract) 
+2018:07:02 14:18:14.801 INFO  --- [main] com.zaxxer.hikari.HikariDataSource : HikariPool-1 - Start completed. 
+2018:07:02 14:18:14.953 INFO  --- [main] o.s.o.j.LocalContainerEntityManagerFactoryBean : Building JPA container EntityManagerFactory for persistence unit 'default' 
+2018:07:02 14:18:15.000 INFO  --- [main] o.h.jpa.internal.util.LogHelper : HHH000204: Processing PersistenceUnitInfo [
+	name: default
+	...] 
+2018:07:02 14:18:15.186 INFO  --- [main] org.hibernate.Version : HHH000412: Hibernate Core {5.2.10.Final} 
+2018:07:02 14:18:15.189 INFO  --- [main] org.hibernate.cfg.Environment : HHH000206: hibernate.properties not found 
+2018:07:02 14:18:15.272 INFO  --- [main] o.h.annotations.common.Version : HCANN000001: Hibernate Commons Annotations {5.0.1.Final} 
+2018:07:02 14:18:15.556 INFO  --- [main] org.hibernate.dialect.Dialect : HHH000400: Using dialect: org.hibernate.dialect.Oracle12cDialect 
+2018:07:02 14:18:15.771 INFO  --- [main] o.hibernate.type.BasicTypeRegistry : HHH000270: Type registration [byte[]] overrides previous : org.hibernate.type.BinaryType@21390938 
+2018:07:02 14:18:15.772 INFO  --- [main] o.hibernate.type.BasicTypeRegistry : HHH000270: Type registration [[B] overrides previous : org.hibernate.type.BinaryType@21390938 
+2018:07:02 14:18:15.784 INFO  --- [main] o.hibernate.type.BasicTypeRegistry : HHH000270: Type registration [Byte[]] overrides previous : org.hibernate.type.WrapperBinaryType@13213f26 
+2018:07:02 14:18:15.785 INFO  --- [main] o.hibernate.type.BasicTypeRegistry : HHH000270: Type registration [[Ljava.lang.Byte;] overrides previous : org.hibernate.type.WrapperBinaryType@13213f26 
+2018:07:02 14:18:16.073 INFO  --- [main] o.s.o.j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default' 
+2018:07:02 14:18:16.859 INFO  --- [main] o.s.w.s.h.SimpleUrlHandlerMapping : Mapped URL path [/**/favicon.ico] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler] 
+2018:07:02 14:18:17.446 INFO  --- [main] o.s.w.s.m.m.a.RequestMappingHandlerAdapter : Looking for @ControllerAdvice: org.springframework.boot.web.servlet.context.AnnotationConfigServletWebServerApplicationContext@7d42c224: startup date [Mon Jul 02 14:18:10 KST 2018]; root of context hierarchy 
+2018:07:02 14:18:17.514 WARN  --- [main] o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration$JpaWebMvcConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning 
+2018:07:02 14:18:17.661 INFO  --- [main] o.s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/toma/admin/{a_id}],methods=[DELETE]}" onto public int shop.choi.admin.controller.AdminController.deleteProductQna(java.lang.String) 
+2018:07:02 14:18:17.665 INFO  --- [main] o.s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/toma/admin/],methods=[PUT]}" onto public int shop.choi.admin.controller.AdminController.updateAdmin(shop.choi.admin.model.Admin) 
+2018:07:02 14:18:17.676 INFO  --- [main] o.s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/toma/admin/login],methods=[POST]}" onto public shop.choi.admin.model.Admin shop.choi.admin.controller.AdminController.adminlogin(shop.choi.admin.model.Admin) 
+2018:07:02 14:18:17.677 INFO  --- [main] o.s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/toma/admin/],methods=[GET]}" onto public java.util.List shop.choi.admin.controller.AdminController.getAdminList() 
+2018:07:02 14:18:17.695 INFO  --- [main] o.s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/toma/admin/],methods=[POST]}" onto public int shop.choi.admin.controller.AdminController.deleteAdmin(shop.choi.admin.model.Admin) 
+2018:07:02 14:18:17.701 INFO  --- [main] o.s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/uploadMultipleFiles],methods=[POST]}" onto public java.util.List<shop.choi.fileupload.payload.UploadFileResponse> shop.choi.fileupload.FileController.uploadMultipleFiles(org.springframework.web.multipart.MultipartFile[]) 
+2018:07:02 14:18:17.702 INFO  --- [main] o.s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/uploadFile],methods=[POST]}" onto public shop.choi.fileupload.payload.UploadFileResponse shop.choi.fileupload.FileController.uploadFile(org.springframework.web.multipart.MultipartFile) 
+2018:07:02 14:18:17.703 INFO  --- [main] o.s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/downloadFile/{fileName:.+}],methods=[GET]}" onto public org.springframework.http.ResponseEntity<org.springframework.core.io.Resource> shop.choi.fileupload.FileController.downloadFile(java.lang.String,javax.servlet.http.HttpServletRequest) 
+2018:07:02 14:18:17.715 INFO  --- [main] o.s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/toma/login/],methods=[POST]}" onto public shop.kim.login.model.User shop.kim.login.LoginController.login(shop.kim.login.model.Login) 
+2018:07:02 14:18:17.719 INFO  --- [main] o.s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/toma/cart/{uid}],methods=[GET]}" onto java.util.ArrayList<shop.kim.order.model.Cart> shop.kim.order.CartController.carList(java.lang.String) 
+2018:07:02 14:18:17.720 INFO  --- [main] o.s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/toma/cart/{cno}],methods=[DELETE]}" onto int shop.kim.order.CartController.cartDelete(int) 
+2018:07:02 14:18:17.721 INFO  --- [main] o.s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/toma/cart/],methods=[PUT]}" onto int shop.kim.order.CartController.cartUpdate(shop.kim.order.model.Cart) 
+2018:07:02 14:18:17.722 INFO  --- [main] o.s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/toma/cart/],methods=[POST]}" onto int shop.kim.order.CartController.cartInsert(shop.kim.order.model.Cart) 
+2018:07:02 14:18:17.723 INFO  --- [main] o.s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/toma/cart/goOrderWrite],methods=[PUT]}" onto java.util.ArrayList<shop.kim.order.model.Cart> shop.kim.order.CartController.orderWriteList(int[]) 
+2018:07:02 14:18:17.727 INFO  --- [main] o.s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/toma/order/],methods=[PUT]}" onto public int shop.kim.order.OrderController.updateOrder(shop.kim.order.model.Order) 
+2018:07:02 14:18:17.729 INFO  --- [main] o.s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/toma/order/insert/order],methods=[POST]}" onto int shop.kim.order.OrderController.orderInsertOrder(shop.kim.order.model.Order) 
+2018:07:02 14:18:17.740 INFO  --- [main] o.s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/toma/order/],methods=[GET]}" onto java.util.ArrayList<shop.kim.order.model.Order> shop.kim.order.OrderController.getAllorderList() 
+2018:07:02 14:18:17.742 INFO  --- [main] o.s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/toma/order/insert/detail],methods=[POST]}" onto void shop.kim.order.OrderController.orderInsertDetail(java.util.ArrayList<shop.kim.order.model.Order_Detail>) 
+2018:07:02 14:18:17.743 INFO  --- [main] o.s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/toma/order/orderdetail/{ono}],methods=[GET]}" onto java.util.ArrayList<shop.kim.order.model.Order_Detail> shop.kim.order.OrderController.orderDetailList(int) 
+2018:07:02 14:18:17.744 INFO  --- [main] o.s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/toma/order/{uid}],methods=[GET]}" onto java.util.ArrayList<shop.kim.order.model.Order> shop.kim.order.OrderController.orderList(java.lang.String) 
+2018:07:02 14:18:17.745 INFO  --- [main] o.s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/toma/order/cancle],methods=[PUT]}" onto public int shop.kim.order.OrderController.cancleOrder(int) 
+2018:07:02 14:18:17.748 INFO  --- [main] o.s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/toma/admin/kdh/orderList],methods=[GET]}" onto public java.util.Map shop.kim.webSquare.kimWebsquareController.getOrder() 
+2018:07:02 14:18:17.749 INFO  --- [main] o.s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/toma/admin/kdh/userList],methods=[GET]}" onto public java.util.Map shop.kim.webSquare.kimWebsquareController.getUser() 
+2018:07:02 14:18:17.750 INFO  --- [main] o.s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/toma/admin/kdh/removeOrder],methods=[DELETE]}" onto public void shop.kim.webSquare.kimWebsquareController.removeOrder(java.util.Map) 
+2018:07:02 14:18:17.750 INFO  --- [main] o.s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/toma/admin/kdh/updateOrder],methods=[PUT]}" onto public void shop.kim.webSquare.kimWebsquareController.updateOrder(java.util.Map) 
+2018:07:02 14:18:17.751 INFO  --- [main] o.s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/toma/admin/kdh/webLogin],methods=[POST]}" onto public java.util.Map shop.kim.webSquare.kimWebsquareController.webAdLogin(java.util.Map) 
+2018:07:02 14:18:17.752 INFO  --- [main] o.s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/toma/join/],methods=[POST]}" onto public int shop.lee.join.JoinController.NewUser(shop.kim.login.model.User) 
+2018:07:02 14:18:17.755 INFO  --- [main] o.s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/toma/user/Update],methods=[PUT]}" onto public org.springframework.http.ResponseEntity<shop.kim.login.model.User> shop.lee.user.UserController.updateUser(shop.kim.login.model.User) 
+2018:07:02 14:18:17.756 INFO  --- [main] o.s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/toma/user/findPW/],methods=[POST]}" onto public shop.kim.login.model.User shop.lee.user.UserController.FindUserPW(shop.kim.login.model.User) 
+2018:07:02 14:18:17.756 INFO  --- [main] o.s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/toma/user/findID/],methods=[POST]}" onto public shop.kim.login.model.User shop.lee.user.UserController.FindUserID(shop.kim.login.model.User) 
+2018:07:02 14:18:17.777 INFO  --- [main] o.s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/toma/notice/search/{n_title}],methods=[GET]}" onto public java.util.List<shop.park.model.Notice> shop.park.MainController.getByNoticeTitleSearch(java.lang.String) 
+2018:07:02 14:18:17.778 INFO  --- [main] o.s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/toma/notice/{n_category}],methods=[GET]}" onto public java.util.List<shop.park.model.Notice> shop.park.MainController.getByNoticeCategory(java.lang.String) 
+2018:07:02 14:18:17.787 INFO  --- [main] o.s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/toma/detail/notice/{n_no}],methods=[PUT]}" onto public org.springframework.http.ResponseEntity<?> shop.park.MainController.incrementNoticeHits(long,shop.park.model.Notice) 
+2018:07:02 14:18:17.788 INFO  --- [main] o.s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/toma/qna/search/{q_title}],methods=[GET]}" onto public java.util.List<shop.park.model.Qna> shop.park.MainController.getByQnaTitleSearch(java.lang.String) 
+2018:07:02 14:18:17.789 INFO  --- [main] o.s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/toma/faq/search/{f_title}],methods=[GET]}" onto public java.util.List<shop.park.model.Faq> shop.park.MainController.getByFaqTitleSearch(java.lang.String) 
+2018:07:02 14:18:17.790 INFO  --- [main] o.s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/toma/notice.do],methods=[POST]}" onto public java.util.Map shop.park.MainController.websquareGetAllNotice() 
+2018:07:02 14:18:17.792 INFO  --- [main] o.s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/toma/notice/saveAndSelectMember.do],methods=[POST]}" onto public java.util.Map shop.park.MainController.saveAndSelectMember(java.util.Map) throws java.lang.Exception 
+2018:07:02 14:18:17.793 INFO  --- [main] o.s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/toma/product/{p_code}],methods=[DELETE]}" onto public org.springframework.http.ResponseEntity<?> shop.park.MainController.deleteProduct(java.lang.String) 
+2018:07:02 14:18:17.794 INFO  --- [main] o.s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/toma/detail/faq/{f_no}],methods=[PUT]}" onto public org.springframework.http.ResponseEntity<?> shop.park.MainController.incrementFaqHits(long,shop.park.model.Faq) 
+2018:07:02 14:18:17.795 INFO  --- [main] o.s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/toma/product/{p_code}],methods=[PUT]}" onto public org.springframework.http.ResponseEntity<?> shop.park.MainController.updateProduct(java.lang.String,shop.park.model.Products) 
+2018:07:02 14:18:17.796 INFO  --- [main] o.s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/toma],methods=[GET]}" onto public java.util.List<shop.park.model.Products> shop.park.MainController.listAllProducts() 
+2018:07:02 14:18:17.797 INFO  --- [main] o.s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/toma/product],methods=[POST]}" onto public org.springframework.http.ResponseEntity<?> shop.park.MainController.insertProduct(shop.park.model.Products,org.springframework.web.util.UriComponentsBuilder) 
+2018:07:02 14:18:17.798 INFO  --- [main] o.s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/toma/faq],methods=[GET]}" onto public java.util.List<shop.park.model.Faq> shop.park.MainController.listAllFaq() 
+2018:07:02 14:18:17.799 INFO  --- [main] o.s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/toma/faq/{f_category}],methods=[GET]}" onto public java.util.List<shop.park.model.Faq> shop.park.MainController.getByFaqCategory(java.lang.String) 
+2018:07:02 14:18:17.800 INFO  --- [main] o.s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/toma/detail/product/{p_code}],methods=[GET]}" onto public shop.park.model.Products shop.park.MainController.getByProductsCode(java.lang.String) 
+2018:07:02 14:18:17.800 INFO  --- [main] o.s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/toma/notice],methods=[GET]}" onto public java.util.List<shop.park.model.Notice> shop.park.MainController.listAllNotices() 
+2018:07:02 14:18:17.801 INFO  --- [main] o.s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/toma/product/{p_kind}],methods=[GET]}" onto public java.util.List<shop.park.model.Products> shop.park.MainController.getByProductsKind(java.lang.String) 
+2018:07:02 14:18:17.801 INFO  --- [main] o.s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/toma/faq.do],methods=[POST]}" onto public java.util.Map shop.park.MainController.websquareGetAllFaq() 
+2018:07:02 14:18:17.802 INFO  --- [main] o.s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/toma/notice/update],methods=[PUT]}" onto public int shop.park.MainController.updateNotice(shop.park.model.Notice) 
+2018:07:02 14:18:17.803 INFO  --- [main] o.s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/toma/notice.update],methods=[PUT]}" onto public java.util.Map shop.park.MainController.updateNotice(java.util.Map) 
+2018:07:02 14:18:17.803 INFO  --- [main] o.s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/toma/qna/update/{q_no}],methods=[PUT]}" onto public org.springframework.http.ResponseEntity<?> shop.park.MainController.updateQna(long,shop.park.model.Qna) 
+2018:07:02 14:18:17.804 INFO  --- [main] o.s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/toma/admin/qna/list],methods=[GET]}" onto public java.util.List<shop.park.model.Qna> shop.park.MainController.adminGetlistAllQna() 
+2018:07:02 14:18:17.805 INFO  --- [main] o.s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/toma/faq.delete],methods=[DELETE]}" onto public java.util.Map shop.park.MainController.removeFaq(java.util.Map) 
+2018:07:02 14:18:17.805 INFO  --- [main] o.s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/toma/qna/{q_reply}],methods=[GET]}" onto public java.util.List<shop.park.model.Qna> shop.park.MainController.getByQnaReply(java.lang.String) 
+2018:07:02 14:18:17.806 INFO  --- [main] o.s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/toma/qna/write],methods=[POST]}" onto public org.springframework.http.ResponseEntity<?> shop.park.MainController.insertQna(shop.park.model.Qna,org.springframework.web.util.UriComponentsBuilder) 
+2018:07:02 14:18:17.806 INFO  --- [main] o.s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/toma/detail/qna/{q_no}],methods=[GET]}" onto public shop.park.model.Qna shop.park.MainController.getByQnaNo(long) 
+2018:07:02 14:18:17.807 INFO  --- [main] o.s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/toma/qna/{q_no}],methods=[DELETE]}" onto public org.springframework.http.ResponseEntity<?> shop.park.MainController.deleteQna(long) 
+2018:07:02 14:18:17.808 INFO  --- [main] o.s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/toma/notice.delete],methods=[DELETE]}" onto public java.util.Map shop.park.MainController.removeNotice(java.util.Map) 
+2018:07:02 14:18:17.808 INFO  --- [main] o.s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/toma/qna/list/{u_id}],methods=[GET]}" onto public java.util.List<shop.park.model.Qna> shop.park.MainController.listAllQna(java.lang.String) 
+2018:07:02 14:18:17.810 INFO  --- [main] o.s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/toma/notice/delete/{n_no}],methods=[DELETE]}" onto public int shop.park.MainController.DeleteNotice(long) 
+2018:07:02 14:18:17.810 INFO  --- [main] o.s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/toma/notice/create],methods=[POST]}" onto public int shop.park.MainController.createNotice(shop.park.model.Notice) 
+2018:07:02 14:18:17.811 INFO  --- [main] o.s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/toma/qna/reply],methods=[PUT]}" onto public int shop.park.MainController.updateQnaReply(shop.park.model.Qna) 
+2018:07:02 14:18:17.812 INFO  --- [main] o.s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/toma/qna.delete],methods=[DELETE]}" onto public java.util.Map shop.park.MainController.removeQna(java.util.Map) 
+2018:07:02 14:18:17.813 INFO  --- [main] o.s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/toma/faq/create],methods=[POST]}" onto public int shop.park.MainController.createFaq(shop.park.model.Faq) 
+2018:07:02 14:18:17.823 INFO  --- [main] o.s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/toma/faq/update],methods=[PUT]}" onto public int shop.park.MainController.updateFaq(shop.park.model.Faq) 
+2018:07:02 14:18:17.824 INFO  --- [main] o.s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/toma/faq/delete/{f_no}],methods=[DELETE]}" onto public int shop.park.MainController.deleteFaq(long) 
+2018:07:02 14:18:17.824 INFO  --- [main] o.s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/toma/qna.do],methods=[POST]}" onto public java.util.Map shop.park.MainController.websquareGetAllQna() 
+2018:07:02 14:18:17.830 INFO  --- [main] o.s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/toma/productqna/detail/{pq_no}],methods=[GET]}" onto public shop.son.productqna.model.ProductQna shop.son.productqna.controller.ProductQnaController.selectByProductQnaNo(int) throws shop.son.review.exception.ReviewNotFoundException 
+2018:07:02 14:18:17.831 INFO  --- [main] o.s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/toma/productqna/delete],methods=[POST]}" onto public int shop.son.productqna.controller.ProductQnaController.deleteProductQna(shop.son.productqna.model.ProductQna) 
+2018:07:02 14:18:17.831 INFO  --- [main] o.s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/toma/productqna/],methods=[GET]}" onto public java.util.List<shop.son.productqna.model.ProductQna> shop.son.productqna.controller.ProductQnaController.listAllProducts() 
+2018:07:02 14:18:17.832 INFO  --- [main] o.s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/toma/productqna/{p_code}],methods=[GET]}" onto public java.util.List<shop.son.productqna.model.ProductQna> shop.son.productqna.controller.ProductQnaController.listAllProductQna(java.lang.String) 
+2018:07:02 14:18:17.833 INFO  --- [main] o.s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/toma/productqna/write],methods=[POST]}" onto public org.springframework.http.ResponseEntity<?> shop.son.productqna.controller.ProductQnaController.insertProductQna(shop.son.productqna.model.ProductQna) 
+2018:07:02 14:18:17.834 INFO  --- [main] o.s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/toma/productqna/update],methods=[PUT]}" onto public int shop.son.productqna.controller.ProductQnaController.editProductQna(shop.son.productqna.model.ProductQna) 
+2018:07:02 14:18:17.834 INFO  --- [main] o.s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/toma/productqna/reply],methods=[PUT]}" onto public int shop.son.productqna.controller.ProductQnaController.replyProductQna(shop.son.productqna.model.ProductQna) 
+2018:07:02 14:18:17.835 INFO  --- [main] o.s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/toma/productqna/{pq_no}],methods=[PUT]}" onto public org.springframework.http.ResponseEntity<?> shop.son.productqna.controller.ProductQnaController.getByProductQnaNo(int,shop.son.productqna.model.ProductQna) 
+2018:07:02 14:18:17.837 INFO  --- [main] o.s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/toma/review/write],methods=[POST]}" onto public org.springframework.http.ResponseEntity<?> shop.son.review.controller.ReviewController.insertReview(shop.son.review.model.Review) 
+2018:07:02 14:18:17.838 INFO  --- [main] o.s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/toma/review/],methods=[GET]}" onto public java.util.List<shop.son.review.model.Review> shop.son.review.controller.ReviewController.getReviewList() 
+2018:07:02 14:18:17.838 INFO  --- [main] o.s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/toma/review/{rev_no}],methods=[PUT]}" onto public org.springframework.http.ResponseEntity<?> shop.son.review.controller.ReviewController.getByReviewNo(int,shop.son.review.model.Review) 
+2018:07:02 14:18:17.839 INFO  --- [main] o.s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/toma/review/detail/{rev_no}],methods=[GET]}" onto public shop.son.review.model.Review shop.son.review.controller.ReviewController.selectByReviewNo(int) throws shop.son.review.exception.ReviewNotFoundException 
+2018:07:02 14:18:17.839 INFO  --- [main] o.s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/toma/review/delete],methods=[POST]}" onto public int shop.son.review.controller.ReviewController.deleteReview(shop.son.review.model.Review) 
+2018:07:02 14:18:17.840 INFO  --- [main] o.s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/toma/review/update],methods=[POST]}" onto public int shop.son.review.controller.ReviewController.editReview(shop.son.review.model.Review) 
+2018:07:02 14:18:17.841 INFO  --- [main] o.s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/toma/review/{p_code}],methods=[GET]}" onto public java.util.List<shop.son.review.model.Review> shop.son.review.controller.ReviewController.listAllReviews(java.lang.String) throws shop.son.review.exception.ReviewNotFoundException 
+2018:07:02 14:18:17.843 INFO  --- [main] o.s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/error]}" onto public org.springframework.http.ResponseEntity<java.util.Map<java.lang.String, java.lang.Object>> org.springframework.boot.autoconfigure.web.servlet.error.BasicErrorController.error(javax.servlet.http.HttpServletRequest) 
+2018:07:02 14:18:17.844 INFO  --- [main] o.s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/error],produces=[text/html]}" onto public org.springframework.web.servlet.ModelAndView org.springframework.boot.autoconfigure.web.servlet.error.BasicErrorController.errorHtml(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse) 
+2018:07:02 14:18:17.876 INFO  --- [main] o.s.w.s.h.SimpleUrlHandlerMapping : Mapped URL path [/webjars/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler] 
+2018:07:02 14:18:17.877 INFO  --- [main] o.s.w.s.h.SimpleUrlHandlerMapping : Mapped URL path [/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler] 
+2018:07:02 14:18:17.939 INFO  --- [main] o.s.b.a.w.s.WelcomePageHandlerMapping : Adding welcome page: class path resource [static/index.html] 
+2018:07:02 14:18:18.279 INFO  --- [main] o.s.j.e.a.AnnotationMBeanExporter : Registering beans for JMX exposure on startup 
+2018:07:02 14:18:18.281 INFO  --- [main] o.s.j.e.a.AnnotationMBeanExporter : Bean with name 'dataSource' has been autodetected for JMX exposure 
+2018:07:02 14:18:18.292 INFO  --- [main] o.s.j.e.a.AnnotationMBeanExporter : Located MBean 'dataSource': registering with JMX server as MBean [com.zaxxer.hikari:name=dataSource,type=HikariDataSource] 
+2018:07:02 14:18:18.345 INFO  --- [main] o.s.b.w.e.tomcat.TomcatWebServer : Tomcat started on port(s): 8080 (http) with context path '' 
+2018:07:02 14:18:18.353 INFO  --- [main] shop.ShoppingMallApiApplication : Started ShoppingMallApiApplication in 8.089 seconds (JVM running for 10.057) 
+2018:07:02 14:18:28.696 INFO  --- [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/] : Initializing Spring FrameworkServlet 'dispatcherServlet' 
+2018:07:02 14:18:28.706 INFO  --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet : FrameworkServlet 'dispatcherServlet': initialization started 
+2018:07:02 14:18:28.738 INFO  --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet : FrameworkServlet 'dispatcherServlet': initialization completed in 32 ms 
+2018:07:02 14:18:28.943 INFO  --- [http-nio-8080-exec-2] shop.park.MainController : Get All Qna 
+2018:07:02 14:18:29.091 INFO  --- [http-nio-8080-exec-2] jdbc.resultsettable : 
+|-----|----------------------------------|-------------------------------------------------|-------------------|------------------------------|----------------------|
+|q_no |q_title                           |q_content                                        |u_id               |q_reply                       |q_date                |
+|-----|----------------------------------|-------------------------------------------------|-------------------|------------------------------|----------------------|
+|54   |test                              |test                                             |csc                |n                             |2018-07-02 00:00:00.0 |
+|53   |크로와상 내일까지 입고 될까요?                 |크로와상 내일까지 입고 될까요?                                |d500@naver.com     |네 내일 입고 됩니다                   |2018-06-28 00:00:00.0 |
+|52   |벨랑슈 아이스크림 주문 가능한가요?               |벨랑슈 아이스크림 주문 가능한가요?                              |csc                |네 가능 합니다 ^^                   |2018-06-28 00:00:00.0 |
+|51   |오늘 주문했는데 내일 꼭 받고싶은데 내일까지 배송이 될까요? |오늘 주문했는데 내일 꼭 받고싶은데 내일까지 배송이 될까요?                |csc                |네 배송 가능합니다 ^^                 |2018-06-28 00:00:00.0 |
+|50   |벨랑슈 아이스크림을 주문했는데 내일까지 도착할까요?      |벨랑슈 아이스크림을 주문했는데 내일까지 도착할까요?                     |abcd1234@naver.com |어려울것 같습니다 고객님 적어도 4일이 걸릴듯 합니다 |2018-06-28 00:00:00.0 |
+|49   |제가 벨랑슈 아이스크림을 구매했는데 내일까지 배송될까요?   |제가 벨랑슈 아이스크림을 구매했는데 내일까지 배송될까요? 아니면 더 지연될수도 있나요? |fghd@naver.com     |n                             |2018-06-28 00:00:00.0 |
+|48   |제가 방금 스프레드와 연어를 주문했는데 몇일뒤에 도착할까요? |제가 방금 스프레드와 연어를 주문했는데 몇일뒤에 도착할까요? 한 이틀?          |sfsf1234@naver.com |요즘 택배사 문제 때문에 최소 4일 걸릴것 같습니다  |2018-06-28 00:00:00.0 |
+|47   |내일까지 배송이 될까요?                     |주문을 했는데 최소 몇일 걸리나요 보통? 하루?                       |csc1234@naver.com  |n                             |2018-06-28 00:00:00.0 |
+|44   |질문하기 테스트 입니다.                     |문장을
+적어주세요
+자바개발자
+웹개발자
+spring                      |csc                |알겠습니다 문장을 적어 드릴께요             |2018-06-26 00:00:00.0 |
+|42   |test444                           |4444                                             |csc                |n                             |2018-06-25 00:00:00.0 |
+|41   |test333                           |3333                                             |csc                |n                             |2018-06-25 00:00:00.0 |
+|40   |test222                           |2222                                             |csc                |n                             |2018-06-25 00:00:00.0 |
+|39   |test11                            |1111                                             |csc                |n                             |2018-06-25 00:00:00.0 |
+|37   |testing1111                       |write testing1111                                |csc                |n                             |2018-06-25 00:00:00.0 |
+|36   |글쓰기 테스트                           |글쓰기 테스트용입니다.
+엔터도 들어갑니다.
+표시가 될까요?                 |csc                |네 표시 됩니다. ^^                  |2018-06-25 00:00:00.0 |
+|35   |안녕하세요 문의할게 있어서 올립니다               |안녕하세요 문의할게 있어서 올립니다                              |d500@naver.com     |네! 문의 하세요!                    |2018-06-20 00:00:00.0 |
+|34   |token삭제fddd                       |토큰을 삭제에에에에ㅔ
+dhfkdfhidslfssk                      |csc                |n                             |2018-06-18 00:00:00.0 |
+|33   |qnatest                           |qna
+test
+ㅅㄷㅅㄷㅅㄷ
+ㅅㄷㅅㄷㅅㄷㅇㄹㅇ                        |csc                |n                             |2018-06-15 00:00:00.0 |
+|31   |질문 테스트으으으                         |ㅇㅇㅇ
+ㅇㅇㅇ
+ㅇㅇㅇ
+ㅇㅇㅇㅇㅇㅇ
+ㅇㅇㅇ                           |csc                |네 잘되는듯 하네요                    |2018-06-26 00:00:00.0 |
+|27   |ghg                               |jgjg                                             |csc                |n                             |2018-06-14 00:00:00.0 |
+|1    |수정테스트                             |test                                             |csc                |n                             |2018-06-25 00:00:00.0 |
+|-----|----------------------------------|-------------------------------------------------|-------------------|------------------------------|----------------------|
+ 
+2018:07:02 14:18:34.527 INFO  --- [http-nio-8080-exec-4] jdbc.resultsettable : 
+|-----|----------------------------------|-------------------------------------------------|-------------------|------------------------------|----------------------|
+|q_no |q_title                           |q_content                                        |u_id               |q_reply                       |q_date                |
+|-----|----------------------------------|-------------------------------------------------|-------------------|------------------------------|----------------------|
+|53   |크로와상 내일까지 입고 될까요?                 |크로와상 내일까지 입고 될까요?                                |d500@naver.com     |네 내일 입고 됩니다                   |2018-06-28 00:00:00.0 |
+|52   |벨랑슈 아이스크림 주문 가능한가요?               |벨랑슈 아이스크림 주문 가능한가요?                              |csc                |네 가능 합니다 ^^                   |2018-06-28 00:00:00.0 |
+|51   |오늘 주문했는데 내일 꼭 받고싶은데 내일까지 배송이 될까요? |오늘 주문했는데 내일 꼭 받고싶은데 내일까지 배송이 될까요?                |csc                |네 배송 가능합니다 ^^                 |2018-06-28 00:00:00.0 |
+|50   |벨랑슈 아이스크림을 주문했는데 내일까지 도착할까요?      |벨랑슈 아이스크림을 주문했는데 내일까지 도착할까요?                     |abcd1234@naver.com |어려울것 같습니다 고객님 적어도 4일이 걸릴듯 합니다 |2018-06-28 00:00:00.0 |
+|49   |제가 벨랑슈 아이스크림을 구매했는데 내일까지 배송될까요?   |제가 벨랑슈 아이스크림을 구매했는데 내일까지 배송될까요? 아니면 더 지연될수도 있나요? |fghd@naver.com     |n                             |2018-06-28 00:00:00.0 |
+|48   |제가 방금 스프레드와 연어를 주문했는데 몇일뒤에 도착할까요? |제가 방금 스프레드와 연어를 주문했는데 몇일뒤에 도착할까요? 한 이틀?          |sfsf1234@naver.com |요즘 택배사 문제 때문에 최소 4일 걸릴것 같습니다  |2018-06-28 00:00:00.0 |
+|47   |내일까지 배송이 될까요?                     |주문을 했는데 최소 몇일 걸리나요 보통? 하루?                       |csc1234@naver.com  |n                             |2018-06-28 00:00:00.0 |
+|44   |질문하기 테스트 입니다.                     |문장을
+적어주세요
+자바개발자
+웹개발자
+spring                      |csc                |알겠습니다 문장을 적어 드릴께요             |2018-06-26 00:00:00.0 |
+|42   |test444                           |4444                                             |csc                |n                             |2018-06-25 00:00:00.0 |
+|41   |test333                           |3333                                             |csc                |n                             |2018-06-25 00:00:00.0 |
+|40   |test222                           |2222                                             |csc                |n                             |2018-06-25 00:00:00.0 |
+|39   |test11                            |1111                                             |csc                |n                             |2018-06-25 00:00:00.0 |
+|37   |testing1111                       |write testing1111                                |csc                |n                             |2018-06-25 00:00:00.0 |
+|36   |글쓰기 테스트                           |글쓰기 테스트용입니다.
+엔터도 들어갑니다.
+표시가 될까요?                 |csc                |네 표시 됩니다. ^^                  |2018-06-25 00:00:00.0 |
+|35   |안녕하세요 문의할게 있어서 올립니다               |안녕하세요 문의할게 있어서 올립니다                              |d500@naver.com     |네! 문의 하세요!                    |2018-06-20 00:00:00.0 |
+|34   |token삭제fddd                       |토큰을 삭제에에에에ㅔ
+dhfkdfhidslfssk                      |csc                |n                             |2018-06-18 00:00:00.0 |
+|33   |qnatest                           |qna
+test
+ㅅㄷㅅㄷㅅㄷ
+ㅅㄷㅅㄷㅅㄷㅇㄹㅇ                        |csc                |n                             |2018-06-15 00:00:00.0 |
+|31   |질문 테스트으으으                         |ㅇㅇㅇ
+ㅇㅇㅇ
+ㅇㅇㅇ
+ㅇㅇㅇㅇㅇㅇ
+ㅇㅇㅇ                           |csc                |네 잘되는듯 하네요                    |2018-06-26 00:00:00.0 |
+|27   |ghg                               |jgjg                                             |csc                |n                             |2018-06-14 00:00:00.0 |
+|1    |수정테스트                             |test                                             |csc                |n                             |2018-06-25 00:00:00.0 |
+|-----|----------------------------------|-------------------------------------------------|-------------------|------------------------------|----------------------|
+ 
+2018:07:02 14:20:07.347 INFO  --- [RMI TCP Connection(9)-127.0.0.1] o.s.b.a.SpringApplicationAdminMXBeanRegistrar$SpringApplicationAdmin : Application shutdown requested. 
+2018:07:02 14:20:07.362 INFO  --- [RMI TCP Connection(9)-127.0.0.1] o.s.b.w.s.c.AnnotationConfigServletWebServerApplicationContext : Closing org.springframework.boot.web.servlet.context.AnnotationConfigServletWebServerApplicationContext@7d42c224: startup date [Mon Jul 02 14:18:10 KST 2018]; root of context hierarchy 
+2018:07:02 14:20:07.368 INFO  --- [RMI TCP Connection(9)-127.0.0.1] o.s.j.e.a.AnnotationMBeanExporter : Unregistering JMX-exposed beans on shutdown 
+2018:07:02 14:20:07.370 INFO  --- [RMI TCP Connection(9)-127.0.0.1] o.s.j.e.a.AnnotationMBeanExporter : Unregistering JMX-exposed beans 
+2018:07:02 14:20:07.380 INFO  --- [RMI TCP Connection(9)-127.0.0.1] o.s.o.j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default' 
+2018:07:02 14:20:07.382 INFO  --- [RMI TCP Connection(9)-127.0.0.1] com.zaxxer.hikari.HikariDataSource : HikariPool-1 - Shutdown initiated... 
+2018:07:02 14:20:07.542 INFO  --- [RMI TCP Connection(9)-127.0.0.1] com.zaxxer.hikari.HikariDataSource : HikariPool-1 - Shutdown completed. 
+2018:07:02 14:33:50.463 INFO  --- [main] shop.ShoppingMallApiApplication : Starting ShoppingMallApiApplication on LAPTOP-H9GJICE1 with PID 8992 (C:\Users\수연\git\TopcreTeam\ShoppingMallAPI\target\classes started by Su-Yeon Bak in C:\Users\수연\git\TopcreTeam\ShoppingMallAPI) 
+2018:07:02 14:33:50.469 INFO  --- [main] shop.ShoppingMallApiApplication : No active profile set, falling back to default profiles: default 
+2018:07:02 14:33:50.532 INFO  --- [main] o.s.b.w.s.c.AnnotationConfigServletWebServerApplicationContext : Refreshing org.springframework.boot.web.servlet.context.AnnotationConfigServletWebServerApplicationContext@7d42c224: startup date [Mon Jul 02 14:33:50 KST 2018]; root of context hierarchy 
+2018:07:02 14:33:52.212 INFO  --- [main] o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$95e19d83] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying) 
+2018:07:02 14:33:52.693 INFO  --- [main] o.s.b.w.e.tomcat.TomcatWebServer : Tomcat initialized with port(s): 8080 (http) 
+2018:07:02 14:33:52.730 INFO  --- [main] o.a.catalina.core.StandardService : Starting service [Tomcat] 
+2018:07:02 14:33:52.731 INFO  --- [main] o.a.catalina.core.StandardEngine : Starting Servlet Engine: Apache Tomcat/8.5.31 
+2018:07:02 14:33:52.741 INFO  --- [localhost-startStop-1] o.a.c.core.AprLifecycleListener : The APR based Apache Tomcat Native library which allows optimal performance in production environments was not found on the java.library.path: [C:\Program Files\Java\jre-9\bin;C:\WINDOWS\Sun\Java\bin;C:\WINDOWS\system32;C:\WINDOWS;C:\Program Files (x86)\Intel\Intel(R) Management Engine Components\iCLS\;C:\Program Files\Intel\Intel(R) Management Engine Components\iCLS\;C:\ProgramData\Oracle\Java\javapath;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;C:\Program Files (x86)\ePapyrus\Papyrus 5;C:\Program Files (x86)\Intel\Intel(R) Management Engine Components\DAL;C:\Program Files\Intel\Intel(R) Management Engine Components\DAL;C:\Program Files (x86)\Intel\Intel(R) Management Engine Components\IPT;C:\Program Files\Intel\Intel(R) Management Engine Components\IPT;C:\Program Files\nodejs\;C:\WINDOWS\System32\OpenSSH\;C:\Program Files\Intel\WiFi\bin\;C:\Program Files\Common Files\Intel\WirelessCommon\;C:\Program Files\Android\Android Studio\jre\bin;C:\Android\platform-tools;C:\Program Files\Git\cmd;C:\Users\수연\AppData\Local\Microsoft\WindowsApps;C:\Users\수연\AppData\Local\Programs\Python\Python36-32;C:\Users\수연\AppData\Local\atom\bin;C:\Users\수연\AppData\Local\Programs\Python\Python36-32\Scripts;C:\Program Files\Java\jdk-9\bin;C:\Users\수연\AppData\Local\Microsoft\WindowsApps;C:\Users\수연\AppData\Roaming\npm;C:\oracle\instanceclient\instantclient_11_2;C:\Program Files\Intel\WiFi\bin\;C:\Program Files\Common Files\Intel\WirelessCommon\;.] 
+2018:07:02 14:33:52.979 INFO  --- [localhost-startStop-1] o.a.c.c.C.[Tomcat].[localhost].[/] : Initializing Spring embedded WebApplicationContext 
+2018:07:02 14:33:52.980 INFO  --- [localhost-startStop-1] o.s.web.context.ContextLoader : Root WebApplicationContext: initialization completed in 2448 ms 
+2018:07:02 14:33:53.208 INFO  --- [localhost-startStop-1] o.s.b.w.s.ServletRegistrationBean : Servlet dispatcherServlet mapped to [/] 
+2018:07:02 14:33:53.214 INFO  --- [localhost-startStop-1] o.s.b.w.s.FilterRegistrationBean : Mapping filter: 'characterEncodingFilter' to: [/*] 
+2018:07:02 14:33:53.228 INFO  --- [localhost-startStop-1] o.s.b.w.s.FilterRegistrationBean : Mapping filter: 'hiddenHttpMethodFilter' to: [/*] 
+2018:07:02 14:33:53.229 INFO  --- [localhost-startStop-1] o.s.b.w.s.FilterRegistrationBean : Mapping filter: 'httpPutFormContentFilter' to: [/*] 
+2018:07:02 14:33:53.229 INFO  --- [localhost-startStop-1] o.s.b.w.s.FilterRegistrationBean : Mapping filter: 'requestContextFilter' to: [/*] 
+2018:07:02 14:33:53.472 INFO  --- [main] com.zaxxer.hikari.HikariDataSource : HikariPool-1 - Starting... 
+2018:07:02 14:33:54.043 INFO  --- [main] com.zaxxer.hikari.pool.PoolBase : HikariPool-1 - Driver does not support get/set network timeout for connections. (Method oracle/jdbc/driver/T4CConnection.getNetworkTimeout()I is abstract) 
+2018:07:02 14:33:54.050 INFO  --- [main] com.zaxxer.hikari.HikariDataSource : HikariPool-1 - Start completed. 
+2018:07:02 14:33:54.141 INFO  --- [main] o.s.o.j.LocalContainerEntityManagerFactoryBean : Building JPA container EntityManagerFactory for persistence unit 'default' 
+2018:07:02 14:33:54.158 INFO  --- [main] o.h.jpa.internal.util.LogHelper : HHH000204: Processing PersistenceUnitInfo [
+	name: default
+	...] 
+2018:07:02 14:33:54.266 INFO  --- [main] org.hibernate.Version : HHH000412: Hibernate Core {5.2.10.Final} 
+2018:07:02 14:33:54.268 INFO  --- [main] org.hibernate.cfg.Environment : HHH000206: hibernate.properties not found 
+2018:07:02 14:33:54.334 INFO  --- [main] o.h.annotations.common.Version : HCANN000001: Hibernate Commons Annotations {5.0.1.Final} 
+2018:07:02 14:33:54.590 INFO  --- [main] org.hibernate.dialect.Dialect : HHH000400: Using dialect: org.hibernate.dialect.Oracle12cDialect 
+2018:07:02 14:33:54.766 INFO  --- [main] o.hibernate.type.BasicTypeRegistry : HHH000270: Type registration [byte[]] overrides previous : org.hibernate.type.BinaryType@21390938 
+2018:07:02 14:33:54.767 INFO  --- [main] o.hibernate.type.BasicTypeRegistry : HHH000270: Type registration [[B] overrides previous : org.hibernate.type.BinaryType@21390938 
+2018:07:02 14:33:54.768 INFO  --- [main] o.hibernate.type.BasicTypeRegistry : HHH000270: Type registration [Byte[]] overrides previous : org.hibernate.type.WrapperBinaryType@13213f26 
+2018:07:02 14:33:54.769 INFO  --- [main] o.hibernate.type.BasicTypeRegistry : HHH000270: Type registration [[Ljava.lang.Byte;] overrides previous : org.hibernate.type.WrapperBinaryType@13213f26 
+2018:07:02 14:33:55.072 INFO  --- [main] o.s.o.j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default' 
+2018:07:02 14:33:55.839 INFO  --- [main] o.s.w.s.h.SimpleUrlHandlerMapping : Mapped URL path [/**/favicon.ico] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler] 
+2018:07:02 14:33:56.363 INFO  --- [main] o.s.w.s.m.m.a.RequestMappingHandlerAdapter : Looking for @ControllerAdvice: org.springframework.boot.web.servlet.context.AnnotationConfigServletWebServerApplicationContext@7d42c224: startup date [Mon Jul 02 14:33:50 KST 2018]; root of context hierarchy 
+2018:07:02 14:33:56.473 WARN  --- [main] o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration$JpaWebMvcConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning 
+2018:07:02 14:33:56.575 INFO  --- [main] o.s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/toma/admin/],methods=[PUT]}" onto public int shop.choi.admin.controller.AdminController.updateAdmin(shop.choi.admin.model.Admin) 
+2018:07:02 14:33:56.589 INFO  --- [main] o.s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/toma/admin/{a_id}],methods=[DELETE]}" onto public int shop.choi.admin.controller.AdminController.deleteProductQna(java.lang.String) 
+2018:07:02 14:33:56.601 INFO  --- [main] o.s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/toma/admin/],methods=[POST]}" onto public int shop.choi.admin.controller.AdminController.deleteAdmin(shop.choi.admin.model.Admin) 
+2018:07:02 14:33:56.602 INFO  --- [main] o.s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/toma/admin/login],methods=[POST]}" onto public shop.choi.admin.model.Admin shop.choi.admin.controller.AdminController.adminlogin(shop.choi.admin.model.Admin) 
+2018:07:02 14:33:56.616 INFO  --- [main] o.s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/toma/admin/],methods=[GET]}" onto public java.util.List shop.choi.admin.controller.AdminController.getAdminList() 
+2018:07:02 14:33:56.620 INFO  --- [main] o.s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/uploadMultipleFiles],methods=[POST]}" onto public java.util.List<shop.choi.fileupload.payload.UploadFileResponse> shop.choi.fileupload.FileController.uploadMultipleFiles(org.springframework.web.multipart.MultipartFile[]) 
+2018:07:02 14:33:56.621 INFO  --- [main] o.s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/uploadFile],methods=[POST]}" onto public shop.choi.fileupload.payload.UploadFileResponse shop.choi.fileupload.FileController.uploadFile(org.springframework.web.multipart.MultipartFile) 
+2018:07:02 14:33:56.622 INFO  --- [main] o.s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/downloadFile/{fileName:.+}],methods=[GET]}" onto public org.springframework.http.ResponseEntity<org.springframework.core.io.Resource> shop.choi.fileupload.FileController.downloadFile(java.lang.String,javax.servlet.http.HttpServletRequest) 
+2018:07:02 14:33:56.633 INFO  --- [main] o.s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/toma/login/],methods=[POST]}" onto public shop.kim.login.model.User shop.kim.login.LoginController.login(shop.kim.login.model.Login) 
+2018:07:02 14:33:56.637 INFO  --- [main] o.s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/toma/cart/{uid}],methods=[GET]}" onto java.util.ArrayList<shop.kim.order.model.Cart> shop.kim.order.CartController.carList(java.lang.String) 
+2018:07:02 14:33:56.638 INFO  --- [main] o.s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/toma/cart/],methods=[PUT]}" onto int shop.kim.order.CartController.cartUpdate(shop.kim.order.model.Cart) 
+2018:07:02 14:33:56.638 INFO  --- [main] o.s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/toma/cart/],methods=[POST]}" onto int shop.kim.order.CartController.cartInsert(shop.kim.order.model.Cart) 
+2018:07:02 14:33:56.639 INFO  --- [main] o.s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/toma/cart/{cno}],methods=[DELETE]}" onto int shop.kim.order.CartController.cartDelete(int) 
+2018:07:02 14:33:56.640 INFO  --- [main] o.s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/toma/cart/goOrderWrite],methods=[PUT]}" onto java.util.ArrayList<shop.kim.order.model.Cart> shop.kim.order.CartController.orderWriteList(int[]) 
+2018:07:02 14:33:56.644 INFO  --- [main] o.s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/toma/order/],methods=[GET]}" onto java.util.ArrayList<shop.kim.order.model.Order> shop.kim.order.OrderController.getAllorderList() 
+2018:07:02 14:33:56.645 INFO  --- [main] o.s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/toma/order/],methods=[PUT]}" onto public int shop.kim.order.OrderController.updateOrder(shop.kim.order.model.Order) 
+2018:07:02 14:33:56.659 INFO  --- [main] o.s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/toma/order/cancle],methods=[PUT]}" onto public int shop.kim.order.OrderController.cancleOrder(int) 
+2018:07:02 14:33:56.661 INFO  --- [main] o.s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/toma/order/insert/order],methods=[POST]}" onto int shop.kim.order.OrderController.orderInsertOrder(shop.kim.order.model.Order) 
+2018:07:02 14:33:56.663 INFO  --- [main] o.s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/toma/order/{uid}],methods=[GET]}" onto java.util.ArrayList<shop.kim.order.model.Order> shop.kim.order.OrderController.orderList(java.lang.String) 
+2018:07:02 14:33:56.664 INFO  --- [main] o.s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/toma/order/orderdetail/{ono}],methods=[GET]}" onto java.util.ArrayList<shop.kim.order.model.Order_Detail> shop.kim.order.OrderController.orderDetailList(int) 
+2018:07:02 14:33:56.665 INFO  --- [main] o.s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/toma/order/insert/detail],methods=[POST]}" onto void shop.kim.order.OrderController.orderInsertDetail(java.util.ArrayList<shop.kim.order.model.Order_Detail>) 
+2018:07:02 14:33:56.668 INFO  --- [main] o.s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/toma/admin/kdh/orderList],methods=[GET]}" onto public java.util.Map shop.kim.webSquare.kimWebsquareController.getOrder() 
+2018:07:02 14:33:56.668 INFO  --- [main] o.s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/toma/admin/kdh/userList],methods=[GET]}" onto public java.util.Map shop.kim.webSquare.kimWebsquareController.getUser() 
+2018:07:02 14:33:56.669 INFO  --- [main] o.s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/toma/admin/kdh/updateOrder],methods=[PUT]}" onto public void shop.kim.webSquare.kimWebsquareController.updateOrder(java.util.Map) 
+2018:07:02 14:33:56.670 INFO  --- [main] o.s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/toma/admin/kdh/webLogin],methods=[POST]}" onto public java.util.Map shop.kim.webSquare.kimWebsquareController.webAdLogin(java.util.Map) 
+2018:07:02 14:33:56.670 INFO  --- [main] o.s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/toma/admin/kdh/removeOrder],methods=[DELETE]}" onto public void shop.kim.webSquare.kimWebsquareController.removeOrder(java.util.Map) 
+2018:07:02 14:33:56.671 INFO  --- [main] o.s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/toma/join/],methods=[POST]}" onto public int shop.lee.join.JoinController.NewUser(shop.kim.login.model.User) 
+2018:07:02 14:33:56.675 INFO  --- [main] o.s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/toma/user/Update],methods=[PUT]}" onto public org.springframework.http.ResponseEntity<shop.kim.login.model.User> shop.lee.user.UserController.updateUser(shop.kim.login.model.User) 
+2018:07:02 14:33:56.676 INFO  --- [main] o.s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/toma/user/findID/],methods=[POST]}" onto public shop.kim.login.model.User shop.lee.user.UserController.FindUserID(shop.kim.login.model.User) 
+2018:07:02 14:33:56.676 INFO  --- [main] o.s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/toma/user/findPW/],methods=[POST]}" onto public shop.kim.login.model.User shop.lee.user.UserController.FindUserPW(shop.kim.login.model.User) 
+2018:07:02 14:33:56.695 INFO  --- [main] o.s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/toma/notice],methods=[GET]}" onto public java.util.List<shop.park.model.Notice> shop.park.MainController.listAllNotices() 
+2018:07:02 14:33:56.696 INFO  --- [main] o.s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/toma],methods=[GET]}" onto public java.util.List<shop.park.model.Products> shop.park.MainController.listAllProducts() 
+2018:07:02 14:33:56.709 INFO  --- [main] o.s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/toma/product/{p_kind}],methods=[GET]}" onto public java.util.List<shop.park.model.Products> shop.park.MainController.getByProductsKind(java.lang.String) 
+2018:07:02 14:33:56.710 INFO  --- [main] o.s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/toma/faq],methods=[GET]}" onto public java.util.List<shop.park.model.Faq> shop.park.MainController.listAllFaq() 
+2018:07:02 14:33:56.710 INFO  --- [main] o.s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/toma/faq/{f_category}],methods=[GET]}" onto public java.util.List<shop.park.model.Faq> shop.park.MainController.getByFaqCategory(java.lang.String) 
+2018:07:02 14:33:56.711 INFO  --- [main] o.s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/toma/detail/product/{p_code}],methods=[GET]}" onto public shop.park.model.Products shop.park.MainController.getByProductsCode(java.lang.String) 
+2018:07:02 14:33:56.711 INFO  --- [main] o.s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/toma/product],methods=[POST]}" onto public org.springframework.http.ResponseEntity<?> shop.park.MainController.insertProduct(shop.park.model.Products,org.springframework.web.util.UriComponentsBuilder) 
+2018:07:02 14:33:56.712 INFO  --- [main] o.s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/toma/product/{p_code}],methods=[PUT]}" onto public org.springframework.http.ResponseEntity<?> shop.park.MainController.updateProduct(java.lang.String,shop.park.model.Products) 
+2018:07:02 14:33:56.713 INFO  --- [main] o.s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/toma/product/{p_code}],methods=[DELETE]}" onto public org.springframework.http.ResponseEntity<?> shop.park.MainController.deleteProduct(java.lang.String) 
+2018:07:02 14:33:56.715 INFO  --- [main] o.s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/toma/notice.delete],methods=[DELETE]}" onto public java.util.Map shop.park.MainController.removeNotice(java.util.Map) 
+2018:07:02 14:33:56.717 INFO  --- [main] o.s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/toma/qna/list/{u_id}],methods=[GET]}" onto public java.util.List<shop.park.model.Qna> shop.park.MainController.listAllQna(java.lang.String) 
+2018:07:02 14:33:56.718 INFO  --- [main] o.s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/toma/admin/qna/list],methods=[GET]}" onto public java.util.List<shop.park.model.Qna> shop.park.MainController.adminGetlistAllQna() 
+2018:07:02 14:33:56.719 INFO  --- [main] o.s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/toma/qna/{q_no}],methods=[DELETE]}" onto public org.springframework.http.ResponseEntity<?> shop.park.MainController.deleteQna(long) 
+2018:07:02 14:33:56.721 INFO  --- [main] o.s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/toma/faq.do],methods=[POST]}" onto public java.util.Map shop.park.MainController.websquareGetAllFaq() 
+2018:07:02 14:33:56.721 INFO  --- [main] o.s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/toma/detail/qna/{q_no}],methods=[GET]}" onto public shop.park.model.Qna shop.park.MainController.getByQnaNo(long) 
+2018:07:02 14:33:56.722 INFO  --- [main] o.s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/toma/qna/update/{q_no}],methods=[PUT]}" onto public org.springframework.http.ResponseEntity<?> shop.park.MainController.updateQna(long,shop.park.model.Qna) 
+2018:07:02 14:33:56.723 INFO  --- [main] o.s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/toma/qna/write],methods=[POST]}" onto public org.springframework.http.ResponseEntity<?> shop.park.MainController.insertQna(shop.park.model.Qna,org.springframework.web.util.UriComponentsBuilder) 
+2018:07:02 14:33:56.724 INFO  --- [main] o.s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/toma/qna/{q_reply}],methods=[GET]}" onto public java.util.List<shop.park.model.Qna> shop.park.MainController.getByQnaReply(java.lang.String) 
+2018:07:02 14:33:56.725 INFO  --- [main] o.s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/toma/notice/update],methods=[PUT]}" onto public int shop.park.MainController.updateNotice(shop.park.model.Notice) 
+2018:07:02 14:33:56.726 INFO  --- [main] o.s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/toma/notice.update],methods=[PUT]}" onto public java.util.Map shop.park.MainController.updateNotice(java.util.Map) 
+2018:07:02 14:33:56.727 INFO  --- [main] o.s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/toma/detail/faq/{f_no}],methods=[PUT]}" onto public org.springframework.http.ResponseEntity<?> shop.park.MainController.incrementFaqHits(long,shop.park.model.Faq) 
+2018:07:02 14:33:56.727 INFO  --- [main] o.s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/toma/faq.delete],methods=[DELETE]}" onto public java.util.Map shop.park.MainController.removeFaq(java.util.Map) 
+2018:07:02 14:33:56.728 INFO  --- [main] o.s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/toma/qna/reply],methods=[PUT]}" onto public int shop.park.MainController.updateQnaReply(shop.park.model.Qna) 
+2018:07:02 14:33:56.729 INFO  --- [main] o.s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/toma/qna.delete],methods=[DELETE]}" onto public java.util.Map shop.park.MainController.removeQna(java.util.Map) 
+2018:07:02 14:33:56.729 INFO  --- [main] o.s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/toma/faq/delete/{f_no}],methods=[DELETE]}" onto public int shop.park.MainController.deleteFaq(long) 
+2018:07:02 14:33:56.730 INFO  --- [main] o.s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/toma/faq/create],methods=[POST]}" onto public int shop.park.MainController.createFaq(shop.park.model.Faq) 
+2018:07:02 14:33:56.730 INFO  --- [main] o.s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/toma/faq/update],methods=[PUT]}" onto public int shop.park.MainController.updateFaq(shop.park.model.Faq) 
+2018:07:02 14:33:56.731 INFO  --- [main] o.s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/toma/notice/create],methods=[POST]}" onto public int shop.park.MainController.createNotice(shop.park.model.Notice) 
+2018:07:02 14:33:56.732 INFO  --- [main] o.s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/toma/qna.do],methods=[POST]}" onto public java.util.Map shop.park.MainController.websquareGetAllQna() 
+2018:07:02 14:33:56.733 INFO  --- [main] o.s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/toma/notice/delete/{n_no}],methods=[DELETE]}" onto public int shop.park.MainController.DeleteNotice(long) 
+2018:07:02 14:33:56.734 INFO  --- [main] o.s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/toma/detail/notice/{n_no}],methods=[PUT]}" onto public org.springframework.http.ResponseEntity<?> shop.park.MainController.incrementNoticeHits(long,shop.park.model.Notice) 
+2018:07:02 14:33:56.735 INFO  --- [main] o.s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/toma/notice/search/{n_title}],methods=[GET]}" onto public java.util.List<shop.park.model.Notice> shop.park.MainController.getByNoticeTitleSearch(java.lang.String) 
+2018:07:02 14:33:56.736 INFO  --- [main] o.s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/toma/notice/{n_category}],methods=[GET]}" onto public java.util.List<shop.park.model.Notice> shop.park.MainController.getByNoticeCategory(java.lang.String) 
+2018:07:02 14:33:56.737 INFO  --- [main] o.s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/toma/faq/search/{f_title}],methods=[GET]}" onto public java.util.List<shop.park.model.Faq> shop.park.MainController.getByFaqTitleSearch(java.lang.String) 
+2018:07:02 14:33:56.752 INFO  --- [main] o.s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/toma/notice/saveAndSelectMember.do],methods=[POST]}" onto public java.util.Map shop.park.MainController.saveAndSelectMember(java.util.Map) throws java.lang.Exception 
+2018:07:02 14:33:56.753 INFO  --- [main] o.s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/toma/notice.do],methods=[POST]}" onto public java.util.Map shop.park.MainController.websquareGetAllNotice() 
+2018:07:02 14:33:56.753 INFO  --- [main] o.s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/toma/qna/search/{q_title}],methods=[GET]}" onto public java.util.List<shop.park.model.Qna> shop.park.MainController.getByQnaTitleSearch(java.lang.String) 
+2018:07:02 14:33:56.761 INFO  --- [main] o.s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/toma/productqna/{pq_no}],methods=[PUT]}" onto public org.springframework.http.ResponseEntity<?> shop.son.productqna.controller.ProductQnaController.getByProductQnaNo(int,shop.son.productqna.model.ProductQna) 
+2018:07:02 14:33:56.762 INFO  --- [main] o.s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/toma/productqna/reply],methods=[PUT]}" onto public int shop.son.productqna.controller.ProductQnaController.replyProductQna(shop.son.productqna.model.ProductQna) 
+2018:07:02 14:33:56.762 INFO  --- [main] o.s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/toma/productqna/{p_code}],methods=[GET]}" onto public java.util.List<shop.son.productqna.model.ProductQna> shop.son.productqna.controller.ProductQnaController.listAllProductQna(java.lang.String) 
+2018:07:02 14:33:56.763 INFO  --- [main] o.s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/toma/productqna/write],methods=[POST]}" onto public org.springframework.http.ResponseEntity<?> shop.son.productqna.controller.ProductQnaController.insertProductQna(shop.son.productqna.model.ProductQna) 
+2018:07:02 14:33:56.763 INFO  --- [main] o.s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/toma/productqna/update],methods=[PUT]}" onto public int shop.son.productqna.controller.ProductQnaController.editProductQna(shop.son.productqna.model.ProductQna) 
+2018:07:02 14:33:56.763 INFO  --- [main] o.s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/toma/productqna/delete],methods=[POST]}" onto public int shop.son.productqna.controller.ProductQnaController.deleteProductQna(shop.son.productqna.model.ProductQna) 
+2018:07:02 14:33:56.764 INFO  --- [main] o.s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/toma/productqna/],methods=[GET]}" onto public java.util.List<shop.son.productqna.model.ProductQna> shop.son.productqna.controller.ProductQnaController.listAllProducts() 
+2018:07:02 14:33:56.765 INFO  --- [main] o.s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/toma/productqna/detail/{pq_no}],methods=[GET]}" onto public shop.son.productqna.model.ProductQna shop.son.productqna.controller.ProductQnaController.selectByProductQnaNo(int) throws shop.son.review.exception.ReviewNotFoundException 
+2018:07:02 14:33:56.768 INFO  --- [main] o.s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/toma/review/{p_code}],methods=[GET]}" onto public java.util.List<shop.son.review.model.Review> shop.son.review.controller.ReviewController.listAllReviews(java.lang.String) throws shop.son.review.exception.ReviewNotFoundException 
+2018:07:02 14:33:56.768 INFO  --- [main] o.s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/toma/review/detail/{rev_no}],methods=[GET]}" onto public shop.son.review.model.Review shop.son.review.controller.ReviewController.selectByReviewNo(int) throws shop.son.review.exception.ReviewNotFoundException 
+2018:07:02 14:33:56.769 INFO  --- [main] o.s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/toma/review/],methods=[GET]}" onto public java.util.List<shop.son.review.model.Review> shop.son.review.controller.ReviewController.getReviewList() 
+2018:07:02 14:33:56.770 INFO  --- [main] o.s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/toma/review/write],methods=[POST]}" onto public org.springframework.http.ResponseEntity<?> shop.son.review.controller.ReviewController.insertReview(shop.son.review.model.Review) 
+2018:07:02 14:33:56.770 INFO  --- [main] o.s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/toma/review/delete],methods=[POST]}" onto public int shop.son.review.controller.ReviewController.deleteReview(shop.son.review.model.Review) 
+2018:07:02 14:33:56.771 INFO  --- [main] o.s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/toma/review/{rev_no}],methods=[PUT]}" onto public org.springframework.http.ResponseEntity<?> shop.son.review.controller.ReviewController.getByReviewNo(int,shop.son.review.model.Review) 
+2018:07:02 14:33:56.771 INFO  --- [main] o.s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/toma/review/update],methods=[POST]}" onto public int shop.son.review.controller.ReviewController.editReview(shop.son.review.model.Review) 
+2018:07:02 14:33:56.774 INFO  --- [main] o.s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/error]}" onto public org.springframework.http.ResponseEntity<java.util.Map<java.lang.String, java.lang.Object>> org.springframework.boot.autoconfigure.web.servlet.error.BasicErrorController.error(javax.servlet.http.HttpServletRequest) 
+2018:07:02 14:33:56.775 INFO  --- [main] o.s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/error],produces=[text/html]}" onto public org.springframework.web.servlet.ModelAndView org.springframework.boot.autoconfigure.web.servlet.error.BasicErrorController.errorHtml(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse) 
+2018:07:02 14:33:56.808 INFO  --- [main] o.s.w.s.h.SimpleUrlHandlerMapping : Mapped URL path [/webjars/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler] 
+2018:07:02 14:33:56.808 INFO  --- [main] o.s.w.s.h.SimpleUrlHandlerMapping : Mapped URL path [/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler] 
+2018:07:02 14:33:56.873 INFO  --- [main] o.s.b.a.w.s.WelcomePageHandlerMapping : Adding welcome page: class path resource [static/index.html] 
+2018:07:02 14:33:57.207 INFO  --- [main] o.s.j.e.a.AnnotationMBeanExporter : Registering beans for JMX exposure on startup 
+2018:07:02 14:33:57.210 INFO  --- [main] o.s.j.e.a.AnnotationMBeanExporter : Bean with name 'dataSource' has been autodetected for JMX exposure 
+2018:07:02 14:33:57.220 INFO  --- [main] o.s.j.e.a.AnnotationMBeanExporter : Located MBean 'dataSource': registering with JMX server as MBean [com.zaxxer.hikari:name=dataSource,type=HikariDataSource] 
+2018:07:02 14:33:57.273 INFO  --- [main] o.s.b.w.e.tomcat.TomcatWebServer : Tomcat started on port(s): 8080 (http) with context path '' 
+2018:07:02 14:33:57.281 INFO  --- [main] shop.ShoppingMallApiApplication : Started ShoppingMallApiApplication in 7.388 seconds (JVM running for 8.71) 
+2018:07:02 14:34:03.608 INFO  --- [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/] : Initializing Spring FrameworkServlet 'dispatcherServlet' 
+2018:07:02 14:34:03.619 INFO  --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet : FrameworkServlet 'dispatcherServlet': initialization started 
+2018:07:02 14:34:03.643 INFO  --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet : FrameworkServlet 'dispatcherServlet': initialization completed in 24 ms 
+2018:07:02 14:34:03.800 INFO  --- [http-nio-8080-exec-2] shop.park.MainController : Get All Qna 
+2018:07:02 14:34:03.928 INFO  --- [http-nio-8080-exec-2] jdbc.resultsettable : 
+|-----|----------------------------------|-------------------------------------------------|-------------------|------------------------------|----------------------|
+|q_no |q_title                           |q_content                                        |u_id               |q_reply                       |q_date                |
+|-----|----------------------------------|-------------------------------------------------|-------------------|------------------------------|----------------------|
+|53   |크로와상 내일까지 입고 될까요?                 |크로와상 내일까지 입고 될까요?                                |d500@naver.com     |네 내일 입고 됩니다                   |2018-06-28 00:00:00.0 |
+|52   |벨랑슈 아이스크림 주문 가능한가요?               |벨랑슈 아이스크림 주문 가능한가요?                              |csc                |네 가능 합니다 ^^                   |2018-06-28 00:00:00.0 |
+|51   |오늘 주문했는데 내일 꼭 받고싶은데 내일까지 배송이 될까요? |오늘 주문했는데 내일 꼭 받고싶은데 내일까지 배송이 될까요?                |csc                |네 배송 가능합니다 ^^                 |2018-06-28 00:00:00.0 |
+|50   |벨랑슈 아이스크림을 주문했는데 내일까지 도착할까요?      |벨랑슈 아이스크림을 주문했는데 내일까지 도착할까요?                     |abcd1234@naver.com |어려울것 같습니다 고객님 적어도 4일이 걸릴듯 합니다 |2018-06-28 00:00:00.0 |
+|49   |제가 벨랑슈 아이스크림을 구매했는데 내일까지 배송될까요?   |제가 벨랑슈 아이스크림을 구매했는데 내일까지 배송될까요? 아니면 더 지연될수도 있나요? |fghd@naver.com     |n                             |2018-06-28 00:00:00.0 |
+|48   |제가 방금 스프레드와 연어를 주문했는데 몇일뒤에 도착할까요? |제가 방금 스프레드와 연어를 주문했는데 몇일뒤에 도착할까요? 한 이틀?          |sfsf1234@naver.com |요즘 택배사 문제 때문에 최소 4일 걸릴것 같습니다  |2018-06-28 00:00:00.0 |
+|47   |내일까지 배송이 될까요?                     |주문을 했는데 최소 몇일 걸리나요 보통? 하루?                       |csc1234@naver.com  |n                             |2018-06-28 00:00:00.0 |
+|44   |질문하기 테스트 입니다.                     |문장을
+적어주세요
+자바개발자
+웹개발자
+spring                      |csc                |알겠습니다 문장을 적어 드릴께요             |2018-06-26 00:00:00.0 |
+|42   |test444                           |4444                                             |csc                |n                             |2018-06-25 00:00:00.0 |
+|41   |test333                           |3333                                             |csc                |n                             |2018-06-25 00:00:00.0 |
+|40   |test222                           |2222                                             |csc                |n                             |2018-06-25 00:00:00.0 |
+|39   |test11                            |1111                                             |csc                |n                             |2018-06-25 00:00:00.0 |
+|37   |testing1111                       |write testing1111                                |csc                |n                             |2018-06-25 00:00:00.0 |
+|36   |글쓰기 테스트                           |글쓰기 테스트용입니다.
+엔터도 들어갑니다.
+표시가 될까요?                 |csc                |네 표시 됩니다. ^^                  |2018-06-25 00:00:00.0 |
+|35   |안녕하세요 문의할게 있어서 올립니다               |안녕하세요 문의할게 있어서 올립니다                              |d500@naver.com     |네! 문의 하세요!                    |2018-06-20 00:00:00.0 |
+|34   |token삭제fddd                       |토큰을 삭제에에에에ㅔ
+dhfkdfhidslfssk                      |csc                |n                             |2018-06-18 00:00:00.0 |
+|33   |qnatest                           |qna
+test
+ㅅㄷㅅㄷㅅㄷ
+ㅅㄷㅅㄷㅅㄷㅇㄹㅇ                        |csc                |n                             |2018-06-15 00:00:00.0 |
+|31   |질문 테스트으으으                         |ㅇㅇㅇ
+ㅇㅇㅇ
+ㅇㅇㅇ
+ㅇㅇㅇㅇㅇㅇ
+ㅇㅇㅇ                           |csc                |네 잘되는듯 하네요                    |2018-06-26 00:00:00.0 |
+|27   |ghg                               |jgjg                                             |csc                |n                             |2018-06-14 00:00:00.0 |
+|1    |수정테스트                             |test                                             |csc                |n                             |2018-06-25 00:00:00.0 |
+|-----|----------------------------------|-------------------------------------------------|-------------------|------------------------------|----------------------|
+ 
+2018:07:02 14:34:14.856 INFO  --- [http-nio-8080-exec-3] shop.park.MainController : Get All Faq 
+2018:07:02 14:34:14.888 INFO  --- [http-nio-8080-exec-3] jdbc.resultsettable : 
+|-----|-----------|------------------------|----------------------------------------------|------|-------|----------------------|
+|f_no |f_category |f_title                 |f_content                                     |a_id  |f_hits |f_date                |
+|-----|-----------|------------------------|----------------------------------------------|------|-------|----------------------|
+|3    |배송         |배송지 주소록 변경은 어떻게 하죠?     |로그인을 하신뒤  MyPage 로 가셔서 
+기본 주소 선택란을 변경 하시면 됩니다 |admin |1      |2018-06-28 00:00:00.0 |
+|1    |배송         |제가 해외에 사는데 해외배송도 해주시나요? |저희 토마토마는 해외배송은 해드리지 않습니다                      |admin |111    |2018-06-04 00:00:00.0 |
+|-----|-----------|------------------------|----------------------------------------------|------|-------|----------------------|
+ 
+2018:07:02 14:34:21.959 INFO  --- [http-nio-8080-exec-6] shop.park.MainController : Get All Notice 
+2018:07:02 14:34:21.991 INFO  --- [http-nio-8080-exec-6] jdbc.resultsettable : 
+|-----|-----------|-------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------|------|-------|----------------------|
+|n_no |n_category |n_title            |n_content                                                                                                                                                                 |a_id  |n_hits |n_date                |
+|-----|-----------|-------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------|------|-------|----------------------|
+|9    |상품         |크로와상 입고 관련 소식 입니다. |내일 중으로 크로와상이 입고 됩니다                                                                                                                                                       |admin |1      |2018-06-28 00:00:00.0 |
+|4    |배송         |배송 지연 관련 공지 입니다.   |이번에 저희 토마토마와 계약을 하고있던 
+택배사가 파업을 하는 바람에 배송이 지연되고 있습니다.
+ 예기치 못한 배송지연에 불편함을 드려 죄송합니다, 
+지금 다른 택배사에 연락하여 긴급 조치를 취하고 있으니 
+배송 예정될 택배들은 곧 예정대로 배달 될것이니 
+너그러운 마음으로 기다려 주시면 감사하겠습니다 |admin |10     |2018-06-27 18:10:21.0 |
+|3    |상품         |상품 입고 관련 공지 입니다.   |함흥비빔면,찰비빔면,열무비빔면,팔도비빔면 등이 7월 말에 입고 예정입니다
+많은 기대 바랍니다                                                                                                                       |admin |6      |2018-06-25 00:00:00.0 |
+|1    |공지         |6월 공지사항입니다         |비빔면이 곧 입고예정입니다 많은 기대 부탁드립니다 ^^                                                                                                                                            |admin |8      |2018-06-27 18:08:00.0 |
+|-----|-----------|-------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------|------|-------|----------------------|
+ 
+2018:07:02 14:37:55.139 INFO  --- [RMI TCP Connection(12)-127.0.0.1] o.s.b.a.SpringApplicationAdminMXBeanRegistrar$SpringApplicationAdmin : Application shutdown requested. 
+2018:07:02 14:37:55.151 INFO  --- [RMI TCP Connection(12)-127.0.0.1] o.s.b.w.s.c.AnnotationConfigServletWebServerApplicationContext : Closing org.springframework.boot.web.servlet.context.AnnotationConfigServletWebServerApplicationContext@7d42c224: startup date [Mon Jul 02 14:33:50 KST 2018]; root of context hierarchy 
+2018:07:02 14:37:55.168 INFO  --- [RMI TCP Connection(12)-127.0.0.1] o.s.j.e.a.AnnotationMBeanExporter : Unregistering JMX-exposed beans on shutdown 
+2018:07:02 14:37:55.170 INFO  --- [RMI TCP Connection(12)-127.0.0.1] o.s.j.e.a.AnnotationMBeanExporter : Unregistering JMX-exposed beans 
+2018:07:02 14:37:55.183 INFO  --- [RMI TCP Connection(12)-127.0.0.1] o.s.o.j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default' 
+2018:07:02 14:37:55.185 INFO  --- [RMI TCP Connection(12)-127.0.0.1] com.zaxxer.hikari.HikariDataSource : HikariPool-1 - Shutdown initiated... 
+2018:07:02 14:37:55.317 INFO  --- [RMI TCP Connection(12)-127.0.0.1] com.zaxxer.hikari.HikariDataSource : HikariPool-1 - Shutdown completed. 

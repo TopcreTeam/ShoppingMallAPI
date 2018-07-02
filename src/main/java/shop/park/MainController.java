@@ -384,6 +384,24 @@ public class MainController {
 
 		return faqObj;
 	}
+	
+	@DeleteMapping(value = "/faq.delete")
+	public Map removeFaq(@RequestBody Map faq) {
+		ArrayList faqList = (ArrayList) faq.get("faqList");
+		System.out.println(faqList);
+		Map faqMap;
+		for(int i = 0; i < faqList.size(); i++) {
+			faqMap = (Map)faqList.get(i);
+			if(faqMap.get("rowStatus").toString().equals("D")) {
+				faqService.deleteFaq((int)faqMap.get("f_no"));
+			}
+		}
+		
+		Map newListMap = new HashMap();
+		ArrayList newList = (ArrayList) faqService.selectAllFaq();
+		newListMap.put("faqList", newList);
+		return newListMap;
+	}
 
 	// Websquare용 qna controller
 	@PostMapping(value = "/qna.do")
@@ -395,6 +413,24 @@ public class MainController {
 		qnaObj.put("msg", "조회가 완료되었습니다.");
 
 		return qnaObj;
+	}
+	
+	@DeleteMapping(value = "/qna.delete")
+	public Map removeQna(@RequestBody Map qna) {
+		ArrayList qnaList = (ArrayList) qna.get("qnaList");
+		System.out.println(qnaList);
+		Map qnaMap;
+		for(int i = 0; i < qnaList.size(); i++) {
+			qnaMap = (Map)qnaList.get(i);
+			if(qnaMap.get("rowStatus").toString().equals("D")) {
+				qnaService.deleteQna((int)qnaMap.get("q_no"));
+			}
+		}
+		
+		Map newListMap = new HashMap();
+		ArrayList newList = (ArrayList) qnaService.adminSelectAllQna();
+		newListMap.put("qnaList", newList);
+		return newListMap;
 	}
 
 	// 관리자 페이지 용 ↓

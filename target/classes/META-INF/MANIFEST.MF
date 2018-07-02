@@ -1,5 +1,5 @@
 Manifest-Version: 1.0
-Built-By: 수연
+Built-By: Su-Yeon Bak
 Build-Jdk: 9
 Implementation-Title: ShoppingMallAPI
 Implementation-Version: 0.0.1-SNAPSHOT
