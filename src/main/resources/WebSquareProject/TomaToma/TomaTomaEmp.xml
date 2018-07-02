@@ -1,0 +1,172 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<html xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:ev="http://www.w3.org/2001/xml-events"
+    xmlns:w2="http://www.inswave.com/websquare" xmlns:xf="http://www.w3.org/2002/xforms">
+    <head>
+    	<w2:type>DEFAULT</w2:type>
+        <w2:buildDate/>
+        <xf:model>
+        	<xf:instance>
+        		<data xmlns="" />
+        	</xf:instance>
+        	<w2:dataCollection baseNode="map">
+        		<w2:dataList id="adminList">
+        			<w2:columnInfo>
+        				<w2:column id="a_id" name="직원아이디" dataType="text"></w2:column>
+        				<w2:column id="a_pw" name="패스워드" dataType="text"></w2:column>
+        				<w2:column id="a_name" name="이름" dataType="text"></w2:column>
+        				<w2:column id="a_position" name="직위" dataType="text"></w2:column>
+        				<w2:column id="a_job" name="직무" dataType="text"></w2:column>
+        				<w2:column id="a_email" name="이메일" dataType="text"></w2:column>
+        				<w2:column id="a_phone" name="연락처" dataType="text"></w2:column>
+        			</w2:columnInfo>
+        			<w2:data xmlns="">
+        				<w2:row>
+        					<a_id><![CDATA[admin]]></a_id>
+        					<a_pw><![CDATA[1234]]></a_pw>
+        					<a_name><![CDATA[임꺽정]]></a_name>
+        					<a_position><![CDATA[대리]]></a_position>
+        					<a_job><![CDATA[전무이사]]></a_job>
+        					<a_email><![CDATA[ccc134@gmail.com]]></a_email>
+        					<a_phone><![CDATA[01033335555]]></a_phone>
+        				</w2:row>
+        				<w2:row>
+        					<a_id><![CDATA[csc]]></a_id>
+        					<a_pw><![CDATA[1234]]></a_pw>
+        					<a_name><![CDATA[최형배]]></a_name>
+        					<a_position><![CDATA[차장]]></a_position>
+        					<a_job><![CDATA[개발]]></a_job>
+        					<a_email><![CDATA[csc1234@gmail.com]]></a_email>
+        					<a_phone><![CDATA[01051114444]]></a_phone>
+        				</w2:row>
+        			</w2:data>
+        		</w2:dataList>
+        	</w2:dataCollection>
+        	<w2:workflowCollection></w2:workflowCollection>
+        	<xf:submission id="getAdminList" ref="" target="data:json,adminList" action="http://localhost:8080/toma/admin/admin.do"
+        		method="post" mediatype="application/json" encoding="UTF-8" instance="" replace="" errorHandler="" customHandler=""
+        		mode="asynchronous" processMsg="통신중입니다" ev:submit="" ev:submitdone="" ev:submiterror="" abortTrigger="">
+        	</xf:submission>
+        	<xf:submission id="afterEdit" ref="data:json" target="data:json,adminList"
+        		action="http://localhost:8080/toma/admin/admin/saveAndSelectMember.do" method="post" mediatype="application/json"
+        		encoding="UTF-8" instance="" replace="" errorHandler="" customHandler="" mode="asynchronous" processMsg="수정중입니다" ev:submit=""
+        		ev:submitdone="" ev:submiterror="" abortTrigger="">
+        	</xf:submission>
+        </xf:model>
+        <script type="text/javascript" lazy="false"><![CDATA[
+        
+	scwin.onpageload = function() {
+		$w.executeSubmission("getAdminList");
+	};
+	
+	scwin.onpageunload = function() {
+		
+	};
+	
+	
+
+	scwin.selectBtn_onclick = function(e) {
+		$w.executeSubmission("getAdminList");		
+	};
+	
+	scwin.addRowBtn_onclick = function(e) {
+		adminList.insertRow();
+	};
+	
+	scwin.saveBtn_onclick = function(e) {
+		$w.executeSubmission("afterEdit");
+	};
+	
+	
+	scwin.adminGrid_oncellclick = function(row,col) {
+		if(col == 0){
+			var confirmDelete = confirm("정말 삭제 하시겠습니까?");
+			if(confirmDelete){
+				adminList.deleteRow(row);	
+				adminList.removeRow(row);
+			}else{
+				return false;
+			}
+		}
+	};
+	]]></script>
+    </head>
+    <body ev:onpageload="scwin.onpageload" ev:onpageunload="scwin.onpageunload">
+    	<xf:group id="" style="padding:20px;height: 500px;" class="">
+    		<xf:group id="" style="border:1px solid gray;overflow: hidden;paddint:10px 0px 0px 10px;height: 40px;" class="">
+    			<xf:trigger type="button" id="selectBtn" style="width: 80px;height: 23px;" ev:onclick="scwin.selectBtn_onclick">
+    				<xf:label><![CDATA[조회]]></xf:label>
+    			</xf:trigger>
+    			<xf:trigger id="addRowBtn" style="width: 80px;height: 23px;" type="button" ev:onclick="scwin.addRowBtn_onclick">
+    				<xf:label><![CDATA[추가]]></xf:label>
+    			</xf:trigger>
+    			<xf:trigger id="saveBtn" style="width: 80px;height: 23px;" type="button" ev:onclick="scwin.saveBtn_onclick">
+    				<xf:label><![CDATA[저장]]></xf:label>
+    			</xf:trigger>
+    		</xf:group>
+    		<xf:group id="" style="height: 450px;" class="">
+    			<w2:gridView dataList="data:adminList" summaryAuto="false" applyAllColumnStyle="false" scrollByColumn="false"
+    				defaultCellHeight="20" scrollByColumnAdaptive="false" id="adminGrid" style="position: relative;height: 450px;"
+    				ignoreCellClick="false" syncScroll="false" ignoreToggleOnDisabled="false" summaryOnlyAuto="false" useShiftKey="true" ev:oncellclick="scwin.adminGrid_oncellclick" ev:onafteredit="scwin.adminGrid_onafteredit">
+    				<w2:caption id="caption1" style="" value="this is a grid caption."></w2:caption>
+    				<w2:header id="header1" style="">
+    					<w2:row id="row1" style="">
+    						<w2:column blockSelect="false" id="column17" removeBorderStyle="false" footerDiv="false" style=""
+    							inputType="text" width="70" value="" displayMode="label">
+    						</w2:column>
+    						<w2:column blockSelect="false" id="column13" removeBorderStyle="false" footerDiv="false" inputType="text"
+    							width="70" value="직원아이디" displayMode="label">
+    						</w2:column>
+    						<w2:column blockSelect="false" id="column11" removeBorderStyle="false" footerDiv="false" inputType="text"
+    							width="70" value="패스워드" displayMode="label">
+    						</w2:column>
+    						<w2:column blockSelect="false" id="column9" removeBorderStyle="false" footerDiv="false" inputType="text"
+    							width="70" value="이름" displayMode="label">
+    						</w2:column>
+    						<w2:column blockSelect="false" id="column7" removeBorderStyle="false" footerDiv="false" inputType="text"
+    							width="70" value="직위" displayMode="label">
+    						</w2:column>
+    						<w2:column blockSelect="false" id="column5" removeBorderStyle="false" footerDiv="false" inputType="text"
+    							width="70" value="직무" displayMode="label">
+    						</w2:column>
+    						<w2:column blockSelect="false" id="column3" removeBorderStyle="false" footerDiv="false" inputType="text"
+    							width="177" value="이메일" displayMode="label">
+    						</w2:column>
+    						<w2:column blockSelect="false" id="column1" removeBorderStyle="false" footerDiv="false" width="163"
+    							inputType="text" value="연락처" displayMode="label">
+    						</w2:column>
+    					</w2:row>
+    				</w2:header>
+    				<w2:gBody id="gBody1" style="">
+    					<w2:row id="row2" style="">
+    						<w2:column blockSelect="false" id="deleteBtn" removeBorderStyle="false" footerDiv="false" style=""
+    							inputType="button" width="70" value="삭제" displayMode="label">
+    						</w2:column>
+    						<w2:column blockSelect="false" id="a_id" removeBorderStyle="false" footerDiv="false" inputType="text" width="70"
+    							displayMode="label" style="">
+    						</w2:column>
+    						<w2:column blockSelect="false" id="a_pw" removeBorderStyle="false" footerDiv="false" inputType="text" width="70"
+    							displayMode="label" style="">
+    						</w2:column>
+    						<w2:column blockSelect="false" id="a_name" removeBorderStyle="false" footerDiv="false" inputType="text"
+    							width="70" displayMode="label" style="">
+    						</w2:column>
+    						<w2:column blockSelect="false" id="a_position" removeBorderStyle="false" footerDiv="false" inputType="text"
+    							width="70" displayMode="label" style="">
+    						</w2:column>
+    						<w2:column blockSelect="false" id="a_job" removeBorderStyle="false" footerDiv="false" inputType="text"
+    							width="70" displayMode="label" style="">
+    						</w2:column>
+    						<w2:column blockSelect="false" id="a_email" removeBorderStyle="false" footerDiv="false" inputType="text"
+    							width="177" displayMode="label" style="">
+    						</w2:column>
+    						<w2:column blockSelect="false" id="a_phone" removeBorderStyle="false" footerDiv="false" width="163"
+    							inputType="text" displayMode="label" style="">
+    						</w2:column>
+    					</w2:row>
+    				</w2:gBody>
+    			</w2:gridView>
+    		</xf:group>
+    	</xf:group>
+    </body>
+</html>
