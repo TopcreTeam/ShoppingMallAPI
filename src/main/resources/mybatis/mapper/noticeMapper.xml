@@ -59,34 +59,27 @@
 	</insert>
 
 
+	<!-- INSERT ALL을 사용하면 SEQUENCE 문제가 생기므로 함수를 따로 만들어서 써야 함.
+	CREATE FUNCTION get_notice_seq RETURN NUMBER IS
+	BEGIN
+    	RETURN TM_NOTICE_SEQ.NEXTVAL;
+	END;
+	/ 
+	-->
 	<insert id="insertNoticeWqBatch" parameterType="Map">
-
-		INSERT INTO tm_notice(n_no, n_category, n_title, n_content, a_id, n_date, n_hits)
-
-		VALUES
-
-		<foreach item="param" collection="insert" index="idx" open="" separator="," close="">
-
+		<foreach item="param" collection="insert" index="idx" open="INSERT ALL " separator=" " close="SELECT * FROM DUAL">
+			INTO tm_notice(n_no, n_category, n_title, n_content, a_id, n_date, n_hits)
+			VALUES
 			(
-
-				TM_NOTICE_SEQ.NEXTVAL,
-
+				GET_NOTICE_SEQ,
 				#{param.n_category},
-
 				#{param.n_title},
-
 				#{param.n_content},
-
 				#{param.a_id},
-
 				#{param.n_date},
-
 				#{param.n_hits}
-
 			)
-
 		</foreach>
-
 	</insert>
 
 	<update id="updateNoticeWq" parameterType="Map">
@@ -102,31 +95,18 @@
 	</update>
 
 	<update id="updateNoticeWqBatch" parameterType="Map">
-
 		<foreach item="param" collection="update" open="" separator=";" close="">
-
-			update tm_notice set
-
+			UPDATE tm_notice SET
 				n_no=#{param.n_no},
-
 				n_category=#{param.n_category},
-
 				n_title=#{param.n_title},
-
 				n_content=#{param.n_content},
-
 				a_id=#{param.a_id},
-
 				n_date=#{param.n_date},
-
 				n_hits=#{param.n_hits},
-
 				n_date=#{param.n_date}
-
-			where n_no=#{param.n_no}
-
+			WHERE n_no=#{param.n_no}
 		</foreach>
-
 	</update>
 
 	<delete id="deleteNoticeWq" parameterType="Map">
@@ -135,15 +115,10 @@
 
 	
 	<delete id="deleteNoticeWqBatch" parameterType="Map">
-
 		DELETE FROM tm_notice WHERE n_no IN
-
 		<foreach item="param" collection="delete" open="(" separator="," close=")">
-
 			#{param.n_no}
-
 		</foreach>
-
 	</delete>
 	
 </mapper>

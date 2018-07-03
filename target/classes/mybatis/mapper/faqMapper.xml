@@ -56,34 +56,28 @@
 			TM_FAQ_SEQ.NEXTVAL,  #{f_category}, #{f_title}, #{f_content}, #{a_id}, default, 0)
 	</insert>
 	
+	
+	<!-- 
+	CREATE FUNCTION get_faq_seq RETURN NUMBER IS
+	BEGIN
+    	RETURN TM_FAQ_SEQ.NEXTVAL;
+	END;
+	/
+	 -->
 	<insert id="insertFaqWqBatch" parameterType="Map">
-
-		INSERT INTO tm_faq(f_no, f_category, f_title, f_content, a_id, f_date, f_hits)
-
-		VALUES
-
-		<foreach item="param" collection="insert" index="idx" open="" separator="," close="">
-
+		<foreach item="param" collection="insert" index="idx" open="INSERT ALL " separator=" " close="SELECT * FROM DUAL">
+			INTO tm_faq(f_no, f_category, f_title, f_content, a_id, f_date, f_hits)
+			VALUES
 			(
-
-				TM_FAQ_SEQ.NEXTVAL,
-
+				GET_FAQ_SEQ,
 				#{param.f_category},
-
 				#{param.f_title},
-
 				#{param.f_content},
-
 				#{param.a_id},
-
 				#{param.f_date},
-
 				#{param.f_hits}
-
 			)
-
 		</foreach>
-
 	</insert>
 	
 	<update id="updateFaqWq" parameterType="Map">
@@ -99,31 +93,18 @@
 	</update>
 	
 	<update id="updateFaqWqBatch" parameterType="Map">
-
 		<foreach item="param" collection="update" open="" separator=";" close="">
-
-			update tm_faq set
-
+			UPDATE tm_faq SET
 				f_no=#{param.f_no},
-
 				f_category=#{param.f_category},
-
 				f_title=#{param.f_title},
-
 				f_content=#{param.f_content},
-
 				a_id=#{param.a_id},
-
 				f_date=#{param.f_date},
-
 				f_hits=#{param.f_hits},
-
 				f_date=#{param.f_date}
-
-			where f_no=#{param.f_no}
-
+			WHERE f_no=#{param.f_no}
 		</foreach>
-
 	</update>
 	
 	<delete id="deleteFaqWq" parameterType="Map">
@@ -131,14 +112,9 @@
 	</delete>
 	
 	<delete id="deleteFaqWqBatch" parameterType="Map">
-
 		DELETE FROM tm_faq WHERE f_no IN
-
 		<foreach item="param" collection="delete" open="(" separator="," close=")">
-
 			#{param.f_no}
-
 		</foreach>
-
 	</delete>
 </mapper>

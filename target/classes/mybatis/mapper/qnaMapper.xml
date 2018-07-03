@@ -57,24 +57,25 @@
 		INSERT INTO tm_qna VALUES(TM_QNA_SEQ.NEXTVAL, #{q_title}, #{q_content}, #{u_id}, 'n', DEFAULT)
 	</insert>
 	
+	
+	<!-- 
+	CREATE FUNCTION get_qna_seq RETURN NUMBER IS
+	BEGIN
+    	RETURN TM_QNA_SEQ.NEXTVAL;
+	END;
+	/
+	 -->
 	<insert id="insertQnaWqBatch" parameterType="Map">
-		INSERT INTO tm_qna(q_no, q_title, q_content, u_id, q_reply, q_date)
-		VALUES
-		<foreach item="param" collection="insert" index="idx" open="" separator="," close="">
+		<foreach item="param" collection="insert" index="idx" open="INSERT ALL " separator=" " close="SELECT * FROM DUAL">
+			INTO tm_qna(q_no, q_title, q_content, u_id, q_reply, q_date)
+			VALUES
 			(
-
-				TM_QNA_SEQ.NEXTVAL,
-
+				GET_QNA_SEQ,
 				#{param.q_title},
-
 				#{param.q_content},
-
 				#{param.u_id},
-
 				#{param.q_reply},
-
 				#{param.q_date}
-
 			)
 		</foreach>
 	</insert>
@@ -92,23 +93,14 @@
 	
 	<update id="updateQnaWqBatch" parameterType="Map">
 		<foreach item="param" collection="update" open="" separator=";" close="">
-
-			update tm_qna set
-
+			UPDATE tm_qna SET
 				q_no=#{param.q_no},
-				
 				q_title=#{param.q_title}, 
-				
 				q_content=#{param.q_content},
-				
 				u_id=#{param.u_id},
-				
 				q_reply=#{param.q_reply}, 
-				
 				q_date=#{param.q_date} 
-
-			where q_no=#{param.q_no}
-
+			WHERE q_no=#{param.q_no}
 		</foreach>
 	</update>
 	
@@ -117,15 +109,10 @@
 	</delete>
 	
 	<delete id="deleteQnaWqBatch" parameterType="Map">
-	
 		DELETE FROM tm_qna WHERE q_no IN
-	
 		<foreach item="param" collection="delete" open="(" separator="," close=")">
-
 			#{param.q_no}
-
 		</foreach>
-			
 	</delete>
 	
 </mapper>
