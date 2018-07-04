@@ -1,11 +1,11 @@
 package shop.park.repository;
 
 import java.util.List;
+import java.util.Map;
 
 import org.apache.ibatis.annotations.Mapper;
 
 import shop.park.model.Faq;
-import shop.park.model.Notice;
 
 @Mapper
 public interface FaqMapper {
@@ -25,4 +25,17 @@ public interface FaqMapper {
 	public int deleteFaq(long f_no);
 	
 	public int updateFaq(Faq faq);
+	
+	// 웹스퀘어용
+	public int insertFaqWq(Map param);
+	
+	public int insertFaqWqBatch(Map param);
+	
+	public int updateFaqWq(Map param);
+	
+	public int updateFaqWqBatch(Map param);
+	
+	public int deleteFaqWq(Map param);
+	
+	public int deleteFaqWqBatch(Map param);
 }

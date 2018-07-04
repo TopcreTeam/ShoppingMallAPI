@@ -7,11 +7,8 @@ import org.springframework.boot.context.properties.EnableConfigurationProperties
 import shop.choi.fileupload.property.FileStorageProperties;
 
 @SpringBootApplication
-@EnableConfigurationProperties({
-    FileStorageProperties.class
-})
+@EnableConfigurationProperties({FileStorageProperties.class})
 public class ShoppingMallApiApplication {
-
 
 	public static void main(String[] args) {
 		SpringApplication.run(ShoppingMallApiApplication.class, args);

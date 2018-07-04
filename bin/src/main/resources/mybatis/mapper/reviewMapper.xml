@@ -39,7 +39,7 @@
 	</select>
 	
 	<update id="updateReviewHits" parameterType="int">
-		UPDATE tm_product_review SET rev_hits=#{rev_hits}
+		UPDATE tm_product_review SET rev_hits=#{rev_hits} WHERE rev_no=#{rev_no}
 	</update>
 	
 	

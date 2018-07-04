@@ -36,5 +36,91 @@ WHERE a_id=#{a_id}
 </delete>
 
 
+<!-- 웹스퀘어용  -->
+
+	<insert id="insertEmpWq" parameterType="Map">
+		INSERT INTO TM_ADMIN(a_id, a_pw, a_name, a_position, a_job, a_email, a_phone) 
+		VALUES(#{a_id} ,#{a_pw},#{a_name},#{a_position},#{a_job},#{a_email},#{a_phone})
+	</insert>
+
+	
+
+	<insert id="insertEmpWqBatch" parameterType="Map">
+		<foreach collection="insert" item="param"  index="idx" open="INSERT ALL " separator=" " close="SELECT * FROM DUAL">
+			INTO tm_admin(a_id, a_pw, a_name, a_position, a_job, a_email, a_phone)
+			VALUES
+			(
+
+				#{param.a_id},
+
+				#{param.a_pw},
+
+				#{param.a_name},
+
+				#{param.a_position},
+
+				#{param.a_job},
+
+				#{param.a_email},
+
+				#{param.a_phone}
+
+			)
+		</foreach>
+	</insert>
+
+	
+
+	<update id="updateEmpWq" parameterType="Map">
+		UPDATE TM_ADMIN SET a_name=#{a_name}, a_position=#{a_position}, a_job=#{a_job}, a_email=#{a_email}, a_phone=#{a_phone} 
+		WHERE a_id=#{a_id}
+	</update>
+
+	<update id="updateEmpWqBatch" parameterType="Map">
+
+		<foreach item="param" collection="update" open="" separator=";" close="">
+
+			update tm_admin set
+
+				a_name=#{param.a_name},
+
+				a_position=#{param.a_position},
+
+				a_job=#{param.a_job},
+
+				a_email=#{param.a_email},
+
+				a_phone=#{param.a_phone}
+
+			where a_id=#{param.a_id}
+
+		</foreach>
+
+	</update>
+
+	
+
+	
+
+	<delete id="deleteEmpWq" parameterType="Map">
+
+		DELETE FROM tm_admin WHERE a_id=#{a_id}
+
+	</delete>
+
+	
+
+	<delete id="deleteEmpWqBatch" parameterType="Map">
+
+		DELETE FROM tm_admin WHERE a_id IN
+
+		<foreach item="param" collection="delete" open="(" separator="," close=")">
+
+			#{param.a_id}
+
+		</foreach>
+
+	</delete>
+
 </mapper>
 

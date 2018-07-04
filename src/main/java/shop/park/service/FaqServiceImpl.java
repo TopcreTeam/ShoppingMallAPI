@@ -1,6 +1,8 @@
 package shop.park.service;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -87,6 +89,34 @@ public class FaqServiceImpl implements FaqService {
 	@Override
 	public int deleteFaq(long f_no) {
 		return faqMapper.deleteFaq(f_no);
+	}
+
+	@Override
+	public Map saveSpFaq(Map param) throws Exception {
+		Map resMap = new HashMap();
+		List arr = null;
+		int arrLen = 0;
+		int rsNum = 0;
+		
+		if(((List) param.get("insert")).size() > 0) {
+			resMap.put("I", faqMapper.insertFaqWqBatch(param));
+		}
+		
+		if(((List) param.get("delete")).size() > 0) {
+			resMap.put("D", faqMapper.deleteFaqWqBatch(param));
+		}
+		
+		arr = (List) param.get("update");
+		arrLen = arr.size();
+		
+		if(arrLen > 0) {
+			for(int i = 0; i < arrLen; i++) {
+				rsNum += faqMapper.updateFaqWq((Map) arr.get(i));
+			}
+			resMap.put("U", rsNum);
+		}
+		
+		return resMap;
 	}
 	
 }

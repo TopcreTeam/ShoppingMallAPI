@@ -1,9 +1,9 @@
 package shop.park.repository;
 
 import java.util.List;
+import java.util.Map;
 
 import org.apache.ibatis.annotations.Mapper;
-import org.apache.ibatis.annotations.Select;
 
 import shop.park.model.Qna;
 
@@ -27,4 +27,17 @@ public interface QnaMapper {
 	public int deleteQna(long q_no);
 	
 	public int updateQnaReply(Qna qna);
+	
+	// 웹스퀘어용
+	public int insertQnaWq(Map param);
+	
+	public int insertQnaWqBatch(Map param);
+	
+	public int updateQnaWq(Map param);
+	
+	public int updateQnaWqBatch(Map param);
+	
+	public int deleteQnaWq(Map param);
+	
+	public int deleteQnaWqBatch(Map param);
 }
