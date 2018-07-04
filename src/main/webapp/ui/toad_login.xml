@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<html xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:ev="http://www.w3.org/2001/xml-events"
+    xmlns:w2="http://www.inswave.com/websquare" xmlns:xf="http://www.w3.org/2002/xforms">
+    <head>
+    	<w2:type>DEFAULT</w2:type>
+    	<w2:buildDate />
+    	<xf:model>
+    		<xf:instance>
+    			<data xmlns="" />
+    		</xf:instance>
+    		<w2:dataCollection baseNode="map">
+    			<w2:dataMap baseNode="map" id="requestAdmin" ev:onmodelchange="scwin.requestAdmin_onmodelchange">
+    				<w2:keyInfo>
+    					<w2:key id="a_id" name="a_id" dataType="text"></w2:key>
+    					<w2:key id="a_pw" name="a_pw" dataType="text"></w2:key>
+    					<w2:key id="a_name" name="a_name" dataType="text"></w2:key>
+    					<w2:key id="a_position" name="a_position" dataType="text"></w2:key>
+    					<w2:key id="a_job" name="a_job" dataType="text"></w2:key>
+
+
+    					<w2:key id="a_email" name="a_email" dataType="text"></w2:key>
+    					<w2:key id="a_phone" name="a_phone" dataType="text"></w2:key>
+    				</w2:keyInfo>
+    				<w2:data use="false">
+    					<a_id></a_id>
+    					<a_pw></a_pw>
+    					<a_name></a_name>
+    					<a_position></a_position>
+    					<a_job></a_job>
+    					<a_email></a_email>
+    					<a_phone></a_phone>
+    				</w2:data>
+    			</w2:dataMap>
+    			<w2:dataMap baseNode="map" id="message">
+    				<w2:keyInfo>
+    					<w2:key id="cno" name="cno" dataType="text"></w2:key>
+    				</w2:keyInfo>
+    			</w2:dataMap>
+    		</w2:dataCollection>
+    		<w2:workflowCollection></w2:workflowCollection>
+    		<xf:submission id="adLogin" ref="data:json,requestAdmin" target='data:json,["requestAdmin","message"]' action="http://localhost:8080/toma/admin/kdh/webLogin" method="post" mediatype="application/json" encoding="UTF-8" instance=""
+    			replace="" errorHandler="" customHandler="" mode="asynchronous" processMsg="로그인 중 입니다." ev:submit="" ev:submitdone="scwin.adLogin_submitdone" ev:submiterror=""
+    			abortTrigger="">
+    		</xf:submission>
+    	</xf:model>
+    	<script type="text/javascript" lazy="false"><![CDATA[
+var a_id;
+var a_pw;
+	scwin.onpageload = function() {
+		
+	};
+	
+	scwin.onpageunload = function() {
+		
+	};
+	
+	
+	scwin.loginTrigger_onclick = function(e) {
+//		a_id=requestAdmin.get("a_id");
+//		alert(a_id);
+		$w.executeSubmission("adLogin");
+	};
+	
+	scwin.adLogin_submitdone = function(e) {
+//		alert(message.get("message"));
+		if(requestAdmin.get("a_name")!=""){
+			sessionStorage.setItem( "requestAdmin" , requestAdmin.getID() );
+			$w.url("toad_product.xml"); // bar.xml페이지로 이동하면서 requestAdmin 파라메터 전달
+		}else{
+			alert(message.get("cno"));
+		}
+	};	
+	scwin.check_onclick = function(e) {
+		alert(requestAdmin.get("a_id"));
+	};
+	]]></script>
+    	<style type="text/css"><![CDATA[ ]]></style>
+    </head>
+    <body ev:onpageload="scwin.onpageload" ev:onpageunload="scwin.onpageunload">
+    	<xf:group id="" style="width:461px;margin: 20px;padding: 20px;" class="">
+    		<xf:group id="" style="margin-bottom: 20px;" class="">
+    			<w2:textbox label="Toma_admin" id="" style="width: 150px;height: 23px;"></w2:textbox>
+    		</xf:group>
+    		<xf:group id="" style="margin-bottom: 20px;">
+    			<xf:group id="" style="height:23px;">
+    				<w2:textbox id="" style="width: 150px;height: 23px;float:left;" label="아이디"></w2:textbox>
+    				<xf:input id="" style="width: 144px;height: 21px;" adjustMaxLength="false" ref="data:requestAdmin.a_id"></xf:input>
+    			</xf:group>
+    			<xf:group id="" style="height:23px;">
+    				<w2:textbox id="" style="width: 150px;height: 23px;float:left;" label="비밀번호"></w2:textbox>
+    				<xf:secret id="" style="width: 144px;height: 21px;" ref="data:requestAdmin.a_pw"></xf:secret>
+    			</xf:group>
+    		</xf:group>
+    		<xf:trigger type="button" id="loginTrigger" style="width: 80px;height: 23px;" ev:onclick="scwin.loginTrigger_onclick">
+    			<xf:label><![CDATA[Login]]></xf:label>
+    		</xf:trigger>
+    	</xf:group>
+    	<xf:group id="" style="width: 200px;height: 200px;" class="">
+    		<w2:textbox label="" id="" style="width: 150px;height: 23px;" ref="data:requestAdmin.a_id"></w2:textbox>
+    		<w2:textbox label="" id="" style="width: 150px;height: 23px;" ref="data:requestAdmin.a_pw"></w2:textbox>
+    		<w2:textbox label="" id="" style="width: 150px;height: 23px;" ref="data:requestAdmin.a_name"></w2:textbox>
+    		<w2:textbox label="" id="" style="width: 150px;height: 23px;" ref="data:requestAdmin.a_position"></w2:textbox>
+    		<w2:textbox label="" id="" style="width: 150px;height: 23px;" ref="data:requestAdmin.a_job"></w2:textbox>
+    		<w2:textbox label="" id="" style="width: 150px;height: 23px;" ref="data:requestAdmin.a_email"></w2:textbox>
+    		<w2:textbox label="" id="" style="width: 150px;height: 23px;" ref="data:requestAdmin.a_phone"></w2:textbox>
+    	</xf:group>
+    </body>
+</html>

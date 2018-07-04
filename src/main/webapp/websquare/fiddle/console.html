@@ -1,0 +1,214 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html>
+<head>
+	<meta http-equiv="content-type" content="text/html; charset=UTF-8"/>
+	<title>WebSquare Remote Console</title>
+	<link rel="stylesheet" href="css/style.css">
+
+	<script type="text/javascript" src="js/jquery-1.5.1.min.js"></script>
+	<script type="text/javascript" src="js/user-agent.js"></script>
+
+	<script type='text/javascript'>
+		window.onload=doInit;
+		var paramObj;
+		var clientInfo = {};
+		var bLock = false;
+		var bPause = false;
+		var logID = "";
+
+		var ListDisp = false;
+		function doInit() {
+			getClientList();
+			fn_resize();
+		}
+
+		function hideClientList() {
+			var sClientList = document.getElementById("client_layer");
+			sClientList.className = "client_layer";
+		}
+
+		function getClientList() {
+			$.getJSON('logClientList.jsp', function(data) {
+				var sClientList = document.getElementById("client_layer");
+				sClientList.className = sClientList.className + " client_layer_on";
+				var sb = [];
+				sb.push("<span>WebSquare Remote Client <small><a href='javascript:hideClientList();'>[close]</a></small></span>");
+				sb.push("<ul>");
+				sb.push("<ol>");
+				for(var i = 0 ; i < data.length; i++) {
+					var agent = parseUserAgent(data[i].userAgent);
+//					alert( agent.full + "\n" + agent.version + "\n" + agent.fullName + "\n" + agent.os + "\n" + agent.name);
+					sb.push("<li title='" + agent.os + " - " + agent.name + "'><a href='javascript:;' onclick='javascript:setClient(\"" + data[i].clientID + "\",\"" + data[i].clientName + "\",\"" + data[i].remoteAddr + "\",\"" + data[i].userAgent + "\")'>" + data[i].clientName + "(" + data[i].clientID + ")</a><span>" +  agent.os + " / " + agent.name + " / " + data[i].remoteAddr+ "</span></li>");
+				}
+				sb.push("</ol>");
+				sb.push("</ul>");
+				sClientList.innerHTML = sb.join("");
+			});
+		}
+
+		function setClient(clientID, clientName, remoteAddr, userAgent) {
+			hideClientList();
+			clientInfo = {};
+			clientInfo.lastLogTime = 0;
+			clientInfo.clientID   = clientID;
+			clientInfo.clientName = clientName;
+			clientInfo.remoteAddr = remoteAddr;
+			clientInfo.userAgent  = userAgent;
+			var clientInfoDiv = document.getElementById("clientInfo");
+			var sb = [];
+			sb.push("<table>");
+			sb.push("<tr><td width='100px'>* Client Name</td><td>" + clientInfo.clientName + "</td></tr>");
+			sb.push("<tr><td>* Client ID</td><td>" + clientInfo.clientID + "</td></tr>");
+			sb.push("<tr><td>* IP</td><td>" + clientInfo.remoteAddr + "</td></tr>");
+			sb.push("<tr><td>* userAgent</td><td>" + clientInfo.userAgent + "</td></tr>");
+			sb.push("</table>");
+			
+			clientInfoDiv.innerHTML = sb.join("");
+			clear_log();
+			read_log();
+
+			ListDisp = true;
+			fn_resize();
+
+			var sclientInfo = document.getElementById("clientInfo");
+			sclientInfo.className = sclientInfo.className + " clientInfo_on";
+		}
+		
+		function clear_log() {
+			var logLayerDiv = document.getElementById("logLayer");
+			logLayerDiv.innerHTML = "";
+		}
+
+		function read_log() {
+			$.getJSON('logRetrieve.jsp?clientID=' + encodeURI(clientInfo.clientID) + "&lastLogTime=" + clientInfo.lastLogTime, function(data) {
+				clientInfo.lastLogTime = data.lastLogTime;
+				var logLayerDiv = document.getElementById("logLayer");
+				var sb = [];
+				for(var i = 0 ; i < data.logs.length; i++) {
+					sb.push(data.logs[i])
+					sb.push("<br>");
+				}
+				if( data.logs.length > 0 ) {
+					logLayerDiv.innerHTML = logLayerDiv.innerHTML + sb.join("");
+					if( !bLock ) {
+						logLayerDiv.scrollTop = logLayerDiv.scrollHeight;
+					}
+				}
+
+				if( !bPause ) {
+					logID = window.setTimeout("read_log();", 1000);
+				}
+			});
+		}
+
+		function pause_log() {
+			var pauseDiv = document.getElementById("pause_status");
+			if( bPause ) {
+				pauseDiv.style.background="url(img/auto_refresh.png) no-repeat"
+				bPause = false;
+				read_log();
+			} else {
+				pauseDiv.style.background="url(img/manual_refresh.png) no-repeat"
+				bPause = true;
+			}
+		}
+
+
+		function scrollLock( tag ) {
+			var scrollDiv = document.getElementById("scroll_status");
+			if ( bLock ) {
+				scrollDiv.style.background="url(img/scroll_release.png) no-repeat"
+				bLock = false;
+			} else {
+				scrollDiv.style.background="url(img/scroll_lock.png) no-repeat"
+				bLock = true;
+			}
+		}
+
+		window.onresize = function () { //리사이즈 이벤트를 체크
+			fn_resize();
+		}
+
+		function fn_resize() {
+			var BrowserWidth;
+			var BrowserHeight;
+
+			if (parseInt(navigator.appVersion)>3){
+				if(navigator.appName=="Netscape"){ //네스케이프, 사파리, 파이어폭스
+					BrowserWidth  = window.innerWidth;
+					BrowserHeight = window.innerHeight;
+				}
+				if(navigator.appName.indexOf("Microsoft")!=-1) { //인터넷 익스플로러
+					BrowserWidth  = document.documentElement.clientWidth;
+					BrowserHeight = document.documentElement.clientHeight + 1;
+				} else { //그외 브라우저
+					BrowserWidth  = document.documentElement.offsetWidth;
+					BrowserHeight = document.documentElement.offsetHeight;
+				}
+			}
+
+			document.getElementById("container").style.width = BrowserWidth - "40" + "px";
+			if (ListDisp == false) {
+				document.getElementById("container").style.height = BrowserHeight - "130" + "px";
+			} else {
+				document.getElementById("container").style.height = BrowserHeight - "220" + "px";
+			}
+		}
+
+	</script>
+	<style type="text/css">
+		html,body {
+			overflow : hidden;
+		}
+
+		td {
+			vertical-align : top;
+		}
+
+		::selection {
+			color: white;
+			background: #D33;
+			text-shadow: none;
+		}
+	</style>
+</head>
+<body>
+<div id="wrapper">
+<div id="header1">
+	<div id="logo1"></div>
+	<div id="gnb">
+
+		<ul class="link_group">
+			<li class="linkItem"><a id="clientList" title="Client List" href="javascript:;" onclick="javascript:getClientList();"></a></li>
+		</ul>
+
+		<ul class="link_group">
+			<li class="linkItem"><a id="read" title="Read" href="javascript:;" onclick="javascript:read_log()"></a></li>
+			<li class="linkItem"><a id="pause_resume" title="Pause/Resume" href="javascript:;" onclick="javascript:pause_log()"></a></li>
+		</ul>
+	
+		<ul class="link_group">
+			<li class="linkItem"><a id="clear" title="Clear" href="javascript:;" onclick="javascript:clear_log()"></a></li>
+			<li class="linkItem"><a id="scroll" title="Scroll" href="javascript:;" onclick="javascript:scrollLock()"></a></li>
+		</ul>
+	</div>
+	
+	<div id="status1">
+		<ul class="link_group">
+			<li class="linkItem"><div id="pause_status"></div></li>
+			<li class="linkItem"><div id="scroll_status"></div></li>
+		</ul>
+	</div>
+</div>
+<div id="container">
+	<div id="header_blank1"></div>
+	<div id="clientInfo"></div>
+	<div id="box1" class="box1">
+		<div id="logLayer"></div>
+	</div>
+</div>
+<div id="client_layer" class="client_layer"></div>
+</div>
+	
+</body>
+</html>

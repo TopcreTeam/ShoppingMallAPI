@@ -1,0 +1,190 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<html xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:ev="http://www.w3.org/2001/xml-events"
+    xmlns:w2="http://www.inswave.com/websquare" xmlns:xf="http://www.w3.org/2002/xforms">
+    <head>
+    	<w2:type>DEFAULT</w2:type>
+        <w2:buildDate/>
+        <xf:model>
+        	<xf:instance>
+        		<data xmlns="" />
+        	</xf:instance>
+        	<w2:dataCollection baseNode="map">
+
+        		<w2:dataList id="faqList" saveRemovedData="true">
+        			<w2:columnInfo>
+        				<w2:column id="f_no" name="f_no" dataType="number"></w2:column>
+        				<w2:column id="f_category" name="f_category" dataType="text"></w2:column>
+        				<w2:column id="f_title" name="f_title" dataType="text"></w2:column>
+        				<w2:column id="f_content" name="f_content" dataType="text"></w2:column>
+        				<w2:column id="a_id" name="a_id" dataType="text"></w2:column>
+        				<w2:column id="f_date" name="f_date" dataType="date"></w2:column>
+        				<w2:column id="f_hits" name="f_hits" dataType="number"></w2:column>
+        			</w2:columnInfo>
+        			<w2:data xmlns="">
+        				<w2:row>
+        					<f_no><![CDATA[3]]></f_no>
+        					<f_category><![CDATA[배송]]></f_category>
+        					<f_title><![CDATA[배송지 주소록 변경은 어떻게 하죠?]]></f_title>
+        					<f_content><![CDATA[로그인을 하신뒤  MyPage 로 가셔서 
+기본 주소 선택란을 변경 하시면 됩니다]]></f_content>
+        					<a_id><![CDATA[admin]]></a_id>
+        					<f_date><![CDATA[2018-06-27T15:00:00.000+0000]]></f_date>
+        					<f_hits><![CDATA[1]]></f_hits>
+        				</w2:row>
+        				<w2:row>
+        					<f_no><![CDATA[1]]></f_no>
+        					<f_category><![CDATA[배송]]></f_category>
+        					<f_title><![CDATA[제가 해외에 사는데 해외배송도 해주시나요?]]></f_title>
+        					<f_content><![CDATA[저희 토마토마는 해외배송은 해드리지 않습니다]]></f_content>
+        					<a_id><![CDATA[admin]]></a_id>
+        					<f_date><![CDATA[2018-06-03T15:00:00.000+0000]]></f_date>
+        					<f_hits><![CDATA[111]]></f_hits>
+        				</w2:row>
+        			</w2:data>
+        		</w2:dataList>
+        	</w2:dataCollection>
+        	<w2:workflowCollection></w2:workflowCollection>
+        	<xf:submission id="sub_faqSelect" ref="" target="data:json,faqList" action="http://localhost:8080/toma/faq.do" method="post"
+        		mediatype="application/json" encoding="UTF-8" instance="" replace="" errorHandler="" customHandler="" mode="asynchronous"
+        		processMsg="불러오는 중입니다." ev:submit="" ev:submitdone="" ev:submiterror="" abortTrigger="">
+        	</xf:submission>
+        	<xf:submission id="sub_faqRemove" ref="data:json,faqList" target="data:json,faqList"
+        		action="http://localhost:8080/toma/faq.delete" method="delete" mediatype="application/json" encoding="UTF-8" instance=""
+        		replace="" errorHandler="" customHandler="" mode="asynchronous" processMsg="삭제 중입니다." ev:submit="" ev:submitdone=""
+        		ev:submiterror="" abortTrigger="">
+        	</xf:submission>
+        	<xf:submission id="sub_faqInsertUpdate" ref="data:json,faqList" target="data:json,faqList"
+        		action="http://localhost:8080/toma/faq/saveAndSelectMember.do" method="post" mediatype="application/json" encoding="UTF-8"
+        		instance="" replace="" errorHandler="" customHandler="" mode="asynchronous" processMsg="처리 중입니다." ev:submit="" ev:submitdone=""
+        		ev:submiterror="" abortTrigger="">
+        	</xf:submission>
+        </xf:model>
+        <script type="text/javascript" lazy="false"><![CDATA[
+        
+	scwin.onpageload = function() {
+		
+	};
+	
+	scwin.onpageunload = function() {
+		
+	};
+	
+	
+	scwin.selectBtn_onclick = function(e) {
+		$w.executeSubmission( "sub_faqSelect" );
+	};
+	
+	scwin.removeBtn_onclick = function(e) {
+		focusRows = faqGridView.getAllFocusedRowIndex();
+		for(i=0; i < focusRows.length; i++){
+			faqList.deleteRow( focusRows[i] );
+		}
+		
+		if(focusRows.length == 0) {
+			alert("삭제하실 데이터를 선택(클릭)하여 주세요.");
+		} else {
+			alert("선택하신 데이터가 삭제되었습니다.");
+			$w.executeSubmission( "sub_faqRemove" );
+		}
+	};
+	
+	scwin.insertBtn_onclick = function(e) {
+		faqList.insertRow();
+	};
+	
+	scwin.updateBtn_onclick = function(e) {
+		alert("입력(수정) 시 날짜 형식은 yyyy-MM-dd입니다.\n날짜 형식이 다를 경우 데이터가 입력(수정)되지 않습니다.");
+		
+		$w.executeSubmission( "sub_faqInsertUpdate" );
+	};
+	
+	scwin.moveQna_onclick = function(e) {
+		$w.url( "Qna.xml" );
+	};
+	
+	scwin.moveNotice_onclick = function(e) {
+		$w.url( "Notice.xml" );
+	};
+	]]></script>
+    </head>
+    <body ev:onpageload="scwin.onpageload" ev:onpageunload="scwin.onpageunload">
+    	<xf:group id="" style="padding: 10px;">
+    		<w2:textbox id="" label="자주하는 질문 관리자 페이지" style="font-weight: bold;font-size: 30px;margin-bottom: 10px;overflow: hidden;;"></w2:textbox>
+    		
+    		
+    		<xf:group id="" style="margin-bottom: 10px;">
+    			<xf:trigger id="selectBtn" style="width: 80px;height: 23px;border: 2px solid black;margin-right: 5px;font-weight: bold;"
+    				type="button" ev:onclick="scwin.selectBtn_onclick">
+    				<xf:label><![CDATA[조회]]></xf:label>
+    			</xf:trigger>
+    			<xf:trigger id="insertBtn" style="width: 80px;height: 23px;border: 2px solid black;margin-right: 5px;font-weight: bold;"
+    				type="button" ev:onclick="scwin.insertBtn_onclick">
+    				<xf:label><![CDATA[추가]]></xf:label>
+    			</xf:trigger>
+    			<xf:trigger id="removeBtn" style="width: 80px;height: 23px;border: 2px solid black;margin-right: 5px;font-weight: bold;"
+    				type="button" ev:onclick="scwin.removeBtn_onclick">
+    				<xf:label><![CDATA[삭제]]></xf:label>
+    			</xf:trigger>
+    			<xf:trigger id="updateBtn" style="width: 80px;height: 23px;border: 2px solid black;margin-right: 5px;font-weight: bold;"
+    				type="button" ev:onclick="scwin.updateBtn_onclick">
+    				<xf:label><![CDATA[저장]]></xf:label>
+    			</xf:trigger>
+    		<xf:trigger type="button" id="moveNotice" style="font-weight: bold;font-size: 15px;border: 2px solid black;float: right;left:0px;top:0px;" ev:onclick="scwin.moveNotice_onclick">
+    			<xf:label><![CDATA[공지사항]]></xf:label>
+    		</xf:trigger><xf:trigger type="button" id="moveQna" style="font-weight: bold;font-size: 15px;border: 2px solid black;float: right;left:0px;top:0px;margin-right: 5px;" ev:onclick="scwin.moveQna_onclick">
+    			<xf:label><![CDATA[1:1 질문하기]]></xf:label>
+    		</xf:trigger></xf:group>
+    		<w2:gridView applyAllColumnStyle="false" dataList="data:faqList" defaultCellHeight="20" id="faqGridView" ignoreCellClick="false"
+    			ignoreToggleOnDisabled="false" scrollByColumn="false" scrollByColumnAdaptive="false"
+    			style="left:0px;top:0px;border: 2px solid black;height: 300px;" summaryAuto="false" summaryOnlyAuto="false" syncScroll="false"
+    			useShiftKey="true" sortable="true">
+    			<w2:caption id="caption1" style="" value="this is a grid caption."></w2:caption>
+    			<w2:header id="header1" style="">
+    				<w2:row id="row1" style="">
+    					<w2:column blockSelect="false" id="column11" removeBorderStyle="false" footerDiv="false" inputType="text" width="70"
+    						value="분류" displayMode="label" style="">
+    					</w2:column>
+    					<w2:column blockSelect="false" id="column9" removeBorderStyle="false" footerDiv="false" inputType="text" width="250"
+    						value="제목" displayMode="label" style="">
+    					</w2:column>
+    					<w2:column blockSelect="false" id="column7" removeBorderStyle="false" footerDiv="false" inputType="text" width="500"
+    						value="내용" displayMode="label" style="">
+    					</w2:column>
+    					<w2:column blockSelect="false" id="column5" removeBorderStyle="false" footerDiv="false" inputType="text" width="80"
+    						value="관리자 ID" displayMode="label" style="">
+    					</w2:column>
+    					<w2:column blockSelect="false" id="column3" removeBorderStyle="false" footerDiv="false" inputType="text" width="90"
+    						value="날짜" displayMode="label" style="">
+    					</w2:column>
+    					<w2:column blockSelect="false" id="column1" removeBorderStyle="false" footerDiv="false" width="70" inputType="text"
+    						value="조회수" displayMode="label" style="">
+    					</w2:column>
+    				</w2:row>
+    			</w2:header>
+    			<w2:gBody id="gBody1" style="">
+    				<w2:row id="row2" style="">
+    					<w2:column blockSelect="false" id="f_category" removeBorderStyle="false" footerDiv="false" inputType="text"
+    						width="70" displayMode="label">
+    					</w2:column>
+    					<w2:column blockSelect="false" id="f_title" removeBorderStyle="false" footerDiv="false" inputType="text" width="250"
+    						displayMode="label">
+    					</w2:column>
+    					<w2:column blockSelect="false" id="f_content" removeBorderStyle="false" footerDiv="false" inputType="text"
+    						width="500" displayMode="label">
+    					</w2:column>
+    					<w2:column blockSelect="false" id="a_id" removeBorderStyle="false" footerDiv="false" inputType="text" width="70"
+    						displayMode="label">
+    					</w2:column>
+    					<w2:column blockSelect="false" id="f_date" removeBorderStyle="false" footerDiv="false" inputType="calendar"
+    						width="90" displayMode="label" ioFormat="yyyyMMdd" displayFormat="yyyy-MM-dd" calendarValueType="yearMonthDate">
+    					</w2:column>
+    					<w2:column blockSelect="false" id="f_hits" removeBorderStyle="false" footerDiv="false" width="70" inputType="text"
+    						displayMode="label">
+    					</w2:column>
+    				</w2:row>
+    			</w2:gBody>
+    		</w2:gridView>
+    	</xf:group>
+    </body>
+</html>

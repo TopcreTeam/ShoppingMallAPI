@@ -1,0 +1,83 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<head>
+	<meta http-equiv="content-type" content="text/html; charset=UTF-8"/>
+	<title>WebSquare Lint</title>
+	<link rel="stylesheet" href="css/css_style.css">
+	<script type='text/javascript'>
+		try {
+			var domain = getParameter("domain");  
+			if(domain) {
+		        document.domain = domain;   
+		    }
+		} catch (e) {
+		    //console.log("exception:" + e.message);
+		}
+		var paramObj;
+		window.onload=doInit;
+		function doInit() {
+				if( parent ) {
+					var lintResult = parent.getLintResult();
+					if( !lintResult ) return;
+					var htmlTag = ["<table style='width:100%;border-collapse:collapse' cellpadding='0' cellspacing='0' border='1'><tr><td></td><td>line</td><td>col</td><td>title</td><td>description</td><td>browser</td></tr>"];
+					var messages = lintResult.messages;
+					for (var i=0, len=messages.length; i < len; i++){
+						htmlTag.push("<tr>");
+						htmlTag.push("<td><img src='img/" + messages[i].type + ".png'></td>");
+						htmlTag.push("<td>" + (messages[i].line || "") + "</td>");
+						htmlTag.push("<td>" + (messages[i].col || "" ) + "</td>");
+						htmlTag.push("<td>" + messages[i].rule.name + "</td>");
+						htmlTag.push("<td>" + messages[i].message + "</td>");
+						htmlTag.push("<td>" + messages[i].rule.browsers + "</td>");
+						htmlTag.push("</tr>");
+					}
+					htmlTag.push("</table>");
+					document.getElementById("contents").innerHTML = htmlTag.join("");
+				}
+		}
+
+		function trim(str) {
+			if( typeof str == "undefined" && str == null ) return "";
+	    var leftTrimRegExp =  new RegExp("^\\s\\s*");
+			var rightTrimRegExp = new RegExp("\\s\\s*$");
+	    str = str.replace(leftTrimRegExp, '').replace(rightTrimRegExp, '');
+	    return str;
+    }
+		
+		function getParameter(param) {
+		    var ret = "";
+		    try {
+		        if( !paramObj ) {
+		            paramObj = {};
+		            var srch = location.search.substring(1);
+		            var arrayOfSrch = srch.split("&");
+		            for (var i=0; i < arrayOfSrch.length; i++) {
+		                var tmpArray = arrayOfSrch[i].split("=");
+		                if ( tmpArray.length == 2 ) {
+		                    paramObj[trim(tmpArray[0])] = trim(tmpArray[1]);
+		                }
+		            }
+		        }
+		        ret = paramObj[param];
+		    } catch( e ) {
+		    	alert(e.message);
+		    }
+		    if( ret == null || typeof ret == 'undefined') {
+		        ret = '';
+		    }
+		    return decodeURI(ret);
+		}  	
+
+	</script>
+	<style type="text/css">
+		body {
+			background : #fff;
+		}
+	</style>
+</head>
+<body>
+
+<div id="contents">
+</div>
+	
+</body>
+</html>

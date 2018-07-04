@@ -1,0 +1,221 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<html xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:ev="http://www.w3.org/2001/xml-events"
+    xmlns:w2="http://www.inswave.com/websquare" xmlns:xf="http://www.w3.org/2002/xforms">
+    <head>
+    	<w2:type>DEFAULT</w2:type>
+        <w2:buildDate/>
+        <xf:model>
+        	<xf:instance>
+        		<data xmlns="" />
+        	</xf:instance>
+        	<w2:dataCollection baseNode="map">
+        		<w2:dataList id="pList" baseNode="list" saveRemovedData="true" repeatNode="map">
+        			<w2:columnInfo>
+        				<w2:column id="chk" name="chk" dataType="number"></w2:column>
+        				<w2:column id="p_code" name="p_code" dataType="text"></w2:column>
+        				<w2:column id="p_name" name="p_name" dataType="text"></w2:column>
+        				<w2:column id="p_count" name="p_count" dataType="number"></w2:column>
+        				<w2:column id="p_kind" name="p_kind" dataType="text"></w2:column>
+        				<w2:column id="p_price" name="p_price" dataType="number"></w2:column>
+        				<w2:column id="p_sellPrice" name="p_sellPrice" dataType="number"></w2:column>
+        				<w2:column id="p_profit" name="p_profit" dataType="number"></w2:column>
+        				<w2:column id="p_content" name="p_content" dataType="text"></w2:column>
+        				<w2:column id="p_img" name="p_img" dataType="text"></w2:column>
+        				<w2:column id="p_date" name="p_date" dataType="date"></w2:column>
+
+        			</w2:columnInfo>
+        		</w2:dataList>
+        	</w2:dataCollection>
+        	<w2:workflowCollection></w2:workflowCollection>
+        	<xf:submission id="productList" ref="" target="data:json,pList" action="http://localhost:8080/toma/admin/kdh/productList"
+        		method="get" mediatype="application/json" encoding="UTF-8" instance="" replace="" errorHandler="" customHandler=""
+        		mode="asynchronous" processMsg="" ev:submit="" ev:submitdone="" ev:submiterror="" abortTrigger="">
+        	</xf:submission>
+        	<xf:submission id="listUpdate" ref="data:json,pList" target="data:json,pList"
+        		action="http://localhost:8080/toma/admin/kdh/saveProduct" method="post" mediatype="application/json" encoding="UTF-8" instance=""
+        		replace="" errorHandler="" customHandler="" mode="asynchronous" processMsg="" ev:submit="" ev:submitdone="" ev:submiterror=""
+        		abortTrigger="">
+        	</xf:submission>
+        </xf:model>
+        <script type="text/javascript" lazy="false"><![CDATA[
+ imports("uiplugin.popup");
+	scwin.onpageload = function() {
+			if(sessionStorage.getItem( "requestAdmin" )){
+			console.log(sessionStorage.getItem( "requestAdmin"));
+			$w.executeSubmission( "productList" );
+			}else{
+				alert("로그인 후 이용하시오");
+				$w.url( "toad_login.xml" );
+			}
+	};
+				
+			
+
+	scwin.onpageunload = function() {
+
+	};
+	
+	
+	scwin.insertBtn_onclick = function(e) {
+		console.log("진입");
+		var popup={
+			id:"insertPopup",
+			type : "window",    
+		    width: "800px", 
+		    height: "800px", 
+		 
+		    top: "100px", 
+		    left: "200px", 
+		};
+		WebSquare.util.openPopup( "toad_product_Insert.xml" , popup);
+	};
+	
+	scwin.deleteBtn_onclick = function(e) {
+		var checkedArr = ui_gv.getCheckedIndex( "chk" );
+		for(var i =0;i<checkedArr.length;i++){
+			pList.deleteRow( checkedArr[i] );
+		}
+	};
+	
+	scwin.saveBtn_onclick = function(e) {
+		$w.executeSubmission("listUpdate");
+	};
+	]]></script>
+    </head>
+    <body ev:onpageload="scwin.onpageload" ev:onpageunload="scwin.onpageunload">
+    	<xf:group id="" style="margin: 20px;">
+    		<xf:group class="" id="" style="border: 2px solid grey;padding: 8px;overflow: hidden;margin-bottom: 20px;">
+    			<xf:group id="" style="float: left;margin-right: 10px;">
+    				<w2:span id="" label="분류" style=""></w2:span>
+    				<xf:select1 allOption="true" appearance="minimal" chooseOption="" direction="auto" disabled="false"
+    					disabledClass="w2selectbox_disabled" displayMode="label" id="ui_g1" optionOrder="false" ref="" style="width: 148px;height: 21px;"
+    					submenuSize="auto">
+    				</xf:select1>
+    			</xf:group>
+    			<xf:group id="" style="height:23px;float: left;">
+    				<w2:span id="" label="직급" style=""></w2:span>
+    				<xf:select1 allOption="true" appearance="minimal" chooseOption="" direction="auto" disabled="false"
+    					disabledClass="w2selectbox_disabled" displayMode="label" id="ui_p1" optionOrder="false" ref="" style="width: 148px;height: 21px;"
+    					submenuSize="auto">
+    				</xf:select1>
+    			</xf:group>
+    			<xf:trigger ev:onclick="edu.trigger1_onclick" id="trigger1" style="width: 80px;height: 23px;float: right;" type="button">
+    				<xf:label><![CDATA[조회]]></xf:label>
+    			</xf:trigger>
+    		</xf:group>
+    		<xf:group class="" id="" style="margin-bottom: 20px;">
+    			<xf:group id="" style="margin-bottom: 10px;">
+    				<xf:trigger ev:onclick="scwin.insertBtn_onclick" id="insertBtn" style="margin-right:5px;height: 23px;width: 80px;"
+    					type="button">
+    					<xf:label><![CDATA[insert]]></xf:label>
+    				</xf:trigger>
+    				<xf:trigger ev:onclick="scwin.deleteBtn_onclick" id="deleteBtn" style="margin-right:5px;height: 23px;width: 80px;"
+    					type="button">
+    					<xf:label><![CDATA[delete]]></xf:label>
+    				</xf:trigger>
+    				<xf:trigger id="saveBtn" style="width: 80px;height: 23px;" type="button" ev:onclick="scwin.saveBtn_onclick">
+    					<xf:label><![CDATA[저장]]></xf:label>
+    				</xf:trigger>
+    			</xf:group>
+    			<w2:gridView applyAllColumnStyle="false" autoFit="allColumn" columnMove="true" dataList="data:pList" defaultCellHeight="20"
+    				ev:oncellclick="edu.ui_gv_oncellclick" id="ui_gv" ignoreCellClick="false" ignoreToggleOnDisabled="false" preventMultisort="true"
+    				rowNumHeaderValue="No" rowNumVisible="true" rowStatusHeaderValue="상태" rowStatusVisible="true" scrollByColumn="false"
+    				scrollByColumnAdaptive="false" sortEvent="ondblclick" sortable="true" style="height: 200px" summaryAuto="false"
+    				summaryOnlyAuto="false" syncScroll="false" useShiftKey="true">
+    				<w2:caption id="caption6" style="" value="this is a grid caption."></w2:caption>
+    				<w2:header id="header6" style="">
+    					<w2:row id="row11" style="">
+    						<w2:column blockSelect="false" id="column160" removeBorderStyle="false" footerDiv="false" inputType="checkbox"
+    							width="30" value="chk" displayMode="label">
+    						</w2:column>
+    						<w2:column blockSelect="false" id="column158" removeBorderStyle="false" footerDiv="false" inputType="text"
+    							width="70" value="p_code" displayMode="label">
+    						</w2:column>
+    						<w2:column blockSelect="false" id="column156" removeBorderStyle="false" footerDiv="false" inputType="text"
+    							width="70" value="p_name" displayMode="label">
+    						</w2:column>
+    						<w2:column blockSelect="false" id="column154" removeBorderStyle="false" footerDiv="false" inputType="text"
+    							width="70" value="p_count" displayMode="label">
+    						</w2:column>
+    						<w2:column blockSelect="false" id="column152" removeBorderStyle="false" footerDiv="false" inputType="text"
+    							width="70" value="p_kind" displayMode="label">
+    						</w2:column>
+    						<w2:column blockSelect="false" id="column150" removeBorderStyle="false" footerDiv="false" inputType="text"
+    							width="70" value="p_price" displayMode="label">
+    						</w2:column>
+    						<w2:column blockSelect="false" id="column148" removeBorderStyle="false" footerDiv="false" inputType="text"
+    							width="70" value="p_sellPrice" displayMode="label">
+    						</w2:column>
+    						<w2:column blockSelect="false" id="column146" removeBorderStyle="false" footerDiv="false" inputType="text"
+    							width="70" value="p_profit" displayMode="label">
+    						</w2:column>
+    						<w2:column blockSelect="false" id="column144" removeBorderStyle="false" footerDiv="false" inputType="text"
+    							width="70" value="p_content" displayMode="label">
+    						</w2:column>
+    						<w2:column blockSelect="false" id="column142" removeBorderStyle="false" footerDiv="false" inputType="text"
+    							width="70" value="p_img" displayMode="label">
+    						</w2:column>
+    						<w2:column blockSelect="false" id="column140" removeBorderStyle="false" footerDiv="false" width="70"
+    							inputType="text" value="p_date" displayMode="label" calendarValueType="yearMonthDate">
+    						</w2:column>
+    					</w2:row>
+    				</w2:header>
+    				<w2:gBody id="gBody6" style="">
+    					<w2:row id="row12" style="">
+    						<w2:column blockSelect="false" id="chk" removeBorderStyle="false" footerDiv="false" inputType="checkbox"
+    							width="30" displayMode="label">
+    						</w2:column>
+    						<w2:column blockSelect="false" id="p_code" removeBorderStyle="false" footerDiv="false" inputType="text"
+    							width="70" displayMode="label">
+    						</w2:column>
+    						<w2:column blockSelect="false" id="p_name" removeBorderStyle="false" footerDiv="false" inputType="text"
+    							width="70" displayMode="label">
+    						</w2:column>
+    						<w2:column blockSelect="false" id="p_count" removeBorderStyle="false" footerDiv="false" inputType="text"
+    							width="70" displayMode="label">
+    						</w2:column>
+    						<w2:column blockSelect="false" id="p_kind" removeBorderStyle="false" footerDiv="false" inputType="text"
+    							width="70" displayMode="label">
+    						</w2:column>
+    						<w2:column blockSelect="false" id="p_price" removeBorderStyle="false" footerDiv="false" inputType="text"
+    							width="70" displayMode="label">
+    						</w2:column>
+    						<w2:column blockSelect="false" id="p_sellPrice" removeBorderStyle="false" footerDiv="false" inputType="text"
+    							width="70" displayMode="label">
+    						</w2:column>
+    						<w2:column blockSelect="false" id="p_profit" removeBorderStyle="false" footerDiv="false" inputType="text"
+    							width="70" displayMode="label">
+    						</w2:column>
+    						<w2:column blockSelect="false" id="p_content" removeBorderStyle="false" footerDiv="false" inputType="text"
+    							width="70" displayMode="label">
+    						</w2:column>
+    						<w2:column blockSelect="false" id="p_img" removeBorderStyle="false" footerDiv="false" inputType="text"
+    							width="70" displayMode="label">
+    						</w2:column>
+    						<w2:column blockSelect="false" id="p_date" removeBorderStyle="false" footerDiv="false" width="70"
+    							inputType="text" displayMode="label" calendarValueType="yearMonthDate">
+    						</w2:column>
+    					</w2:row>
+    				</w2:gBody>
+    			</w2:gridView>
+    		</xf:group>
+    		<xf:group class="" id="" style="margin-bottom: 20px;">
+    			<xf:group id="" style="margin-bottom: 10px;">
+    				<xf:trigger ev:onclick="scwin.memberBtn_onclick" id="memberBtn" style="margin-right:5px;height: 23px;width: 80px;"
+    					type="button">
+    					<xf:label><![CDATA[회원 목록]]></xf:label>
+    				</xf:trigger>
+    				<xf:trigger ev:onclick="scwin.productBtn_onclick" id="orderBtn" style="margin-right:5px;height: 23px;width: 80px;"
+    					type="button">
+    					<xf:label><![CDATA[주문 목록]]></xf:label>
+    				</xf:trigger>
+    				<xf:trigger ev:onclick="scwin.noticeBtn_onclick" id="noticeBtn"
+    					style="margin-right:5px;height: 23px;width: 80px;margin-left:0px;" type="button">
+    					<xf:label><![CDATA[공지사항]]></xf:label>
+    				</xf:trigger>
+    			</xf:group>
+    		</xf:group>
+    	</xf:group>
+    </body>
+</html>

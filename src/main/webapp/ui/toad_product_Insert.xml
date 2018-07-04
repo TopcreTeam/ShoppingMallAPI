@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<html xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:ev="http://www.w3.org/2001/xml-events"
+    xmlns:w2="http://www.inswave.com/websquare" xmlns:xf="http://www.w3.org/2002/xforms">
+    <head>
+    	<w2:type>DEFAULT</w2:type>
+        <w2:buildDate/>
+        <xf:model>
+        	<xf:instance>
+        		<data xmlns="" />
+        	</xf:instance>
+        	<w2:dataCollection baseNode="map">
+        		<w2:dataMap baseNode="map" id="inProduct">
+        			<w2:keyInfo>
+        				<w2:key id="p_code" name="p_code" dataType="text"></w2:key>
+        				<w2:key id="p_name" name="p_name" dataType="text"></w2:key>
+        				<w2:key id="p_count" name="p_count" dataType="number"></w2:key>
+        				<w2:key id="p_kind" name="p_kind" dataType="text"></w2:key>
+        				<w2:key id="p_price" name="p_price" dataType="number"></w2:key>
+        				<w2:key id="p_sellPrice" name="p_sellPrice" dataType="number"></w2:key>
+        				<w2:key id="p_profit" name="p_profit" dataType="number"></w2:key>
+        				<w2:key id="p_content" name="p_content" dataType="text"></w2:key>
+        				<w2:key id="p_img" name="p_img" dataType="text"></w2:key>
+        				<w2:key id="p_date" name="p_date" dataType="date"></w2:key>
+        			</w2:keyInfo>
+        		</w2:dataMap>
+        		<w2:dataMap baseNode="map" id="file">
+        			<w2:keyInfo>
+        				<w2:key id="key1" name="name1" dataType="text"></w2:key>
+        			</w2:keyInfo>
+        		</w2:dataMap>
+        	</w2:dataCollection>
+        	<w2:workflowCollection></w2:workflowCollection>
+        	<xf:submission id="insertProduct" ref="data:json,inProduct" target="" action="http://localhost:8080/toma/admin/kdh/insProduct"
+        		method="post" mediatype="application/json" encoding="UTF-8" instance="" replace="" errorHandler="" customHandler=""
+        		mode="asynchronous" processMsg="" ev:submit="" ev:submitdone="scwin.insertProduct_submitdone" ev:submiterror="" abortTrigger="">
+        	</xf:submission>
+        	<xf:submission id="insertImage" ref="" target="" action="http://localhost:8080/uploadFile" method="post"
+        		mediatype="application/json" encoding="UTF-8" instance="" replace="" errorHandler="" customHandler="" mode="asynchronous"
+        		processMsg="" ev:submit="" ev:submitdone="" ev:submiterror="" abortTrigger="">
+        	</xf:submission>
+        </xf:model>
+        <script type="text/javascript" lazy="false"><![CDATA[
+        
+	scwin.onpageload = function() {
+		
+	};
+	
+	scwin.onpageunload = function() {
+		
+	};
+	
+	
+	scwin.insertCancel_onclick = function(e) {
+		window.close();
+	};
+	
+	scwin.InsertBtn_onclick = function(e) {
+		if(confirm("등록 하시겠습니까?")){
+			
+			$w.executeSubmission("insertProduct");
+//			window.close();
+		}
+//		return;
+	};
+	
+	
+	scwin.uploadBtn_onInputValueChange = function(fileName) {
+		inProduct.set( "p_img" , fileName );
+	};
+	]]></script>
+    </head>
+    <body ev:onpageload="scwin.onpageload" ev:onpageunload="scwin.onpageunload">
+    	<xf:group id="" style="margin: 20px;margin-bottom: 20px;padding: 20px;" class="">
+    		<xf:group id="" style="height:23px;">
+    			<w2:span id="" style="" label="상품코드"></w2:span>
+    			<xf:input id="" style="width: 144px;height: 21px;margin-right: 30px;" adjustMaxLength="false" ref="data:inProduct.p_code"></xf:input>
+    			<w2:span id="" label="상품명" style=""></w2:span>
+    			<xf:input adjustMaxLength="false" id="" style="width: 144px;height: 21px;" ref="data:inProduct.p_name"></xf:input>
+    		</xf:group>
+    		<xf:group id="" style="height:23px;margin-top:10px;">
+    			<w2:span id="" label="수량" style=""></w2:span>
+    			<xf:input adjustMaxLength="false" id="" style="width: 144px;height: 21px;margin-left:24px;" ref="data:inProduct.p_count"></xf:input>
+    			<w2:span id="" label="종류" style="margin-left:30px;"></w2:span>
+    			<xf:input adjustMaxLength="false" id="" style="width: 144px;height: 21px;margin-left:12px;" ref="data:inProduct.p_kind"></xf:input>
+    		</xf:group>
+    		<xf:group id="" style="height:23px;
+;margin-top:10px;">
+    			<w2:span id="" label="원가" style=""></w2:span>
+    			<xf:input adjustMaxLength="false" id="" style="width: 144px;height: 21px;margin-left:24px;" ref="data:inProduct.p_price"></xf:input>
+    			<w2:span id="" label="판매가" style="margin-left:30px;"></w2:span>
+    			<xf:input adjustMaxLength="false" id="" style="width: 144px;height: 21px;" ref="data:inProduct.p_sellPrice"></xf:input>
+    		</xf:group>
+    		<xf:group id="" style="height:23px;margin-top:10px;">
+    			<w2:span id="" label="이윤" style=""></w2:span>
+    			<xf:input adjustMaxLength="false" id="" style="width: 144px;height: 21px;margin-left:24px;" ref="data:inProduct.p_profit"></xf:input>
+    			<w2:span id="" label="이미지" style="margin-left:30px;"></w2:span>
+    			<w2:upload inputStyle="position:absolute;vertical-align:middle;word-wrap:break-word" type="image" id="uploadBtn"
+    				style="width: 144px;height: 23px;" imageStyle="position:absolute;vertical-align:middle;word-wrap:break-word" disabled="" subDir="subDir1" ev:onInputValueChange="scwin.uploadBtn_onInputValueChange" action="http://localhost:8080/uploadFile">
+    			</w2:upload>
+    		</xf:group>
+    		<xf:group id="" style="margin-top:10px;">
+    			<w2:span id="" label="상품설명" style=""></w2:span>
+    			<xf:textarea id="" style="width: 362px;height: 100px;" ref="data:inProduct.p_content"></xf:textarea>
+    		</xf:group>
+    	</xf:group>
+    	<xf:group id="" style="margin: 20px;padding: 20px;" class="">
+    		<xf:group class="" id="" style="ma">
+    			<xf:trigger id="InsertBtn" style="width: 80px;height: 23px;margin-left:0px;" type="button" ev:onclick="scwin.InsertBtn_onclick">
+    				<xf:label><![CDATA[등록]]></xf:label>
+    			</xf:trigger>
+    			<xf:trigger id="insertCancel" style="width: 80px;height: 23px;margin-left:30px;" type="button" ev:onclick="scwin.insertCancel_onclick">
+    				<xf:label><![CDATA[취소]]></xf:label>
+    			</xf:trigger>
+    		</xf:group>
+    	</xf:group>
+    </body>
+</html>

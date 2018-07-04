@@ -1,0 +1,245 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<html xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:ev="http://www.w3.org/2001/xml-events"
+    xmlns:w2="http://www.inswave.com/websquare" xmlns:xf="http://www.w3.org/2002/xforms">
+    <head>
+    	<w2:type>DEFAULT</w2:type>
+        <w2:buildDate/>
+        <xf:model>
+        	<xf:instance>
+        		<data xmlns="" />
+        	</xf:instance>
+        	<w2:dataCollection baseNode="map">
+
+        		<w2:dataList id="noticeList" saveRemovedData="true">
+        			<w2:columnInfo>
+        				<w2:column id="n_no" name="n_no" dataType="number"></w2:column>
+        				<w2:column id="n_category" name="n_category" dataType="text"></w2:column>
+        				<w2:column id="n_title" name="n_title" dataType="text"></w2:column>
+        				<w2:column id="n_content" name="n_content" dataType="text"></w2:column>
+        				<w2:column id="a_id" name="a_id" dataType="text"></w2:column>
+        				<w2:column id="n_date" name="n_date" dataType="date" importFormatter="" useFilter=""></w2:column>
+        				<w2:column id="n_hits" name="n_hits" dataType="number"></w2:column>
+        			</w2:columnInfo>
+        			<w2:data xmlns="">
+        				<w2:row>
+        					<n_no><![CDATA[9]]></n_no>
+        					<n_category><![CDATA[상품]]></n_category>
+        					<n_title><![CDATA[크로와상 입고 관련 소식 입니다.]]></n_title>
+        					<n_content><![CDATA[내일 중으로 크로와상이 입고 됩니다 ]]></n_content>
+        					<a_id><![CDATA[admin]]></a_id>
+        					<n_date><![CDATA[2018-06-27T15:00:00.000+0000]]></n_date>
+        					<n_hits><![CDATA[1]]></n_hits>
+        				</w2:row>
+        				<w2:row>
+        					<n_no><![CDATA[4]]></n_no>
+        					<n_category><![CDATA[배송]]></n_category>
+        					<n_title><![CDATA[배송 지연 관련 공지 입니다.]]></n_title>
+        					<n_content><![CDATA[이번에 저희 토마토마와 계약을 하고있던 
+택배사가 파업을 하는 바람에 배송이 지연되고 있습니다.
+ 예기치 못한 배송지연에 불편함을 드려 죄송합니다, 
+지금 다른 택배사에 연락하여 긴급 조치를 취하고 있으니 
+배송 예정될 택배들은 곧 예정대로 배달 될것이니 
+너그러운 마음으로 기다려 주시면 감사하겠습니다]]></n_content>
+        					<a_id><![CDATA[admin]]></a_id>
+        					<n_date><![CDATA[2018-06-27T09:10:21.000+0000]]></n_date>
+        					<n_hits><![CDATA[10]]></n_hits>
+        				</w2:row>
+        				<w2:row>
+        					<n_no><![CDATA[3]]></n_no>
+        					<n_category><![CDATA[상품]]></n_category>
+        					<n_title><![CDATA[상품 입고 관련 공지 입니다.]]></n_title>
+        					<n_content><![CDATA[함흥비빔면,찰비빔면,열무비빔면,팔도비빔면 등이 7월 말에 입고 예정입니다
+많은 기대 바랍니다]]></n_content>
+        					<a_id><![CDATA[admin]]></a_id>
+        					<n_date><![CDATA[2018-06-24T15:00:00.000+0000]]></n_date>
+        					<n_hits><![CDATA[5]]></n_hits>
+        				</w2:row>
+        				<w2:row>
+        					<n_no><![CDATA[1]]></n_no>
+        					<n_category><![CDATA[공지]]></n_category>
+        					<n_title><![CDATA[6월 공지사항입니다]]></n_title>
+        					<n_content><![CDATA[비빔면이 곧 입고예정입니다 많은 기대 부탁드립니다 ^^]]></n_content>
+        					<a_id><![CDATA[admin]]></a_id>
+        					<n_date><![CDATA[2018-06-27T09:08:00.000+0000]]></n_date>
+        					<n_hits><![CDATA[8]]></n_hits>
+        				</w2:row>
+        			</w2:data>
+        		</w2:dataList>
+        	</w2:dataCollection>
+        	<w2:workflowCollection></w2:workflowCollection>
+        	<xf:submission id="sub_noticeSelect" ref="" target="data:json,noticeList" action="http://localhost:8080/toma/notice.do"
+        		method="post" mediatype="application/json" encoding="UTF-8" instance="" replace="" errorHandler="" customHandler=""
+        		mode="asynchronous" processMsg="불러오는 중입니다." ev:submit="" ev:submitdone="" ev:submiterror="" abortTrigger="">
+        	</xf:submission>
+        	<xf:submission id="sub_noticeRemove" ref="data:json,noticeList" target="data:json,noticeList"
+        		action="http://localhost:8080/toma/notice.delete" method="delete" mediatype="application/json" encoding="UTF-8" instance=""
+        		replace="" errorHandler="" customHandler="" mode="asynchronous" processMsg="삭제 중입니다." ev:submit="" ev:submitdone=""
+        		ev:submiterror="" abortTrigger="">
+        	</xf:submission>
+        	<xf:submission id="sub_noticeInsertUpdate" ref="data:json,noticeList" target="data:json,noticeList"
+        		action="http://localhost:8080/toma/notice/saveAndSelectMember.do" method="post" mediatype="application/json" encoding="UTF-8"
+        		instance="" replace="" errorHandler="" customHandler="" mode="asynchronous" processMsg="처리 중입니다." ev:submit="" ev:submitdone=""
+        		ev:submiterror="" abortTrigger="">
+        	</xf:submission>
+        </xf:model>
+        <script type="text/javascript" lazy="false"><![CDATA[
+        
+	scwin.onpageload = function() {
+		
+	};
+	
+	scwin.onpageunload = function() {
+		
+	};
+	
+	scwin.selectBtn_onclick = function(e) {
+		$w.executeSubmission( "sub_noticeSelect" );
+	};
+	
+	scwin.removeBtn_onclick = function(e) {
+//		var popup = { id: "deletePopup", type: "window", width: "800px", height: "800px",
+//			top: "100px", left: "200px" };
+//		Websquare.util.openPopup( "Notice.xml" , popup );
+
+		focusRows = noticeGridView.getAllFocusedRowIndex();
+		console.log(focusRows);
+		for(i=0;i<focusRows.length;i++){
+			noticeList.deleteRow( focusRows[i] );
+		}
+		
+		if(focusRows.length == 0) {
+			alert("삭제하실 데이터를 선택(클릭)하여 주세요.");
+		} else {
+			alert("선택하신 데이터가 삭제되었습니다.");
+			$w.executeSubmission( "sub_noticeRemove" );
+		}
+		
+	};
+	
+	scwin.insertBtn_onclick = function(e) {
+		noticeList.insertRow();
+	};
+	
+	scwin.updateBtn_onclick = function(e) {
+		alert("입력(수정) 시 날짜 형식은 yyyy-MM-dd입니다.\n날짜 형식이 다를 경우 데이터가 입력(수정)되지 않습니다.");
+		
+		$w.executeSubmission( "sub_noticeInsertUpdate" );
+	};
+	
+	scwin.moveFaq_onclick = function(e) {
+		$w.url( "Faq.xml" );
+	};
+	
+	scwin.moveQna_onclick = function(e) {
+		$w.url( "Qna.xml" );
+	};
+	
+	function dateFormat(date) {
+//		보이는건 제대로 보이지만 데이터가 형식에 맞춰서 안들어감...
+		var dateFormat = new Date(date).toISOString().slice(0,10); 
+		
+		return dateFormat;
+	}
+	
+	//display formatter
+	scwin.dformatter = function(data){
+		return data.substring(0,4) + "/" + data.substring(4,6) + "/" + data.substring(6,8);
+	};
+	
+	
+	scwin.cFormatter = function(data, fData, rowIdx, colIdx){
+		return fData;
+	};
+	
+	
+	]]></script>
+    </head>
+    <body ev:onpageload="scwin.onpageload" ev:onpageunload="scwin.onpageunload">
+    <xf:group id="" style="padding: 10px;">
+    	<w2:textbox id="" style="font-weight: bold;font-size: 30px;margin-bottom: 10px;overflow: hidden;"
+    		label="공지사항 관리자 페이지">
+    	</w2:textbox>
+    	
+    	<xf:group id="" style="margin-bottom: 10px;">
+    		<xf:trigger id="selectBtn" style="width: 80px;height: 23px;border: 2px solid black;margin-right: 5px;font-weight: bold;"
+    			type="button" ev:onclick="scwin.selectBtn_onclick">
+    			<xf:label><![CDATA[조회]]></xf:label>
+    		</xf:trigger>
+    		<xf:trigger id="insertBtn" style="width: 80px;height: 23px;border: 2px solid black;margin-right: 5px;font-weight: bold;"
+    			type="button" ev:onclick="scwin.insertBtn_onclick">
+    			<xf:label><![CDATA[추가]]></xf:label>
+    		</xf:trigger>
+    		<xf:trigger id="removeBtn" style="width: 80px;height: 23px;border: 2px solid black;margin-right: 5px;font-weight: bold;"
+    			type="button" ev:onclick="scwin.removeBtn_onclick">
+    			<xf:label><![CDATA[삭제]]></xf:label>
+    		</xf:trigger>
+    		<xf:trigger id="updateBtn" style="width: 80px;height: 23px;border: 2px solid black;margin-right: 5px;font-weight: bold;"
+    			type="button" ev:onclick="scwin.updateBtn_onclick">
+    			<xf:label><![CDATA[저장]]></xf:label>
+    		</xf:trigger>
+    		<xf:trigger type="button" id="moveQna" style="font-weight: bold;font-size: 15px;border: 2px solid black;float: right;" ev:onclick="scwin.moveQna_onclick">
+    		<xf:label><![CDATA[1:1 질문하기]]></xf:label>
+    	</xf:trigger><xf:trigger id="moveFaq" style="font-weight: bold;font-size: 15px;border: 2px solid black;float: right;left:0px;top:0px;margin-right: 5px;"
+    			type="button" ev:onclick="scwin.moveFaq_onclick">
+    			<xf:label><![CDATA[자주하는 질문]]></xf:label>
+    		</xf:trigger>
+    	</xf:group>
+    	<w2:gridView ignoreCellClick="false" summaryAuto="false" syncScroll="false" ignoreToggleOnDisabled="false" summaryOnlyAuto="false"
+    		defaultCellHeight="20" scrollByColumnAdaptive="false" dataList="data:noticeList" id="noticeGridView" applyAllColumnStyle="false"
+    		style="left:0px;top:0px;border: 2px solid black;height: 300px;" scrollByColumn="false" useShiftKey="true" sortable="true"
+    		ev:oncellclick="scwin.noticeGridView_oncellclick">
+    		<w2:caption id="caption1" style="" value="this is a grid caption."></w2:caption>
+    		<w2:header id="header1" style="">
+    			<w2:row id="row1" style="">
+    				<w2:column blockSelect="false" id="column13" removeBorderStyle="false" footerDiv="false" inputType="text" width="70"
+    					value="번호" displayMode="label" hidden="true">
+    				</w2:column>
+    				<w2:column blockSelect="false" id="column11" removeBorderStyle="false" footerDiv="false" inputType="text" width="70"
+    					value="분류" displayMode="label">
+    				</w2:column>
+    				<w2:column blockSelect="false" id="column9" removeBorderStyle="false" footerDiv="false" inputType="text" width="210"
+    					value="제목" displayMode="label">
+    				</w2:column>
+    				<w2:column blockSelect="false" id="column7" removeBorderStyle="false" footerDiv="false" inputType="text" width="550"
+    					value="내용" displayMode="label">
+    				</w2:column>
+    				<w2:column blockSelect="false" id="column5" removeBorderStyle="false" footerDiv="false" inputType="text" width="80"
+    					value="관리자 ID" displayMode="label">
+    				</w2:column>
+    				<w2:column blockSelect="false" id="column3" removeBorderStyle="false" footerDiv="false" inputType="text" width="90"
+    					value="날짜" displayMode="label">
+    				</w2:column>
+    				<w2:column blockSelect="false" id="column1" removeBorderStyle="false" footerDiv="false" width="70" inputType="text"
+    					value="조회수" displayMode="label">
+    				</w2:column>
+    			</w2:row>
+    		</w2:header>
+    		<w2:gBody id="gBody1" style="">
+    			<w2:row id="row2" style="">
+    				<w2:column blockSelect="false" id="n_no" removeBorderStyle="false" footerDiv="false" inputType="text" width="70"
+    					displayMode="label">
+    				</w2:column>
+    				<w2:column blockSelect="false" id="n_category" removeBorderStyle="false" footerDiv="false" inputType="text" width="70"
+    					displayMode="label">
+    				</w2:column>
+    				<w2:column blockSelect="false" id="n_title" removeBorderStyle="false" footerDiv="false" inputType="text" width="210"
+    					displayMode="label">
+    				</w2:column>
+    				<w2:column blockSelect="false" id="n_content" removeBorderStyle="false" footerDiv="false" inputType="text" width="500"
+    					displayMode="label">
+    				</w2:column>
+    				<w2:column blockSelect="false" id="a_id" removeBorderStyle="false" footerDiv="false" inputType="text" width="70"
+    					displayMode="label">
+    				</w2:column>
+    				<w2:column blockSelect="false" id="n_date" removeBorderStyle="false" footerDiv="false" inputType="calendar" width="90"
+    					displayMode="label" ioFormat="yyyyMMdd" dataType="date" calendarValueType="yearMonthDate" calendarClass="" displayFormatter="scwin.dformatter" displayFormat="" customFormatter="scwin.cFormatter">
+    				</w2:column>
+    				<w2:column blockSelect="false" id="n_hits" removeBorderStyle="false" footerDiv="false" width="70" inputType="text"
+    					displayMode="label">
+    				</w2:column>
+    			</w2:row>
+    		</w2:gBody>
+    	</w2:gridView>
+    </xf:group></body>
+</html>

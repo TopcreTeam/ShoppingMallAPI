@@ -1,0 +1,94 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<head>
+	<meta http-equiv="content-type" content="text/html; charset=UTF-8"/>
+	<title>WebSquare Lint</title>
+	<link rel="stylesheet" href="css/style.css">
+
+	<script type="text/javascript" src="js/mootools-core-1.3.2.min.js"></script>
+	<script type="text/javascript" src="lighter/Lighter.js"></script>
+
+	<script type='text/javascript'>
+		try {
+			var domain = getParameter("domain");  
+			if(domain) {
+		        document.domain = domain;   
+		    }
+		} catch (e) {
+		    //console.log("exception:" + e.message);
+		}
+		var paramObj;
+		window.onload=doInit;
+		function doInit() {
+				if( parent ) {
+					var lintResult = parent.getLintResult();
+					if( !lintResult ) return;
+					var htmlTag = [];
+					for( var i = 0; i < lintResult.lint.length ; i++ ) {
+						if( trim(lintResult.js[i]) != "" ) {
+							htmlTag.push("<div style='clear:both;' class='lint_font'>");
+							htmlTag.push("<div><pre class=\"js:panic\">" + lintResult.js[i] + "</pre></div>");
+//							htmlTag.push("<div style='width:50%;float:left;'><code class='html'>" + XMLEncoder(lintResult.js[i]) + "</code></div>");
+							htmlTag.push("<div style='padding:5px 5px 5px 5px;border: 1px solid #adadad !important;background: url(img/shadow.gif) repeat-x 0 0;'>" + lintResult.lint[i] + "</div>");
+							htmlTag.push("</div>");
+						}
+					}
+					document.getElementById("contents").innerHTML = htmlTag.join("");
+					
+					// Highlight all code elements within a pre element (how Markdown usually outputs code) using the each() method
+					$$('pre').each(function(element) {
+						var lighter = new Lighter(element, {
+							altLines: 'odd',
+							mode: "div"
+						});
+					})
+
+				}
+//			} catch(e) {}
+		}
+
+		function trim(str) {
+			if( typeof str == "undefined" && str == null ) return "";
+		    var leftTrimRegExp =  new RegExp("^\\s\\s*");
+			var rightTrimRegExp = new RegExp("\\s\\s*$");
+		    str = str.replace(leftTrimRegExp, '').replace(rightTrimRegExp, '');
+		    return str;
+        }
+		
+		function getParameter(param) {
+		    var ret = "";
+		    try {
+		        if( !paramObj ) {
+		            paramObj = {};
+		            var srch = location.search.substring(1);
+		            var arrayOfSrch = srch.split("&");
+		            for (var i=0; i < arrayOfSrch.length; i++) {
+		                var tmpArray = arrayOfSrch[i].split("=");
+		                if ( tmpArray.length == 2 ) {
+		                    paramObj[trim(tmpArray[0])] = trim(tmpArray[1]);
+		                }
+		            }
+		        }
+		        ret = paramObj[param];
+		    } catch( e ) {
+		    	alert(e.message);
+		    }
+		    if( ret == null || typeof ret == 'undefined') {
+		        ret = '';
+		    }
+		    return decodeURI(ret);
+		}  	
+
+	</script>
+	<style type="text/css">
+		body {
+			background : #fff;
+		}
+	</style>
+</head>
+<body>
+
+<div id="contents">
+</div>
+	
+</body>
+</html>

@@ -1,0 +1,247 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<html xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:ev="http://www.w3.org/2001/xml-events"
+    xmlns:w2="http://www.inswave.com/websquare" xmlns:xf="http://www.w3.org/2002/xforms">
+    <head>
+    	<w2:type>DEFAULT</w2:type>
+        <w2:buildDate/>
+        <xf:model>
+        	<xf:instance>
+        		<data xmlns="" />
+        	</xf:instance>
+        	<w2:dataCollection baseNode="map">
+        		<w2:dataList id="qnaList">
+        			<w2:columnInfo>
+        				<w2:column id="q_no" name="q_no" dataType="number"></w2:column>
+        				<w2:column id="q_title" name="q_title" dataType="text"></w2:column>
+        				<w2:column id="q_content" name="q_content" dataType="text"></w2:column>
+        				<w2:column id="u_id" name="u_id" dataType="text"></w2:column>
+        				<w2:column id="q_date" name="q_date" dataType="date"></w2:column>
+        				<w2:column id="q_reply" name="q_reply" dataType="text"></w2:column>
+        			</w2:columnInfo>
+        			<w2:data xmlns="">
+        				<w2:row>
+        					<q_no><![CDATA[53]]></q_no>
+        					<q_title><![CDATA[크로와상 내일까지 입고 될까요?]]></q_title>
+        					<q_content><![CDATA[크로와상 내일까지 입고 될까요?]]></q_content>
+        					<u_id><![CDATA[d500@naver.com]]></u_id>
+        					<q_date><![CDATA[2018-06-27T15:00:00.000+0000]]></q_date>
+        					<q_reply><![CDATA[네 내일 입고 됩니다]]></q_reply>
+        				</w2:row>
+        				<w2:row>
+        					<q_no><![CDATA[52]]></q_no>
+        					<q_title><![CDATA[벨랑슈 아이스크림 주문 가능한가요?]]></q_title>
+        					<q_content><![CDATA[벨랑슈 아이스크림 주문 가능한가요?]]></q_content>
+        					<u_id><![CDATA[csc]]></u_id>
+        					<q_date><![CDATA[2018-06-27T15:00:00.000+0000]]></q_date>
+        					<q_reply><![CDATA[네 가능 합니다 ^^]]></q_reply>
+        				</w2:row>
+        				<w2:row>
+        					<q_no><![CDATA[51]]></q_no>
+        					<q_title><![CDATA[오늘 주문했는데 내일 꼭 받고싶은데 내일까지 배송이 될까요?]]></q_title>
+        					<q_content><![CDATA[오늘 주문했는데 내일 꼭 받고싶은데 내일까지 배송이 될까요?]]></q_content>
+        					<u_id><![CDATA[csc]]></u_id>
+        					<q_date><![CDATA[2018-06-27T15:00:00.000+0000]]></q_date>
+        					<q_reply><![CDATA[네 배송 가능합니다 ^^]]></q_reply>
+        				</w2:row>
+        				<w2:row>
+        					<q_no><![CDATA[50]]></q_no>
+        					<q_title><![CDATA[벨랑슈 아이스크림을 주문했는데 내일까지 도착할까요?]]></q_title>
+        					<q_content><![CDATA[벨랑슈 아이스크림을 주문했는데 내일까지 도착할까요?]]></q_content>
+        					<u_id><![CDATA[abcd1234@naver.com]]></u_id>
+        					<q_date><![CDATA[2018-06-27T15:00:00.000+0000]]></q_date>
+        					<q_reply><![CDATA[어려울것 같습니다 고객님 적어도 4일이 걸릴듯 합니다]]></q_reply>
+        				</w2:row>
+        				<w2:row>
+        					<q_no><![CDATA[49]]></q_no>
+        					<q_title><![CDATA[제가 벨랑슈 아이스크림을 구매했는데 내일까지 배송될까요?]]></q_title>
+        					<q_content><![CDATA[제가 벨랑슈 아이스크림을 구매했는데 내일까지 배송될까요? 아니면 더 지연될수도 있나요?]]></q_content>
+        					<u_id><![CDATA[fghd@naver.com]]></u_id>
+        					<q_date><![CDATA[2018-06-27T15:00:00.000+0000]]></q_date>
+        					<q_reply><![CDATA[n]]></q_reply>
+        				</w2:row>
+        				<w2:row>
+        					<q_no><![CDATA[48]]></q_no>
+        					<q_title><![CDATA[제가 방금 스프레드와 연어를 주문했는데 몇일뒤에 도착할까요?]]></q_title>
+        					<q_content><![CDATA[제가 방금 스프레드와 연어를 주문했는데 몇일뒤에 도착할까요? 한 이틀?]]></q_content>
+        					<u_id><![CDATA[sfsf1234@naver.com]]></u_id>
+        					<q_date><![CDATA[2018-06-27T15:00:00.000+0000]]></q_date>
+        					<q_reply><![CDATA[요즘 택배사 문제 때문에 최소 4일 걸릴것 같습니다]]></q_reply>
+        				</w2:row>
+        				<w2:row>
+        					<q_no><![CDATA[47]]></q_no>
+        					<q_title><![CDATA[내일까지 배송이 될까요?]]></q_title>
+        					<q_content><![CDATA[주문을 했는데 최소 몇일 걸리나요 보통? 하루?]]></q_content>
+        					<u_id><![CDATA[csc1234@naver.com]]></u_id>
+        					<q_date><![CDATA[2018-06-27T15:00:00.000+0000]]></q_date>
+        					<q_reply><![CDATA[n]]></q_reply>
+        				</w2:row>
+        				<w2:row>
+        					<q_no><![CDATA[44]]></q_no>
+        					<q_title><![CDATA[질문하기 테스트 입니다.]]></q_title>
+        					<q_content><![CDATA[문장을
+적어주세요
+자바개발자
+웹개발자
+spring]]></q_content>
+        					<u_id><![CDATA[csc]]></u_id>
+        					<q_date><![CDATA[2018-06-25T15:00:00.000+0000]]></q_date>
+        					<q_reply><![CDATA[알겠습니다 문장을 적어 드릴께요]]></q_reply>
+        				</w2:row>
+        				<w2:row>
+        					<q_no><![CDATA[42]]></q_no>
+        					<q_title><![CDATA[test444]]></q_title>
+        					<q_content><![CDATA[4444]]></q_content>
+        					<u_id><![CDATA[csc]]></u_id>
+        					<q_date><![CDATA[2018-06-24T15:00:00.000+0000]]></q_date>
+        					<q_reply><![CDATA[n]]></q_reply>
+        				</w2:row>
+        				<w2:row>
+        					<q_no><![CDATA[41]]></q_no>
+        					<q_title><![CDATA[test333]]></q_title>
+        					<q_content><![CDATA[3333]]></q_content>
+        					<u_id><![CDATA[csc]]></u_id>
+        					<q_date><![CDATA[2018-06-24T15:00:00.000+0000]]></q_date>
+        					<q_reply><![CDATA[n]]></q_reply>
+        				</w2:row>
+        			</w2:data>
+        		</w2:dataList>
+        	</w2:dataCollection>
+        	<w2:workflowCollection></w2:workflowCollection>
+        	<xf:submission id="sub_qnaSelect" ref="" target="data:json,qnaList" action="http://localhost:8080/toma/qna.do" method="post"
+        		mediatype="application/json" encoding="UTF-8" instance="" replace="" errorHandler="" customHandler="" mode="asynchronous"
+        		processMsg="불러오는 중입니다." ev:submit="" ev:submitdone="" ev:submiterror="" abortTrigger="">
+        	</xf:submission>
+        	<xf:submission id="sub_qnaRemove" ref="data:json,qnaList" target="data:json,qnaList"
+        		action="http://localhost:8080/toma/qna.delete" method="delete" mediatype="application/json" encoding="UTF-8" instance=""
+        		replace="" errorHandler="" customHandler="" mode="asynchronous" processMsg="삭제 중입니다." ev:submit="" ev:submitdone=""
+        		ev:submiterror="" abortTrigger="">
+        	</xf:submission>
+        	<xf:submission id="sub_qnaInsertUpdate" ref="data:json,qnaList" target="data:json,qnaList"
+        		action="http://localhost:8080/toma/qna/saveAndSelectMember.do" method="post" mediatype="application/json" encoding="UTF-8"
+        		instance="" replace="" errorHandler="" customHandler="" mode="asynchronous" processMsg="처리 중입니다." ev:submit="" ev:submitdone=""
+        		ev:submiterror="" abortTrigger="">
+        	</xf:submission>
+        </xf:model>
+        <script type="text/javascript" lazy="false"><![CDATA[
+        
+	scwin.onpageload = function() {
+		
+	};
+	
+	scwin.onpageunload = function() {
+		
+	};
+	
+	
+	scwin.selectBtn_onclick = function(e) {
+		$w.executeSubmission( "sub_qnaSelect" );
+	};
+	
+	scwin.removeBtn_onclick = function(e) {
+		focusRows = qnaGridView.getAllFocusedRowIndex();
+		for(i=0; i < focusRows.length; i++){
+			qnaList.deleteRow( focusRows[i] );
+		}
+		
+		if(focusRows.length == 0) {
+			alert("삭제하실 데이터를 선택(클릭)하여 주세요.");
+		} else {
+			alert("선택하신 데이터가 삭제되었습니다.");
+			$w.executeSubmission( "sub_qnaRemove" );
+		}
+	};
+	
+	scwin.insertBtn_onclick = function(e) {
+		qnaList.insertRow();
+	};
+	
+	scwin.updateBtn_onclick = function(e) {
+		alert("입력(수정) 시 날짜 형식은 yyyy-MM-dd입니다.\n날짜 형식이 다를 경우 데이터가 입력(수정)되지 않습니다.");
+		
+		$w.executeSubmission( "sub_qnaInsertUpdate" );
+	};
+	
+	scwin.moveNotice_onclick = function(e) {
+		$w.url( "Notice.xml" );
+	};
+	
+	scwin.moveFaq_onclick = function(e) {
+		$w.url( "Faq.xml" );
+	};
+	]]></script>
+    </head>
+    <body ev:onpageload="scwin.onpageload" ev:onpageunload="scwin.onpageunload">
+    	<xf:group id="" style="padding: 10px;">
+    		<w2:textbox id="" label="1:1 질문하기 관리자 페이지" style="font-weight: bold;font-size: 30px;margin-bottom: 10px;overflow: hidden;"></w2:textbox>
+    		
+    		
+    		<xf:group id="" style="margin-bottom: 10px;">
+    			<xf:trigger id="selectBtn" style="width: 80px;height: 23px;border: 2px solid black;margin-right: 5px;font-weight: bold;"
+    				type="button" ev:onclick="scwin.selectBtn_onclick">
+    				<xf:label><![CDATA[조회]]></xf:label>
+    			</xf:trigger>
+    			<xf:trigger id="insertBtn" style="width: 80px;height: 23px;border: 2px solid black;margin-right: 5px;font-weight: bold;"
+    				type="button" ev:onclick="scwin.insertBtn_onclick">
+    				<xf:label><![CDATA[추가]]></xf:label>
+    			</xf:trigger>
+    			<xf:trigger id="removeBtn" style="width: 80px;height: 23px;border: 2px solid black;margin-right: 5px;font-weight: bold;"
+    				type="button" ev:onclick="scwin.removeBtn_onclick">
+    				<xf:label><![CDATA[삭제]]></xf:label>
+    			</xf:trigger>
+    			<xf:trigger id="updateBtn" style="width: 80px;height: 23px;border: 2px solid black;margin-right: 5px;font-weight: bold;"
+    				type="button" ev:onclick="scwin.updateBtn_onclick">
+    				<xf:label><![CDATA[저장]]></xf:label>
+    			</xf:trigger>
+    		<xf:trigger type="button" id="moveFaq" style="font-weight: bold;font-size: 15px;border: 2px solid black;float: right;left:0px;top:0px;" ev:onclick="scwin.moveFaq_onclick">
+    			<xf:label><![CDATA[자주하는 질문]]></xf:label>
+    		</xf:trigger><xf:trigger type="button" id="moveNotice" style="font-weight: bold;font-size: 15px;border: 2px solid black;float: right;left:0px;top:0px;margin-right: 5px;" ev:onclick="scwin.moveNotice_onclick">
+    			<xf:label><![CDATA[공지사항]]></xf:label>
+    		</xf:trigger></xf:group>
+    		<w2:gridView applyAllColumnStyle="false" dataList="data:qnaList" defaultCellHeight="20" id="qnaGridView" ignoreCellClick="false"
+    			ignoreToggleOnDisabled="false" scrollByColumn="false" scrollByColumnAdaptive="false"
+    			style="left:0px;top:0px;border: 2px solid black;height: 300px;" summaryAuto="false" summaryOnlyAuto="false" syncScroll="false"
+    			useShiftKey="true" sortable="true">
+    			<w2:caption id="caption1" style="" value="this is a grid caption."></w2:caption>
+    			<w2:header id="header1" style="">
+    				<w2:row id="row1" style="">
+    					<w2:column blockSelect="false" id="column9" removeBorderStyle="false" footerDiv="false" inputType="text" width="400"
+    						value="제목" displayMode="label" style="">
+    					</w2:column>
+    					<w2:column blockSelect="false" id="column7" removeBorderStyle="false" footerDiv="false" inputType="text" width="520"
+    						value="내용" displayMode="label" style="">
+    					</w2:column>
+    					<w2:column blockSelect="false" id="column5" removeBorderStyle="false" footerDiv="false" inputType="text" width="200"
+    						value="고객 ID" displayMode="label" style="">
+    					</w2:column>
+    					<w2:column blockSelect="false" id="column3" removeBorderStyle="false" footerDiv="false" inputType="text" width="90"
+    						value="날짜" displayMode="label" style="">
+    					</w2:column>
+    					<w2:column blockSelect="false" id="column1" removeBorderStyle="false" footerDiv="false" width="350" inputType="text"
+    						value="답변" displayMode="label" style="">
+    					</w2:column>
+    				</w2:row>
+    			</w2:header>
+    			<w2:gBody id="gBody1" style="">
+    				<w2:row id="row2" style="">
+    					<w2:column blockSelect="false" id="q_title" removeBorderStyle="false" footerDiv="false" inputType="text" width="400"
+    						displayMode="label">
+    					</w2:column>
+    					<w2:column blockSelect="false" id="q_content" removeBorderStyle="false" footerDiv="false" inputType="text"
+    						width="520" displayMode="label">
+    					</w2:column>
+    					<w2:column blockSelect="false" id="u_id" removeBorderStyle="false" footerDiv="false" inputType="text" width="200"
+    						displayMode="label">
+    					</w2:column>
+    					<w2:column blockSelect="false" id="q_date" removeBorderStyle="false" footerDiv="false" inputType="calendar"
+    						width="70" displayMode="label" ioFormat="yyyyMMdd" displayFormat="yyyy-MM-dd">
+    					</w2:column>
+    					<w2:column blockSelect="false" id="q_reply" removeBorderStyle="false" footerDiv="false" width="350" inputType="text"
+    						displayMode="label">
+    					</w2:column>
+    				</w2:row>
+    			</w2:gBody>
+    		</w2:gridView>
+    	</xf:group>
+    </body>
+</html>

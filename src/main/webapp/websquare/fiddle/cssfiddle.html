@@ -1,0 +1,659 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+</html>
+<head>
+	<meta http-equiv="content-type" content="text/html; charset=UTF-8"/>
+	<title>WebSquare Fiddle</title>
+	<link rel="stylesheet" href="css/css_style.css">
+
+	<script type="text/javascript" src="js/jquery-1.5.1.min.js"></script>
+	<script type="text/javascript" src="beautifier/beautify.js" ></script>
+	<script type="text/javascript" src="beautifier/beautify-html.js" ></script>
+	<script type="text/javascript" src="beautifier/beautify-css.js" ></script>
+	<script type="text/javascript" src="csslint/csslint.js" ></script>
+
+	<script type='text/javascript'>
+	window.onload=doInit;
+	var paramObj;
+	var lintResult;
+	var view;
+	var css_editor;
+	var editor;
+	var domain;
+	var w2xPath;
+	var cssPath;
+	function doInit() {
+		fn_resize();
+		try {
+			domain = getParameter("domain");
+			w2xPath = getParameter("url");
+			w2xPath = "/sample/newplugin/basic/calendar/SampleCalendar01.xml";
+			if(domain) {
+				document.domain = domain;
+				document.getElementById("css_frame").src="./css" + isIE678() + ".html?domain=" + domain;
+				document.getElementById("xml_frame").src="./js" + isIE678() + ".html?domain=" + domain;
+				document.getElementById("result_frame").src = "about:blank";
+			} else {
+				document.getElementById("css_frame").src="./css" + isIE678() + ".html?";
+				document.getElementById("xml_frame").src="./js" + isIE678() + ".html";
+				document.getElementById("result_frame").src = "about:blank";
+			}
+		} catch (e) {}
+	}
+
+	function isIE678() {
+		try {
+			if(navigator.appName.match(/Explorer/i)!= null){
+				if(navigator.appVersion.indexOf("MSIE 7") != -1) {
+					return "_ie";
+				} else if(navigator.appVersion.indexOf("MSIE 6") != -1) {
+					return "_ie";
+				} else if(navigator.appVersion.indexOf("MSIE 8") != -1) {
+					return "_ie";
+				}
+			}
+		}catch(e) {}
+//		return "_ie";
+		return "";
+	}
+	
+	var alreadyCalled = false;
+	function checkAuthority() {
+		if( !alreadyCalled ) {
+			alreadyCalled = true;
+			return;
+		}
+		fn_resize();
+		initialize();
+	}
+	
+	function getRandomPostfix( uri ) {
+		try {
+			if( uri.indexOf( "?" ) > -1 ) {
+				uri += "&postfix=" + (new Date()).getTime() + Math.random() * 10000;
+			} else {
+				uri += "?postfix=" + (new Date()).getTime() + Math.random() * 10000;
+			}
+		} catch( e ) {}
+		return uri;
+	}
+	
+	function initialize() {
+		try {
+			css_editor = document.getElementById("css_frame").contentWindow.editor;
+			editor = document.getElementById("xml_frame").contentWindow.editor;
+			if(!w2xPath) return;
+			var path = w2xPath;
+			$.ajax({
+				type: "GET",
+				url: getRandomPostfix(path),
+				success: function(data, textStatus, jqXHR){
+					var obj = extractCSSLink(jqXHR.responseText);
+					editor.setValue(obj.xml);
+					if(obj.css) {
+						$.ajax({
+							type: "GET",
+							url: getRandomPostfix(obj.css),
+							success: function(data, textStatus, jqXHR){
+								css_editor.setValue(jqXHR.responseText);
+							}
+						});
+					} else {
+						css_editor.setValue("");
+					}
+				}
+			});
+		} catch(e) {}
+	}
+	
+	function extractCSSLink(str) {
+		var doc = jQuery.parseXML(str);
+		var childList = doc.childNodes;
+		for( var i = 0 ; i < childList.length ; i++ ) {
+			var child = childList[i];
+			if( child.nodeType == 7 ) {
+				var str = child.data;
+				var idx = str.indexOf("href");
+				var quot = str.charAt( idx + 5 );
+				if( idx >= 0 && str.length > idx + 5 && ( quot == "'" || quot == '"' ) ) {
+					var endIdx = str.indexOf( quot, idx + 6 );
+					if( endIdx >= 0 ) {
+						var url = str.substring( idx + 6, endIdx );
+						doc.removeChild(child);
+						var ret = {"css":url, "xml": xmlToString(doc) };
+						return ret;
+					}
+				}
+			}
+		}
+		var ret = {"css":"", "xml": xmlToString(doc) };
+		return ret;
+	}
+	
+	function removeCSSLink(str) {
+		var doc = jQuery.parseXML(str);
+		var childList = doc.childNodes;
+		for( var i = childList.length -1 ; i >= 0 ; i-- ) {
+			var child = childList[i];
+			if( child.nodeType == 7 ) {
+				var str = child.data;
+				var idx = str.indexOf("href");
+				var quot = str.charAt( idx + 5 );
+				if( idx >= 0 && str.length > idx + 5 && ( quot == "'" || quot == '"' ) ) {
+					var endIdx = str.indexOf( quot, idx + 6 );
+					if( endIdx >= 0 ) {
+						doc.removeChild(child);
+					}
+				}
+			}
+		}
+		return xmlToString(doc);
+	}
+	
+	function extractCSS(str) {
+		var doc = jQuery.parseXML(str);
+		var head = doc.getElementsByTagName("head");
+		if( head.length > 0 ) {
+			var childList = head[0].childNodes;
+			for( var i = childList.length - 1; i >= 0 ; i-- ) {
+				var childNode = childList.item( i );
+				if ( childNode.nodeType == 1 && childNode.nodeName == "style" )	{
+					var styleNodes = childNode.childNodes;
+					var cssArr = [];
+					for( var j = 0; j < styleNodes.length ; j++ ) {
+						var styleTextNode = styleNodes.item( j );
+						if ( styleTextNode.nodeType == 3 || styleTextNode.nodeType == 4)	{
+							cssArr.push(styleTextNode.nodeValue);
+						}
+					}
+					head[0].removeChild(childNode);
+					var ret = {"css":cssArr.join(""), "xml": xmlToString(doc) };
+					return ret;
+				}
+			}
+		}
+		var ret = {"css":"", "xml": xmlToString(doc) };
+		return ret;
+	}
+
+	function xmlToString(xmlData) { 
+		var xmlString;
+		if (window.DOMParser){
+			xmlString = (new XMLSerializer()).serializeToString(xmlData);
+			if( xmlString.indexOf("<"+"?xml") != 0 ) {
+				xmlString = "<"+"?xml version=\"1.0\" encoding=\"UTF-8\" ?>\n" + xmlString;
+			}
+		} else {
+			xmlString = xmlData.xml;
+		}
+		return xmlString;
+	}   
+
+	function trim(str) {
+		if( typeof str == "undefined" && str == null ) return "";
+		var leftTrimRegExp =  new RegExp("^\\s\\s*");
+		var rightTrimRegExp = new RegExp("\\s\\s*$");
+		str = str.replace(leftTrimRegExp, '').replace(rightTrimRegExp, '');
+		return str;
+	}
+	
+	function getParameter(param) {
+		var ret = "";
+		try {
+			if( !paramObj ) {
+				paramObj = {};
+				var srch = location.search.substring(1);
+				var arrayOfSrch = srch.split("&");
+				for (var i=0; i < arrayOfSrch.length; i++) {
+					var tmpArray = arrayOfSrch[i].split("=");
+					if ( tmpArray.length == 2 )	{
+						paramObj[trim(tmpArray[0])] = trim(tmpArray[1]);
+					}
+				}
+			}
+			ret = paramObj[param];
+			} catch( e ) {}
+		if( ret == null || typeof ret == 'undefined') {
+			ret = '';
+		}
+		return decodeURI(ret);
+	}
+	
+	function read_cache(token) {
+		hideHistory();
+		var path = "w2x.jsp?token=" + token;
+		$.ajax({
+			type: "POST",
+			url: path,
+			success: function(data, textStatus, jqXHR){
+				editor.setValue(removeCSSLink(jqXHR.responseText));
+				$.ajax({
+					type: "GET",
+					url: getRandomPostfix("css.jsp?token=css" + token),
+					success: function(data, textStatus, jqXHR){
+						css_editor.setValue(jqXHR.responseText);
+						win_full('xml');
+						document.getElementById("result_frame").src = "about:blank";
+					}
+				});
+			}
+		});
+	}
+	
+	function read_xml(action, target) {
+		hideHistory();
+		if(!w2xPath) return;
+		var path = w2xPath;
+		$.ajax({
+			type: "GET",
+			url: getRandomPostfix(path),
+			success: function(data, textStatus, jqXHR){
+				var obj = extractCSSLink(jqXHR.responseText);
+				editor.setValue(obj.xml);
+				if(obj.css) {
+					$.ajax({
+						type: "GET",
+						url: getRandomPostfix(obj.css),
+						success: function(data, textStatus, jqXHR){
+							css_editor.setValue(jqXHR.responseText);
+							if(action == "run" ) {
+								upload_xml(target);
+							} else {
+								win_full('xml');
+								document.getElementById("result_frame").src = "about:blank";
+							}
+						}
+					});
+				} else {
+					css_editor.setValue("");
+					if(action == "run" ) {
+						upload_xml(target);
+					} else {
+						win_full('xml');
+						document.getElementById("result_frame").src = "about:blank";
+					}
+				}
+			}
+		});
+	}
+
+	function inject_css(data) {
+		var str1 = "<style type=\"text/css\"><![CDATA[\n";
+		var str2 = "]]></style>";
+		var cssStr = trim(css_editor.getValue());
+		if( cssStr ) {
+			var idx = data.indexOf("</head>");
+			data = data.substring(0, idx) + str1 + cssStr + str2 + data.substring(idx);
+		}
+		return data;
+	}
+	
+	function upload_xml(target) {
+		hideHistory();
+		var data = trim(editor.getValue());
+		if( !data ) {
+			read_xml("run", target);
+		} else {
+			var css_data = trim(css_editor.getValue());
+			$.ajax({
+				type: "POST",
+				url: "w2x.jsp",
+				data: "|||" + data + "|||" + css_data,
+				beforeSend: function( XHR ){
+					XHR.setRequestHeader("Content-Type","text/xml; charset='UTF-8'");
+				},
+				success: function(data, textStatus, jqXHR){
+					var token = data.documentElement.getAttribute("key");
+					run_wq(token, target);
+				}
+			});
+		}
+	}
+	
+	function run_wq(token, target) {
+		var engine = "../websquare.html";
+		var url = "";
+		var idx = location.pathname.lastIndexOf("/");
+		if( idx > -1 ) {
+			url = location.pathname.substring( 0, idx + 1 );
+		}
+		url = url + "w2x.jsp%3Ftoken%3D" + token;
+	
+		url = engine + "?w2xPath=" + url;
+		if( typeof target != 'undefined' && target == 'new' ) {
+			window.open(url, "_blank" );
+			win_full('xml');
+		} else {
+			if( view == 'xml' ) {
+				win_full('reset');
+			}
+			document.getElementById("result_frame").src = url;
+		}
+	}
+	
+	function beautifier() {
+		editor.setValue( style_html(editor.getValue(), {
+			indent_size: 2,
+			indent_char: ' ',
+			max_char: 250,
+			preserve_newlines: true,
+			jslint_happy: false,
+			keep_array_indentation: false,
+			brace_style: 'collapse'
+		}));
+		css_editor.setValue( css_beautify(css_editor.getValue()));
+		win_full('xml');
+	}
+	
+	function lint() {
+		var rules = [{
+		  "id": "import",
+		  "name": "Disallow @import",
+		  "desc": "Don't use @import, use <link> instead.",
+		  "browsers": "All"
+		}, {
+		  "id": "adjoining-classes",
+		  "name": "Disallow adjoining classes",
+		  "desc": "Don't use adjoining classes.",
+		  "browsers": "IE6"
+//		}, {
+//		  "id": "important",
+//		  "name": "Disallow !important",
+//		  "desc": "Be careful when using !important declaration",
+//		  "browsers": "All"
+		}, {
+		  "id": "box-sizing",
+		  "name": "Disallow use of box-sizing",
+		  "desc": "The box-sizing properties isn't supported in IE6 and IE7.",
+		  "browsers": "IE6, IE7",
+		  "tags": ["Compatibility"]
+		}, {
+		  "id": "box-model",
+		  "name": "Beware of broken box size",
+		  "desc": "Don't use width or height when using padding or border.",
+		  "browsers": "All"
+//		}, {
+//		  "id": "known-properties",
+//		  "name": "Require use of known properties",
+//		  "desc": "Properties should be known (listed in CSS specification) or be a vendor-prefixed property.",
+//		  "browsers": "All"
+//		}, {
+//		  "id": "duplicate-background-images",
+//		  "name": "Disallow duplicate background images",
+//		  "desc": "Every background-image should be unique. Use a common class for e.g. sprites.",
+//		  "browsers": "All"
+		}, {
+		  "id": "compatible-vendor-prefixes",
+		  "name": "Require compatible vendor prefixes",
+		  "desc": "Include all compatible vendor prefixes to reach a wider range of users.",
+		  "browsers": "All"
+		}, {
+		  "id": "display-property-grouping",
+		  "name": "Require properties appropriate for display",
+		  "desc": "Certain properties shouldn't be used with certain display property values.",
+		  "browsers": "All"
+		}, {
+		  "id": "overqualified-elements",
+		  "name": "Disallow overqualified elements",
+		  "desc": "Don't use classes or IDs with elements (a.foo or a#foo).",
+		  "browsers": "All"
+		}, {
+		  "id": "fallback-colors",
+		  "name": "Require fallback colors",
+		  "desc": "For older browsers that don't support RGBA, HSL, or HSLA, provide a fallback color.",
+		  "browsers": "IE6,IE7,IE8"
+		}, {
+		  "id": "duplicate-properties",
+		  "name": "Disallow duplicate properties",
+		  "desc": "Duplicate properties must appear one after the other.",
+		  "browsers": "All"
+		}, {
+		  "id": "empty-rules",
+		  "name": "Disallow empty rules",
+		  "desc": "Rules without any properties specified should be removed.",
+		  "browsers": "All"
+//		}, {
+//		  "id": "errors",
+//		  "name": "Parsing Errors",
+//		  "desc": "This rule looks for recoverable syntax errors.",
+//		  "browsers": "All"
+		}, {
+		  "id": "rules-count",
+		  "name": "Rules Count",
+		  "desc": "Track how many rules there are.",
+		  "browsers": "All"
+//		}, {
+//		  "id": "ids",
+//		  "name": "Disallow IDs in selectors",
+//		  "desc": "Selectors should not contain IDs.",
+//		  "browsers": "All"
+		}, {
+		  "id": "font-sizes",
+		  "name": "Disallow too many font sizes",
+		  "desc": "Checks the number of font-size declarations.",
+		  "browsers": "All"
+		}, {
+		  "id": "font-faces",
+		  "name": "Don't use too many web fonts",
+		  "desc": "Too many different web fonts in the same stylesheet.",
+		  "browsers": "All"
+		}, {
+		  "id": "gradients",
+		  "name": "Require all gradient definitions",
+		  "desc": "When using a vendor-prefixed gradient, make sure to use them all.",
+		  "browsers": "All"
+		}, {
+		  "id": "floats",
+		  "name": "Disallow too many floats",
+		  "desc": "This rule tests if the float property is used too many times",
+		  "browsers": "All"
+//		}, {
+//		  "id": "outline-none",
+//		  "name": "Disallow outline: none",
+//		  "desc": "Use of outline: none or outline: 0 should be limited to :focus rules.",
+//		  "browsers": "All",
+//		  "tags": ["Accessibility"]
+		}, {
+		  "id": "qualified-headings",
+		  "name": "Disallow qualified headings",
+		  "desc": "Headings should not be qualified (namespaced).",
+		  "browsers": "All"
+		}, {
+		  "id": "regex-selectors",
+		  "name": "Disallow selectors that look like regexs",
+		  "desc": "Selectors that look like regular expressions are slow and should be avoided.",
+		  "browsers": "All"
+		}, {
+		  "id": "shorthand",
+		  "name": "Require shorthand properties",
+		  "desc": "Use shorthand properties where possible.",
+		  "browsers": "All"
+		}, {
+		  "id": "text-indent",
+		  "name": "Disallow negative text-indent",
+		  "desc": "Checks for text indent less than -99px",
+		  "browsers": "All"
+		}, {
+		  "id": "unique-headings",
+		  "name": "Headings should only be defined once",
+		  "desc": "Headings should be defined only once.",
+		  "browsers": "All"
+//		}, {
+//		  "id": "universal-selector",
+//		  "name": "Disallow universal selector",
+//		  "desc": "The universal selector (*) is known to be slow.",
+//		  "browsers": "All"
+		}, {
+		  "id": "unqualified-attributes",
+		  "name": "Disallow unqualified attribute selectors",
+		  "desc": "Unqualified attribute selectors are known to be slow.",
+		  "browsers": "All"
+		}, {
+		  "id": "vendor-prefix",
+		  "name": "Require standard property with vendor prefix",
+		  "desc": "When using a vendor-prefixed property, make sure to include the standard one.",
+		  "browsers": "All"
+		}]
+
+
+		var ruleset = {};
+		for(var i ; i < rules.length; i++){
+			ruleset[rules[i].id] = 1;    //by default, everything is a warning
+		}
+		lintResult = CSSLint.verify(css_editor.getValue(), ruleset);
+
+		win_full('reset');
+		var param = "";
+		if(domain) param = "?domain=" + domain;
+		document.getElementById("result_frame").src = "csslint.html" + param;
+	}
+	
+	function getLintResult() {
+		return lintResult;
+	}
+	
+	function hideHistory() {
+		var sHistory = document.getElementById("history_layer");
+		sHistory.className = "history_layer";
+	}
+	
+	function history(str) {
+		$.getJSON('cssList.jsp', function(data) {
+			var sHistory = document.getElementById("history_layer");
+			sHistory.className = sHistory.className + " history_layer_on";
+			var sb = [];
+			sb.push("<span>WebSquare CSS Fiddle History <small><a href='javascript:hideHistory();'>[close]</a></small></span>");
+			sb.push("<ul>");
+			sb.push("<ol>");
+			for(var i = 0 ; i < data.length; i++) {
+				sb.push("<li><a href='javascript:;' onclick='javascript:read_cache(\"" + data[i].token + "\")'>[" + data[i].date+ "]</a></li>");
+			}
+			sb.push("</ol>");
+			sb.push("</ul>");
+			sHistory.innerHTML = sb.join("");
+		});
+	}
+	
+	window.onresize = function () { //리사이즈 이벤트를 체크
+		fn_resize();
+	}
+	
+	function fn_resize() {
+	
+		var BrowserWidth;
+		var BrowserHeight;
+	
+		if (parseInt(navigator.appVersion)>3){
+			if(navigator.appName=="Netscape"){ //네스케이프, 사파리, 파이어폭스
+				BrowserWidth  = window.innerWidth;
+				BrowserHeight = window.innerHeight;
+			}
+			if(navigator.appName.indexOf("Microsoft")!=-1) { //인터넷 익스플로러
+				BrowserWidth  = document.documentElement.clientWidth;
+				BrowserHeight = document.documentElement.clientHeight + 1;
+			} else { //그외 브라우저
+				BrowserWidth  = document.documentElement.offsetWidth;
+				BrowserHeight = document.documentElement.offsetHeight;
+			}
+		}
+	
+		document.getElementById("container").style.height = (BrowserHeight - 71) + "px";
+		document.getElementById("css_frame").style.height = ((BrowserHeight - 71)/2-6) + "px";
+		document.getElementById("xml_frame").style.height = ((BrowserHeight - 71)/2-4) + "px";
+		try {
+			if(isIE678()) {
+				document.getElementById("css_frame").contentWindow.editor.setHeight(((BrowserHeight - 71)/2-6) + "px");
+				document.getElementById("xml_frame").contentWindow.editor.setHeight(((BrowserHeight - 71)/2-4) + "px");
+			} else {
+				document.getElementById("css_frame").contentWindow.setHeight(((BrowserHeight - 71)/2-6) + "px");
+				document.getElementById("xml_frame").contentWindow.setHeight(((BrowserHeight - 71)/2-4) + "px");
+			}
+		} catch(e) {}
+
+	}
+	
+	function label_show(str) {
+		if (str == "left_upper") {
+			document.getElementById("css_label").style.display = "block";
+		} else if (str == "left_lower") {
+			document.getElementById("xml_label").style.display = "block";
+		} else {
+			document.getElementById("result_label").style.display = "block";
+		}
+	}
+	
+	function label_hide(str) {
+		if (str == "left_upper") {
+			document.getElementById("css_label").style.display = "none";
+		} else if (str == "left_lower") {
+			document.getElementById("xml_label").style.display = "none";
+		} else {
+			document.getElementById("result_label").style.display = "none";
+		}
+	}
+	
+	function win_full(str) {
+		view = str;
+		if (str == "xml") {
+			document.getElementById("left").style.width = "100%";
+			document.getElementById("right").style.width = "0%";
+		} else if(str == "result") {
+			document.getElementById("right").style.width = "100%";
+			document.getElementById("left").style.width = "0%";
+		} else {
+			document.getElementById("right").style.width = "50%";
+			document.getElementById("left").style.width = "50%";
+		}
+	}
+
+	</script>
+	<style type="text/css">
+	</style>
+</head>
+<body>
+<div id="wrapper">
+<div id="header">
+	<div id="logo"></div>
+	<div id="gnb">
+		<ul class="link_group">
+			<li class="linkItem"><a id="run" title="Run" href="javascript:;" onclick="javascript:upload_xml()"></a></li>
+			<li class="linkItem"><a id="run_newwin" title="Run New Window" href="javascript:;" onclick="javascript:upload_xml('new')"></a></li>
+			<li class="linkItem"><a id="read" title="Reload XML" href="javascript:;" onclick="javascript:read_xml()"></a></li>
+			<li class="linkItem"><a id="tidy" title="Re-indent messy code" href="javascript:;" onclick="javascript:beautifier()"></a></li>
+			<li class="linkItem"><a id="jslint" title="Run cssLint on the code" href="javascript:;" onclick="javascript:lint()"></a></li>
+			<li class="linkItem"><a id="history" title="history" href="javascript:;" onclick="javascript:history()"></a></li>
+		</ul>
+	</div>
+	<div id ="icon_group">
+		<ul class="icon_group">
+			<li class="linkItem"><a id="xml_win" title="CSS & XML Full Window" href="javascript:;" onclick="javascript:win_full('xml');"></a></li>
+			<li class="linkItem"><a id="reset_win" title="CSS & XML & Result Window" href="javascript:;" onclick="javascript:win_full('reset');"></a></li>
+			<li class="linkItem"><a id="result_win" title="Result Full Window" href="javascript:;" onclick="javascript:win_full('result');"></a></li>
+		</ul>
+	</div>
+</div>
+<div id="container">
+	<div id="header_blank"></div>
+	<div id="content">
+		<div id="left" class="left">
+			<div id="left_upper" onmouseover="label_hide('left_upper');" onmouseout="label_show('left_upper');">
+				<iframe id="css_frame" scrolling="auto" frameBorder="0" src=""></iframe>
+				<span id="css_label" class='window_label'>css</span>
+			</div>
+			<div id="left_lower" onmouseover="label_hide('left_lower');" onmouseout="label_show('left_lower');">
+				<iframe id="xml_frame" scrolling="auto" frameBorder="0" src=""></iframe>
+				<span id="xml_label" class='window_label1'>xml</span>
+			</div>
+
+		</div>
+		<div id="right" class="right" onmouseover="label_hide('right');" onmouseout="label_show('right');">
+			<iframe id="result_frame" scrolling="auto" frameBorder="0" src=""></iframe>
+			<span id="result_label" class='window_label'>Result</span>
+		</div>
+	</div>
+</div>
+<div id="history_layer" class="history_layer">
+</div>
+</div>
+	
+</body>
+</html>
