@@ -50,7 +50,6 @@
 	
 	
 	<!-- 웹스퀘어용  -->
-
 	<insert id="insertNoticeWq" parameterType="Map">
 		INSERT INTO tm_notice(
 			n_no, n_category, n_title, n_content, a_id, n_date, n_hits)
